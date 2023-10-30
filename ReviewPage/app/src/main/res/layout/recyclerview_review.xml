@@ -80,16 +80,37 @@
                    />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="56dp"
                     android:text="(15)"
-                    android:layout_marginRight="105dp">
+                    >
                 </TextView>
 
                 <Button
-                    android:layout_width="5dp"
-                    android:layout_height="match_parent"
-                    android:text="sd"></Button>
+                    android:id="@+id/button1"
+                    android:layout_width="60dp"
+                    android:layout_height="25.5dp"
+                     android:paddingLeft="5dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="1dp"
+                    android:text="자갈치시장"
+                    android:layout_marginRight="5dp"
+                    android:textSize="7.5dp">
+                </Button>
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="60dp"
+                    android:layout_height="25.5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="1dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="1dp"
+                    android:text="광어"
+                    android:textSize="7.5dp">
+                </Button>
             </LinearLayout>
 
     </LinearLayout>
