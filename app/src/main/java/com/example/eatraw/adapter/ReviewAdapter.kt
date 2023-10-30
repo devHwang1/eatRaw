@@ -8,8 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eatraw.R
+import com.example.eatraw.data.Review
 
-class ReviewAdapter(private val reviews: List<Review>) : RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
+
+class ReviewAdapter(private val reviews: List<Review>) :
+    RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
     class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val reviewContent: TextView = itemView.findViewById(R.id.reviewContent)
@@ -20,7 +23,8 @@ class ReviewAdapter(private val reviews: List<Review>) : RecyclerView.Adapter<Re
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_review, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_review, parent, false)
         return ReviewViewHolder(view)
     }
 
