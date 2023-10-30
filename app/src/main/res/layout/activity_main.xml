@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> e1fa736bb52265df2587a8f0f4b89b882dac2b35
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
+=======
+    android:orientation="vertical"
+>>>>>>> e1fa736bb52265df2587a8f0f4b89b882dac2b35
     android:background="@color/white"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:orientation="vertical"
         android:background="@color/blue">
 
@@ -70,6 +79,60 @@
                 android:layout_height="150dp" />
 
         </LinearLayout>
+=======
+        android:background="@color/blue"
+        android:orientation="vertical">
+    <ActionMenuView
+        android:id="@+id/menubar1"
+        android:layout_width="412dp"
+        android:layout_height="50dp"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/nalLo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Nal No"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </ActionMenuView>
+
+    <SearchView
+        android:id="@+id/mainSearchbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_background"
+        android:layout_margin="5dp"/>
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewBanner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Best Review"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewBestReview"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+>>>>>>> e1fa736bb52265df2587a8f0f4b89b882dac2b35
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewComparingPrice"
@@ -77,6 +140,7 @@
             android:layout_height="150dp"
             android:background="@color/white"/>
 
+<<<<<<< HEAD
         <androidx.cardview.widget.CardView
             android:id="@+id/menubar3"
             android:layout_width="402dp"
@@ -107,3 +171,35 @@
 
     </LinearLayout>
 </ScrollView>
+=======
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewComparingPrice"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <View
+        android:id="@+id/menubar3"
+        android:layout_width="402dp"
+        android:layout_height="301.5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="253.75dp"
+        android:background="@drawable/menubar"
+        />
+
+    <View
+        android:id="@+id/menubar4"
+        android:layout_width="402dp"
+        android:layout_height="301.5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="253.75dp"
+        android:background="@drawable/menubar"
+        />
+
+</LinearLayout>
+>>>>>>> e1fa736bb52265df2587a8f0f4b89b882dac2b35
