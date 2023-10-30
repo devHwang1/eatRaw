@@ -1,153 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/et_title"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:inputType="text"
-        android:hint="Title"
-        app:layout_constraintBottom_toTopOf="@+id/et_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:background="@color/blue">
 
-    <EditText
-        android:id="@+id/et_content"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:inputType="text"
-        android:hint="Content"
-        app:layout_constraintBottom_toTopOf="@+id/et_author"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_title" />
+        <!-- 상단 부분 유지 -->
 
-    <EditText
-        android:id="@+id/et_author"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:inputType="text"
-        android:hint="Author"
-        app:layout_constraintBottom_toTopOf="@+id/chkbox_post"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_content" />
+        <ActionMenuView
+            android:id="@+id/menubar1"
+            android:layout_width="412dp"
+            android:layout_height="50dp"
+            android:elevation="4dp">
 
-    <CheckBox
-        android:id="@+id/chkbox_post"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Post"
-        app:layout_constraintBottom_toTopOf="@+id/et_getId"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_author" />
+            <TextView
+                android:id="@+id/nalLo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="Nal Lo"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </ActionMenuView>
 
-    <CheckBox
-        android:id="@+id/chkbox_put"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Put"
-        app:layout_constraintStart_toEndOf="@+id/chkbox_post"
-        app:layout_constraintTop_toBottomOf="@+id/et_author" />
+        <SearchView
+            android:id="@+id/mainSearchbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_background"
+            android:layout_margin="5dp" />
 
-    <Button
-        android:id="@+id/bt_post_put"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="POST/PUT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_author" />
+        <!-- 상단 부분 끝 -->
 
-    <EditText
-        android:id="@+id/et_getId"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:inputType="number"
-        android:hint="ID"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chkbox_post" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewBanner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/white"/>
 
-    <Button
-        android:id="@+id/bt_get"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginStart="8dp"
-        android:text="Get"
-        app:layout_constraintBottom_toBottomOf="@+id/et_getId"
+        <!-- 중간 내용 추가 -->
 
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/et_getId"
-        app:layout_constraintTop_toTopOf="@+id/et_getId"
-        app:layout_constraintVertical_bias="0.0" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:orientation="vertical">
 
-    <Button
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintHorizontal_weight="1"
-        android:layout_marginHorizontal="12dp"
-        android:id="@+id/bt_delete"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Delete"
-        app:layout_constraintBottom_toBottomOf="@+id/bt_get"
-        app:layout_constraintStart_toEndOf="@+id/bt_get"
-        app:layout_constraintTop_toTopOf="@+id/bt_get" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="Best Review"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/bt_getall"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:text="GET ALL"
-        app:layout_constraintBottom_toBottomOf="@+id/bt_get"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/bt_delete"
-        app:layout_constraintTop_toTopOf="@+id/bt_get"
-        app:layout_constraintVertical_bias="0.0" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewBestReview"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
 
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="0dp"
-        android:layout_height="320dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="16dp"
-        android:scrollbars="vertical"
-        android:text="Result"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_getId" />
+        </LinearLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewComparingPrice"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/white"/>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/menubar3"
+            android:layout_width="402dp"
+            android:layout_height="301.5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/menubar">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="추천 어종"/>
+        </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/menubar4"
+            android:layout_width="402dp"
+            android:layout_height="301.5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/menubar">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="제철 어종"/>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
