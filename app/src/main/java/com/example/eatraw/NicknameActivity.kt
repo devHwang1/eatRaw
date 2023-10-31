@@ -3,9 +3,9 @@ package com.example.eatraw
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class NciknameActivity : AppCompatActivity() {
+class NicknameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ncikname)
+        setContentView(R.layout.activity_nickname)
     }
 }

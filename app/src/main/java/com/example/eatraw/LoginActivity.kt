@@ -2,9 +2,7 @@ package com.example.eatraw
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +14,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var editTextPassword: TextInputEditText
     private lateinit var buttonLogin: Button
     private lateinit var mAuth: FirebaseAuth
-    private lateinit var progressBar: ProgressBar
+
     private lateinit var textView: TextView
 
     // 작업을 초기화할 때 사용자가 현재 로그인되어 있는지 확인합니다.
@@ -38,7 +36,6 @@ class LoginActivity : AppCompatActivity() {
         editTextEmail = findViewById(R.id.email)
         editTextPassword = findViewById(R.id.password)
         buttonLogin = findViewById(R.id.btn_login)
-        progressBar = findViewById(R.id.progressBar)
         textView = findViewById(R.id.registerNow)
 
         textView.setOnClickListener {
@@ -50,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         buttonLogin.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
+
             val email = editTextEmail.text.toString()
             val password = editTextPassword.text.toString()
 

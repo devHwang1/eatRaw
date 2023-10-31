@@ -2,10 +2,10 @@ package com.example.eatraw
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ProgressBar
+
 
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +18,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var editTextPassword: TextInputEditText
     private lateinit var buttonReg: Button
     private lateinit var mAuth: FirebaseAuth
-    private lateinit var progressBar: ProgressBar
+
     private lateinit var backButton: ImageButton
 
     // 작업을 초기화할 때 사용자가 현재 로그인되어 있는지 확인합니다.
@@ -40,7 +40,6 @@ class RegisterActivity : AppCompatActivity() {
         editTextEmail = findViewById(R.id.email)
         editTextPassword = findViewById(R.id.password)
         buttonReg = findViewById(R.id.btn_register)
-        progressBar = findViewById(R.id.progressBar)
         backButton = findViewById(R.id.backButton)
 
         backButton.setOnClickListener {
@@ -51,7 +50,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
         buttonReg.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
+
             val email = editTextEmail.text.toString()
             val password = editTextPassword.text.toString()
 
@@ -68,14 +67,14 @@ class RegisterActivity : AppCompatActivity() {
             // 다음과 같이 신규 사용자의 이메일 주소와 비밀번호를 createUserWithEmailAndPassword에 전달하여 신규 계정을 생성합니다.
             mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
-                    progressBar.visibility = View.VISIBLE
+
                     if (task.isSuccessful) {
                         Toast.makeText(
                             this@RegisterActivity,
                             "Authentication created.",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val intent = Intent(applicationContext, LoginActivity::class.java)
+                        val intent = Intent(applicationContext, NicknameActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {

@@ -40,12 +40,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:visibility="gone" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -99,14 +94,14 @@
             android:background="@drawable/line" />
 
 
-        <Button
+        <ImageButton
 
             android:layout_width="284dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/kakao_login_up_wide" />
 
-        <Button
+        <ImageButton
 
             android:layout_width="284dp"
             android:layout_height="48dp"
