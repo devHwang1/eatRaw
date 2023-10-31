@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/editBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editStoreName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text="가게이름"
+            android:textColor="#979797"
+            android:theme="@style/text_edit" />
+
+        <EditText
+            android:id="@+id/editFishName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text="생선이름"
+            android:textColor="#979797"
+            android:theme="@style/text_edit" />
+
+        <EditText
+            android:id="@+id/editFishPrice"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text="생선가격"
+            android:textColor="#979797"
+            android:theme="@style/text_edit" />
+
+        <LinearLayout
+            android:id="@+id/StarBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textScore"
+                android:layout_width="218dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="별점"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <RatingBar
+                android:id="@+id/starScore"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="3"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#00ff0000"
+            android:drawableRight="@drawable/clip"
+            android:drawablePadding="0dp"
+            android:paddingLeft="3dp"
+            android:text="파일첨부"
+            android:textAlignment="textStart"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/text_edit_box"
+            android:ems="10"
+            android:gravity="top"
+            android:inputType="text"
+            android:padding="5dp"
+            android:text="내용을 입력해주세요"
+            android:textColor="#9C9C9C" />
+
+        <Button
+            android:id="@+id/btnReview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#2B98FE"
+            android:text="리뷰등록하기"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

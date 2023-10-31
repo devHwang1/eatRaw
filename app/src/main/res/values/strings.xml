@@ -22,4 +22,5 @@
     <string name="nickname">닉네임을 정해주세요</string>
     <string name="thumbNail">프로필 사진</string>
     <string name="hello">환영합니다!</string>
+
 </resources>
