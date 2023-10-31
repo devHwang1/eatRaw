@@ -78,10 +78,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/menubar3"
-            android:layout_width="402dp"
-            android:layout_height="301.5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"
             android:layout_alignParentTop="true"
             android:background="@drawable/menubar">
             <TextView
@@ -92,10 +91,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/menubar4"
-            android:layout_width="402dp"
-            android:layout_height="301.5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"
             android:layout_alignParentTop="true"
             android:background="@drawable/menubar">
             <TextView
@@ -103,6 +101,18 @@
                 android:layout_height="wrap_content"
                 android:text="제철 어종"/>
         </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/user_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!" />
+
+        <Button
+            android:text="@string/logout"
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </ScrollView>
