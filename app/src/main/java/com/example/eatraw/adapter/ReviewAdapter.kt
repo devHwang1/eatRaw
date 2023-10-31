@@ -8,11 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eatraw.R
+import com.example.eatraw.data.Review
 
-class ReviewAdapter : RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
-    // ViewHolder 클래스를 만들어봅니다.
+
+class ReviewAdapter(private val reviews: List<Review>) :
+    RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
     class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        // ViewHolder 내에서 각 뷰에 접근하는 변수들을 선언할 수 있습니다.
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val reviewContent: TextView = itemView.findViewById(R.id.reviewContent)
         val reviewStar: ImageView = itemView.findViewById(R.id.reviewStar)
@@ -22,19 +23,24 @@ class ReviewAdapter : RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
-        // 뷰홀더를 생성하고 리사이클러뷰 아이템의 레이아웃 파일을 연결합니다.
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_review, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_review, parent, false)
         return ReviewViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
-        // 뷰홀더에 데이터를 연결합니다. position은 현재 아이템의 위치입니다.
-        // 예를 들어, holder.imageView.setImageDrawable()와 같이 데이터를 설정할 수 있습니다.
-        // 이 데이터는 RecyclerView에 나타날 각 아이템의 정보입니다.
+        val review = reviews[position]
+
+        // 리뷰 데이터를 뷰에 연결
+        holder.imageView.setImageResource(review.imageResource)
+        holder.reviewContent.text = review.content
+        holder.reviewStar.setImageResource(review.starImageResource)
+        holder.textView.text = review.rating
+        holder.button1.text = review.button1Text
+        holder.button2.text = review.button2Text
     }
 
     override fun getItemCount(): Int {
-        // 리사이클러뷰에 표시할 아이템의 개수를 반환합니다.
-        return 0 // 아직 아이템 개수를 설정하지 않았으므로 0으로 설정했습니다.
+        return reviews.size
     }
 }
