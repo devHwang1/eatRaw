@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:445898306997:android:21932dbc00acc5c2b215fc",
+        "android_client_info": {
+          "package_name": "com.example.ch20_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAejd_rJFQqAJ2yqb7PkKFuLwKpZtCb6jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:445898306997:android:a91d55a24cce8239b215fc",
         "android_client_info": {
           "package_name": "com.example.eatraw"
