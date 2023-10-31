@@ -9,6 +9,8 @@ android {
     namespace = "com.example.eatraw"
     compileSdk = 34
     viewBinding { enable = true }
+    dataBinding { enable = true }
+
 
     defaultConfig {
         applicationId = "com.example.eatraw"
@@ -36,9 +38,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         viewBinding = true
     }
+
 }
 
 dependencies {
@@ -48,9 +52,11 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
+
     implementation("androidx.annotation:annotation:1.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
 
     implementation("com.google.firebase:firebase-auth:22.2.0")
     testImplementation("junit:junit:4.13.2")
