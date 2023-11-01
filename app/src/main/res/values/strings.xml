@@ -23,4 +23,5 @@
     <string name="thumbNail">프로필 사진</string>
     <string name="hello">환영합니다!</string>
 
+    <string name="err">→</string>
 </resources>

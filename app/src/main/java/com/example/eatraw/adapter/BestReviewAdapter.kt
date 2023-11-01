@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eatraw.R
 import com.example.eatraw.data.BestReviewItem
@@ -29,11 +30,11 @@ class BestReviewAdapter(private val data: List<BestReviewItem>) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.reviewImage)
-        private val ratingBar: RatingBar = itemView.findViewById(R.id.reviewRating)
+        private val textView: TextView = itemView.findViewById(R.id.reviewRating)
 
         fun bind(item: BestReviewItem) {
             imageView.setImageResource(item.imageResId)
-            ratingBar.rating = item.rating
+            textView.text = item.rating.toString()
         }
     }
 }
