@@ -1,10 +1,15 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eatraw.adapter.ReviewAdapter
@@ -15,59 +20,188 @@ import com.google.firebase.storage.FirebaseStorage
 
 class ReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReviewBinding
-    private lateinit var spinner: Spinner
+    private lateinit var spinner1: Spinner
     private lateinit var spinner2: Spinner
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ReviewAdapter
-    val db = FirebaseFirestore.getInstance()
-    val itemList = arrayListOf<Review>()
+    private val db = FirebaseFirestore.getInstance()
+    private val itemList = arrayListOf<Review>()
+    private lateinit var searchView : SearchView
+    fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
+        var isSpinner1FirstSelection = true
+        var isSpinner2FirstSelection = true
         super.onCreate(savedInstanceState)
         binding = ActivityReviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        spinner = binding.spinner1
+        spinner1 = binding.spinner1
         spinner2 = binding.spinner2
         recyclerView = binding.reviewRecycler
+        searchView = binding.searchView
 
-        // RecyclerView의 레이아웃 매니저 설정
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        // 어댑터 초기화
         adapter = ReviewAdapter(itemList)
-
-        // RecyclerView에 어댑터 설정
         recyclerView.adapter = adapter
-        // Firestore에서 Review 객체를 가져오는 부분
+
+        val region = ArrayList<String>()
+        region.add("지역")
+        val spinner1Adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, region)
+        spinner1Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner1.adapter = spinner1Adapter
+
+        spinner1.setSelection(0, false)
+
+        var markets = ArrayList<String>()
+        val spinner2Adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, markets)
+        spinner2Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner2.adapter = spinner2Adapter
+
+        markets.add("선택하세요")
+        spinner2Adapter.notifyDataSetChanged()
+        loadAllReviews()
+
+        db.collection("region")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val regionName = document.id
+                    region.add(regionName)
+                }
+                spinner1Adapter.notifyDataSetChanged()
+                Log.w("REviewActivity성공@@@@@@@^#^#^#^", "에러내용: 성공이요")
+            }
+            .addOnFailureListener { exception ->
+                Log.w("REviewActivity에러@@@@@@", "에러내용: $exception")
+            }
+
+        spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedRegion = region[position]
+                updateSpinner2(selectedRegion)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            private fun updateSpinner2(selectedRegion: String) {
+                db.collection("region").document(selectedRegion)
+                    .get()
+                    .addOnSuccessListener { document ->
+                        val marketList = document.get("markets") as List<String>
+                        markets.clear()
+                        markets.add("선택하세요")
+                        markets.addAll(marketList)
+                        (spinner2.adapter as ArrayAdapter<String>).notifyDataSetChanged()
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.w("@@@@@@@@@@@@@@@@@씰패", "실패: $exception")
+                    }
+            }
+        }
+
+        // Spinner2에서 market 선택 시 해당 market의 리뷰만 가져오기
+        spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (isSpinner2FirstSelection) {
+                    isSpinner2FirstSelection = false
+                } else {
+                    val selectedMarket = markets[position]
+                    loadReviewsForMarket(selectedMarket)
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            private fun loadReviewsForMarket(selectedMarket: String) {
+                db.collection("review")
+                    .whereEqualTo("marketName", selectedMarket)
+                    .get()
+                    .addOnSuccessListener { result ->
+                        val newItems = mutableListOf<Review>()
+                        if (result.size() > 0) {
+                            for (document in result) {
+                                val content = document["content"] as String
+                                val marketName = document["marketName"] as String
+                                val storeName = document["storeName"] as String
+                                val rating = document["rating"] as Double?
+                                val storeImg = document["storeImg"] as String?
+                                val region = document["region"] as String?
+                                val storageReference = FirebaseStorage.getInstance().reference
+                                val imageRef = storageReference.child("storeImg/$storeImg")
+
+                                imageRef.downloadUrl.addOnSuccessListener { uri ->
+                                    val imageUrl = uri.toString()
+                                    val marketNameWithHash = "#$marketName"
+                                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region)
+                                    newItems.add(item)
+                                    Log.w("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@result.size()", "$result.size()")
+                                    Log.w("%#######################", "들오엄")
+                                    itemList.clear()
+                                    itemList.addAll(newItems)
+                                    adapter.notifyDataSetChanged()
+                                }
+                            }
+                        } else {
+                            Log.w("%#&&&&&&&&&&&&&&&&&&&&&&&", "들오엄2")
+                            showToast("해당 시장에는 리뷰가 없습니다.")
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.w("ReviewActivity", "Error: $exception")
+                    }
+            }
+        }
+
+        // SearchView에 대한 Query Text 변경 리스너 설정
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // 사용자가 검색 버튼을 누르면 호출됩니다.
+                // Firestore에서 query를 사용하여 검색 작업을 수행하세요.
+                performSearch(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // SearchView의 텍스트가 변경될 때마다 호출됩니다.
+                // Firestore에서 newText를 사용하여 실시간 검색 또는 자동완성을 구현할 수 있습니다.
+                return true
+            }
+        })
+    }
+
+    private fun loadAllReviews() {
         db.collection("review")
             .get()
             .addOnSuccessListener { result ->
                 val newItems = mutableListOf<Review>()
-
                 for (document in result) {
                     val content = document["content"] as String
                     val marketName = document["marketName"] as String
                     val storeName = document["storeName"] as String
                     val rating = document["rating"] as Double?
                     val storeImg = document["storeImg"] as String?
-
-                    // 이미지 URL 가져오는 부분
+                    val region = document["region"] as String?
                     val storageReference = FirebaseStorage.getInstance().reference
                     val imageRef = storageReference.child("storeImg/$storeImg")
 
                     imageRef.downloadUrl.addOnSuccessListener { uri ->
                         val imageUrl = uri.toString()
-
-                        // marketName 앞에 '#'를 추가
                         val marketNameWithHash = "#$marketName"
-
-                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating)
+                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region)
                         newItems.add(item)
-                        if (newItems.size == result.size()) {
+                        if (newItems.isEmpty()) {
+                            itemList.clear()
+                            adapter.notifyDataSetChanged()
+                        } else {
+                            itemList.clear()
                             itemList.addAll(newItems)
-                            adapter.notifyItemRangeInserted(itemList.size - newItems.size, newItems.size)
+                            adapter.notifyDataSetChanged()
                         }
                     }
                 }
@@ -75,7 +209,49 @@ class ReviewActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w("ReviewActivity", "Error: $exception")
             }
-
-
     }
+
+    private fun performSearch(query: String?) {
+        if (query.isNullOrBlank()) {
+            // 검색어가 비어있거나 공백인 경우, 모든 리뷰를 표시
+            loadAllReviews()
+        } else {
+            // Firestore에서 검색어를 이용하여 데이터 검색
+            db.collection("review")
+                .whereEqualTo("marketName", query) // marketName 필드에서 검색어와 일치하는 항목을 찾습니다.
+                .get()
+                .addOnSuccessListener { result ->
+                    val newItems = mutableListOf<Review>()
+                    for (document in result) {
+                        val content = document["content"] as String
+                        val marketName = document["marketName"] as String
+                        val storeName = document["storeName"] as String
+                        val rating = document["rating"] as Double?
+                        val storeImg = document["storeImg"] as String?
+                        val region = document["region"] as String?
+                        val storageReference = FirebaseStorage.getInstance().reference
+                        val imageRef = storageReference.child("storeImg/$storeImg")
+
+                        imageRef.downloadUrl.addOnSuccessListener { uri ->
+                            val imageUrl = uri.toString()
+                            val marketNameWithHash = "#$marketName"
+                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region)
+                            newItems.add(item)
+                            itemList.clear()
+                            itemList.addAll(newItems)
+                            adapter.notifyDataSetChanged()
+
+                            if (newItems.isEmpty()) {
+                                // 검색 결과가 없을 때 사용자에게 메시지를 표시합니다.
+                                showToast("검색 결과가 없습니다.")
+                            }
+                        }
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.w("ReviewActivity", "Error: $exception")
+                }
+        }
+    }
+
 }

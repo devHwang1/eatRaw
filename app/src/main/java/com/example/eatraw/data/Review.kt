@@ -5,5 +5,6 @@ data class Review(
     val marketName: String,
     val storeImg: String?,
     val storeName: String,
-    val rating: Double?
+    val rating: Double?,
+    val region : String?
 )
