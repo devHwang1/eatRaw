@@ -95,14 +95,14 @@
 
 
         <ImageButton
-
+            android:id="@+id/KaKao_rg_login"
             android:layout_width="284dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/kakao_login_up_wide" />
 
         <ImageButton
-
+            android:id="@+id/google_rg_login"
             android:layout_width="284dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
