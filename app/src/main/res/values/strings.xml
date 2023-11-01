@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">EatRaw</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="login">로그인</string>
+    <string name="logout">LOGOUT</string>
+    <string name="register">회원가입</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="click_to_login">로그인페이지로</string>
+    <!--    <string name="click_to_register">Click to Register</string>-->
+    <string name="nick">정보입력</string>
+    <string name="nickname">닉네임을 정해주세요</string>
+    <string name="thumbNail">프로필 사진</string>
+    <string name="hello">환영합니다!</string>
+
 </resources>

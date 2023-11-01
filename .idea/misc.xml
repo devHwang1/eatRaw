@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 <?xml version="1.0" encoding="UTF-8"?>
+>>>>>>> 8c0dd019332d05f141116e40baddb81411fd320e
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
@@ -7,6 +10,8 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
+<<<<<<< HEAD
+=======
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
@@ -14,4 +19,5 @@
       </ProjectState>
     </option>
   </component>
+>>>>>>> 8c0dd019332d05f141116e40baddb81411fd320e
 </project>
