@@ -29,14 +29,13 @@ class BannerAdapter(private val data: List<BannerItem>) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.bannerImage)
-        private val titleTextView: TextView = itemView.findViewById(R.id.bannerTitle)
-        private val descriptionTextView: TextView = itemView.findViewById(R.id.bannerDescription)
+//        private val titleTextView: TextView = itemView.findViewById(R.id.bannerTitle)
+//        private val descriptionTextView: TextView = itemView.findViewById(R.id.bannerDescription)
 
         fun bind(item: BannerItem) {
             imageView.setImageResource(item.imageResId)
-            titleTextView.text = item.title // BannerItem에 해당하는 필드를 지정해야 합니다.
-            descriptionTextView.text = item.description // BannerItem에 해당하는 필드를 지정해야 합니다.
+//            titleTextView.text = item.title // BannerItem에 해당하는 필드를 지정해야 합니다.
+//            descriptionTextView.text = item.description // BannerItem에 해당하는 필드를 지정해야 합니다.
         }
     }
 }
-

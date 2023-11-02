@@ -2,8 +2,10 @@ buildscript {
     dependencies {
         classpath("com.google.gms:google-services:4.4.0")
         classpath ("com.google.android.gms:play-services-auth:20.7.0")
-
-
+    }
+    repositories {
+        google()
+        mavenCentral()
 
     }
 }

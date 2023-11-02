@@ -12,16 +12,16 @@
         android:layout_height="150dp"
         android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/bannerTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/bannerTitle"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textSize="18sp"-->
+    <!--        android:textStyle="bold" />-->
 
-    <TextView
-        android:id="@+id/bannerDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/bannerDescription"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textSize="14sp" />-->
 </LinearLayout>
