@@ -7,4 +7,5 @@ data class Review(
     val storeName: String,
     val rating: Double?,
     val region : String?
+
 )
