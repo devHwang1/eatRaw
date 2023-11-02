@@ -28,21 +28,48 @@ class MainActivity : AppCompatActivity() {
 
     // 예시 데이터를 생성합니다.
     private val bannerData: List<BannerItem> = listOf(
-        BannerItem(R.drawable.banner1, "배너 1 설명", "배너 1 타이틀"),
-        BannerItem(R.drawable.banner2, "배너 2 설명", "배너 2 타이틀")
+        BannerItem(R.drawable.banner1),
+        BannerItem(R.drawable.banner2),
+        BannerItem(R.drawable.banner1),
+        BannerItem(R.drawable.banner2),
+        BannerItem(R.drawable.banner1),
+        BannerItem(R.drawable.banner2)
         // 추가적인 BannerItem 인스턴스와 설명, 타이틀을 추가하세요.
     )
 
     private val bestReviewData: List<BestReviewItem> = listOf(
-        BestReviewItem(R.drawable.review1, 4.5f),
-        BestReviewItem(R.drawable.review2, 4.0f)
+        BestReviewItem(R.drawable.review1, 4.5),
+        BestReviewItem(R.drawable.review2, 4.0),
+        BestReviewItem(R.drawable.review1, 4.3),
+        BestReviewItem(R.drawable.review2, 4.2),
+        BestReviewItem(R.drawable.review1, 4.1),
+        BestReviewItem(R.drawable.review2, 4.6),
+        BestReviewItem(R.drawable.review1, 4.7),
+        BestReviewItem(R.drawable.review2, 4.8)
         // 추가적인 BestReviewItem 인스턴스와 이미지, 평점을 추가하세요.
     )
 
-
     private val comparingPriceData: List<ComparingPriceItem> = listOf(
-        ComparingPriceItem("생선 1", "$10"),
-        ComparingPriceItem("생선 2", "$15")
+        ComparingPriceItem("오징어", "10,000"),
+        ComparingPriceItem("꼴뚜기", "11,000"),
+        ComparingPriceItem("대구", "20,000"),
+        ComparingPriceItem("명태", "5,000"),
+        ComparingPriceItem("거북이", "110,000"),
+        ComparingPriceItem("연어알", "30,000"),
+        ComparingPriceItem("물새알", "50,000"),
+        ComparingPriceItem("연어", "30,000"),
+        ComparingPriceItem("대합실", "6,000"),
+        ComparingPriceItem("오징어", "10,000"),
+        ComparingPriceItem("꼴뚜기", "11,000"),
+        ComparingPriceItem("대구", "20,000"),
+        ComparingPriceItem("명태", "5,000"),
+        ComparingPriceItem("거북이", "110,000"),
+        ComparingPriceItem("연어알", "30,000"),
+        ComparingPriceItem("물새알", "50,000"),
+        ComparingPriceItem("연어", "30,000"),
+        ComparingPriceItem("대합실", "6,000"),
+
+
         // 추가적인 ComparingPriceItem 인스턴스와 생선 이름, 가격을 추가하세요.
     )
 
@@ -93,5 +120,19 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+
+        // ComparingPriceListActivity로 넘김
+        val comparingPriceItems: List<ComparingPriceItem> = comparingPriceData.toList()
+        val seeingMoreTextView = findViewById<TextView>(R.id.seeingMore)
+        seeingMoreTextView.setOnClickListener {
+            val intent = Intent(this, ComparingPriceListActivity::class.java)
+
+            // comparingPriceItems를 ComparingPriceListActivity로 전달
+            intent.putParcelableArrayListExtra("comparingPriceItems", ArrayList(comparingPriceItems))
+            startActivity(intent)
+        }
+
+
     }
 }
