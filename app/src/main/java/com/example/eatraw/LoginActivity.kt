@@ -40,7 +40,7 @@ class LoginActivity
 
     private val db = FirebaseFirestore.getInstance()
     private val usersCollection = db.collection("users")
-    
+
     private lateinit var gso: GoogleSignInOptions
 
 

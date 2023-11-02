@@ -22,7 +22,9 @@
     <string name="nickname">닉네임을 정해주세요</string>
     <string name="thumbNail">프로필 사진</string>
     <string name="hello">환영합니다!</string>
+
     <string name="your_client_id">445898306997-536v99s1hoakntjbkepl9c8n2vv8hvgv.apps.googleusercontent.com</string>
 
     <string name="err">→</string>
+
 </resources>

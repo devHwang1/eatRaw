@@ -39,4 +39,3 @@ class BannerAdapter(private val data: List<BannerItem>) :
         }
     }
 }
-

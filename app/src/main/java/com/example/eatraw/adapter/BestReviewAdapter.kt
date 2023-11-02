@@ -38,4 +38,3 @@ class BestReviewAdapter(private val data: List<BestReviewItem>) :
         }
     }
 }
-
