@@ -56,24 +56,21 @@
 
             <TextView
                 android:id="@+id/textScore"
-                android:layout_width="218dp"
+                android:layout_width="226dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="별점"
                 android:textAlignment="viewStart"
                 android:textSize="20sp" />
 
-            <RatingBar
-                android:id="@+id/starScore"
-                style="@style/Widget.AppCompat.RatingBar.Indicator"
+            <Spinner
+                android:id="@+id/starSelect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:numStars="5"
-                android:rating="0"
-                android:stepSize="3"
+                android:entries="@array/scoreSelect"
                 />
+
         </LinearLayout>
 
     </LinearLayout>
@@ -120,6 +117,8 @@
             android:layout_marginEnd="10dp"
             android:backgroundTint="#2B98FE"
             android:text="리뷰등록하기"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#000000"
             android:textSize="15sp"
             android:textStyle="bold" />
     </LinearLayout>
