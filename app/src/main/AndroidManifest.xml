@@ -29,16 +29,27 @@
 
         <activity
             android:name=".NicknameActivity"
-            android:exported="false" />
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".RegisterActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
         <activity
             android:name=".LoginActivity"
+<<<<<<< HEAD
             android:exported="false">
+=======
+            android:exported="true">
+
+>>>>>>> 91190bbefd34e2f75de33387f982f3bf7804f8f1
         </activity>
 
         <activity
@@ -51,11 +62,8 @@
 
         <activity
             android:name=".ReviewActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
+
 
         </activity>
         <activity
