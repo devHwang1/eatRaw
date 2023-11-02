@@ -97,7 +97,7 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // 사용자가 성공적으로 생성되었으므로, 사용자 정보를 데이터베이스에 저장
                         val currentUser = mAuth.currentUser
-                        val user = Users(email, nickname="", thumnail = "",admin = false) // 사용자 정보 생성
+                        val user = Users(email, nickname="", thumbnail = "",admin = false,imageUrl="") // 사용자 정보 생성
 
 
                         // 또는 Cloud Firestore에 사용자 정보 저장
@@ -110,7 +110,9 @@ class RegisterActivity : AppCompatActivity() {
                             "Authentication created.",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val intent = Intent(applicationContext, NicknameActivity::class.java)
+                        val intent = Intent(applicationContext, NicknameActivity::class.java).apply{
+                            putExtra("email", email)
+                        }
                         startActivity(intent)
                         finish()
                     } else {
@@ -173,7 +175,7 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // 사용자가 성공적으로 로그인되었으므로, 사용자 정보를 데이터베이스에 저장
                         val currentUser = mAuth.currentUser
-                        val user = Users(account?.email!!, nickname="", thumnail = "",admin = false) // 사용자 정보 생성
+                        val user = Users(account?.email!!, nickname="", thumbnail = "",admin = false,imageUrl="") // 사용자 정보 생성
 
                         // 또는 Cloud Firestore에 사용자 정보 저장
                         if (currentUser != null) {
