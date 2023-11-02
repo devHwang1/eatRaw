@@ -29,7 +29,12 @@
 
         <activity
             android:name=".NicknameActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".RegisterActivity"
             android:exported="false">
@@ -38,7 +43,9 @@
 
         <activity
             android:name=".LoginActivity"
-            android:exported="false"></activity>
+            android:exported="true">
+
+        </activity>
 
         <activity
             android:name=".DetailActivity"
@@ -48,11 +55,8 @@
 
         <activity
             android:name=".ReviewActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
+
 
         </activity>
         <activity
