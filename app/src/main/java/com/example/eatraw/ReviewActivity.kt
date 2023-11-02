@@ -1,5 +1,6 @@
 package com.example.eatraw
 
+import WriteActivity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -17,6 +18,7 @@ import com.example.eatraw.adapter.ReviewAdapter
 import com.example.eatraw.data.Review
 import com.example.eatraw.databinding.ActivityReviewBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
@@ -212,7 +214,14 @@ class ReviewActivity : AppCompatActivity() {
             }
             true
         }}
+        var floatingActionButton = findViewById(R.id.floatingActionButton) as FloatingActionButton
+        floatingActionButton.setOnClickListener{
+            val intent = Intent(this@ReviewActivity,WriteActivity::class.java)
+            startActivity(intent)
+        }
     }
+
+
 
     private fun loadAllReviews() {
         db.collection("review")
