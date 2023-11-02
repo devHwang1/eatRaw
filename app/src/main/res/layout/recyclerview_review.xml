@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_margin="10dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
     android:layout_height="130dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="12dp"
     android:paddingBottom="10dp"
-    android:background="@drawable/search_border"
+    android:background="@drawable/review_border"
     android:orientation="vertical">
 
     <LinearLayout
@@ -39,7 +41,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="12dp"
                     android:text="은하수산"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium">
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large">
                 </TextView>
             </LinearLayout>
 
@@ -94,31 +96,7 @@
                     android:layout_height="wrap_content">
 
                 </TextView>
-                <!--                <Button-->
-                <!--                    android:id="@+id/button1"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="25.5dp"-->
-                <!--                    android:layout_weight="1"-->
-                <!--                    android:paddingLeft="0dp"-->
-                <!--                    android:paddingTop="0dp"-->
-                <!--                    android:paddingRight="0dp"-->
-                <!--                    android:paddingBottom="0dp"-->
-                <!--                    android:text="자갈치시장"-->
-                <!--                    android:textSize="11dp">-->
-                <!--                </Button>-->
 
-                <!--                <Button-->
-                <!--                    android:id="@+id/button2"-->
-                <!--                    android:layout_width="0dp"-->
-                <!--                    android:layout_height="25.5dp"-->
-                <!--                    android:paddingLeft="5dp"-->
-                <!--                    android:paddingTop="1dp"-->
-                <!--                    android:paddingRight="5dp"-->
-                <!--                    android:paddingBottom="1dp"-->
-                <!--                    android:text="광어"-->
-                <!--                    android:textSize="7.5sp"-->
-                <!--                    android:layout_weight="1">-->
-                <!--                </Button>-->
             </LinearLayout>
 
         </LinearLayout>
