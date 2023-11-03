@@ -26,5 +26,12 @@
     <string name="your_client_id">445898306997-536v99s1hoakntjbkepl9c8n2vv8hvgv.apps.googleusercontent.com</string>
 
     <string name="err">→</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_modify">정보 수정</string>
+    <string name="my_alarm">알람 설정</string>
+    <string name="my_review">나의 리뷰 확인</string>
+    <string name="my_center">고객센터</string>
+    <string name="my_term">약관 확인</string>
 
 </resources>

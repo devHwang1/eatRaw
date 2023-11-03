@@ -1,6 +1,7 @@
 package com.example.eatraw
 
 
+import NickFragment
 import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -32,6 +33,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var editTextPassword: TextInputEditText
     private lateinit var buttonReg: Button
     private lateinit var mAuth: FirebaseAuth
+
 
     private lateinit var oneTapClient: SignInClient
     private lateinit var signUpRequest: BeginSignInRequest
@@ -105,16 +107,16 @@ class RegisterActivity : AppCompatActivity() {
                             usersCollection.document(currentUser.uid).set(user)
                         }
 
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Authentication created.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        val intent = Intent(applicationContext, NicknameActivity::class.java).apply{
-                            putExtra("email", email)
+                        val nickFragment = NickFragment().apply {
+                            arguments = Bundle().apply {
+                                putString("email", email)
+                            }
                         }
-                        startActivity(intent)
-                        finish()
+
+                        // Add the fragment to the 'fragment_container' FrameLayout
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, nickFragment)
+                            .commit()
                     } else {
                         // If sign-in fails, display a message to the user.
                         Toast.makeText(
@@ -182,10 +184,17 @@ class RegisterActivity : AppCompatActivity() {
                             usersCollection.document(currentUser.uid).set(user)
                         }
 
-                        // If sign-in is successful, move to MainActivity
-                        val intent = Intent(applicationContext, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        // Create a new Fragment to be placed in the activity layout
+                        val nickFragment = NickFragment().apply {
+                            arguments = Bundle().apply {
+                                putString("email", account?.email!!)
+                            }
+                        }
+
+                        // Add the fragment to the 'fragment_container' FrameLayout
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, nickFragment)
+                            .commit()
                     } else {
                         // If sign-in fails, display a message to the user
                         Log.w(TAG, "signInWithCredential:failure", task.exception)
