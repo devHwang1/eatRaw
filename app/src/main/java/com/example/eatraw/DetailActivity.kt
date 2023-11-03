@@ -43,7 +43,7 @@ class DetailActivity : AppCompatActivity() {
                     val content = document["content"] as String
                     val marketName = document["marketName"] as String
                     val storeName = document["storeName"] as String
-                    val rating = document["rating"] as Double?
+                    val rating = document["rating"]?.toString()?.toDoubleOrNull()
                     val storeImg = document["storeImg"] as String?
                     val region = document["region"] as String?
                     val like = (document["like"] as? Long)?.toInt()
