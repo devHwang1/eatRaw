@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/item_banner.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/item_banner.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_write.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_write.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/recyclerview_review.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/recyclerview_review.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_register.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_main.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_login.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_review.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_review.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_nickname.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_nickname.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/recyclerview_main_bestreview.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/recyclerview_main_bestreview.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/item_best_review.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/item_best_review.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_test.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_test.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/item_comparing_price.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/item_comparing_price.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_recyclerview_bestreview_lsj.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_recyclerview_bestreview_lsj.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_detail.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_detail.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_comparing_price_detail.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_comparing_price_detail.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_detail_box.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_detail_box.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/item_main.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/item_main.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-49:/layout/activity_comparing_price_list.xml",
+        "source": "com.example.eatraw.app-main-52:/layout/activity_comparing_price_list.xml"
+    }
+]
