@@ -3,7 +3,6 @@ package com.example.eatraw
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,13 +20,14 @@ import com.google.firebase.storage.FirebaseStorage
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var button: Button
+
     private lateinit var textView: TextView
     private var user: FirebaseUser? = null
 
     private lateinit var recyclerViewBanner: RecyclerView
     private lateinit var recyclerViewBestReview: RecyclerView
     private lateinit var recyclerViewComparingPrice: RecyclerView
+
 
     // Firebase Firestore 인스턴스 가져오기
     private val firestore = FirebaseFirestore.getInstance()
@@ -91,20 +91,10 @@ class MainActivity : AppCompatActivity() {
 
         // 로그인 설정
         auth = FirebaseAuth.getInstance()
-        button = findViewById(R.id.logout)
-        textView = findViewById(R.id.user_details)
         user = auth.currentUser
 
-        if (user == null) {
-            val intent = Intent(applicationContext, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        } else {
-            textView.text = user?.email
-        }
 
-        button.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+        if (user == null) {
             val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
             finish()
