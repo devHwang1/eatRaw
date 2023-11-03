@@ -19,18 +19,17 @@
             android:id="@+id/menubar1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal"
             android:elevation="4dp">
 
             <TextView
                 android:id="@+id/nalLo"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:text="Nal Lo"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
-
-
         </ActionMenuView>
 
         <SearchView
@@ -297,24 +296,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/user_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/blue"
-                    android:text="@string/logout" />
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
@@ -330,82 +311,4 @@
         app:labelVisibilityMode="labeled"
         app:menu="@menu/navi_menu" />
 
-<<<<<<< HEAD
 </RelativeLayout>
-=======
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:text="제철 어종"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/fish_name2"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
-                    android:text="전어"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:gravity="right"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="right"
-                        android:text="1kg 당"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/fish_price2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="15,000 원"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/fishpicture" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:text="파닥파닥!! 이시기 가장 신선한 어종입니다."
-                android:textSize="20sp" />
-
-
-        </LinearLayout>
-
-
-
-
-    </LinearLayout>
-</ScrollView>
->>>>>>> c1bdc87dd6c2cee419b13f7d581cc8040022073d
