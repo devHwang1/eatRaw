@@ -15,6 +15,16 @@
         android:theme="@style/Theme.EatRaw"
         tools:targetApi="31">
         <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
 
             android:name=".ComparingPriceDetailActivity"
             android:exported="false" />
@@ -46,28 +56,11 @@
             android:name=".DetailActivity"
             android:exported="false">
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2af35f3ccbed772b6837f475c6e352aa98080918
         </activity>
 
         <activity
             android:name=".ReviewActivity"
             android:exported="true">
-<<<<<<< HEAD
-=======
-
->>>>>>> 2af35f3ccbed772b6837f475c6e352aa98080918
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-<<<<<<< HEAD
-=======
-
->>>>>>> 2af35f3ccbed772b6837f475c6e352aa98080918
         </activity>
 
         <activity
