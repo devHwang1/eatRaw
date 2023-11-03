@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.eatraw.data.ComparingPriceItem
 import com.example.eatraw.databinding.ActivityComparingPriceDetailBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ComparingPriceDetailActivity : AppCompatActivity() {
 
@@ -48,5 +49,35 @@ class ComparingPriceDetailActivity : AppCompatActivity() {
 //            intent.putExtra("fishNameDetail", fishNameDetail)
             startActivity(intent)
         }
+
+        var bnv_main = findViewById(R.id.bnv_main) as BottomNavigationView
+
+        // OnNavigationItemSelectedListener를 통해 탭 아이템 선택 시 이벤트를 처리
+        // navi_menu.xml 에서 설정했던 각 아이템들의 id를 통해 알맞은 프래그먼트로 변경하게 한다.
+        bnv_main.run { setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.first -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@ComparingPriceDetailActivity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.second -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@ComparingPriceDetailActivity, ReviewActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.third -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@ComparingPriceDetailActivity, ComparingPriceListActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.four -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@ComparingPriceDetailActivity, MypageActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+            true
+        }}
     }
 }
