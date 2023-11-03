@@ -254,7 +254,7 @@
 
 
                     <Button
-                        android:id="@+id/up"
+                        android:id="@+id/btnUp"
                         android:layout_width="35dp"
                         android:layout_height="36dp"
                         android:layout_marginStart="10dp"
@@ -267,7 +267,7 @@
                         android:textColor="#000000" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/likeInt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
