@@ -33,10 +33,16 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".DetailActivity"
-            android:exported="true"></activity>
+            android:exported="false"></activity>
         <activity
             android:name=".ReviewActivity"
             android:exported="false"></activity>
@@ -45,12 +51,8 @@
             android:exported="false"></activity>
         <activity
             android:name=".MypageActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
