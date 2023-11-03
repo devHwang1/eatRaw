@@ -79,6 +79,7 @@ class LoginActivity
 
 
 
+
         textView.setOnClickListener {
             val intent = Intent(applicationContext, RegisterActivity::class.java)
             startActivity(intent)
@@ -170,35 +171,60 @@ class LoginActivity
 
             val credential = GoogleAuthProvider.getCredential(idToken, null)
 
-            if (email != null) {
-                usersCollection.whereEqualTo("email", email).get()
-                    .addOnSuccessListener { documents ->
-                        if (documents.isEmpty) {
-                            // If the user is new, show the You need to Register first message.
-                            Toast.makeText(this@LoginActivity, "가입이 필요합니다.", Toast.LENGTH_SHORT).show()
-                        } else {
-                            // If the user already exists, sign in.
-                            mAuth.signInWithCredential(credential)
-                                .addOnCompleteListener(this) { signInTask ->
-                                    if (signInTask.isSuccessful) {
-                                        // If sign-in is successful, move to MainActivity
-                                        val intent = Intent(applicationContext, MainActivity::class.java)
-                                        startActivity(intent)
-                                        finish()
+            //데이터 베이스 확인 먼저 해야되서 로그인부터 시킴
+            mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this) { signInTask ->
+                    if (signInTask.isSuccessful) {
+                        // If sign-in is successful, check the user in Firestore
+                        if (email != null) {
+                            usersCollection.whereEqualTo("email", email).get()
+                                .addOnSuccessListener { documents ->
+                                    if (documents.isEmpty) {
+                                        val newUser = hashMapOf(
+                                            "email" to email,
+                                            // Add other user info as needed
+                                        )
+                                        // If the user is new, show the You need to Register first message.
+                                        Toast.makeText(
+                                            this@LoginActivity,
+                                            "가입이 필요합니다.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
                                     } else {
-                                        // If sign-in fails, display a message to the user
-                                        Log.w(TAG, "signInWithCredential:failure", signInTask.exception)
-                                        Toast.makeText(this@LoginActivity, "로그인 실패.", Toast.LENGTH_SHORT).show()
+                                        // If the user already exists, sign in.
+                                        mAuth.signInWithCredential(credential)
+                                            .addOnCompleteListener(this) { signInTask ->
+                                                if (signInTask.isSuccessful) {
+                                                    // If sign-in is successful, move to MainActivity
+                                                    val intent = Intent(
+                                                        applicationContext,
+                                                        MainActivity::class.java
+                                                    )
+                                                    startActivity(intent)
+                                                    finish()
+                                                } else {
+                                                    // If sign-in fails, display a message to the user
+                                                    Log.w(
+                                                        TAG,
+                                                        "signInWithCredential:failure",
+                                                        signInTask.exception
+                                                    )
+                                                    Toast.makeText(
+                                                        this@LoginActivity,
+                                                        "로그인 실패.",
+                                                        Toast.LENGTH_SHORT
+                                                    ).show()
+                                                }
+                                            }
                                     }
                                 }
                         }
                     }
-            }
+                }
         } catch (e: ApiException) {
             Log.w("failed", "signInResult:failed code=" + e.statusCode)
         }
     }
-
 
 
 }

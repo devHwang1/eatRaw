@@ -88,6 +88,7 @@ class NickFragment : Fragment() {
             val imageRef = storageRef.child("images/${UUID.randomUUID()}")
 
             // 이미지 업로드
+
             val uploadTask = imageRef.putFile(selectedImageUri!!)
             uploadTask.continueWithTask { task ->
                 if (!task.isSuccessful) {
@@ -102,8 +103,8 @@ class NickFragment : Fragment() {
                     Toast.makeText(context, "img upload failed.", Toast.LENGTH_SHORT).show()
                 }
             }
-        } else {
-            Toast.makeText(context, "No image selected.", Toast.LENGTH_SHORT).show()
+        } else if(selectedImageUri == null){
+            saveImageUrlToDatabase("")
         }
     }
 
