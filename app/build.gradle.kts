@@ -79,21 +79,22 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:22.2.0")
     implementation("com.google.firebase:firebase-firestore:24.9.1")
 
+<<<<<<< HEAD
     // Google Play services
     implementation ("com.google.gms:google-services:4.3.15")
     implementation ("com.google.firebase:firebase-auth:22.0.0")
     implementation ("com.google.firebase:firebase-bom:32.0.0")
     implementation ("com.google.android.gms:play-services-auth:20.5.0")
+=======
+    implementation ("com.google.gms:google-services:4.3.15")
+>>>>>>> c1bdc87dd6c2cee419b13f7d581cc8040022073d
     implementation ("com.google.firebase:firebase-bom:32.0.0")
+
+
     //fragment
 
     implementation ("androidx.navigation:navigation-fragment-ktx:2.7.5")
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.5")
 
-//    // Google Play services
-//    implementation ("com.google.gms:google-services:4.3.15")
-//    implementation ("com.google.firebase:firebase-auth:22.0.0")
-//
-//    implementation ("com.google.android.gms:play-services-auth:20.5.0")
 
 }

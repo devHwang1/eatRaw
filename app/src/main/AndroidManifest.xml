@@ -59,12 +59,26 @@
 
         <activity
             android:name=".ReviewActivity"
-            android:exported="true">
+            android:exported="false">
 
+
+<<<<<<< HEAD
         </activity>
         <activity
             android:name=".MypageActivity"
             android:exported="false"></activity>
+=======
+
+        </activity>
+        <activity
+            android:name=".MypageActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+>>>>>>> c1bdc87dd6c2cee419b13f7d581cc8040022073d
 
         <activity
             android:name=".MainActivity"
