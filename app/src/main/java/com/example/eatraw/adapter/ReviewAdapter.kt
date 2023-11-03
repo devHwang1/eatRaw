@@ -26,9 +26,12 @@ class ReviewAdapter(private val reviews: List<Review>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_review, parent, false)
         return ReviewViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
+
+
         val review = reviews[position]
 
         // 리뷰 데이터를 뷰에 연결

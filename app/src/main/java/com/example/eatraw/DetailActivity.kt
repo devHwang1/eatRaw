@@ -61,6 +61,7 @@ class DetailActivity : AppCompatActivity() {
                         itemList.clear()
                         itemList.addAll(newItems)
                         adapter.notifyDataSetChanged()
+
                     }
                 }
             }

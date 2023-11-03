@@ -14,7 +14,7 @@ import com.example.eatraw.data.Review
 import com.example.eatraw.data.Users
 
 //사용 데이터 : Review
-class ReviewDetailAdapter(private val review: List<Review>) :
+class ReviewDetailAdapter(private val reviews: List<Review>) :
     RecyclerView.Adapter<ReviewDetailAdapter.ReviewDetailAdapterViewHolder>() {
 
     class ReviewDetailAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -47,7 +47,7 @@ class ReviewDetailAdapter(private val review: List<Review>) :
     }
 
     override fun onBindViewHolder(holder: ReviewDetailAdapterViewHolder, position: Int) {
-        val review = review[position]
+        val review = reviews[position]
 //        val user = user[position]
 //        val reviewDetail = detailreview[position]
 
@@ -109,7 +109,7 @@ class ReviewDetailAdapter(private val review: List<Review>) :
 
 
     override fun getItemCount(): Int {
-        return review.size
+        return reviews.size
     }
 
 

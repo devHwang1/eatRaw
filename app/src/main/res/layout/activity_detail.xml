@@ -7,8 +7,10 @@
     android:orientation="vertical"
     tools:context=".DetailActivity">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detailRecylerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>
