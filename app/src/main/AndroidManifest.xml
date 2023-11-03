@@ -61,9 +61,6 @@
         <activity
             android:name=".ReviewActivity"
             android:exported="true">
-<<<<<<< HEAD
-
-
 
         </activity>
         <activity
@@ -78,19 +75,8 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-=======
         </activity>
-        <activity
-            android:name=".MypageActivity"
-            android:exported="false">
 
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false">
-
->>>>>>> f979d9576fa38d6f831fc5b96b1343e0378a9b83
-        </activity>
 
     </application>
 
