@@ -1,6 +1,7 @@
 package com.example.eatraw
 
 
+
 import NickFragment
 import android.app.Activity
 import android.content.ContentValues.TAG
@@ -99,8 +100,8 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // 사용자가 성공적으로 생성되었으므로, 사용자 정보를 데이터베이스에 저장
                         val currentUser = mAuth.currentUser
-                        val user = Users(email, nickname="", thumbnail = "",admin = false,imageUrl="") // 사용자 정보 생성
 
+                        val user = Users(email, nickname="", thumbnail = "",admin = false,imageUrl="") // 사용자 정보 생성
 
                         // 또는 Cloud Firestore에 사용자 정보 저장
                         if (currentUser != null) {
@@ -117,6 +118,7 @@ class RegisterActivity : AppCompatActivity() {
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.fragment_container, nickFragment)
                             .commit()
+
                     } else {
                         // If sign-in fails, display a message to the user.
                         Toast.makeText(
@@ -177,13 +179,14 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // 사용자가 성공적으로 로그인되었으므로, 사용자 정보를 데이터베이스에 저장
                         val currentUser = mAuth.currentUser
+
                         val user = Users(account?.email!!, nickname="", thumbnail = "",admin = false,imageUrl="") // 사용자 정보 생성
+
 
                         // 또는 Cloud Firestore에 사용자 정보 저장
                         if (currentUser != null) {
                             usersCollection.document(currentUser.uid).set(user)
                         }
-
                         // Create a new Fragment to be placed in the activity layout
                         val nickFragment = NickFragment().apply {
                             arguments = Bundle().apply {
@@ -195,6 +198,7 @@ class RegisterActivity : AppCompatActivity() {
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.fragment_container, nickFragment)
                             .commit()
+
                     } else {
                         // If sign-in fails, display a message to the user
                         Log.w(TAG, "signInWithCredential:failure", task.exception)

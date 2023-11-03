@@ -5,6 +5,9 @@ class DetailReview (
     val fishiName: String,
     val fishPrice: Int,
     val memberName: String,
-    val score: Int,
+    val score: Double?,
+    val maxPrice: Int,
+    val minPrice: Int,
+    val avgPrice: Int,
     val textcontent: String
 )

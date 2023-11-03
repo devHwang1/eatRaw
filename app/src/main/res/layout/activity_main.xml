@@ -84,7 +84,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="200dp"
                 android:background="@drawable/menubar2"
                 android:orientation="vertical">
 
@@ -255,7 +255,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="right"
-                        android:text="마리 당"
+                        android:text="1kg 당"
                         android:textSize="20sp" />
 
                     <TextView

@@ -6,5 +6,8 @@ data class Review(
     val storeImg: String?,
     val storeName: String,
     val rating: Double?,
-    val region : String?
+    val region: String?,
+    val like: Int?,
+    val fishKind: Int?,
+    val cost: String?
 )
