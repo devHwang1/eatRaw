@@ -293,10 +293,10 @@
                     android:text="파닥파닥!! 이시기 가장 신선한 어종입니다."
                     android:textSize="20sp" />
 
-
             </LinearLayout>
-
         </LinearLayout>
+
+
     </ScrollView>
 
     <!-- 네비게이션 바 (BottomNavigationView) -->
