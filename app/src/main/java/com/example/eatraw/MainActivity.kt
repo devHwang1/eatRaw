@@ -38,9 +38,6 @@ class MainActivity : AppCompatActivity() {
         BannerItem(R.drawable.banner1),
         BannerItem(R.drawable.banner2),
         BannerItem(R.drawable.banner1),
-        BannerItem(R.drawable.banner2),
-        BannerItem(R.drawable.banner1),
-        BannerItem(R.drawable.banner2)
         // 추가적인 BannerItem 인스턴스와 설명, 타이틀을 추가하세요.
     )
 
