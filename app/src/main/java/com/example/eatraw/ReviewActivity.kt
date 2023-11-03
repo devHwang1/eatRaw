@@ -221,7 +221,7 @@ class ReviewActivity : AppCompatActivity() {
                 }
                 R.id.four -> {
                     // 다른 액티비티로 이동
-                    val intent = Intent(this@ReviewActivity, ComparingPriceListActivity::class.java)
+                    val intent = Intent(this@ReviewActivity, MypageActivity::class.java)
                     startActivity(intent)
                 }
             }
