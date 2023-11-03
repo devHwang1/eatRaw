@@ -47,7 +47,6 @@
             android:exported="false">
 
 
-
         </activity>
 
         <activity
@@ -60,11 +59,12 @@
             </intent-filter>
 
         </activity>
-
+        <activity
+            android:name=".MypageActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
 
     </application>
 
