@@ -1,13 +1,17 @@
 package com.example.eatraw
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.webkit.MimeTypeMap
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.common.io.Files.getFileExtension
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.DocumentReference
@@ -28,7 +32,9 @@ class WriteActivity : AppCompatActivity() {
     private lateinit var editText: EditText
     private lateinit var btnReview: Button
     private lateinit var btnImage: Button
+    private lateinit var marketName : EditText
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write)
@@ -38,7 +44,6 @@ class WriteActivity : AppCompatActivity() {
         storage = FirebaseStorage.getInstance()
         storageReference = storage.reference
 
-        // Initialize UI elements
         editStoreName = findViewById(R.id.editStoreName)
         editFishKind = findViewById(R.id.editFishName)
         editFishPrice = findViewById(R.id.editFishPrice)
@@ -46,6 +51,7 @@ class WriteActivity : AppCompatActivity() {
         editText = findViewById(R.id.editText)
         btnReview = findViewById(R.id.btnReview)
         btnImage = findViewById(R.id.btnImage)
+        marketName = findViewById(R.id.marketName)
 
         btnImage.setOnClickListener {
             openImagePicker()
@@ -65,8 +71,10 @@ class WriteActivity : AppCompatActivity() {
 
     private fun uploadImageAndAddReviewToFirestore() {
         if (selectedImageUri != null) {
+            val imageFileName = selectedImageUri!!.lastPathSegment // 이미지 파일 이름을 원본 파일명으로 설정
+
             // Image upload
-            val imageRef = storageReference.child("images/${System.currentTimeMillis()}.jpg")
+            val imageRef = storageReference.child("storeImg/$imageFileName")
             val uploadTask: UploadTask = imageRef.putFile(selectedImageUri!!)
 
             uploadTask.addOnSuccessListener { taskSnapshot ->
@@ -76,17 +84,19 @@ class WriteActivity : AppCompatActivity() {
                     val cost = editFishPrice.text.toString()
                     val storeName = editStoreName.text.toString()
                     val selectedRating = starSelect.selectedItem.toString().toFloat()
+                    val marketName = marketName.text.toString()
 
                     val reviewData = hashMapOf(
                         "content" to content,
                         "fishKind" to fishKind,
                         "cost" to cost,
-                        "storeImg" to uri.toString(),
+                        "storeImg" to uri.toString(), // 이미지 URL을 저장
                         "storeName" to storeName,
-                        "rating" to selectedRating
+                        "rating" to selectedRating,
+                        "marketName" to marketName
                     )
 
-                    db.collection("reviews")
+                    db.collection("review")
                         .add(reviewData)
                         .addOnSuccessListener { documentReference: DocumentReference ->
                             val reviewId = documentReference.id
@@ -100,6 +110,13 @@ class WriteActivity : AppCompatActivity() {
         } else {
             showResultMessage("이미지를 선택해주세요.")
         }
+    }
+
+
+    private fun getFileExtension(uri: Uri): String {
+        val contentResolver = contentResolver
+        val mimeTypeMap = MimeTypeMap.getSingleton()
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ?: "jpg"
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

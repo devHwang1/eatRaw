@@ -231,30 +231,24 @@ class ReviewActivity : AppCompatActivity() {
                     val content = document["content"] as String
                     val marketName = document["marketName"] as String
                     val storeName = document["storeName"] as String
-                    val rating = document["rating"]?.toString()?.toDoubleOrNull()
+                    val rating = document["rating"]?.toString()?.toDoubleOrNull() // rating을 Float로 가져옴
                     val storeImg = document["storeImg"] as String?
                     val region = document["region"] as String?
                     val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
                     val cost = (document["cost"] as? Long)?.toInt()
                     val fishKind = document["fishKind"] as String?
-                    val storageReference = FirebaseStorage.getInstance().reference
-                    val imageRef = storageReference.child("storeImg/$storeImg")
 
-                    imageRef.downloadUrl.addOnSuccessListener { uri ->
-                        val imageUrl = uri.toString()
-                        val marketNameWithHash = "#$marketName"
-                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,cost,fishKind)
-                        newItems.add(item)
-                        if (newItems.isEmpty()) {
-                            itemList.clear()
-                            adapter.notifyDataSetChanged()
-                        } else {
-                            itemList.clear()
-                            itemList.addAll(newItems)
-                            adapter.notifyDataSetChanged()
-                        }
-                    }
+                    // 이미지 URL이 없으면 기본 이미지 URL로 대체
+                    val imageUrl = storeImg ?: "기본 이미지 URL" // 여기에 기본 이미지 URL을 넣으세요
+
+                    val marketNameWithHash = "#$marketName"
+                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, cost, fishKind)
+                    newItems.add(item)
                 }
+
+                itemList.clear()
+                itemList.addAll(newItems)
+                adapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
                 Log.w("ReviewActivity", "Error: $exception")
