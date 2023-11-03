@@ -3,16 +3,29 @@ package com.example.eatraw.data
 import android.os.Parcel
 import android.os.Parcelable
 
-data class ComparingPriceItem(val fishName: String, val price: String) : Parcelable {
-    // Parcelable 인터페이스를 구현하는 코드
+data class ComparingPriceItem(
+    val fishName: String,
+    val minCost: String,
+    val avgCost: String,
+    val maxCost: String,
+    val fishImg: String?,
+    val season: String?
+) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: ""
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(fishName)
-        parcel.writeString(price)
+        parcel.writeString(minCost)
+        parcel.writeString(avgCost)
+        parcel.writeString(maxCost)
+        parcel.writeString(fishImg)
     }
 
     override fun describeContents(): Int {

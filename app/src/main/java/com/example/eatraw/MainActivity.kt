@@ -2,6 +2,7 @@ package com.example.eatraw
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,8 @@ import com.example.eatraw.data.BestReviewItem
 import com.example.eatraw.data.ComparingPriceItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -25,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerViewBanner: RecyclerView
     private lateinit var recyclerViewBestReview: RecyclerView
     private lateinit var recyclerViewComparingPrice: RecyclerView
+
+    // Firebase Firestore 인스턴스 가져오기
+    private val firestore = FirebaseFirestore.getInstance()
 
     // 예시 데이터를 생성합니다.
     private val bannerData: List<BannerItem> = listOf(
@@ -50,25 +56,6 @@ class MainActivity : AppCompatActivity() {
     )
 
     private val comparingPriceData: List<ComparingPriceItem> = listOf(
-        ComparingPriceItem("오징어", "10,000"),
-        ComparingPriceItem("꼴뚜기", "11,000"),
-        ComparingPriceItem("대구", "20,000"),
-        ComparingPriceItem("명태", "5,000"),
-        ComparingPriceItem("거북이", "110,000"),
-        ComparingPriceItem("연어알", "30,000"),
-        ComparingPriceItem("물새알", "50,000"),
-        ComparingPriceItem("연어", "30,000"),
-        ComparingPriceItem("대합실", "6,000"),
-        ComparingPriceItem("오징어", "10,000"),
-        ComparingPriceItem("꼴뚜기", "11,000"),
-        ComparingPriceItem("대구", "20,000"),
-        ComparingPriceItem("명태", "5,000"),
-        ComparingPriceItem("거북이", "110,000"),
-        ComparingPriceItem("연어알", "30,000"),
-        ComparingPriceItem("물새알", "50,000"),
-        ComparingPriceItem("연어", "30,000"),
-        ComparingPriceItem("대합실", "6,000"),
-
 
         // 추가적인 ComparingPriceItem 인스턴스와 생선 이름, 가격을 추가하세요.
     )
@@ -84,8 +71,10 @@ class MainActivity : AppCompatActivity() {
 
         // 레이아웃 매니저 설정
         val layoutManagerBanner = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        val layoutManagerBestReview = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        val layoutManagerComparingPrice = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val layoutManagerBestReview =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        val layoutManagerComparingPrice =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         recyclerViewBanner.layoutManager = layoutManagerBanner
         recyclerViewBestReview.layoutManager = layoutManagerBestReview
@@ -122,17 +111,57 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        // ComparingPriceListActivity로 넘김
-        val comparingPriceItems: List<ComparingPriceItem> = comparingPriceData.toList()
+        firestore.collection("fish")
+            .get()
+            .addOnSuccessListener { documents ->
+                val comparingPriceData = mutableListOf<ComparingPriceItem>()
+
+                for (document in documents) {
+                    val fishName = document.getString("f_name")
+                    val minCost = (document["f_min"] as? Long)?.toInt()
+                    val avgCost = (document["f_avg"] as? Long)?.toInt()
+                    val maxCost = (document["f_max"] as? Long)?.toInt()
+                    val fishImg = document.getString("f_img")
+                    val season = document.getString("f_season")
+                    val storageReference = FirebaseStorage.getInstance().reference
+                    val imageRef = storageReference.child("FishImg/$fishImg")
+
+                    if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
+                        imageRef.downloadUrl.addOnSuccessListener { uri ->
+                            val imageUrl = uri.toString()
+                            val comparingPriceItem = ComparingPriceItem(
+                                fishName,
+                                minCost.toString(),
+                                avgCost.toString(),
+                                maxCost.toString(),
+                                imageUrl,
+                                season
+                            )
+                            comparingPriceData.add(comparingPriceItem)
+
+                            // 데이터를 RecyclerView에 설정
+                            val adapterComparingPrice = ComparingPriceAdapter(comparingPriceData)
+                            recyclerViewComparingPrice.adapter = adapterComparingPrice
+                        }
+                    }
+                }
+
+                // 데이터를 RecyclerView에 설정
+                val adapterComparingPrice = ComparingPriceAdapter(comparingPriceData)
+                recyclerViewComparingPrice.adapter = adapterComparingPrice
+
+            }
+            .addOnFailureListener { exception ->
+                // 데이터 가져오기 실패 시 처리
+                Log.e("FirestoreError", "Error getting documents: ", exception)
+            }
+
         val seeingMoreTextView = findViewById<TextView>(R.id.seeingMore)
         seeingMoreTextView.setOnClickListener {
             val intent = Intent(this, ComparingPriceListActivity::class.java)
-
-            // comparingPriceItems를 ComparingPriceListActivity로 전달
-            intent.putParcelableArrayListExtra("comparingPriceItems", ArrayList(comparingPriceItems))
             startActivity(intent)
         }
 
-
     }
+
 }
