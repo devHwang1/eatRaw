@@ -1,5 +1,6 @@
 package com.example.eatraw
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.eatraw.adapter.ComparingPriceAdapter
 import com.example.eatraw.data.ComparingPriceItem
 import com.example.eatraw.databinding.ActivityComparingPriceListBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.storage.FirebaseStorage
@@ -75,5 +77,35 @@ class ComparingPriceListActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             onBackPressed()
         }
+
+        var bnv_main = findViewById(R.id.bnv_main) as BottomNavigationView
+
+        // OnNavigationItemSelectedListener를 통해 탭 아이템 선택 시 이벤트를 처리
+        // navi_menu.xml 에서 설정했던 각 아이템들의 id를 통해 알맞은 프래그먼트로 변경하게 한다.
+        bnv_main.run { setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.first -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@ComparingPriceListActivity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.second -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@ComparingPriceListActivity, ReviewActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.third -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@ComparingPriceListActivity, ComparingPriceListActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.four -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@ComparingPriceListActivity, MypageActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+            true
+        }}
     }
 }
