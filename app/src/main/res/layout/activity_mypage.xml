@@ -212,13 +212,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/term"
+                android:id="@+id/logout"
                 android:layout_width="24dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
-                android:text="@string/my_term" />
+                android:text="@string/logout" />
 
             <ImageView
                 android:id="@+id/arrow5"
@@ -236,10 +236,27 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/line"></View>
+
+
+
     </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        app:itemIconTint="@color/gray"
+        app:itemTextColor="@color/black"
+        app:labelVisibilityMode="labeled"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/navi_menu" />
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/bnv_main"
+        />
 
 </RelativeLayout>

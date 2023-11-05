@@ -19,17 +19,18 @@
             android:id="@+id/menubar1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:orientation="horizontal"
             android:elevation="4dp">
 
             <TextView
                 android:id="@+id/nalLo"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:text="Nal Lo"
-                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
+
+
         </ActionMenuView>
 
         <SearchView
@@ -293,23 +294,9 @@
                     android:text="파닥파닥!! 이시기 가장 신선한 어종입니다."
                     android:textSize="20sp" />
 
-
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/user_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hello World!" />
-
-            <Button
-                android:id="@+id/logout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/blue"
-                android:text="@string/logout" />
-
         </LinearLayout>
+
     </ScrollView>
 
     <!-- 네비게이션 바 (BottomNavigationView) -->

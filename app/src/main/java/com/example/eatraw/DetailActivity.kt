@@ -49,13 +49,14 @@ class DetailActivity : AppCompatActivity() {
                     val like = (document["like"] as? Long)?.toInt()
                     val cost = (document["cost"] as? Long)?.toInt()
                     val fishKind = document["fishKind"] as String?
+                    val userId = document["userId"] as String?
                     val storageReference =  FirebaseStorage.getInstance().reference
                     val imageRef = storageReference.child("storeImg/$storeImg")
 
                     imageRef.downloadUrl.addOnSuccessListener { uri ->
                         val imageUrl = uri.toString()
                         val marketNameWithHash = "#$marketName"
-                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,cost,fishKind)
+                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,cost,fishKind,userId)
                         newItems.add(item)
 
                         itemList.clear()
