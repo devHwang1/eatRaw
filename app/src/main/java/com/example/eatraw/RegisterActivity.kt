@@ -101,7 +101,7 @@ class RegisterActivity : AppCompatActivity() {
                         // 사용자가 성공적으로 생성되었으므로, 사용자 정보를 데이터베이스에 저장
                         val currentUser = mAuth.currentUser
 
-                        val user = Users(email, nickname="", thumbnail = "",admin = false,imageUrl="") // 사용자 정보 생성
+                        val user = Users(email, nickname="", aouthLogin = false,admin = false,imageUrl="") // 사용자 정보 생성
 
                         // 또는 Cloud Firestore에 사용자 정보 저장
                         if (currentUser != null) {
@@ -180,7 +180,7 @@ class RegisterActivity : AppCompatActivity() {
                         // 사용자가 성공적으로 로그인되었으므로, 사용자 정보를 데이터베이스에 저장
                         val currentUser = mAuth.currentUser
 
-                        val user = Users(account?.email!!, nickname="", thumbnail = "",admin = false,imageUrl="") // 사용자 정보 생성
+                        val user = Users(account?.email!!, nickname="",aouthLogin = true,admin = false,imageUrl="") // 사용자 정보 생성
 
 
                         // 또는 Cloud Firestore에 사용자 정보 저장

@@ -39,20 +39,13 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/group_40"></ImageView>
 
-            <Button
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:background="@drawable/modify_button"
-                android:text="섬네일 수정"
-                android:textColor="@color/white"
-                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:gravity="center_vertical"
             android:padding="8dp">
 
             <TextView
@@ -66,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="님 반갑습니다."
-                android:textSize="30sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -92,13 +85,6 @@
                 android:paddingLeft="20dp"
                 android:text="@string/my_modify" />
 
-            <ImageView
-                android:id="@+id/arrow1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/backarrowbtn"
-                android:gravity="start|top"
-                android:src="@drawable/arrow_1" />
         </LinearLayout>
 
         <View
@@ -124,13 +110,6 @@
                 android:paddingLeft="20dp"
                 android:text="@string/my_review" />
 
-            <ImageView
-                android:id="@+id/arrow2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/backarrowbtn"
-                android:gravity="start|top"
-                android:src="@drawable/arrow_1" />
         </LinearLayout>
 
         <View
@@ -156,13 +135,6 @@
                 android:paddingLeft="20dp"
                 android:text="@string/my_alarm" />
 
-            <ImageView
-                android:id="@+id/arrow3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/backarrowbtn"
-                android:gravity="start|top"
-                android:src="@drawable/arrow_1" />
         </LinearLayout>
 
         <View
@@ -188,13 +160,6 @@
                 android:paddingLeft="20dp"
                 android:text="@string/my_center" />
 
-            <ImageView
-                android:id="@+id/arrow4"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/backarrowbtn"
-                android:gravity="start|top"
-                android:src="@drawable/arrow_1" />
         </LinearLayout>
 
         <View
@@ -220,13 +185,6 @@
                 android:paddingLeft="20dp"
                 android:text="@string/logout" />
 
-            <ImageView
-                android:id="@+id/arrow5"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/backarrowbtn"
-                android:gravity="start|top"
-                android:src="@drawable/arrow_1" />
         </LinearLayout>
 
         <View
