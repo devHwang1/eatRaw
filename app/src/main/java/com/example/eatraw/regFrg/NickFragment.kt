@@ -1,3 +1,4 @@
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -28,6 +29,7 @@ class NickFragment : Fragment() {
     val storage = FirebaseStorage.getInstance()
     val storageRef = storage.reference
     private var selectedImageUri: Uri? = null
+    private var nickBoolean = false
 
     companion object {
         const val PICK_IMAGE_REQUEST = 1
@@ -53,8 +55,12 @@ class NickFragment : Fragment() {
         binding.root.setOnClickListener { }
         btnRegister.setOnClickListener {
             val nick = nickname.text.toString()
-            if (nick.isEmpty()) {
-                Toast.makeText(context, "Enter Nickname", Toast.LENGTH_SHORT).show()
+            checkNickname(nick)
+
+            if (nick.isEmpty() ) {
+                Toast.makeText(context, "닉네임을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else if(!nickBoolean){
                 return@setOnClickListener
             }
             uploadImage()
@@ -88,6 +94,7 @@ class NickFragment : Fragment() {
             val imageRef = storageRef.child("images/${UUID.randomUUID()}")
 
             // 이미지 업로드
+
             val uploadTask = imageRef.putFile(selectedImageUri!!)
             uploadTask.continueWithTask { task ->
                 if (!task.isSuccessful) {
@@ -102,8 +109,8 @@ class NickFragment : Fragment() {
                     Toast.makeText(context, "img upload failed.", Toast.LENGTH_SHORT).show()
                 }
             }
-        } else {
-            Toast.makeText(context, "No image selected.", Toast.LENGTH_SHORT).show()
+        } else if(selectedImageUri == null){
+            saveImageUrlToDatabase("")
         }
     }
 
@@ -140,6 +147,24 @@ class NickFragment : Fragment() {
                 ).show()
             }
 
+    }
+    private fun checkNickname(nickname: String) {
+        val usersCollection = FirebaseFirestore.getInstance().collection("users")
+
+        usersCollection.whereEqualTo("nickname", nickname).get()
+            .addOnSuccessListener { documents ->
+                if (documents.isEmpty) {
+                    // 닉네임이 중복되지 않음
+                    Toast.makeText(context, "사용 가능한 닉네임입니다.", Toast.LENGTH_SHORT).show()
+                    nickBoolean = true
+                } else {
+                    // 닉네임이 중복됨
+                    44
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
     }
 
 }

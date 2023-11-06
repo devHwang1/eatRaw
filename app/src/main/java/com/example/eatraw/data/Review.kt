@@ -9,5 +9,6 @@ data class Review(
     val region: String?,
     val like: Int?,
     val fishKind: Int?,
-    val cost: String?
+    val cost: String?,
+    val userId: String?  // 사용자 UID를 추가
 )

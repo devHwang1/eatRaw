@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="내 리류확인페이지입니다.">
+    tools:context=".mypagefrg.MyreviewFragment"
+    android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

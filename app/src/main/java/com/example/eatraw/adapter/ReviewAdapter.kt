@@ -20,7 +20,6 @@ class ReviewAdapter(private val reviews: List<Review>) :
         val textView: TextView = itemView.findViewById(R.id.rating)
         val button1: TextView = itemView.findViewById(R.id.button1)
         val storeName : TextView = itemView.findViewById(R.id.storeName)
-//        val button2: Button = itemView.findViewById(R.id.button2)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
@@ -42,7 +41,6 @@ class ReviewAdapter(private val reviews: List<Review>) :
         holder.textView.text = review.rating?.toString() ?: "N/A"
         holder.button1.text = review.marketName // 시장 이름
         holder.storeName.text = review.storeName
-//        holder.button2.text = review.storeName // 가게 이름
     }
 
     override fun getItemCount(): Int {

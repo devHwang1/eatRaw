@@ -12,7 +12,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.common.io.Files.getFileExtension
+import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.storage.FirebaseStorage
@@ -43,6 +45,7 @@ class WriteActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         storage = FirebaseStorage.getInstance()
         storageReference = storage.reference
+
 
         editStoreName = findViewById(R.id.editStoreName)
         editFishKind = findViewById(R.id.editFishName)
@@ -77,6 +80,9 @@ class WriteActivity : AppCompatActivity() {
             val imageRef = storageReference.child("storeImg/$imageFileName")
             val uploadTask: UploadTask = imageRef.putFile(selectedImageUri!!)
 
+            val user = Firebase.auth.currentUser
+            val userUid = user?.uid
+
             uploadTask.addOnSuccessListener { taskSnapshot ->
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                     val content = editText.text.toString()
@@ -93,7 +99,8 @@ class WriteActivity : AppCompatActivity() {
                         "storeImg" to uri.toString(), // 이미지 URL을 저장
                         "storeName" to storeName,
                         "rating" to selectedRating,
-                        "marketName" to marketName
+                        "marketName" to marketName,
+                        "userId" to userUid
                     )
 
                     db.collection("review")
@@ -101,6 +108,9 @@ class WriteActivity : AppCompatActivity() {
                         .addOnSuccessListener { documentReference: DocumentReference ->
                             val reviewId = documentReference.id
                             showResultMessage("리뷰가 성공적으로 등록되었습니다.")
+                            val intent = Intent(this,ReviewActivity::class.java)
+                            startActivity(intent)
+                            finish()
                         }
                         .addOnFailureListener { e ->
                             showResultMessage("리뷰 등록 중 오류가 발생했습니다.")
