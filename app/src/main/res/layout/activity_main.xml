@@ -19,18 +19,17 @@
             android:id="@+id/menubar1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal"
             android:elevation="4dp">
 
             <TextView
                 android:id="@+id/nalLo"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:text="Nal Lo"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
-
-
         </ActionMenuView>
 
         <SearchView
@@ -296,7 +295,6 @@
 
             </LinearLayout>
         </LinearLayout>
-
     </ScrollView>
 
     <!-- 네비게이션 바 (BottomNavigationView) -->

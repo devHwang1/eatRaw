@@ -3,6 +3,7 @@ package com.example.eatraw
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +23,7 @@ import com.google.firebase.storage.FirebaseStorage
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-
+    private lateinit var button: Button
     private lateinit var textView: TextView
     private var user: FirebaseUser? = null
 
@@ -38,6 +39,9 @@ class MainActivity : AppCompatActivity() {
         BannerItem(R.drawable.banner1),
         BannerItem(R.drawable.banner2),
         BannerItem(R.drawable.banner1),
+        BannerItem(R.drawable.banner2),
+        BannerItem(R.drawable.banner1),
+        BannerItem(R.drawable.banner2)
         // 추가적인 BannerItem 인스턴스와 설명, 타이틀을 추가하세요.
     )
 
@@ -89,8 +93,6 @@ class MainActivity : AppCompatActivity() {
 
         // 로그인 설정
         auth = FirebaseAuth.getInstance()
-
-
         user = auth.currentUser
 
         if (user == null) {

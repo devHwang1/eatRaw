@@ -80,8 +80,8 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore:24.9.1")
 
 
-    implementation ("com.google.gms:google-services:4.3.15")
 
+    implementation ("com.google.gms:google-services:4.3.15")
     implementation ("com.google.firebase:firebase-bom:32.0.0")
 
 
