@@ -18,7 +18,7 @@
             android:textAlignment="center"
             android:textSize="60px"
             android:layout_margin="30px"
-            android:text="Review" />
+            android:text="리뷰" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
@@ -54,6 +54,13 @@
 
         </LinearLayout>
     </LinearLayout>
+    <Button
+        android:id="@+id/quoteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시세보기"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -91,7 +98,8 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="715dp"
+            tools:ignore="MissingConstraints">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/reviewRecycler"
