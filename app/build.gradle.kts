@@ -8,11 +8,7 @@ android {
     namespace = "com.example.eatraw"
     compileSdk = 34
     viewBinding { enable = true }
-
     dataBinding { enable = true }
-
-
-
 
     defaultConfig {
         applicationId = "com.example.eatraw"

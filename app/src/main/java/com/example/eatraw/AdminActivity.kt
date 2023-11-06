@@ -1,7 +1,9 @@
 package com.example.eatraw
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,11 +14,14 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.eatraw.databinding.ActivityAdminBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class AdminActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityAdminBinding
+    private lateinit var logoutTextView: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,18 +42,25 @@ class AdminActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_fish, R.id.nav_market, R.id.nav_review, R.id.nav_users,
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val logoutTextView = findViewById<TextView>(R.id.logout)
+        if (logoutTextView != null) {
+            logoutTextView.setOnClickListener {
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(applicationContext, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        } else {
+            // View를 찾지 못한 경우에 대한 처리
+        }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.admin, menu)
-        return true
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_admin)

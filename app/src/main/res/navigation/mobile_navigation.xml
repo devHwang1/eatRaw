@@ -8,18 +8,30 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.eatraw.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/admin"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.eatraw.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_fish"
+        android:name="com.example.eatraw.ui.fish.FishFragment"
+        android:label="생선 관리"
+        tools:layout="@layout/fragment_fish" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.eatraw.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_market"
+        android:name="com.example.eatraw.ui.market.MarketFragment"
+        android:label="시장 관리"
+        tools:layout="@layout/fragment_market" />
+
+    <fragment
+        android:id="@+id/nav_review"
+        android:name="com.example.eatraw.ui.review.ReviewFragment"
+        android:label="리뷰 관리"
+        tools:layout="@layout/fragment_review" />
+
+    <fragment
+        android:id="@+id/nav_users"
+        android:name="com.example.eatraw.ui.users.UsersFragment"
+        android:label="유저 관리"
+        tools:layout="@layout/fragment_users" />
 </navigation>

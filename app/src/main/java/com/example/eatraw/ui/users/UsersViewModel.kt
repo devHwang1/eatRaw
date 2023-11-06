@@ -1,13 +1,13 @@
-package com.example.eatraw.ui.gallery
+package com.example.eatraw.ui.users
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class UsersViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+        value = "This is users Fragment"
     }
     val text: LiveData<String> = _text
 }

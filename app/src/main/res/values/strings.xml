@@ -33,6 +33,7 @@
     <string name="my_review">나의 리뷰 확인</string>
     <string name="my_center">고객센터</string>
     <string name="my_term">약관 확인</string>
+    <string name="admin">관리자페이지</string>
     <string name="title_activity_admin">AdminActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -44,5 +45,10 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="price_max">최고가: %s</string>
+    <string name="price_min">최저가: %s</string>
+    <string name="price_avg">평균가: %s</string>
+    <string name="seasons">제철: %s</string>
 
 </resources>

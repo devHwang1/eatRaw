@@ -1,13 +1,13 @@
-package com.example.eatraw.ui.home
+package com.example.eatraw.ui.review
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class ReviewViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is adminPage Fragment"
+        value = "This is review Fragment"
     }
     val text: LiveData<String> = _text
 }

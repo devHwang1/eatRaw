@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.eatraw.R
 import com.example.eatraw.data.BestReviewItem
 
@@ -36,5 +37,32 @@ class BestReviewAdapter(private val data: List<BestReviewItem>) :
             imageView.setImageResource(item.imageResId)
             textView.text = item.rating.toString()
         }
+
+//        fun bind(item: BestReviewItem) {
+//            // 이미지 클릭 이벤트 처리
+//            imageView.setOnClickListener {
+//                // 여기에서 해당 리뷰로 이동하는 코드를 추가합니다
+//                val context = itemView.context
+//                val reviewId = item.reviewId  // 리뷰의 고유 ID 또는 다른 식별자를 가져옵니다
+//                val intent = Intent(context, ReviewDetailActivity::class.java)
+//                intent.putExtra("reviewId", reviewId)
+//                context.startActivity(intent)
+//            }
+//
+//            // 이미지를 로드하고 텍스트 설정
+//            imageView.setImageResource(item.imageResId)
+//            textView.text = item.rating.toString()
+//        }
     }
 }
+
+private fun ImageView.setImageResource(imageUrl: String?) {
+    if (imageUrl != null) {
+        Glide.with(this.context)
+            .load(imageUrl)
+            .into(this)
+    } else {
+        this.setImageResource(R.drawable.fisherman)
+    }
+}
+
