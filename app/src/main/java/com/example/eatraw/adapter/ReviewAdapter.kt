@@ -52,13 +52,19 @@ class ReviewAdapter(private val reviews: List<Review>) :
             intent.putExtra("storeName", review.storeName)  // 가게이름
             intent.putExtra("rating", review.rating ?: 0.0) // 별점
             intent.putExtra("region", review.region)    // 지역
-            intent.putExtra("fishKind", review.fishKind.toString())    // 물고기 종류
-            intent.putExtra("cost", review.cost)    // 가게가격
             intent.putExtra("userId", review.userId)    // 회원이름
             intent.putExtra("image", review.storeImg)   // 사진
+            intent.putExtra("fishkindcost",review.cost) // 물고기이름
+            intent.putExtra("menuCost",review.fishKind) //물고기 가격
+
+
+
+            //파이어 베이스 사용
+            val db = FirebaseFirestore.getInstance()
+
+
 
             // 사용자 정보(닉네임) 추가
-            val db = FirebaseFirestore.getInstance()
             db.collection("users")
                 .document(review.userId.toString())
                 .get()
@@ -80,27 +86,8 @@ class ReviewAdapter(private val reviews: List<Review>) :
                     Log.e("FirestoreError", "Error getting user document: ", exception)
                 }
 
-            // Fish 종류 정보 추가
-            db.collection("fish")
-                .document(review.fishKind.toString())
-                .get()
-                .addOnSuccessListener { fishDocument ->
-                    if (fishDocument.exists()) {
-                        val minCost = fishDocument.getString("f_min")
-                        val avgCost = fishDocument.getLong("f_avg")
-                        val maxCost = fishDocument.getLong("f_max")
-
-                        intent.putExtra("fishMin", minCost)
-                        intent.putExtra("fishAvg", avgCost)
-                        intent.putExtra("fishMax", maxCost)
-                    }
-
-                    // 이 부분에서 startActivity 호출하지 않습니다.
-                }
-                .addOnFailureListener { exception ->
-                    // 에러 처리
-                    Log.e("FirestoreError", "Error getting fish document: ", exception)
-                }
+            //좋아요 기능
+            db.collection("revew")
         }
 
     }
