@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mypageFragment">
+
+    <fragment
+        android:id="@+id/centerFragment"
+        android:name="com.example.eatraw.mypagefrg.CenterFragment"
+        android:label="CenterFragment" />
+    <fragment
+        android:id="@+id/alarmFragment"
+        android:name="com.example.eatraw.mypagefrg.AlarmFragment"
+        android:label="AlarmFragment" />
+    <fragment
+        android:id="@+id/myreviewFragment"
+        android:name="com.example.eatraw.mypagefrg.MyreviewFragment"
+        android:label="MyreviewFragment" />
+    <fragment
+        android:id="@+id/termFragment"
+        android:name="com.example.eatraw.mypagefrg.TermFragment"
+        android:label="TermFragment" />
+    <fragment
+        android:id="@+id/modifyFragment"
+        android:name="com.example.eatraw.mypagefrg.ModifyFragment"
+        android:label="fragment_modify"
+        tools:layout="@layout/fragment_modify" />
+    <activity
+        android:id="@+id/mypageActivity"
+        android:name="com.example.eatraw.MypageActivity"
+        android:label="MypageActivity" />
+    <fragment
+        android:id="@+id/mypageFragment"
+        android:name="com.example.eatraw.MypageFragment"
+        android:label="fragment_mypage"
+        tools:layout="@layout/fragment_mypage" >
+        <action
+            android:id="@+id/action_mypageFragment_to_modifyFragment"
+            app:destination="@id/modifyFragment" />
+        <action
+            android:id="@+id/action_mypageFragment_to_termFragment"
+            app:destination="@id/termFragment" />
+        <action
+            android:id="@+id/action_mypageFragment_to_myreviewFragment"
+            app:destination="@id/myreviewFragment" />
+        <action
+            android:id="@+id/action_mypageFragment_to_alarmFragment"
+            app:destination="@id/alarmFragment" />
+        <action
+            android:id="@+id/action_mypageFragment_to_centerFragment"
+            app:destination="@id/centerFragment" />
+    </fragment>
+</navigation>
