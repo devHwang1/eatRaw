@@ -3,6 +3,7 @@ package com.example.eatraw
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -20,7 +21,6 @@ class AdminActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityAdminBinding
-    private lateinit var logoutTextView: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,13 +48,14 @@ class AdminActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val logoutTextView = findViewById<TextView>(R.id.logout)
-        if (logoutTextView != null) {
-            logoutTextView.setOnClickListener {
-                FirebaseAuth.getInstance().signOut()
-                val intent = Intent(applicationContext, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+        val homeImageView = findViewById<ImageView>(R.id.nalloHome)
+        if (homeImageView != null) {
+            homeImageView.setOnClickListener {
+                val homeImageView = findViewById<ImageView>(R.id.nalloHome)
+                homeImageView.setOnClickListener {
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                }
             }
         } else {
             // View를 찾지 못한 경우에 대한 처리

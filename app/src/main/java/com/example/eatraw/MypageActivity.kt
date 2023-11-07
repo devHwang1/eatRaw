@@ -65,6 +65,11 @@ class MypageActivity : AppCompatActivity() {
 
         email.text = user?.email
 
+        val userId = mAuth.currentUser?.uid
+        userId?.let {
+            getUserInfo(it)
+        }
+
         adminTextView = binding.admin
 
 
