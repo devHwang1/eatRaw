@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:2:1-67:12
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-69:12
 MERGED from [androidx.databinding:databinding-adapters:8.1.1] C:\Users\admin\.gradle\caches\transforms-3\0c5c0ec4288f7d7e6ff1d65477bf0274\transformed\databinding-adapters-8.1.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-ktx:8.1.1] C:\Users\admin\.gradle\caches\transforms-3\71d1a3fd32e35a9f24568132d07ef708\transformed\databinding-ktx-8.1.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-runtime:8.1.1] C:\Users\admin\.gradle\caches\transforms-3\54379d2a3270b9dbbed991e162efedb8\transformed\databinding-runtime-8.1.1\AndroidManifest.xml:2:1-7:12
@@ -94,8 +94,9 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\admin\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] C:\Users\admin\.gradle\caches\transforms-3\d6aceea68369a052b7f138c07a6fa970\transformed\lifecycle-livedata-2.6.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.6.2] C:\Users\admin\.gradle\caches\transforms-3\739a3e5cabeb1061cee1db482167b3a9\transformed\lifecycle-livedata-ktx-2.6.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] C:\Users\admin\.gradle\caches\transforms-3\26030986898e3fbc11815f152543036a\transformed\lifecycle-viewmodel-ktx-2.6.2\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\838fac7b331959bfbc4f71c9fcf73783\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\d9c65b8513a7c1d0756f0655b98a73ee\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] C:\Users\admin\.gradle\caches\transforms-3\eba090857565f1ee3e7bd6f5a01fef68\transformed\MPAndroidChart-v3.1.0\AndroidManifest.xml:2:1-20:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\838fac7b331959bfbc4f71c9fcf73783\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\admin\.gradle\caches\transforms-3\1bda946071d079a945d0a573dfa52a11\transformed\gifdecoder-4.11.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\1d1081b7cf549188c9fa6c766e7c9223\transformed\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\acc60547b5ba4aafda62096c13beaa97\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -113,17 +114,17 @@ MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\admin\.
 MERGED from [io.grpc:grpc-android:1.52.1] C:\Users\admin\.gradle\caches\transforms-3\3b8b8af415c6f742a0d7e3408cf09493\transformed\grpc-android-1.52.1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\admin\.gradle\caches\transforms-3\8be5a53474f851e4a5859fd652fee9dc\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 	package
-		INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:5:5-67
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:5:5-67
 MERGED from [com.google.firebase:firebase-auth:22.2.0] C:\Users\admin\.gradle\caches\transforms-3\bb990653381d949574ea22df60a72293\transformed\firebase-auth-22.2.0\AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-auth:22.2.0] C:\Users\admin\.gradle\caches\transforms-3\bb990653381d949574ea22df60a72293\transformed\firebase-auth-22.2.0\AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-database:20.3.0] C:\Users\admin\.gradle\caches\transforms-3\21c527cfa7249ef3158fb3f0112b7026\transformed\firebase-database-20.3.0\AndroidManifest.xml:23:5-67
@@ -145,10 +146,10 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:21.4.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.4.0] C:\Users\admin\.gradle\caches\transforms-3\fe6a50ea249befe3ff746d8fda167b37\transformed\play-services-measurement-sdk-api-21.4.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.4.0] C:\Users\admin\.gradle\caches\transforms-3\fe6a50ea249befe3ff746d8fda167b37\transformed\play-services-measurement-sdk-api-21.4.0\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:7:5-65:19
-INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:7:5-65:19
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:7:5-67:19
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:7:5-67:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\admin\.gradle\caches\transforms-3\6a3b8aca25653227095f518471209d50\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\admin\.gradle\caches\transforms-3\6a3b8aca25653227095f518471209d50\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\admin\.gradle\caches\transforms-3\d33fab732e9601cb4dede1c668d89207\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -232,95 +233,123 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\admin\.gradle\cach
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\admin\.gradle\caches\transforms-3\c08cbd69ce0522cd7fae7a80a65f2435\transformed\circleimageview-3.1.0\AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\admin\.gradle\caches\transforms-3\c08cbd69ce0522cd7fae7a80a65f2435\transformed\circleimageview-3.1.0\AndroidManifest.xml:9:5-20
 	android:extractNativeLibs
-		INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] C:\Users\admin\.gradle\caches\transforms-3\72b32677b591b9f3074803ceb2e73e5a\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:12:9-41
 	android:fullBackupContent
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:10:9-54
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:10:9-54
 	android:roundIcon
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:13:9-54
 	tools:targetApi
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:16:9-29
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:16:9-29
 	android:icon
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:11:9-43
 	android:allowBackup
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:8:9-35
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:15:9-44
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:15:9-44
 	android:dataExtractionRules
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:9:9-65
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:9:9-65
+activity#com.example.eatraw.AddFishActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:17:9-19:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:19:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:18:13-44
+activity#com.example.eatraw.AdminActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:20:9-25:20
+	android:label
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:23:13-57
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:22:13-36
+	android:theme
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:24:13-60
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:21:13-42
+activity#com.example.eatraw.SplashActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:26:9-29:20
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:27:13-43
 activity#com.example.eatraw.ComparingPriceDetailActivity
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:18:9-20:40
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:30:9-32:40
 	android:exported
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:20:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:32:13-37
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:19:13-57
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:31:13-57
 activity#com.example.eatraw.ComparingPriceListActivity
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:21:9-23:40
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:33:9-35:40
 	android:exported
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:23:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:35:13-37
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:22:13-55
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:34:13-55
 activity#com.example.eatraw.WriteActivity
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:25:9-28:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:36:9-38:40
 	android:exported
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:27:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:38:13-37
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:26:13-42
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:37:13-42
 activity#com.example.eatraw.RegisterActivity
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:31:9-34:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:39:9-41:40
 	android:exported
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:33:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:41:13-37
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:32:13-45
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:40:13-45
 activity#com.example.eatraw.LoginActivity
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:36:9-39:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:42:9-44:39
 	android:exported
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:38:13-36
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:44:13-36
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:37:13-42
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:43:13-42
 activity#com.example.eatraw.DetailActivity
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:41:9-44:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:45:9-47:40
 	android:exported
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:43:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:47:13-37
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:42:13-43
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:46:13-43
 activity#com.example.eatraw.ReviewActivity
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:46:9-49:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:48:9-50:39
 	android:exported
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:48:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:50:13-36
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:47:13-43
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:49:13-43
 activity#com.example.eatraw.MypageActivity
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:51:9-54:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:51:9-53:40
 	android:exported
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:53:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:53:13-37
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:52:13-43
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:52:13-43
+activity#com.example.eatraw.QuoteActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:54:9-56:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:56:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:55:13-42
 activity#com.example.eatraw.MainActivity
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:56:9-63:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:57:9-65:20
 	android:exported
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:58:13-36
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:59:13-36
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:57:13-41
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:58:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:59:13-62:29
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:60:13-64:29
 action#android.intent.action.MAIN
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:60:17-69
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:61:17-69
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:60:25-66
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:61:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:61:17-77
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:63:17-77
 	android:name
-		ADDED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml:61:27-74
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:63:27-74
 uses-sdk
-INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml
-INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml
 MERGED from [androidx.databinding:databinding-adapters:8.1.1] C:\Users\admin\.gradle\caches\transforms-3\0c5c0ec4288f7d7e6ff1d65477bf0274\transformed\databinding-adapters-8.1.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.databinding:databinding-adapters:8.1.1] C:\Users\admin\.gradle\caches\transforms-3\0c5c0ec4288f7d7e6ff1d65477bf0274\transformed\databinding-adapters-8.1.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.databinding:databinding-ktx:8.1.1] C:\Users\admin\.gradle\caches\transforms-3\71d1a3fd32e35a9f24568132d07ef708\transformed\databinding-ktx-8.1.1\AndroidManifest.xml:5:5-44
@@ -501,10 +530,12 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.6.2] C:\Users\admin\.gr
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.6.2] C:\Users\admin\.gradle\caches\transforms-3\739a3e5cabeb1061cee1db482167b3a9\transformed\lifecycle-livedata-ktx-2.6.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] C:\Users\admin\.gradle\caches\transforms-3\26030986898e3fbc11815f152543036a\transformed\lifecycle-viewmodel-ktx-2.6.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] C:\Users\admin\.gradle\caches\transforms-3\26030986898e3fbc11815f152543036a\transformed\lifecycle-viewmodel-ktx-2.6.2\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\838fac7b331959bfbc4f71c9fcf73783\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\838fac7b331959bfbc4f71c9fcf73783\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\d9c65b8513a7c1d0756f0655b98a73ee\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\d9c65b8513a7c1d0756f0655b98a73ee\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] C:\Users\admin\.gradle\caches\transforms-3\eba090857565f1ee3e7bd6f5a01fef68\transformed\MPAndroidChart-v3.1.0\AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] C:\Users\admin\.gradle\caches\transforms-3\eba090857565f1ee3e7bd6f5a01fef68\transformed\MPAndroidChart-v3.1.0\AndroidManifest.xml:16:5-18:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\838fac7b331959bfbc4f71c9fcf73783\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\838fac7b331959bfbc4f71c9fcf73783\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\admin\.gradle\caches\transforms-3\1bda946071d079a945d0a573dfa52a11\transformed\gifdecoder-4.11.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\admin\.gradle\caches\transforms-3\1bda946071d079a945d0a573dfa52a11\transformed\gifdecoder-4.11.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\admin\.gradle\caches\transforms-3\1d1081b7cf549188c9fa6c766e7c9223\transformed\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
@@ -540,9 +571,9 @@ MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\adm
 	tools:overrideLibrary
 		ADDED from [com.google.firebase:firebase-auth:22.2.0] C:\Users\admin\.gradle\caches\transforms-3\bb990653381d949574ea22df60a72293\transformed\firebase-auth-22.2.0\AndroidManifest.xml:23:9-61
 	android:targetSdkVersion
-		INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\workspace\Raw_git\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\admin\.gradle\caches\transforms-3\0a1b4303734a2ff81e0b80bb324e3aff\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\admin\.gradle\caches\transforms-3\5db3e165ab2a892d535d1ae64282f6a0\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:24:9-32:20

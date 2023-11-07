@@ -6,11 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.eatraw.R;
@@ -20,7 +23,7 @@ import java.lang.String;
 
 public final class ActivityWriteBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
   public final LinearLayout StarBox;
@@ -30,6 +33,27 @@ public final class ActivityWriteBinding implements ViewBinding {
 
   @NonNull
   public final Button btnReview;
+
+  @NonNull
+  public final CardView cardView;
+
+  @NonNull
+  public final CardView cardView2;
+
+  @NonNull
+  public final CardView cardView3;
+
+  @NonNull
+  public final CardView cardView4;
+
+  @NonNull
+  public final CardView cardView5;
+
+  @NonNull
+  public final CardView cardView6;
+
+  @NonNull
+  public final CardView cardView7;
 
   @NonNull
   public final LinearLayout editBox;
@@ -55,15 +79,28 @@ public final class ActivityWriteBinding implements ViewBinding {
   @NonNull
   public final TextView textScore;
 
-  private ActivityWriteBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout StarBox,
-      @NonNull Button btnImage, @NonNull Button btnReview, @NonNull LinearLayout editBox,
-      @NonNull EditText editFishName, @NonNull EditText editFishPrice,
-      @NonNull EditText editStoreName, @NonNull EditText editText, @NonNull EditText marketName,
-      @NonNull Spinner starSelect, @NonNull TextView textScore) {
+  @NonNull
+  public final ImageView thumbnailImageView;
+
+  private ActivityWriteBinding(@NonNull ScrollView rootView, @NonNull LinearLayout StarBox,
+      @NonNull Button btnImage, @NonNull Button btnReview, @NonNull CardView cardView,
+      @NonNull CardView cardView2, @NonNull CardView cardView3, @NonNull CardView cardView4,
+      @NonNull CardView cardView5, @NonNull CardView cardView6, @NonNull CardView cardView7,
+      @NonNull LinearLayout editBox, @NonNull EditText editFishName,
+      @NonNull EditText editFishPrice, @NonNull EditText editStoreName, @NonNull EditText editText,
+      @NonNull EditText marketName, @NonNull Spinner starSelect, @NonNull TextView textScore,
+      @NonNull ImageView thumbnailImageView) {
     this.rootView = rootView;
     this.StarBox = StarBox;
     this.btnImage = btnImage;
     this.btnReview = btnReview;
+    this.cardView = cardView;
+    this.cardView2 = cardView2;
+    this.cardView3 = cardView3;
+    this.cardView4 = cardView4;
+    this.cardView5 = cardView5;
+    this.cardView6 = cardView6;
+    this.cardView7 = cardView7;
     this.editBox = editBox;
     this.editFishName = editFishName;
     this.editFishPrice = editFishPrice;
@@ -72,11 +109,12 @@ public final class ActivityWriteBinding implements ViewBinding {
     this.marketName = marketName;
     this.starSelect = starSelect;
     this.textScore = textScore;
+    this.thumbnailImageView = thumbnailImageView;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -116,6 +154,48 @@ public final class ActivityWriteBinding implements ViewBinding {
       id = R.id.btnReview;
       Button btnReview = ViewBindings.findChildViewById(rootView, id);
       if (btnReview == null) {
+        break missingId;
+      }
+
+      id = R.id.cardView;
+      CardView cardView = ViewBindings.findChildViewById(rootView, id);
+      if (cardView == null) {
+        break missingId;
+      }
+
+      id = R.id.cardView2;
+      CardView cardView2 = ViewBindings.findChildViewById(rootView, id);
+      if (cardView2 == null) {
+        break missingId;
+      }
+
+      id = R.id.cardView3;
+      CardView cardView3 = ViewBindings.findChildViewById(rootView, id);
+      if (cardView3 == null) {
+        break missingId;
+      }
+
+      id = R.id.cardView4;
+      CardView cardView4 = ViewBindings.findChildViewById(rootView, id);
+      if (cardView4 == null) {
+        break missingId;
+      }
+
+      id = R.id.cardView5;
+      CardView cardView5 = ViewBindings.findChildViewById(rootView, id);
+      if (cardView5 == null) {
+        break missingId;
+      }
+
+      id = R.id.cardView6;
+      CardView cardView6 = ViewBindings.findChildViewById(rootView, id);
+      if (cardView6 == null) {
+        break missingId;
+      }
+
+      id = R.id.cardView7;
+      CardView cardView7 = ViewBindings.findChildViewById(rootView, id);
+      if (cardView7 == null) {
         break missingId;
       }
 
@@ -167,9 +247,16 @@ public final class ActivityWriteBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityWriteBinding((LinearLayout) rootView, StarBox, btnImage, btnReview,
-          editBox, editFishName, editFishPrice, editStoreName, editText, marketName, starSelect,
-          textScore);
+      id = R.id.thumbnailImageView;
+      ImageView thumbnailImageView = ViewBindings.findChildViewById(rootView, id);
+      if (thumbnailImageView == null) {
+        break missingId;
+      }
+
+      return new ActivityWriteBinding((ScrollView) rootView, StarBox, btnImage, btnReview, cardView,
+          cardView2, cardView3, cardView4, cardView5, cardView6, cardView7, editBox, editFishName,
+          editFishPrice, editStoreName, editText, marketName, starSelect, textScore,
+          thumbnailImageView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

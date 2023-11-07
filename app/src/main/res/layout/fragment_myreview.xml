@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".mypagefrg.MyreviewFragment"
     android:background="@color/white">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/detailRecylerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="내 리뷰 페이지입니다." />
-
+        android:layout_height="match_parent" />
+</LinearLayout>
 </FrameLayout>
