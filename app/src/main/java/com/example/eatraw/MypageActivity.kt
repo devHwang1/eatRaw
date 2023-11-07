@@ -72,17 +72,6 @@ class MypageActivity : AppCompatActivity() {
 
         adminTextView = binding.admin
 
-
-//        modifyLayout.setOnClickListener {
-//            supportFragmentManager.beginTransaction()
-//                .replace(R.id.fragment_container, ModifyFragment()).addToBackStack(null).commit()
-//
-//            val userId = mAuth.currentUser?.uid
-//            userId?.let {
-//                getUserInfo(it)
-//            }
-
-
         //개별 프래그먼트로 이동
         //정보 수정은 구글 로그인 이슈로 다른 함수에 있음
 

@@ -139,8 +139,9 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        // 파이어베이스에서 물고기 목록을 가져오는 코드
+        // Firestore에서 데이터 가져오고 정렬하기
         firestore.collection("fish")
+            .orderBy("f_season")
             .get()
             .addOnSuccessListener { documents ->
                 val comparingPriceData = mutableListOf<ComparingPriceItem>()
@@ -152,33 +153,32 @@ class MainActivity : AppCompatActivity() {
                     val maxCost = (document["f_max"] as? Long)?.toInt()
                     val fishImg = document.getString("f_img")
                     val season = document.getString("f_season")
-                    val storageReference = FirebaseStorage.getInstance().reference
-                    val imageRef = storageReference.child("FishImg/$fishImg")
+//                    val storageReference = FirebaseStorage.getInstance().reference
+//                    val imageRef = storageReference.child("FishImg/$fishImg")
 
                     if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
-                        imageRef.downloadUrl.addOnSuccessListener { uri ->
-                            val imageUrl = uri.toString()
-                            val comparingPriceItem = ComparingPriceItem(
-                                fishName,
-                                minCost.toString(),
-                                avgCost.toString(),
-                                maxCost.toString(),
-                                imageUrl,
-                                season
-                            )
-                            comparingPriceData.add(comparingPriceItem)
+//                        imageRef.downloadUrl.addOnSuccessListener { uri ->
+//                            val imageUrl = uri.toString()
+                        val comparingPriceItem = ComparingPriceItem(
+                            fishName,
+                            minCost.toString(),
+                            avgCost.toString(),
+                            maxCost.toString(),
+                            fishImg,
+                            season
+                        )
+                        comparingPriceData.add(comparingPriceItem)
 
-                            // 데이터를 RecyclerView에 설정
-                            val adapterComparingPrice = ComparingPriceAdapter(comparingPriceData)
-                            recyclerViewComparingPrice.adapter = adapterComparingPrice
-                        }
+                        // 데이터를 RecyclerView에 설정
+                        val adapterComparingPrice = ComparingPriceAdapter(comparingPriceData)
+                        recyclerViewComparingPrice.adapter = adapterComparingPrice
+//                        }
                     }
                 }
 
                 // 데이터를 RecyclerView에 설정
                 val adapterComparingPrice = ComparingPriceAdapter(comparingPriceData)
                 recyclerViewComparingPrice.adapter = adapterComparingPrice
-
             }
             .addOnFailureListener { exception ->
                 // 데이터 가져오기 실패 시 처리

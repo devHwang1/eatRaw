@@ -48,11 +48,11 @@ class AdminActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val homeImageView = findViewById<ImageView>(R.id.nalloHome)
-        if (homeImageView != null) {
-            homeImageView.setOnClickListener {
-                val homeImageView = findViewById<ImageView>(R.id.nalloHome)
-                homeImageView.setOnClickListener {
+        val homeTextView = findViewById<TextView>(R.id.adminHome)
+        if (homeTextView != null) {
+            homeTextView.setOnClickListener {
+                val homeTextView = findViewById<TextView>(R.id.adminHome)
+                homeTextView.setOnClickListener {
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent)
                 }
