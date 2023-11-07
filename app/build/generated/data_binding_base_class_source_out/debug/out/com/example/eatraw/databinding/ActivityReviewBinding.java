@@ -10,9 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.eatraw.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,6 +23,9 @@ import java.lang.String;
 public final class ActivityReviewBinding implements ViewBinding {
   @NonNull
   private final LinearLayout rootView;
+
+  @NonNull
+  public final BottomNavigationView bnvMain;
 
   @NonNull
   public final FloatingActionButton floatingActionButton;
@@ -37,15 +42,22 @@ public final class ActivityReviewBinding implements ViewBinding {
   @NonNull
   public final Spinner spinner2;
 
+  @NonNull
+  public final SwipeRefreshLayout swipeRefreshLayout;
+
   private ActivityReviewBinding(@NonNull LinearLayout rootView,
-      @NonNull FloatingActionButton floatingActionButton, @NonNull RecyclerView reviewRecycler,
-      @NonNull SearchView searchView, @NonNull Spinner spinner1, @NonNull Spinner spinner2) {
+      @NonNull BottomNavigationView bnvMain, @NonNull FloatingActionButton floatingActionButton,
+      @NonNull RecyclerView reviewRecycler, @NonNull SearchView searchView,
+      @NonNull Spinner spinner1, @NonNull Spinner spinner2,
+      @NonNull SwipeRefreshLayout swipeRefreshLayout) {
     this.rootView = rootView;
+    this.bnvMain = bnvMain;
     this.floatingActionButton = floatingActionButton;
     this.reviewRecycler = reviewRecycler;
     this.searchView = searchView;
     this.spinner1 = spinner1;
     this.spinner2 = spinner2;
+    this.swipeRefreshLayout = swipeRefreshLayout;
   }
 
   @Override
@@ -75,6 +87,12 @@ public final class ActivityReviewBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bnv_main;
+      BottomNavigationView bnvMain = ViewBindings.findChildViewById(rootView, id);
+      if (bnvMain == null) {
+        break missingId;
+      }
+
       id = R.id.floatingActionButton;
       FloatingActionButton floatingActionButton = ViewBindings.findChildViewById(rootView, id);
       if (floatingActionButton == null) {
@@ -105,8 +123,14 @@ public final class ActivityReviewBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityReviewBinding((LinearLayout) rootView, floatingActionButton,
-          reviewRecycler, searchView, spinner1, spinner2);
+      id = R.id.swipeRefreshLayout;
+      SwipeRefreshLayout swipeRefreshLayout = ViewBindings.findChildViewById(rootView, id);
+      if (swipeRefreshLayout == null) {
+        break missingId;
+      }
+
+      return new ActivityReviewBinding((LinearLayout) rootView, bnvMain, floatingActionButton,
+          reviewRecycler, searchView, spinner1, spinner2, swipeRefreshLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

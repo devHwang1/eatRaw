@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-48:/values-v24/values-v24.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\6a3b8aca25653227095f518471209d50\\transformed\\material-1.10.0\\res\\values-v24\\values-v24.xml",

@@ -4,81 +4,99 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.eatraw.adapter.ReviewDetailAdapter
-import com.example.eatraw.data.DetailReview
 import com.example.eatraw.data.Review
+import com.example.eatraw.data.Users
 import com.example.eatraw.databinding.ActivityDetailBinding
+import com.example.eatraw.databinding.ActivityDetailBoxBinding
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
 class DetailActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityDetailBinding
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter : ReviewDetailAdapter
-    private val itemList = arrayListOf<Review>()
-    private val db = FirebaseFirestore.getInstance()
 
-    @SuppressLint("NotifyDataSetChanged")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailBinding.inflate(layoutInflater)
+        val binding = ActivityDetailBoxBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        FirebaseApp.initializeApp(this)
+        val intent = intent
+        val reviewContentIntent = intent.getStringExtra("reviewContent")  //댓글내용
+        val marketNameIntent = intent.getStringExtra("marketName")        //시장이름
+        val storeNameIntent = intent.getStringExtra("storeName")          //가게이름
+        val ratingIntent = intent.getDoubleExtra("rating", 0.0)   //별점
+        val regionIntent = intent.getStringExtra("region")        //지역
+        val fishKindIntent = intent.getStringExtra("fishKind")        //가게가격
+        val costIntent = intent.getStringExtra("cost")        //물고기종류
+        val userIdIntent = intent.getStringExtra("userId")     // 회원id
+        val imageIntent = intent.getStringExtra("image")    //이미지
 
-        recyclerView = binding.detailRecylerView
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = ReviewDetailAdapter(itemList)
-        recyclerView.adapter = adapter
+        //유저
+        val nicknameInten = intent.getStringExtra("userNickname")
+        val UserimageInten = intent.getStringExtra("userImage")
+
+        //물고기
+        val fishMinIntent = intent.getStringExtra("fishMin")
+        val fishAvgIntent = intent.getStringExtra("fishAvg")
+        val fishMaxIntent = intent.getStringExtra("fishMax")
 
 
-        db.collection("review")
-            .get()
-            .addOnSuccessListener { result ->
-                val newItems = mutableListOf<Review>()
-                for (document in result){
-                    val content = document["content"] as String
-                    val marketName = document["marketName"] as String
-                    val storeName = document["storeName"] as String
-<<<<<<< HEAD
-                    val rating = document["rating"] as Double?
-=======
-                    val rating = document["rating"]?.toString()?.toDoubleOrNull()
->>>>>>> e83978d81e46812c888fafade304e3cc29213a84
-                    val storeImg = document["storeImg"] as String?
-                    val region = document["region"] as String?
-                    val like = (document["like"] as? Long)?.toInt()
-                    val cost = (document["cost"] as? Long)?.toInt()
-                    val fishKind = document["fishKind"] as String?
-<<<<<<< HEAD
-=======
-                    val userId = document["userId"] as String?
->>>>>>> e83978d81e46812c888fafade304e3cc29213a84
-                    val storageReference =  FirebaseStorage.getInstance().reference
-                    val imageRef = storageReference.child("storeImg/$storeImg")
 
-                    imageRef.downloadUrl.addOnSuccessListener { uri ->
-                        val imageUrl = uri.toString()
-                        val marketNameWithHash = "#$marketName"
-<<<<<<< HEAD
-                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,cost,fishKind)
-=======
-                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,cost,fishKind,userId)
->>>>>>> e83978d81e46812c888fafade304e3cc29213a84
-                        newItems.add(item)
 
-                        itemList.clear()
-                        itemList.addAll(newItems)
-                        adapter.notifyDataSetChanged()
-                    }
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w("DetailActivity", "Error: $exception")
-            }
+        // 데이터를 TextView에 설정
+        val reviewContent = findViewById<TextView>(R.id.contentView)
+//        val storeName = findViewById<TextView>(R.id.storeNameBar)
+        val rating = findViewById<TextView>(R.id.mStarsocore)
+        val fishKind = findViewById<TextView>(R.id.StorePriceInt)
+        val cost = findViewById<TextView>(R.id.MenuFishName)
+        val userNicName = findViewById<TextView>(R.id.mName)
+        val Image = findViewById<ImageView>(R.id.Reviewimg)
+        val userimg = findViewById<ImageView>(R.id.mImg)
+
+        //물고기 TextView에 설정
+        val fishMinText = findViewById<TextView>(R.id.IntMin)
+        val fishAvgText = findViewById<TextView>(R.id.IntAvg)
+        val fishMaxText = findViewById<TextView>(R.id.IntMax)
+
+        //별모양
+        val DratingBar = findViewById<RatingBar>(R.id.DratingBar)
+        DratingBar.rating = ratingIntent.toFloat()
+
+
+        //리뷰
+        reviewContent.text ="$reviewContentIntent"
+//        storeName.text = "$storeNameIntent"
+        rating.text = "$ratingIntent"
+        fishKind.text = "$fishKindIntent"
+        cost.text = "$costIntent"
+        userNicName.text = "$nicknameInten"
+
+        //몰고기
+        fishMinText.text = "$fishMinIntent"
+        fishAvgText.text = "$fishAvgIntent"
+        fishMaxText.text= "$fishMaxIntent"
+
+
+        //이미지 설정
+        Glide.with(this)
+            .load(imageIntent)
+            .into(Image)
+
+        //이미지 설정(유저)
+        Glide.with(this)
+            .load(UserimageInten)
+            .into(userimg)
+
     }
+
+
+
 
 }

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-48:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\2f2587ce497f2128d75a46553768c586\\transformed\\play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",

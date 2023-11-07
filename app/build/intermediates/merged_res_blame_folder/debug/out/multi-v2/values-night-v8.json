@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-48:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\workspace\\eatRaw_main\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "C:\\workspace\\Raw_git\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "100",
+                        "startOffsets": "102",
                         "endLines": "5",
                         "endColumns": "12",
-                        "endOffsets": "313"
+                        "endOffsets": "318"
                     },
                     "to": {
                         "startLines": "2",

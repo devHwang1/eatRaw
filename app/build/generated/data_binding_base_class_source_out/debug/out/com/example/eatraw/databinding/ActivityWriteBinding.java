@@ -47,6 +47,9 @@ public final class ActivityWriteBinding implements ViewBinding {
   public final EditText editText;
 
   @NonNull
+  public final EditText marketName;
+
+  @NonNull
   public final Spinner starSelect;
 
   @NonNull
@@ -55,8 +58,8 @@ public final class ActivityWriteBinding implements ViewBinding {
   private ActivityWriteBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout StarBox,
       @NonNull Button btnImage, @NonNull Button btnReview, @NonNull LinearLayout editBox,
       @NonNull EditText editFishName, @NonNull EditText editFishPrice,
-      @NonNull EditText editStoreName, @NonNull EditText editText, @NonNull Spinner starSelect,
-      @NonNull TextView textScore) {
+      @NonNull EditText editStoreName, @NonNull EditText editText, @NonNull EditText marketName,
+      @NonNull Spinner starSelect, @NonNull TextView textScore) {
     this.rootView = rootView;
     this.StarBox = StarBox;
     this.btnImage = btnImage;
@@ -66,6 +69,7 @@ public final class ActivityWriteBinding implements ViewBinding {
     this.editFishPrice = editFishPrice;
     this.editStoreName = editStoreName;
     this.editText = editText;
+    this.marketName = marketName;
     this.starSelect = starSelect;
     this.textScore = textScore;
   }
@@ -145,6 +149,12 @@ public final class ActivityWriteBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.marketName;
+      EditText marketName = ViewBindings.findChildViewById(rootView, id);
+      if (marketName == null) {
+        break missingId;
+      }
+
       id = R.id.starSelect;
       Spinner starSelect = ViewBindings.findChildViewById(rootView, id);
       if (starSelect == null) {
@@ -158,7 +168,8 @@ public final class ActivityWriteBinding implements ViewBinding {
       }
 
       return new ActivityWriteBinding((LinearLayout) rootView, StarBox, btnImage, btnReview,
-          editBox, editFishName, editFishPrice, editStoreName, editText, starSelect, textScore);
+          editBox, editFishName, editFishPrice, editStoreName, editText, marketName, starSelect,
+          textScore);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

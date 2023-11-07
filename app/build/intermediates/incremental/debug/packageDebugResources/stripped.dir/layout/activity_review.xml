@@ -55,20 +55,21 @@
         </LinearLayout>
     </LinearLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ReviewActivity">
 
-        <!-- 리사이클러뷰 설정 -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/reviewRecycler"
+        <!-- 네비게이션 바 (BottomNavigationView) -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/bnv_main"
+            android:background="#FFFFFF"
+            app:menu="@menu/navi_menu"
+            app:itemIconTint="@color/gray"
+            app:itemTextColor="@color/black"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -79,10 +80,32 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:backgroundTint="@color/material_dynamic_primary60"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toTopOf="@+id/bnv_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="TODO" />
+
+
+        <!-- 리사이클러뷰 설정 -->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reviewRecycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bnv_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 

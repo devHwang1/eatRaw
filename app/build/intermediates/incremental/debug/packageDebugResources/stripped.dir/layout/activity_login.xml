@@ -50,7 +50,7 @@
             android:layout_height="48dp"
             android:background="@drawable/login_selector"
             android:hint="@string/password"
-
+            android:inputType="textPassword"
             android:padding="8dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,7 +79,6 @@
     </LinearLayout>
 
 
-
     <Button
         android:id="@+id/btn_login"
         android:layout_width="284dp"
@@ -88,15 +87,6 @@
         android:background="@drawable/login_button"
         android:text="@string/login" />
 
-
-
-    <ImageButton
-        android:id="@+id/kakao_login"
-        android:layout_width="284dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/kakao_login_medium_wide"
-        />
 
     <ImageButton
         android:id="@+id/google_login"
@@ -119,6 +109,11 @@
         android:id="@+id/registerNow"
         android:text="@string/register" />
 
+    <View
+
+        android:layout_width="284dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp" />
 
 
     <!--    <TextView-->

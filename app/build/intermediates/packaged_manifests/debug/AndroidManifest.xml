@@ -41,35 +41,36 @@
             android:exported="false" />
         <activity
             android:name="com.example.eatraw.WriteActivity"
-            android:exported="true" >
+            android:exported="false" >
         </activity>
-        <activity
-            android:name="com.example.eatraw.NicknameActivity"
-            android:exported="false" />
         <activity
             android:name="com.example.eatraw.RegisterActivity"
             android:exported="false" >
         </activity>
         <activity
             android:name="com.example.eatraw.LoginActivity"
-            android:exported="false" >
+            android:exported="true" >
         </activity>
         <activity
             android:name="com.example.eatraw.DetailActivity"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name="com.example.eatraw.ReviewActivity"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name="com.example.eatraw.MypageActivity"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name="com.example.eatraw.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.example.eatraw.ReviewActivity"
-            android:exported="true" >
-        </activity>
-        <activity
-            android:name="com.example.eatraw.MainActivity"
-            android:exported="false" >
         </activity>
 
         <provider
@@ -230,6 +231,12 @@
 
         <uses-library
             android:name="android.ext.adservices"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
             android:required="false" />
 
         <receiver

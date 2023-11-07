@@ -32,9 +32,6 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final ImageButton googleLogin;
 
   @NonNull
-  public final ImageButton kakaoLogin;
-
-  @NonNull
   public final TextInputEditText password;
 
   @NonNull
@@ -45,13 +42,12 @@ public final class ActivityLoginBinding implements ViewBinding {
 
   private ActivityLoginBinding(@NonNull LinearLayout rootView, @NonNull Button btnLogin,
       @NonNull TextInputEditText email, @NonNull ImageButton googleLogin,
-      @NonNull ImageButton kakaoLogin, @NonNull TextInputEditText password,
-      @NonNull Button registerNow, @NonNull TextView searchId) {
+      @NonNull TextInputEditText password, @NonNull Button registerNow,
+      @NonNull TextView searchId) {
     this.rootView = rootView;
     this.btnLogin = btnLogin;
     this.email = email;
     this.googleLogin = googleLogin;
-    this.kakaoLogin = kakaoLogin;
     this.password = password;
     this.registerNow = registerNow;
     this.searchId = searchId;
@@ -102,12 +98,6 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.kakao_login;
-      ImageButton kakaoLogin = ViewBindings.findChildViewById(rootView, id);
-      if (kakaoLogin == null) {
-        break missingId;
-      }
-
       id = R.id.password;
       TextInputEditText password = ViewBindings.findChildViewById(rootView, id);
       if (password == null) {
@@ -127,7 +117,7 @@ public final class ActivityLoginBinding implements ViewBinding {
       }
 
       return new ActivityLoginBinding((LinearLayout) rootView, btnLogin, email, googleLogin,
-          kakaoLogin, password, registerNow, searchId);
+          password, registerNow, searchId);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

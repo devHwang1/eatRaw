@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-48:/values-w1240dp-v13/values-w1240dp-v13.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-w1240dp-v13/values-w1240dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\workspace\\eatRaw_main\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
+                    "source": "C:\\workspace\\Raw_git\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
-                        "startOffsets": "18",
+                        "startOffsets": "21",
                         "endColumns": "58",
-                        "endOffsets": "72"
+                        "endOffsets": "75"
                     },
                     "to": {
                         "startLines": "2",
