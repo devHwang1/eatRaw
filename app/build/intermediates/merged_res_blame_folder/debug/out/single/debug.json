@@ -500,6 +500,10 @@
         "source": "com.example.eatraw.app-main-64:/font/black.ttf"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-62:/layout_item_review_list.xml.flat",
+        "source": "com.example.eatraw.app-main-64:/layout/item_review_list.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-62:/drawable_check_button.xml.flat",
         "source": "com.example.eatraw.app-main-64:/drawable/check_button.xml"
     },

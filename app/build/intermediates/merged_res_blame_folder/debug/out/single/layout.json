@@ -36,6 +36,10 @@
         "source": "com.example.eatraw.app-main-64:/layout/activity_splash.xml"
     },
     {
+        "merged": "com.example.eatraw.app-mergeDebugResources-61:/layout/item_review_list.xml",
+        "source": "com.example.eatraw.app-main-64:/layout/item_review_list.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-mergeDebugResources-61:/layout/content_admin.xml",
         "source": "com.example.eatraw.app-main-64:/layout/content_admin.xml"
     },

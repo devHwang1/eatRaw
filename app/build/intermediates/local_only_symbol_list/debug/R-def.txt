@@ -110,6 +110,7 @@ id action_mypageFragment_to_modifyFragment
 id action_mypageFragment_to_myreviewFragment
 id action_mypageFragment_to_termFragment
 id admin
+id adminHome
 id alarm
 id alarmFragment
 id app_bar_admin
@@ -286,6 +287,7 @@ layout item_banner
 layout item_best_review
 layout item_comparing_price
 layout item_fish_list
+layout item_review_list
 layout nav_header_admin
 layout recyclerview_review
 menu activity_main_drawer
