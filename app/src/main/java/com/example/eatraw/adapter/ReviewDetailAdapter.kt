@@ -9,12 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.eatraw.R
-import com.example.eatraw.data.DetailReview
 import com.example.eatraw.data.Review
 import com.example.eatraw.data.Users
 
 //사용 데이터 : Review
-class ReviewDetailAdapter(private val review: List<Review>) :
+class ReviewDetailAdapter(private val review: List<Review>, private val users:List<Users>) :
     RecyclerView.Adapter<ReviewDetailAdapter.ReviewDetailAdapterViewHolder>() {
 
     class ReviewDetailAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,8 +27,9 @@ class ReviewDetailAdapter(private val review: List<Review>) :
 //        val Textcomparison : TextView = itemView.findViewById(R.id.Textcomparison)
 
 
-//        //user
-//        val memberName : TextView = itemView.findViewById(R.id.mName)
+        //user
+        val memberName : TextView = itemView.findViewById(R.id.mName)
+        val meberProfil: ImageView = itemView.findViewById(R.id.mImg)
 //
 //        //가격
 //        val minPrice : TextView = itemView.findViewById(R.id.IntMin)
@@ -48,7 +48,7 @@ class ReviewDetailAdapter(private val review: List<Review>) :
 
     override fun onBindViewHolder(holder: ReviewDetailAdapterViewHolder, position: Int) {
         val review = review[position]
-//        val user = user[position]
+        val users = users[position]
 //        val reviewDetail = detailreview[position]
 
         // 리뷰 데이터를 뷰에 연결
@@ -66,8 +66,13 @@ class ReviewDetailAdapter(private val review: List<Review>) :
         holder.likecounter.text = review.like.toString()
 
 //가격 및 멤버이름
-//        //멤버이름
-//        holder.memberName.text = user.nickname
+        //멤버이름 , 사진
+        users.imageUrl?.let {
+            Glide.with(holder.itemView)
+                .load(it)
+                .into(holder.meberProfil)
+        }
+        holder.memberName.text = users.nickname
 //
 //        //가격
 //        holder.minPrice.text = reviewDetail.minPrice.toString()
