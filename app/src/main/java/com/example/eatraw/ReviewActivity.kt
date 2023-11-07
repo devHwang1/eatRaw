@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
 import android.widget.Toast
@@ -119,20 +120,32 @@ class ReviewActivity : AppCompatActivity() {
                     }
             }
         }
-
+        val quoteButton = findViewById<Button>(R.id.quoteButton)
         // Spinner2에서 market 선택 시 해당 market의 리뷰만 가져오기
         spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
                 if (isSpinner2FirstSelection) {
                     isSpinner2FirstSelection = false
                 } else {
                     val selectedMarket = markets[position]
                     loadReviewsForMarket(selectedMarket)
+
+                    quoteButton.visibility = View.VISIBLE
+
+                    quoteButton.text = "$selectedMarket 시세보기"
                 }
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
+
+
 
             private fun loadReviewsForMarket(selectedMarket: String) {
                 db.collection("review")
@@ -180,12 +193,15 @@ class ReviewActivity : AppCompatActivity() {
                     }
             }
         }
+        quoteButton.setOnClickListener {
+            val selectedMarket = spinner2.selectedItem.toString()
+            val intent = Intent(this, QuoteActivity::class.java)
+            intent.putExtra("marketName",selectedMarket)
+            startActivity(intent)
+        }
 
-        // SearchView에 대한 Query Text 변경 리스너 설정
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                // 사용자가 검색 버튼을 누르면 호출됩니다.
-                // Firestore에서 query를 사용하여 검색 작업을 수행하세요.
                 performSearch(query)
                 performSearch2(query)
                 performSearch3(query)
@@ -193,15 +209,11 @@ class ReviewActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                // SearchView의 텍스트가 변경될 때마다 호출됩니다.
-                // Firestore에서 newText를 사용하여 실시간 검색 또는 자동완성을 구현할 수 있습니다.
                 return true
             }
         })
         var bnv_main = findViewById(R.id.bnv_main) as BottomNavigationView
 
-        // OnNavigationItemSelectedListener를 통해 탭 아이템 선택 시 이벤트를 처리
-        // navi_menu.xml 에서 설정했던 각 아이템들의 id를 통해 알맞은 프래그먼트로 변경하게 한다.
         bnv_main.run { setOnNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.first -> {
