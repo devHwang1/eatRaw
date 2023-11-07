@@ -17,15 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EatRaw"
         tools:targetApi="31">
-        <activity
 
+        <activity
             android:name=".ComparingPriceDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ComparingPriceListActivity"
             android:exported="false" />
+
         <activity
             android:name=".WriteActivity"
+<<<<<<< HEAD
             android:exported="true">
 
         </activity>
@@ -33,37 +35,62 @@
         <activity
             android:name=".NicknameActivity"
             android:exported="false" />
+=======
+            android:exported="false">
+        </activity>
+
+>>>>>>> e83978d81e46812c888fafade304e3cc29213a84
 
         <activity
             android:name=".RegisterActivity"
             android:exported="false">
-
         </activity>
 
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
+            android:exported="true">
         </activity>
 
         <activity
             android:name=".DetailActivity"
+<<<<<<< HEAD
             android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+=======
+            android:exported="false">
+>>>>>>> e83978d81e46812c888fafade304e3cc29213a84
         </activity>
 
         <activity
             android:name=".ReviewActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".MypageActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
+<<<<<<< HEAD
 
 
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false">
+=======
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+>>>>>>> e83978d81e46812c888fafade304e3cc29213a84
         </activity>
 
     </application>
