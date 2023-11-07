@@ -4,6 +4,7 @@ package com.example.eatraw.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import androidx.annotation.NonNull;
@@ -31,6 +32,9 @@ public final class ActivityReviewBinding implements ViewBinding {
   public final FloatingActionButton floatingActionButton;
 
   @NonNull
+  public final Button quoteButton;
+
+  @NonNull
   public final RecyclerView reviewRecycler;
 
   @NonNull
@@ -47,12 +51,13 @@ public final class ActivityReviewBinding implements ViewBinding {
 
   private ActivityReviewBinding(@NonNull LinearLayout rootView,
       @NonNull BottomNavigationView bnvMain, @NonNull FloatingActionButton floatingActionButton,
-      @NonNull RecyclerView reviewRecycler, @NonNull SearchView searchView,
-      @NonNull Spinner spinner1, @NonNull Spinner spinner2,
+      @NonNull Button quoteButton, @NonNull RecyclerView reviewRecycler,
+      @NonNull SearchView searchView, @NonNull Spinner spinner1, @NonNull Spinner spinner2,
       @NonNull SwipeRefreshLayout swipeRefreshLayout) {
     this.rootView = rootView;
     this.bnvMain = bnvMain;
     this.floatingActionButton = floatingActionButton;
+    this.quoteButton = quoteButton;
     this.reviewRecycler = reviewRecycler;
     this.searchView = searchView;
     this.spinner1 = spinner1;
@@ -99,6 +104,12 @@ public final class ActivityReviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.quoteButton;
+      Button quoteButton = ViewBindings.findChildViewById(rootView, id);
+      if (quoteButton == null) {
+        break missingId;
+      }
+
       id = R.id.reviewRecycler;
       RecyclerView reviewRecycler = ViewBindings.findChildViewById(rootView, id);
       if (reviewRecycler == null) {
@@ -130,7 +141,7 @@ public final class ActivityReviewBinding implements ViewBinding {
       }
 
       return new ActivityReviewBinding((LinearLayout) rootView, bnvMain, floatingActionButton,
-          reviewRecycler, searchView, spinner1, spinner2, swipeRefreshLayout);
+          quoteButton, reviewRecycler, searchView, spinner1, spinner2, swipeRefreshLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

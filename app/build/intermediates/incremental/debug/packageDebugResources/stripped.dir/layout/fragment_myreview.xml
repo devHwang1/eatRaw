@@ -10,6 +10,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="약관페이지입니다." />
+        android:text="내 리뷰 페이지입니다." />
 
 </FrameLayout>
