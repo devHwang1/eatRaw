@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -16,14 +15,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class ReviewAdapter(private val reviews: List<Review>) :
     RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
-
-    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        init {
-            itemView.setOnClickListener{
-
-            }
-        }
-    }
 
     class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
@@ -53,43 +44,43 @@ class ReviewAdapter(private val reviews: List<Review>) :
         holder.button1.text = review.marketName // 시장 이름
         holder.storeName.text = review.storeName
 
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             val review = reviews[position]
-            val intent = Intent(holder.itemView?.context, DetailActivity::class.java)
-            intent.putExtra("reviewContent", review.content) //콘텐츠(댓글내용)
-            intent.putExtra("marketName",review.marketName)  //시장이름
-            intent.putExtra("storeName",review.storeName)  //가게이름
-            intent.putExtra("rating", review.rating ?: 0.0) //별점
-            intent.putExtra("region", review.region)    //지역
-            intent.putExtra("fishKind", review.fishKind.toString())    //물고기 종류
+            val intent = Intent(holder.itemView.context, DetailActivity::class.java)
+            intent.putExtra("reviewContent", review.content) // 콘텐츠(댓글내용)
+            intent.putExtra("marketName", review.marketName)  // 시장이름
+            intent.putExtra("storeName", review.storeName)  // 가게이름
+            intent.putExtra("rating", review.rating ?: 0.0) // 별점
+            intent.putExtra("region", review.region)    // 지역
+            intent.putExtra("fishKind", review.fishKind.toString())    // 물고기 종류
             intent.putExtra("cost", review.cost)    // 가게가격
             intent.putExtra("userId", review.userId)    // 회원이름
-            intent.putExtra("image", review.storeImg)   //사진
+            intent.putExtra("image", review.storeImg)   // 사진
 
-            //사용자 정보(닉네임)추가
+            // 사용자 정보(닉네임) 추가
             val db = FirebaseFirestore.getInstance()
             db.collection("users")
                 .document(review.userId.toString())
                 .get()
                 .addOnSuccessListener { documentSnapshot ->
-                    if(documentSnapshot.exists()) {
+                    if (documentSnapshot.exists()) {
                         val userNicName = documentSnapshot.getString("nickname")
                         val userImage = documentSnapshot.getString("imageUrl")
 
-                        intent.putExtra("userNickname",userNicName)
+                        intent.putExtra("userNickname", userNicName)
                         intent.putExtra("userImage", userImage)
                         holder.itemView.context.startActivity(intent)
-                    }else{
+                    } else {
                         // 사용자 정보를 찾지 못한 경우에 대한 처리
                         holder.itemView.context.startActivity(intent)
                     }
                 }
-                .addOnSuccessListener { exception ->
+                .addOnFailureListener { exception ->
                     // 에러 처리
-                    holder.itemView.context.startActivity(intent)
+                    Log.e("FirestoreError", "Error getting user document: ", exception)
                 }
 
-            //fish종류
+            // Fish 종류 정보 추가
             db.collection("fish")
                 .document(review.fishKind.toString())
                 .get()
@@ -99,19 +90,19 @@ class ReviewAdapter(private val reviews: List<Review>) :
                         val avgCost = fishDocument.getLong("f_avg")
                         val maxCost = fishDocument.getLong("f_max")
 
-                        intent.putExtra("fishMin",minCost)
-                        intent.putExtra("fishAvg",avgCost)
-                        intent.putExtra("fishMax",maxCost)
+                        intent.putExtra("fishMin", minCost)
+                        intent.putExtra("fishAvg", avgCost)
+                        intent.putExtra("fishMax", maxCost)
                     }
+
+                    // 이 부분에서 startActivity 호출하지 않습니다.
                 }
                 .addOnFailureListener { exception ->
                     // 에러 처리
                     Log.e("FirestoreError", "Error getting fish document: ", exception)
                 }
-
-            holder.itemView.context.startActivity(intent)
-            ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
+
     }
 
     override fun getItemCount(): Int {
