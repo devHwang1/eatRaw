@@ -17,17 +17,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/androidx/databinding/DataBinderMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/androidx/databinding/DataBinderMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/androidx/databinding/DataBindingComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/androidx/databinding/DataBindingComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/androidx/databinding/library/baseAdapters/BR.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/androidx/databinding/library/baseAdapters/BR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/example/eatraw/BR.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/example/eatraw/BR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/example/eatraw/DataBinderMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/example/eatraw/DataBinderMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter$Holder.dex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter$ReviewViewHolder.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter$ReviewViewHolder.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter$onBindViewHolder$2$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter$onBindViewHolder$2$1.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter$onBindViewHolder$2$2.dex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter$onBindViewHolder$2$3.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter$onBindViewHolder$2$3.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/ReviewAdapter.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/eatraw/DetailActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/eatraw/DetailActivity.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab" afterDir="false" />
@@ -61,22 +60,19 @@
       <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/local-state/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/local-state/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter$Holder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter$ReviewViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter$ReviewViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter$onBindViewHolder$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter$onBindViewHolder$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter$onBindViewHolder$2$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter$onBindViewHolder$2$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter$onBindViewHolder$2$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/ReviewAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/eatraw/DetailActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/eatraw/DetailActivity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/DetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/DetailActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/adapter/ReviewAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/adapter/ReviewAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/QuoteActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/QuoteActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/ReviewActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/ReviewActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/WriteActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eatraw/WriteActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/search_border.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/search_border.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_quote.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_quote.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\admin\.android\avd\Pixel_2_API_34.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\comed\.android\avd\8_Fold-out_API_34.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />

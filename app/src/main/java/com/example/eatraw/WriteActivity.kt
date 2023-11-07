@@ -1,26 +1,23 @@
 package com.example.eatraw
 
-import android.annotation.SuppressLint
+
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
+import android.widget.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.common.io.Files.getFileExtension
-import com.google.firebase.Firebase
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.auth
+import com.example.eatraw.R
+import com.example.eatraw.ReviewActivity
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.ServerTimestamp
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
+import java.util.Date
 
 class WriteActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
@@ -38,12 +35,13 @@ class WriteActivity : AppCompatActivity() {
     private lateinit var marketName: EditText
     private lateinit var thumbnailImageView: ImageView
 
-    @SuppressLint("MissingInflatedId")
+    @ServerTimestamp
+    private var timestamp: Date? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write)
 
-        FirebaseApp.initializeApp(this)
         db = FirebaseFirestore.getInstance()
         storage = FirebaseStorage.getInstance()
         storageReference = storage.reference
@@ -76,20 +74,22 @@ class WriteActivity : AppCompatActivity() {
 
     private fun uploadImageAndAddReviewToFirestore() {
         if (selectedImageUri != null) {
-            val imageFileName = selectedImageUri!!.lastPathSegment // 이미지 파일 이름을 원본 파일명으로 설정
+            val imageFileName = selectedImageUri!!.lastPathSegment
 
-            // Image upload
             val imageRef = storageReference.child("storeImg/$imageFileName")
             val uploadTask: UploadTask = imageRef.putFile(selectedImageUri!!)
 
-            val user = Firebase.auth.currentUser
+            val user = FirebaseAuth.getInstance().currentUser
             val userUid = user?.uid
+
+            // 서버 시간을 가져와 Timestamp 객체를 생성
+            val timestamp = Timestamp.now()
 
             uploadTask.addOnSuccessListener { taskSnapshot ->
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                     val content = editText.text.toString()
                     val fishKind = editFishKind.text.toString()
-                    val cost = editFishPrice.text.toString().toInt()
+                    val cost = editFishPrice.text.toString().toDouble()
                     val storeName = editStoreName.text.toString()
                     val selectedRating = starSelect.selectedItem.toString().toFloat()
                     val marketName = marketName.text.toString()
@@ -98,16 +98,17 @@ class WriteActivity : AppCompatActivity() {
                         "content" to content,
                         "fishKind" to fishKind,
                         "cost" to cost,
-                        "storeImg" to uri.toString(), // 이미지 URL을 저장
+                        "storeImg" to uri.toString(),
                         "storeName" to storeName,
                         "rating" to selectedRating,
                         "marketName" to marketName,
-                        "userId" to userUid
+                        "userId" to userUid,
+                        "timestamp" to timestamp  // 서버 시간을 사용하여 등록 날짜 저장
                     )
 
                     db.collection("review")
                         .add(reviewData)
-                        .addOnSuccessListener { documentReference: DocumentReference ->
+                        .addOnSuccessListener { documentReference ->
                             val reviewId = documentReference.id
                             showResultMessage("리뷰가 성공적으로 등록되었습니다.")
                             val intent = Intent(this, ReviewActivity::class.java)
@@ -132,7 +133,6 @@ class WriteActivity : AppCompatActivity() {
                 selectedImageUri = uri
                 showResultMessage("이미지 선택 완료")
 
-                // 섬네일 이미지 표시
                 thumbnailImageView.visibility = View.VISIBLE
                 thumbnailImageView.setImageURI(uri)
             }

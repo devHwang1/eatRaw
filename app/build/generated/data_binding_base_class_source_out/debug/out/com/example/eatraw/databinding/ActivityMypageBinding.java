@@ -4,7 +4,6 @@ package com.example.eatraw.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -24,25 +23,16 @@ public final class ActivityMypageBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final TextView admin;
+
+  @NonNull
   public final TextView alarm;
 
   @NonNull
-  public final ImageView arrow1;
-
-  @NonNull
-  public final ImageView arrow2;
-
-  @NonNull
-  public final ImageView arrow3;
-
-  @NonNull
-  public final ImageView arrow4;
-
-  @NonNull
-  public final ImageView arrow5;
-
-  @NonNull
   public final BottomNavigationView bnvMain;
+
+  @NonNull
+  public final TextView btnDel;
 
   @NonNull
   public final TextView center;
@@ -66,25 +56,18 @@ public final class ActivityMypageBinding implements ViewBinding {
   public final TextView nickhello;
 
   @NonNull
-  public final Button textView3;
-
-  @NonNull
   public final ImageView thumbnail;
 
-  private ActivityMypageBinding(@NonNull RelativeLayout rootView, @NonNull TextView alarm,
-      @NonNull ImageView arrow1, @NonNull ImageView arrow2, @NonNull ImageView arrow3,
-      @NonNull ImageView arrow4, @NonNull ImageView arrow5, @NonNull BottomNavigationView bnvMain,
+  private ActivityMypageBinding(@NonNull RelativeLayout rootView, @NonNull TextView admin,
+      @NonNull TextView alarm, @NonNull BottomNavigationView bnvMain, @NonNull TextView btnDel,
       @NonNull TextView center, @NonNull TextView email, @NonNull FrameLayout fragmentContainer,
       @NonNull TextView logout, @NonNull TextView modify, @NonNull TextView myreview,
-      @NonNull TextView nickhello, @NonNull Button textView3, @NonNull ImageView thumbnail) {
+      @NonNull TextView nickhello, @NonNull ImageView thumbnail) {
     this.rootView = rootView;
+    this.admin = admin;
     this.alarm = alarm;
-    this.arrow1 = arrow1;
-    this.arrow2 = arrow2;
-    this.arrow3 = arrow3;
-    this.arrow4 = arrow4;
-    this.arrow5 = arrow5;
     this.bnvMain = bnvMain;
+    this.btnDel = btnDel;
     this.center = center;
     this.email = email;
     this.fragmentContainer = fragmentContainer;
@@ -92,7 +75,6 @@ public final class ActivityMypageBinding implements ViewBinding {
     this.modify = modify;
     this.myreview = myreview;
     this.nickhello = nickhello;
-    this.textView3 = textView3;
     this.thumbnail = thumbnail;
   }
 
@@ -123,45 +105,27 @@ public final class ActivityMypageBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.admin;
+      TextView admin = ViewBindings.findChildViewById(rootView, id);
+      if (admin == null) {
+        break missingId;
+      }
+
       id = R.id.alarm;
       TextView alarm = ViewBindings.findChildViewById(rootView, id);
       if (alarm == null) {
         break missingId;
       }
 
-      id = R.id.arrow1;
-      ImageView arrow1 = ViewBindings.findChildViewById(rootView, id);
-      if (arrow1 == null) {
-        break missingId;
-      }
-
-      id = R.id.arrow2;
-      ImageView arrow2 = ViewBindings.findChildViewById(rootView, id);
-      if (arrow2 == null) {
-        break missingId;
-      }
-
-      id = R.id.arrow3;
-      ImageView arrow3 = ViewBindings.findChildViewById(rootView, id);
-      if (arrow3 == null) {
-        break missingId;
-      }
-
-      id = R.id.arrow4;
-      ImageView arrow4 = ViewBindings.findChildViewById(rootView, id);
-      if (arrow4 == null) {
-        break missingId;
-      }
-
-      id = R.id.arrow5;
-      ImageView arrow5 = ViewBindings.findChildViewById(rootView, id);
-      if (arrow5 == null) {
-        break missingId;
-      }
-
       id = R.id.bnv_main;
       BottomNavigationView bnvMain = ViewBindings.findChildViewById(rootView, id);
       if (bnvMain == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_del;
+      TextView btnDel = ViewBindings.findChildViewById(rootView, id);
+      if (btnDel == null) {
         break missingId;
       }
 
@@ -207,21 +171,14 @@ public final class ActivityMypageBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView3;
-      Button textView3 = ViewBindings.findChildViewById(rootView, id);
-      if (textView3 == null) {
-        break missingId;
-      }
-
       id = R.id.thumbnail;
       ImageView thumbnail = ViewBindings.findChildViewById(rootView, id);
       if (thumbnail == null) {
         break missingId;
       }
 
-      return new ActivityMypageBinding((RelativeLayout) rootView, alarm, arrow1, arrow2, arrow3,
-          arrow4, arrow5, bnvMain, center, email, fragmentContainer, logout, modify, myreview,
-          nickhello, textView3, thumbnail);
+      return new ActivityMypageBinding((RelativeLayout) rootView, admin, alarm, bnvMain, btnDel,
+          center, email, fragmentContainer, logout, modify, myreview, nickhello, thumbnail);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

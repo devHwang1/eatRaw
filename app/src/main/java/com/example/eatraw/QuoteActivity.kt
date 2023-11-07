@@ -1,8 +1,14 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.Timestamp
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -10,12 +16,13 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
-import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Calendar
 
 class QuoteActivity : AppCompatActivity() {
     private lateinit var barChart: BarChart
+    private lateinit var textViewq: TextView
 
-    private val fishKinds = listOf("광어", "우럭", "참돔", "돌돔","감성돔")
+    private val fishKinds = listOf("광어", "우럭", "참돔", "방어", "전어", "전복", "굴","돌돔")
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,22 +31,51 @@ class QuoteActivity : AppCompatActivity() {
 
         barChart = findViewById(R.id.barChart)
 
-        // 인텐트로 전달된 시장 이름 가져오기
-        val marketName = intent.getStringExtra("marketName")
+        val spinner: Spinner = findViewById(R.id.spinner)
+        val periods = arrayOf("1주일 내", "1달 내", "1년 내")
+        textViewq = findViewById(R.id.textViewq)
 
-        if (!marketName.isNullOrBlank()) {
-            loadAndDisplayFishKindAveragesForMarket(marketName)
+        spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, periods)
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View, position: Int, id: Long) {
+                val calendar = Calendar.getInstance()
+                val endTimestamp = Timestamp.now()
+                when (position) {
+                    0 -> {
+                        calendar.add(Calendar.WEEK_OF_YEAR, -1)
+                    }
+                    1 -> {
+                        calendar.add(Calendar.MONTH, -1)
+                    }
+                    2 -> {
+                        calendar.add(Calendar.YEAR, -1)
+                    }
+                }
+                val startTimestamp = Timestamp(calendar.time)
+                val marketName = intent.getStringExtra("marketName")
+                if (!marketName.isNullOrBlank()) {
+                    loadAndDisplayFishKindAveragesForMarket(marketName, startTimestamp, endTimestamp)
+                }
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+            }
         }
     }
 
-    private fun loadAndDisplayFishKindAveragesForMarket(marketName: String) {
+    private fun loadAndDisplayFishKindAveragesForMarket(marketName: String, startTimestamp: Timestamp, endTimestamp: Timestamp) {
         val firestore = FirebaseFirestore.getInstance()
         val fishKindAverages = mutableMapOf<String, Float>()
-
+        Log.w("시간값알기", "$startTimestamp")
+        Log.w("시간값알기", "$endTimestamp")
+        Log.w("시간값알기", "$marketName")
+        textViewq.text = "$marketName" + " 어종별 시세"
         for (fishKind in fishKinds) {
             firestore.collection("review")
                 .whereEqualTo("marketName", marketName)
                 .whereEqualTo("fishKind", fishKind)
+                .whereGreaterThanOrEqualTo("timestamp", startTimestamp)
+                .whereLessThanOrEqualTo("timestamp", endTimestamp)
                 .get()
                 .addOnSuccessListener { querySnapshot ->
                     var totalCost = 0.0
@@ -56,15 +92,16 @@ class QuoteActivity : AppCompatActivity() {
                     if (count > 0) {
                         val averageCost = totalCost.toFloat() / count
                         fishKindAverages[fishKind] = averageCost
+                        Log.w("평균값알기", "$averageCost")
+                        Log.w("평균값알기", "$totalCost")
+                        Log.w("평균값알기", "$fishKindAverages")
                     }
 
                     if (fishKindAverages.size == fishKinds.size) {
-                        // 모든 어종에 대한 데이터를 로드한 후 차트를 표시합니다.
                         displayFishKindAveragesChart(fishKindAverages)
                     }
                 }
                 .addOnFailureListener { exception ->
-                    // 오류 처리
                 }
         }
     }
@@ -79,30 +116,32 @@ class QuoteActivity : AppCompatActivity() {
             labels.add(fishKind)
         }
 
+        val colors = intArrayOf(Color.rgb(197,255,140), Color.rgb(255,247,139)
+        + Color.rgb(255, 211, 140),Color.rgb(140, 235, 255),Color.rgb(255, 142, 155)) // 막대의 갯수에 따라서 원하는 색상을 추가하세요
+
         val barDataSet = BarDataSet(barEntries, "어종별 평균 시세")
+        barDataSet.setColors(*colors)
 
         val dataSets: ArrayList<IBarDataSet> = ArrayList()
         dataSets.add(barDataSet)
 
         val data = BarData(dataSets)
-        data.setValueTextSize(20f) // 막대에 레이블 텍스트 크기 설정
-        data.barWidth = 0.4f // 막대 너비 조정
+        data.setValueTextSize(15f)
+        data.barWidth = 0.4f
 
         barChart.data = data
         barChart.description.isEnabled = false
         barChart.setFitBars(true)
         barChart.animateY(1000)
+        barChart.setDrawGridBackground(false)
 
-        // 막대 레이블 설정
         val xAxis = barChart.xAxis
         xAxis.valueFormatter = IndexAxisValueFormatter(labels)
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.setDrawGridLines(false)
         xAxis.setGranularity(1f)
-        xAxis.textSize = 16f
+        xAxis.textSize = 12f
 
         barChart.invalidate()
     }
-
-
 }

@@ -8,7 +8,6 @@ import android.widget.ActionMenuView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.SearchView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,9 +46,6 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ImageView imageView3;
 
   @NonNull
-  public final SearchView mainSearchbar;
-
-  @NonNull
   public final ActionMenuView menubar1;
 
   @NonNull
@@ -80,8 +76,8 @@ public final class ActivityMainBinding implements ViewBinding {
       @NonNull BottomNavigationView bnvMain, @NonNull TextView fishName1,
       @NonNull TextView fishName2, @NonNull TextView fishPrice1, @NonNull TextView fishPrice2,
       @NonNull ImageView imageView2, @NonNull ImageView imageView3,
-      @NonNull SearchView mainSearchbar, @NonNull ActionMenuView menubar1,
-      @NonNull LinearLayout menubar3, @NonNull LinearLayout menubar4, @NonNull TextView nalLo,
+      @NonNull ActionMenuView menubar1, @NonNull LinearLayout menubar3,
+      @NonNull LinearLayout menubar4, @NonNull TextView nalLo,
       @NonNull RecyclerView recyclerViewBanner, @NonNull RecyclerView recyclerViewBestReview,
       @NonNull RecyclerView recyclerViewComparingPrice, @NonNull TextView seeingMore,
       @NonNull LinearLayout topLayout) {
@@ -93,7 +89,6 @@ public final class ActivityMainBinding implements ViewBinding {
     this.fishPrice2 = fishPrice2;
     this.imageView2 = imageView2;
     this.imageView3 = imageView3;
-    this.mainSearchbar = mainSearchbar;
     this.menubar1 = menubar1;
     this.menubar3 = menubar3;
     this.menubar4 = menubar4;
@@ -174,12 +169,6 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.mainSearchbar;
-      SearchView mainSearchbar = ViewBindings.findChildViewById(rootView, id);
-      if (mainSearchbar == null) {
-        break missingId;
-      }
-
       id = R.id.menubar1;
       ActionMenuView menubar1 = ViewBindings.findChildViewById(rootView, id);
       if (menubar1 == null) {
@@ -235,9 +224,9 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((RelativeLayout) rootView, bnvMain, fishName1, fishName2,
-          fishPrice1, fishPrice2, imageView2, imageView3, mainSearchbar, menubar1, menubar3,
-          menubar4, nalLo, recyclerViewBanner, recyclerViewBestReview, recyclerViewComparingPrice,
-          seeingMore, topLayout);
+          fishPrice1, fishPrice2, imageView2, imageView3, menubar1, menubar3, menubar4, nalLo,
+          recyclerViewBanner, recyclerViewBestReview, recyclerViewComparingPrice, seeingMore,
+          topLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
