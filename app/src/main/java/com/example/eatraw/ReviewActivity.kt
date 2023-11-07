@@ -1,5 +1,6 @@
 package com.example.eatraw
 
+import ReviewAdapter
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.eatraw.adapter.ReviewAdapter
 import com.example.eatraw.data.Review
 import com.example.eatraw.databinding.ActivityReviewBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
