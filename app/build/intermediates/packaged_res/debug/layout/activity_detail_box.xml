@@ -254,12 +254,27 @@
                     android:orientation="horizontal">
 
 
+<<<<<<< HEAD
                     <ImageView
                         android:id="@+id/up"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/thumb" />
+=======
+                    <Button
+                        android:id="@+id/up"
+                        android:layout_width="35dp"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="#00ff0000"
+                        android:drawableLeft="@drawable/thumb"
+                        android:drawablePadding="0dp"
+                        android:paddingLeft="3dp"
+                        android:textAlignment="textStart"
+                        android:textColor="#000000" />
+>>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
 
                     <TextView
                         android:id="@+id/likeInt"
