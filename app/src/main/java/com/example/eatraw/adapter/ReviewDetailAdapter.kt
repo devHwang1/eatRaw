@@ -60,7 +60,7 @@ open class ReviewDetailAdapter(private var review : List<Review>, var users:List
         }
 
         holder.menuFishName.text = currentReview.fishKind.toString()
-        holder.fishPrice.text = currentReview.cost
+        holder.fishPrice.text = currentReview.cost.toString()
         holder.starScore.text = currentReview.rating.toString()
         holder.reviewContent.text = currentReview.content
         holder.likecounter.text = currentReview.like.toString()

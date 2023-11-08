@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -158,14 +157,13 @@ class ReviewActivity : AppCompatActivity() {
                             for (document in result) {
                                 val content = document["content"] as String
                                 val marketName = document["marketName"] as String
+                                val storeImg = document["storeImg"] as String
                                 val storeName = document["storeName"] as String
                                 val rating = document["rating"]?.toString()?.toDoubleOrNull()
-                                val storeImg = document["storeImg"] as String?
                                 val region = document["region"] as String?
                                 val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                                val cost = (document["cost"] as? Long)?.toInt()
-
-                                val fishKind = document["fishKind"] as String?
+                                val fishKind = document["fishKind"] as String
+                                val cost = (document["cost"] as? Long)!!.toInt()
                                 val userId = document["userId"] as String?
 
 
@@ -175,7 +173,7 @@ class ReviewActivity : AppCompatActivity() {
                                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                                     val imageUrl = uri.toString()
                                     val marketNameWithHash = "#$marketName"
-                                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,cost,fishKind,userId)
+                                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,fishKind,cost,userId)
                                     newItems.add(item)
                                     Log.w("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@result.size()", "$result.size()")
                                     Log.w("%#######################", "들오엄")
@@ -264,15 +262,15 @@ class ReviewActivity : AppCompatActivity() {
                     val storeImg = document["storeImg"] as String?
                     val region = document["region"] as String?
                     val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                    val cost = (document["cost"] as? Long)?.toInt()
-                    val fishKind = document["fishKind"] as String?
+                    val cost = (document["cost"] as? Long)!!.toInt()
+                    val fishKind = document["fishKind"] as String
                     val userId = document["userId"] as String?
 
                     // 이미지 URL이 없으면 기본 이미지 URL로 대체
                     val imageUrl = storeImg ?: "기본 이미지 URL" // 여기에 기본 이미지 URL을 넣으세요
 
                     val marketNameWithHash = "#$marketName"
-                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, cost, fishKind,userId)
+                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like,fishKind, cost, userId)
                     newItems.add(item)
                 }
 
@@ -304,8 +302,8 @@ class ReviewActivity : AppCompatActivity() {
                         val storeImg = document["storeImg"] as String?
                         val region = document["region"] as String?
                         val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                        val cost = (document["cost"] as? Long)?.toInt()
-                        val fishKind = document["fishKind"] as String?
+                        val cost = (document["cost"] as? Long)!!.toInt()
+                        val fishKind = document["fishKind"] as String
                         val userId = document["userId"] as String?
                         val storageReference = FirebaseStorage.getInstance().reference
                         val imageRef = storageReference.child("storeImg/$storeImg")
@@ -313,7 +311,7 @@ class ReviewActivity : AppCompatActivity() {
                         imageRef.downloadUrl.addOnSuccessListener { uri ->
                             val imageUrl = uri.toString()
                             val marketNameWithHash = "#$marketName"
-                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,cost,fishKind,userId)
+                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,fishKind,cost,userId)
                             newItems.add(item)
                             itemList.clear()
                             itemList.addAll(newItems)
@@ -350,8 +348,8 @@ class ReviewActivity : AppCompatActivity() {
                         val storeImg = document["storeImg"] as String?
                         val region = document["region"] as String?
                         val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                        val cost = (document["cost"] as? Long)?.toInt()
-                        val fishKind = document["fishKind"] as String?
+                        val cost = (document["cost"] as? Long)!!.toInt()
+                        val fishKind = document["fishKind"] as String
                         val userId = document["userId"] as String?
                         val storageReference = FirebaseStorage.getInstance().reference
                         val imageRef = storageReference.child("storeImg/$storeImg")
@@ -359,7 +357,7 @@ class ReviewActivity : AppCompatActivity() {
                         imageRef.downloadUrl.addOnSuccessListener { uri ->
                             val imageUrl = uri.toString()
                             val marketNameWithHash = "#$marketName"
-                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,cost, fishKind,userId)
+                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like, fishKind,cost,userId)
                             newItems.add(item)
                             itemList.clear()
                             itemList.addAll(newItems)
@@ -396,8 +394,8 @@ class ReviewActivity : AppCompatActivity() {
                         val storeImg = document["storeImg"] as String?
                         val region = document["region"] as String?
                         val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                        val cost = (document["cost"] as? Long)?.toInt()
-                        val fishKind = document["fishKind"] as String?
+                        val cost = (document["cost"] as? Long)!!.toInt()
+                        val fishKind = document["fishKind"] as String
                         val userId = document["userId"] as String?
                         val storageReference = FirebaseStorage.getInstance().reference
                         val imageRef = storageReference.child("storeImg/$storeImg")
@@ -405,7 +403,7 @@ class ReviewActivity : AppCompatActivity() {
                         imageRef.downloadUrl.addOnSuccessListener { uri ->
                             val imageUrl = uri.toString()
                             val marketNameWithHash = "#$marketName"
-                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like, cost, fishKind,userId)
+                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,  fishKind,cost,userId)
                             newItems.add(item)
                             itemList.clear()
                             itemList.addAll(newItems)

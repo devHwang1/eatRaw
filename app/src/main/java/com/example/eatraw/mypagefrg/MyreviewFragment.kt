@@ -72,7 +72,7 @@ class MyreviewFragment : Fragment() {
     private suspend fun getAllReviewsFromDb(): List<Review> {
         return withContext(Dispatchers.IO) {
             val reviews = mutableListOf<Review>()
-            val docRef = db.collection("reviews")
+            val docRef = db.collection("review")
 
             try {
                 val documents = docRef.get().await()
@@ -83,16 +83,17 @@ class MyreviewFragment : Fragment() {
                     val storeName = document.getString("storeName")
                     val rating = document.getDouble("rating")
                     val region = document.getString("region")
-                    val like = document.getString("like")
+                    val like = document.getLong("like")
                     val fishKind = document.getString("fishKind")
-                    val cost = document.getString("cost")
+                    val cost = document.getLong("cost")
                     val userId = document.getString("userId")
 
 
-                    if (content != null && rating != null && marketName != null && like != null && userId != null && storeImg != null
+                    if (content != null && rating != null && marketName != null && userId != null && storeImg != null
                         && storeName != null && storeName != null && fishKind != null && cost != null
                     ) {
-                        val review = Review(content,marketName,storeImg,storeName,rating.toDouble(), region,like.toInt(),fishKind.toInt(),cost,userId)
+                        val review = Review(content,marketName,storeImg,storeName,rating.toDouble(), region,
+                            like?.toInt(),fishKind,cost.toInt(),userId)
                         reviews.add(review)
                     }
                 }

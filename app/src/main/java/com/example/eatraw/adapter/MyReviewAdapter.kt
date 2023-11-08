@@ -48,7 +48,7 @@ class MyReviewAdapter(private val review: List<Review>, private val users: List<
 
             rating.text = currentReview.rating.toString()
             fishKind.text = currentReview.fishKind.toString()
-            cost.text = currentReview.cost
+            cost.text = currentReview.cost.toString()
             Glide.with(itemView)
                 .load(currentReview.storeImg)
                 .into(Image)
