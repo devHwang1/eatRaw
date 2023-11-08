@@ -8,12 +8,13 @@
     tools:context=".QuoteActivity">
 
     <TextView
+
         android:layout_width="match_parent"
-        android:text="자갈치 시장 어종별 시세"
+        android:text="어종별 시세"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:id="@+id/marketAverage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

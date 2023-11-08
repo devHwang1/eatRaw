@@ -1,5 +1,6 @@
 package com.example.eatraw.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.eatraw.DetailActivity
 import com.example.eatraw.R
 import com.example.eatraw.data.BestReviewItem
 
@@ -34,9 +36,20 @@ class BestReviewAdapter(private val data: List<BestReviewItem>) :
         private val textView: TextView = itemView.findViewById(R.id.reviewRating)
 
         fun bind(item: BestReviewItem) {
+            imageView.setOnClickListener {
+                // 여기에서 고유 식별자로 해당 리뷰로 이동하는 코드를 추가합니다.
+                val context = imageView.context
+                val reviewId = item.imageResId.toString() // imageResId를 고유 식별자로 사용 (고유 식별자 형식에 따라 변환해야 할 수 있음)
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("reviewId", reviewId)
+                context.startActivity(intent)
+            }
+
+            // 이미지를 로드하고 텍스트 설정
             imageView.setImageResource(item.imageResId)
             textView.text = item.rating.toString()
         }
+
 
 //        fun bind(item: BestReviewItem) {
 //            // 이미지 클릭 이벤트 처리
@@ -44,7 +57,7 @@ class BestReviewAdapter(private val data: List<BestReviewItem>) :
 //                // 여기에서 해당 리뷰로 이동하는 코드를 추가합니다
 //                val context = itemView.context
 //                val reviewId = item.reviewId  // 리뷰의 고유 ID 또는 다른 식별자를 가져옵니다
-//                val intent = Intent(context, ReviewDetailActivity::class.java)
+//                val intent = Intent(context, DetailActivity::class.java)
 //                intent.putExtra("reviewId", reviewId)
 //                context.startActivity(intent)
 //            }

@@ -32,12 +32,12 @@
                 android:textSize="20sp" />
         </ActionMenuView>
 
-<!--        <SearchView-->
-<!--            android:id="@+id/mainSearchbar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="5dp"-->
-<!--            android:background="@drawable/custom_background" />-->
+        <!--        <SearchView-->
+        <!--            android:id="@+id/mainSearchbar"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="5dp"-->
+        <!--            android:background="@drawable/custom_background" />-->
 
     </LinearLayout>
     <!-- 상단 부분 끝 -->

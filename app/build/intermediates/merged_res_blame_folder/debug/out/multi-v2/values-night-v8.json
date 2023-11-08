@@ -4,7 +4,7 @@
             "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\workspace\\Raw_git\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "C:\\workspace\\eatRaw\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
