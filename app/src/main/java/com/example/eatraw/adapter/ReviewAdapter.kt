@@ -86,8 +86,7 @@ class ReviewAdapter(private val reviews: List<Review>) :
                     Log.e("FirestoreError", "Error getting user document: ", exception)
                 }
 
-            //좋아요 기능
-            db.collection("revew")
+
         }
 
     }

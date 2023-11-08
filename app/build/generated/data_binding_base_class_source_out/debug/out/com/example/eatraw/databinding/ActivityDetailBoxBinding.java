@@ -4,7 +4,6 @@ package com.example.eatraw.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -82,7 +81,7 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
   public final TextView textMin;
 
   @NonNull
-  public final Button up;
+  public final ImageView up;
 
   private ActivityDetailBoxBinding(@NonNull LinearLayout rootView, @NonNull RatingBar DratingBar,
       @NonNull CardView ImageView, @NonNull TextView IntAvg, @NonNull TextView IntMax,
@@ -91,7 +90,7 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
       @NonNull TextView Textcomparison, @NonNull TextView contentView, @NonNull TextView likeInt,
       @NonNull CircleImageView mImg, @NonNull TextView mName, @NonNull LinearLayout mReiview,
       @NonNull TextView mStarsocore, @NonNull TextView texMax, @NonNull TextView textAvg,
-      @NonNull TextView textMin, @NonNull Button up) {
+      @NonNull TextView textMin, @NonNull ImageView up) {
     this.rootView = rootView;
     this.DratingBar = DratingBar;
     this.ImageView = ImageView;
@@ -253,7 +252,7 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
       }
 
       id = R.id.up;
-      Button up = ViewBindings.findChildViewById(rootView, id);
+      ImageView up = ViewBindings.findChildViewById(rootView, id);
       if (up == null) {
         break missingId;
       }

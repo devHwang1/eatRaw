@@ -340,6 +340,7 @@ class ReviewActivity : AppCompatActivity() {
                         val userId = document["userId"] as String?
                         val storageReference = FirebaseStorage.getInstance().reference
                         val imageRef = storageReference.child("storeImg/$storeImg")
+                        val reviewId = FirebaseStorage.getInstance().reference
 
                         imageRef.downloadUrl.addOnSuccessListener { uri ->
                             val imageUrl = uri.toString()
@@ -386,11 +387,12 @@ class ReviewActivity : AppCompatActivity() {
                         val userId = document["userId"] as String?
                         val storageReference = FirebaseStorage.getInstance().reference
                         val imageRef = storageReference.child("storeImg/$storeImg")
+                        val reviewId = FirebaseStorage.getInstance().reference
 
                         imageRef.downloadUrl.addOnSuccessListener { uri ->
                             val imageUrl = uri.toString()
                             val marketNameWithHash = "#$marketName"
-                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like, cost, fishKind,userId)
+                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like, cost, fishKind,userId, reviewId)
                             newItems.add(item)
                             itemList.clear()
                             itemList.addAll(newItems)

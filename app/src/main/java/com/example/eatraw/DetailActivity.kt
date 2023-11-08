@@ -16,7 +16,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class DetailActivity : AppCompatActivity() {
 
-
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +37,9 @@ class DetailActivity : AppCompatActivity() {
         //유저
         val nicknameInten = intent.getStringExtra("userNickname")
         val UserimageInten = intent.getStringExtra("userImage")
+
+        //좋아요
+        val likeInten = intent.getStringExtra("likefiled")
 
 
         //파이어베이스사용
@@ -79,16 +81,12 @@ class DetailActivity : AppCompatActivity() {
                 val userimg = findViewById<ImageView>(R.id.mImg)
                 val menuCost = findViewById<TextView>(R.id.StorePriceInt)
 
+                //좋아요
+                val likeText =  findViewById<TextView>(R.id.likeInt)
+
 
                 //물고기 TextView에 설정
                 val fishKindCost = findViewById<TextView>(R.id.MenuFishName)
-
-
-//                // 좋아요 버튼
-//                val likeButton = findViewById<ImageView>(R.id.up)
-//                val likeCount = findViewById<TextView>(R.id.likeInt)
-//                var isLiked = false
-
 
 
 
@@ -103,6 +101,7 @@ class DetailActivity : AppCompatActivity() {
                 rating.text = "$ratingIntent"
                 userNicName.text = "$nicknameInten"
                 menuCost.text = "$menuCostIntent"
+                likeText.text = "$likeInten"
 
 
                 //몰고기 이름
@@ -123,37 +122,5 @@ class DetailActivity : AppCompatActivity() {
 
 
             }
-
-    //좋아요 기능
-//    private fun onLikeButtonClicked(userId: String?, reviewContent: String?) {
-//        if(userId != null && reviewContent != null){
-//            val db = FirebaseFirestore.getInstance()
-//
-//            //리뷰내용
-//            val reviewRef = db.collection("review").document(reviewContent)
-//
-//            //좋아요 처리
-//            db.runTransaction{ transaction ->
-//                val reviewDoc = transaction.get(reviewRef)
-//
-//                if(reviewDoc.exists()){
-//                    val currentLikes = reviewDoc.getLong("likes") ?: 0
-//                    transaction.update(reviewRef, "likes", currentLikes + 1)
-//                }else{
-//                    Log.e("LikeButtonError", "Review document does not exist.")
-//                }
-//
-//                null
-//            }.addOnSuccessListener {
-//                isLiked = true
-//                likeButton.setImageResource(R.drawable.thumb)
-//            }.addOnFailureListener { e ->
-//                Log.e("LikeButtonError", "Error updating likes: $e")
-//            }
-//        } else {
-//            Log.e("LikeButtonError", "User ID or Review Content is null.")
-//        }
-//            }
-
 
 }
