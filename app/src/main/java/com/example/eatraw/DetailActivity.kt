@@ -69,8 +69,6 @@ class DetailActivity : AppCompatActivity() {
 
                     }
 
-        //좋아요누르기
-
 
                 // 데이터를 TextView에 설정
                 val reviewContent = findViewById<TextView>(R.id.contentView)
@@ -84,6 +82,14 @@ class DetailActivity : AppCompatActivity() {
 
                 //물고기 TextView에 설정
                 val fishKindCost = findViewById<TextView>(R.id.MenuFishName)
+
+
+//                // 좋아요 버튼
+//                val likeButton = findViewById<ImageView>(R.id.up)
+//                val likeCount = findViewById<TextView>(R.id.likeInt)
+//                var isLiked = false
+
+
 
 
                 //별모양
@@ -114,9 +120,40 @@ class DetailActivity : AppCompatActivity() {
                     .into(userimg)
 
 
+
+
             }
 
-
+    //좋아요 기능
+//    private fun onLikeButtonClicked(userId: String?, reviewContent: String?) {
+//        if(userId != null && reviewContent != null){
+//            val db = FirebaseFirestore.getInstance()
+//
+//            //리뷰내용
+//            val reviewRef = db.collection("review").document(reviewContent)
+//
+//            //좋아요 처리
+//            db.runTransaction{ transaction ->
+//                val reviewDoc = transaction.get(reviewRef)
+//
+//                if(reviewDoc.exists()){
+//                    val currentLikes = reviewDoc.getLong("likes") ?: 0
+//                    transaction.update(reviewRef, "likes", currentLikes + 1)
+//                }else{
+//                    Log.e("LikeButtonError", "Review document does not exist.")
+//                }
+//
+//                null
+//            }.addOnSuccessListener {
+//                isLiked = true
+//                likeButton.setImageResource(R.drawable.thumb)
+//            }.addOnFailureListener { e ->
+//                Log.e("LikeButtonError", "Error updating likes: $e")
+//            }
+//        } else {
+//            Log.e("LikeButtonError", "User ID or Review Content is null.")
+//        }
+//            }
 
 
 }
