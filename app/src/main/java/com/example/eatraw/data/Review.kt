@@ -1,5 +1,7 @@
 package com.example.eatraw.data
 
+import com.google.firebase.storage.StorageReference
+
 data class Review(
     val content: String,
     val marketName: String,

@@ -1,3 +1,4 @@
+
 package com.example.eatraw
 
 import android.annotation.SuppressLint
@@ -27,7 +28,7 @@ class DetailActivity : AppCompatActivity() {
         val storeNameIntent = intent.getStringExtra("storeName")          //가게이름
         val ratingIntent = intent.getDoubleExtra("rating", 0.0)   //별점
         val regionIntent = intent.getStringExtra("region")                  //지역
-        val costIntent = intent.getStringExtra("cost")               //물고기종류
+        val fishKindIntent = intent.getStringExtra("fishkind")               //물고기종류
         val userIdIntent = intent.getStringExtra("userId")     // 회원id
         val imageIntent = intent.getStringExtra("image")        //이미지
         val menuCostIntent = intent.getStringExtra("menuCost")        //메뉴가격
@@ -43,7 +44,7 @@ class DetailActivity : AppCompatActivity() {
 
 
                 //물고기종류에 따른 가격가져오기
-                val fishkindCostIntent = intent.getStringExtra("fishkindcost")
+                val fishkindCostIntent = intent.getStringExtra("fishkind")
                 db.collection("fish")
                     .whereEqualTo("f_name", fishkindCostIntent)
                     .get()
@@ -68,6 +69,7 @@ class DetailActivity : AppCompatActivity() {
                     }
 
 
+
                 // 데이터를 TextView에 설정
                 val reviewContent = findViewById<TextView>(R.id.contentView)
 //        val storeName = findViewById<TextView>(R.id.storeNameBar)
@@ -79,7 +81,7 @@ class DetailActivity : AppCompatActivity() {
 
 
                 //물고기 TextView에 설정
-                val fishKindCost = findViewById<TextView>(R.id.MenuFishName)
+                val fishKinName = findViewById<TextView>(R.id.MenuFishName)
 
 
 //                // 좋아요 버튼
@@ -104,7 +106,7 @@ class DetailActivity : AppCompatActivity() {
 
 
                 //몰고기 이름
-                fishKindCost.text = "$fishkindCostIntent"
+                fishKinName.text = "$fishKindIntent"
 
 
                 //이미지 설정

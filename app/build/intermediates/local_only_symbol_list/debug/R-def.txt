@@ -179,6 +179,8 @@ id imageView
 id imageView2
 id imageView3
 id img_backarrow
+id item_data
+id item_root
 id likeInt
 id logout
 id mImg
@@ -288,6 +290,7 @@ layout item_banner
 layout item_best_review
 layout item_comparing_price
 layout item_fish_list
+layout item_main
 layout item_review_list
 layout nav_header_admin
 layout recyclerview_review
