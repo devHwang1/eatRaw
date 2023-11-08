@@ -34,8 +34,8 @@ class BannerAdapter(private val data: List<BannerItem>) :
 
         fun bind(item: BannerItem) {
             imageView.setImageResource(item.imageResId)
-//            titleTextView.text = item.title // BannerItem에 해당하는 필드를 지정해야 합니다.
-//            descriptionTextView.text = item.description // BannerItem에 해당하는 필드를 지정해야 합니다.
+//            titleTextView.text = item.title
+//            descriptionTextView.text = item.description
         }
     }
 }

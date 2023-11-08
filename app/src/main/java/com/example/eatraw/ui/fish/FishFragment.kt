@@ -97,10 +97,10 @@ class FishFragment : Fragment() {
 
 
 
-        val textView: TextView = binding.textFish
-        fishViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+//        val textView: TextView = binding.textFish
+//        fishViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
         return root
     }
 

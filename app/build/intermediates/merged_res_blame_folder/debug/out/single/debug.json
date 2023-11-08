@@ -284,10 +284,6 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-64:\\layout\\activity_detail.xml"
     },
     {
-        "merged": "com.example.eatraw.app-merged_res-62:/layout_fragment_review.xml.flat",
-        "source": "com.example.eatraw.app-main-64:/layout/fragment_review.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-62:\\drawable_baseline_reviews_24.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-64:\\drawable\\baseline_reviews_24.xml"
     },
@@ -452,6 +448,10 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-64:\\drawable\\ic_launcher_foreground.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-62:/layout_activity_main.xml.flat",
+        "source": "com.example.eatraw.app-main-64:/layout/activity_main.xml"
+    },
+    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-62:\\drawable_check_button.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-64:\\drawable\\check_button.xml"
     },
@@ -530,6 +530,10 @@
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-62:\\drawable_fishpicture.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-64:\\drawable\\fishpicture.png"
+    },
+    {
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-62:\\drawable_gray_ellipse.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-64:\\drawable\\gray_ellipse.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-62:\\drawable_ic_add.xml.flat",

@@ -34,9 +34,6 @@
         android:testOnly="true"
         android:theme="@style/Theme.EatRaw" >
         <activity
-            android:name="com.example.eatraw.AddUsersActivity"
-            android:exported="false" />
-        <activity
             android:name="com.example.eatraw.AddFishActivity"
             android:exported="false" />
         <activity
@@ -44,11 +41,6 @@
             android:exported="true"
             android:label="@string/title_activity_admin"
             android:theme="@style/Theme.EatRaw.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.example.eatraw.SplashActivity"
@@ -82,7 +74,13 @@
             android:exported="false" />
         <activity
             android:name="com.example.eatraw.MainActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <provider
             android:name="androidx.startup.InitializationProvider"

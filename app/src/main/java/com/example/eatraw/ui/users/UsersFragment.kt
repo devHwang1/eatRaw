@@ -85,10 +85,10 @@ class UsersFragment : Fragment() {
 
 
 
-        val textView: TextView = binding.textUsers
-        usersViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+//        val textView: TextView = binding.textUsers
+//        usersViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
         return root
     }
 

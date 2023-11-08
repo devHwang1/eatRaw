@@ -43,6 +43,7 @@ drawable fishpicture
 drawable google
 drawable google_in_btn
 drawable google_up_btn
+drawable gray_ellipse
 drawable group_1
 drawable group_40
 drawable group_41
@@ -119,6 +120,7 @@ id bannerImage
 id barChart
 id bnv_main
 id btnAddFish
+id btnAddMarket
 id btnBuyReview
 id btnDeleteFish
 id btnDeleteReviewAdmin
@@ -226,6 +228,7 @@ id recyclerViewBanner
 id recyclerViewBestReview
 id recyclerViewComparingPrice
 id recyclerViewFishList
+id recyclerViewMarketList
 id recyclerViewReviewList
 id recyclerViewUsersList
 id registerNow
@@ -254,11 +257,6 @@ id textAvg
 id textMin
 id textScore
 id textView
-id text_fish
-id text_home
-id text_market
-id text_review
-id text_users
 id third
 id thumbnail
 id thumbnailImageView

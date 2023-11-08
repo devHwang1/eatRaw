@@ -3089,6 +3089,7 @@ int drawable google_in_btn 0x7f0800b1
 int drawable google_up_btn 0x7f0800b2
 int drawable googleg_disabled_color_18 0x7f0800b3
 int drawable googleg_standard_color_18 0x7f0800b4
+int drawable gray_ellipse 0x7f08013b
 int drawable group_1 0x7f0800b5
 int drawable group_40 0x7f0800b6
 int drawable group_41 0x7f0800b7
@@ -3365,6 +3366,7 @@ int id browser_actions_menu_item_text 0x7f0a0080
 int id browser_actions_menu_items 0x7f0a0081
 int id browser_actions_menu_view 0x7f0a0082
 int id btnAddFish 0x7f0a0083
+int id btnAddMarket 0x7f0a02ba
 int id btnBuyReview 0x7f0a0084
 int id btnDeleteFish 0x7f0a0085
 int id btnDeleteReviewAdmin 0x7f0a02b2
@@ -3742,6 +3744,7 @@ int id recyclerViewBanner 0x7f0a01f3
 int id recyclerViewBestReview 0x7f0a01f4
 int id recyclerViewComparingPrice 0x7f0a01f5
 int id recyclerViewFishList 0x7f0a01f6
+int id recyclerViewMarketList 0x7f0a02bb
 int id recyclerViewReviewList 0x7f0a02b5
 int id recyclerViewUsersList 0x7f0a02a6
 int id registerNow 0x7f0a01f7
@@ -3864,14 +3867,9 @@ int id textStart 0x7f0a0267
 int id textTop 0x7f0a0268
 int id textView 0x7f0a0269
 int id textWatcher 0x7f0a026a
-int id text_fish 0x7f0a026b
-int id text_home 0x7f0a026c
 int id text_input_end_icon 0x7f0a026d
 int id text_input_error_icon 0x7f0a026e
 int id text_input_start_icon 0x7f0a026f
-int id text_market 0x7f0a0270
-int id text_review 0x7f0a0271
-int id text_users 0x7f0a0272
 int id textinput_counter 0x7f0a0273
 int id textinput_error 0x7f0a0274
 int id textinput_helper_text 0x7f0a0275
