@@ -4,7 +4,6 @@ package com.example.eatraw.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -55,9 +54,6 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
   public final TextView Textcomparison;
 
   @NonNull
-  public final Button btnUp;
-
-  @NonNull
   public final TextView contentView;
 
   @NonNull
@@ -84,14 +80,17 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
   @NonNull
   public final TextView textMin;
 
+  @NonNull
+  public final ImageView up;
+
   private ActivityDetailBoxBinding(@NonNull LinearLayout rootView, @NonNull RatingBar DratingBar,
       @NonNull CardView ImageView, @NonNull TextView IntAvg, @NonNull TextView IntMax,
       @NonNull TextView IntMin, @NonNull TextView MenuFishName, @NonNull ImageView Reviewimg,
       @NonNull TextView StorePrice, @NonNull TextView StorePriceInt,
-      @NonNull TextView Textcomparison, @NonNull Button btnUp, @NonNull TextView contentView,
-      @NonNull TextView likeInt, @NonNull CircleImageView mImg, @NonNull TextView mName,
-      @NonNull LinearLayout mReiview, @NonNull TextView mStarsocore, @NonNull TextView texMax,
-      @NonNull TextView textAvg, @NonNull TextView textMin) {
+      @NonNull TextView Textcomparison, @NonNull TextView contentView, @NonNull TextView likeInt,
+      @NonNull CircleImageView mImg, @NonNull TextView mName, @NonNull LinearLayout mReiview,
+      @NonNull TextView mStarsocore, @NonNull TextView texMax, @NonNull TextView textAvg,
+      @NonNull TextView textMin, @NonNull ImageView up) {
     this.rootView = rootView;
     this.DratingBar = DratingBar;
     this.ImageView = ImageView;
@@ -103,7 +102,6 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
     this.StorePrice = StorePrice;
     this.StorePriceInt = StorePriceInt;
     this.Textcomparison = Textcomparison;
-    this.btnUp = btnUp;
     this.contentView = contentView;
     this.likeInt = likeInt;
     this.mImg = mImg;
@@ -113,6 +111,7 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
     this.texMax = texMax;
     this.textAvg = textAvg;
     this.textMin = textMin;
+    this.up = up;
   }
 
   @Override
@@ -202,12 +201,6 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnUp;
-      Button btnUp = ViewBindings.findChildViewById(rootView, id);
-      if (btnUp == null) {
-        break missingId;
-      }
-
       id = R.id.contentView;
       TextView contentView = ViewBindings.findChildViewById(rootView, id);
       if (contentView == null) {
@@ -258,9 +251,15 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.up;
+      ImageView up = ViewBindings.findChildViewById(rootView, id);
+      if (up == null) {
+        break missingId;
+      }
+
       return new ActivityDetailBoxBinding((LinearLayout) rootView, DratingBar, ImageView, IntAvg,
-          IntMax, IntMin, MenuFishName, Reviewimg, StorePrice, StorePriceInt, Textcomparison, btnUp,
-          contentView, likeInt, mImg, mName, mReiview, mStarsocore, texMax, textAvg, textMin);
+          IntMax, IntMin, MenuFishName, Reviewimg, StorePrice, StorePriceInt, Textcomparison,
+          contentView, likeInt, mImg, mName, mReiview, mStarsocore, texMax, textAvg, textMin, up);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

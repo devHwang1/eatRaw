@@ -9,15 +9,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.eatraw.R
-import com.example.eatraw.data.DetailReview
 import com.example.eatraw.data.Review
 import com.example.eatraw.data.Users
 
 //사용 데이터 : Review
-class ReviewDetailAdapter(private val review: List<Review>) :
+open class ReviewDetailAdapter(private var review : List<Review>, var users:List<Users>) :
     RecyclerView.Adapter<ReviewDetailAdapter.ReviewDetailAdapterViewHolder>() {
 
-    class ReviewDetailAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    open class ReviewDetailAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView : ImageView = itemView.findViewById(R.id.Reviewimg)
         val menuFishName : TextView = itemView.findViewById(R.id.MenuFishName)
         val fishPrice : TextView = itemView.findViewById(R.id.StorePriceInt)
@@ -28,8 +27,9 @@ class ReviewDetailAdapter(private val review: List<Review>) :
 //        val Textcomparison : TextView = itemView.findViewById(R.id.Textcomparison)
 
 
-//        //user
-//        val memberName : TextView = itemView.findViewById(R.id.mName)
+        //user
+        val memberName : TextView = itemView.findViewById(R.id.mName)
+        val meberProfil: ImageView = itemView.findViewById(R.id.mImg)
 //
 //        //가격
 //        val minPrice : TextView = itemView.findViewById(R.id.IntMin)
@@ -47,27 +47,32 @@ class ReviewDetailAdapter(private val review: List<Review>) :
     }
 
     override fun onBindViewHolder(holder: ReviewDetailAdapterViewHolder, position: Int) {
-        val review = review[position]
-//        val user = user[position]
+        val currentReview = review[position]
+        val user = users.find { it.userId == currentReview.userId }
 //        val reviewDetail = detailreview[position]
 
         // 리뷰 데이터를 뷰에 연결
         // 이미지 URL을 Glide로 로드
-        review.storeImg?.let {
+        currentReview.storeImg?.let {
             Glide.with(holder.itemView)
                 .load(it)
                 .into(holder.imageView)
         }
 
-        holder.menuFishName.text = review.fishKind.toString()
-        holder.fishPrice.text = review.cost
-        holder.starScore.text = review.rating.toString()
-        holder.reviewContent.text = review.content
-        holder.likecounter.text = review.like.toString()
+        holder.menuFishName.text = currentReview.fishKind.toString()
+        holder.fishPrice.text = currentReview.cost.toString()
+        holder.starScore.text = currentReview.rating.toString()
+        holder.reviewContent.text = currentReview.content
+        holder.likecounter.text = currentReview.like.toString()
 
 //가격 및 멤버이름
-//        //멤버이름
-//        holder.memberName.text = user.nickname
+        //멤버이름 , 사진
+        user?.imageUrl?.let {
+            Glide.with(holder.itemView)
+                .load(it)
+                .into(holder.meberProfil)
+        }
+        holder.memberName.text = user?.nickname
 //
 //        //가격
 //        holder.minPrice.text = reviewDetail.minPrice.toString()
@@ -81,7 +86,7 @@ class ReviewDetailAdapter(private val review: List<Review>) :
 //        holder.avgPrice.text = avgPrice.toString()
 //
         //점수에 따른 별 색깔 변화
-        val rating = review.rating!!.toFloat()
+        val rating = currentReview.rating!!.toFloat()
         holder.ratingBar.rating = rating
 
 //        //가격에 따른 문구 변화
@@ -111,6 +116,10 @@ class ReviewDetailAdapter(private val review: List<Review>) :
     override fun getItemCount(): Int {
         return review.size
     }
-
+    open fun setReviews(reviews: List<Review>, users: List<Users>) {
+        this.review = reviews
+        this.users = users
+        notifyDataSetChanged()
+    }
 
 }

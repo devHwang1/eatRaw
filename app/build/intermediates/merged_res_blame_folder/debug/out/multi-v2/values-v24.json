@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-48:/values-v24/values-v24.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\6a3b8aca25653227095f518471209d50\\transformed\\material-1.10.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\95be413f60dd9541f91625ac8d4fdb72\\transformed\\material-1.10.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\f5a878f5efa9da64f16a1f8d56f27ab8\\transformed\\appcompat-1.6.1\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\478974549cb7010144568ab187689e85\\transformed\\appcompat-1.6.1\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

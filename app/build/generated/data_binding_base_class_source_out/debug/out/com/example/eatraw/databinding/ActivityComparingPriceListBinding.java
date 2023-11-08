@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.eatraw.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -20,6 +21,9 @@ import java.lang.String;
 public final class ActivityComparingPriceListBinding implements ViewBinding {
   @NonNull
   private final LinearLayout rootView;
+
+  @NonNull
+  public final BottomNavigationView bnvMain;
 
   @NonNull
   public final ImageView imgBackarrow;
@@ -31,9 +35,10 @@ public final class ActivityComparingPriceListBinding implements ViewBinding {
   public final RecyclerView recyclerViewComparingPrice;
 
   private ActivityComparingPriceListBinding(@NonNull LinearLayout rootView,
-      @NonNull ImageView imgBackarrow, @NonNull SearchView mainSearchbar,
-      @NonNull RecyclerView recyclerViewComparingPrice) {
+      @NonNull BottomNavigationView bnvMain, @NonNull ImageView imgBackarrow,
+      @NonNull SearchView mainSearchbar, @NonNull RecyclerView recyclerViewComparingPrice) {
     this.rootView = rootView;
+    this.bnvMain = bnvMain;
     this.imgBackarrow = imgBackarrow;
     this.mainSearchbar = mainSearchbar;
     this.recyclerViewComparingPrice = recyclerViewComparingPrice;
@@ -66,6 +71,12 @@ public final class ActivityComparingPriceListBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bnv_main;
+      BottomNavigationView bnvMain = ViewBindings.findChildViewById(rootView, id);
+      if (bnvMain == null) {
+        break missingId;
+      }
+
       id = R.id.img_backarrow;
       ImageView imgBackarrow = ViewBindings.findChildViewById(rootView, id);
       if (imgBackarrow == null) {
@@ -84,7 +95,7 @@ public final class ActivityComparingPriceListBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityComparingPriceListBinding((LinearLayout) rootView, imgBackarrow,
+      return new ActivityComparingPriceListBinding((LinearLayout) rootView, bnvMain, imgBackarrow,
           mainSearchbar, recyclerViewComparingPrice);
     }
     String missingId = rootView.getResources().getResourceName(id);

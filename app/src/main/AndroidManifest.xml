@@ -2,10 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
-
-    
 
     <application
         android:allowBackup="true"
@@ -18,7 +15,20 @@
         android:theme="@style/Theme.EatRaw"
         tools:targetApi="31">
         <activity
+            android:name=".AddFishActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity"
+            android:exported="true"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/Theme.EatRaw.NoActionBar">
 
+        </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".ComparingPriceDetailActivity"
             android:exported="false" />
         <activity
@@ -26,44 +36,36 @@
             android:exported="false" />
         <activity
             android:name=".WriteActivity"
-            android:exported="true">
-
-        </activity>
-
-        <activity
-            android:name=".NicknameActivity"
             android:exported="false" />
-
         <activity
             android:name=".RegisterActivity"
-            android:exported="false">
-
-        </activity>
-
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".DetailActivity"
-            android:exported="true">
+            android:exported="false" />
+        <activity
+            android:name=".ReviewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MypageActivity"
+            android:exported="true" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".ReviewActivity"
-            android:exported="true">
-
-
-        </activity>
+            android:name=".QuoteActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
+            android:exported="true">
+
         </activity>
 
     </application>

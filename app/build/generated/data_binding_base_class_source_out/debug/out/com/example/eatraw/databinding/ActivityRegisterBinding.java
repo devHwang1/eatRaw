@@ -5,8 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -19,10 +20,7 @@ import java.lang.String;
 
 public final class ActivityRegisterBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
-
-  @NonNull
-  public final ImageButton KaKaoRgLogin;
+  private final RelativeLayout rootView;
 
   @NonNull
   public final ImageButton backButton;
@@ -34,27 +32,30 @@ public final class ActivityRegisterBinding implements ViewBinding {
   public final TextInputEditText email;
 
   @NonNull
+  public final FrameLayout fragmentContainer;
+
+  @NonNull
   public final ImageButton googleRgLogin;
 
   @NonNull
   public final TextInputEditText password;
 
-  private ActivityRegisterBinding(@NonNull LinearLayout rootView, @NonNull ImageButton KaKaoRgLogin,
-      @NonNull ImageButton backButton, @NonNull Button btnRegister,
-      @NonNull TextInputEditText email, @NonNull ImageButton googleRgLogin,
+  private ActivityRegisterBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton backButton,
+      @NonNull Button btnRegister, @NonNull TextInputEditText email,
+      @NonNull FrameLayout fragmentContainer, @NonNull ImageButton googleRgLogin,
       @NonNull TextInputEditText password) {
     this.rootView = rootView;
-    this.KaKaoRgLogin = KaKaoRgLogin;
     this.backButton = backButton;
     this.btnRegister = btnRegister;
     this.email = email;
+    this.fragmentContainer = fragmentContainer;
     this.googleRgLogin = googleRgLogin;
     this.password = password;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public RelativeLayout getRoot() {
     return rootView;
   }
 
@@ -79,12 +80,6 @@ public final class ActivityRegisterBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.KaKao_rg_login;
-      ImageButton KaKaoRgLogin = ViewBindings.findChildViewById(rootView, id);
-      if (KaKaoRgLogin == null) {
-        break missingId;
-      }
-
       id = R.id.backButton;
       ImageButton backButton = ViewBindings.findChildViewById(rootView, id);
       if (backButton == null) {
@@ -103,6 +98,12 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fragment_container;
+      FrameLayout fragmentContainer = ViewBindings.findChildViewById(rootView, id);
+      if (fragmentContainer == null) {
+        break missingId;
+      }
+
       id = R.id.google_rg_login;
       ImageButton googleRgLogin = ViewBindings.findChildViewById(rootView, id);
       if (googleRgLogin == null) {
@@ -115,8 +116,8 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRegisterBinding((LinearLayout) rootView, KaKaoRgLogin, backButton,
-          btnRegister, email, googleRgLogin, password);
+      return new ActivityRegisterBinding((RelativeLayout) rootView, backButton, btnRegister, email,
+          fragmentContainer, googleRgLogin, password);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
