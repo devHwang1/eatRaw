@@ -34,6 +34,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.EatRaw" >
         <activity
+            android:name="com.example.eatraw.AddUsersActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.eatraw.AddFishActivity"
             android:exported="false" />
         <activity
@@ -49,8 +52,7 @@
         </activity>
         <activity
             android:name="com.example.eatraw.SplashActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name="com.example.eatraw.ComparingPriceDetailActivity"
             android:exported="false" />
@@ -80,8 +82,7 @@
             android:exported="false" />
         <activity
             android:name="com.example.eatraw.MainActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
