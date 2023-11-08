@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,7 +38,7 @@ class ReviewActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+    @SuppressLint("NotifyDataSetChanged", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         var isSpinner1FirstSelection = true
         var isSpinner2FirstSelection = true
@@ -196,9 +197,11 @@ class ReviewActivity : AppCompatActivity() {
         quoteButton.setOnClickListener {
             val selectedMarket = spinner2.selectedItem.toString()
             val intent = Intent(this, QuoteActivity::class.java)
-            intent.putExtra("marketName",selectedMarket)
+            intent.putExtra("marketName", selectedMarket)
             startActivity(intent)
         }
+
+
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {

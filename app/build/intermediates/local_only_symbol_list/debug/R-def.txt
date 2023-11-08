@@ -110,6 +110,10 @@ id action_mypageFragment_to_modifyFragment
 id action_mypageFragment_to_myreviewFragment
 id action_mypageFragment_to_termFragment
 id admin
+<<<<<<< HEAD
+=======
+id adminHome
+>>>>>>> dd125369ec6f82ff50d2ebb973b13742be453bf1
 id alarm
 id alarmFragment
 id app_bar_admin
@@ -185,6 +189,7 @@ id mName
 id mReiview
 id mStarsocore
 id mainSearchbar
+id marketAverage
 id marketName
 id menuSend
 id menubar1
@@ -286,6 +291,10 @@ layout item_banner
 layout item_best_review
 layout item_comparing_price
 layout item_fish_list
+<<<<<<< HEAD
+=======
+layout item_review_list
+>>>>>>> dd125369ec6f82ff50d2ebb973b13742be453bf1
 layout nav_header_admin
 layout recyclerview_review
 menu activity_main_drawer

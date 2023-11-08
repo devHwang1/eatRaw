@@ -216,6 +216,7 @@
 
         <TextView
             android:id="@+id/btn_del"
+<<<<<<< HEAD
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_gravity="end"
@@ -225,6 +226,18 @@
             android:text="@string/del"
             android:textColor="@color/gray"
             android:textSize="12dp" />
+=======
+            android:layout_width="284dp"
+            android:layout_height="28dp"
+            android:text="@string/del"
+            android:textColor="@color/gray"
+            android:layout_marginTop="6dp"
+            android:textSize="12dp"
+            android:paddingEnd="16dp"
+            android:gravity="end"
+            android:layout_gravity="end"
+            />
+>>>>>>> dd125369ec6f82ff50d2ebb973b13742be453bf1
 
     </LinearLayout>
 

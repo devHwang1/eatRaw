@@ -23,7 +23,11 @@
         android:id="@+id/detailRecylerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+<<<<<<< HEAD
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+=======
+        android:text="내 리뷰 페이지입니다." />
+>>>>>>> dd125369ec6f82ff50d2ebb973b13742be453bf1
 
     </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

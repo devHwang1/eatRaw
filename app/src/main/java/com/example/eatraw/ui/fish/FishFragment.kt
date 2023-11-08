@@ -51,9 +51,10 @@ class FishFragment : Fragment() {
 
         // Firestore에서 데이터 가져오고 정렬하기
         firestore.collection("fish")
+            .orderBy("f_season")
             .get()
             .addOnSuccessListener { documents ->
-                val fishData  = mutableListOf<ComparingPriceItem>()
+                val fishData = mutableListOf<ComparingPriceItem>()
 
                 for (document in documents) {
                     val fishName = document.getString("f_name")
@@ -62,32 +63,31 @@ class FishFragment : Fragment() {
                     val maxCost = (document["f_max"] as? Long)?.toInt()
                     val fishImg = document.getString("f_img")
                     val season = document.getString("f_season")
-                    val storageReference = FirebaseStorage.getInstance().reference
-                    val imageRef = storageReference.child("FishImg/$fishImg")
 
-                    if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
-                        imageRef.downloadUrl.addOnSuccessListener { uri ->
-                            val imageUrl = uri.toString()
-                            val comparingPriceItem = ComparingPriceItem(
-                                fishName,
-                                minCost.toString(),
-                                avgCost.toString(),
-                                maxCost.toString(),
-                                imageUrl,
-                                season
-                            )
-                            fishList.add(comparingPriceItem)
+                    Log.e("피쉬이미지>>", "${fishImg}")
 
-                            // 데이터가 변경되었음을 어댑터에 알림
-                            adapter.notifyDataSetChanged()
-                        }
+                    if (fishName != null && minCost != null && avgCost != null && maxCost != null && fishImg != null) {
+                        // 이미지의 다운로드 URL 생성
+//                        val imageUrl = "https://firebasestorage.googleapis.com/v0/b/androidtest-e6bbe.appspot.com/o/FishImg%2F$fishImg?alt=media"
+//                        Log.e(">>", "${imageUrl}")
+                        val comparingPriceItem = ComparingPriceItem(
+                            fishName,
+                            minCost.toString(),
+                            avgCost.toString(),
+                            maxCost.toString(),
+                            fishImg, // 위에서 생성한 이미지 URL 사용
+                            season
+                        )
+                        fishList.add(comparingPriceItem)
                     }
                 }
+                adapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
                 // 데이터 가져오기 실패 시 처리
                 Log.e("FirestoreError", "Error getting documents: ", exception)
             }
+
 
         val btnAddFish = binding.btnAddFish
         btnAddFish.setOnClickListener {

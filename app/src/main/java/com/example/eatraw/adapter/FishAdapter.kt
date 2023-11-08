@@ -1,4 +1,6 @@
 package com.example.eatraw.adapter
+
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -15,6 +17,8 @@ import com.example.eatraw.ComparingPriceDetailActivity
 import com.example.eatraw.R
 import com.example.eatraw.data.ComparingPriceItem
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.tasks.await
 
 class FishAdapter(private val context: Context, private val fishList: MutableList<ComparingPriceItem>) :
     RecyclerView.Adapter<FishAdapter.ViewHolder>() {
@@ -42,7 +46,6 @@ class FishAdapter(private val context: Context, private val fishList: MutableLis
         private val seasons: TextView = itemView.findViewById(R.id.seasons)
 
         private val btnDeleteFish: Button = itemView.findViewById(R.id.btnDeleteFish)
-
 
         init {
             itemView.setOnClickListener {
@@ -77,6 +80,7 @@ class FishAdapter(private val context: Context, private val fishList: MutableLis
             fishPriceMin.text = context.getString(R.string.price_min, fish.minCost)
             fishPriceAvg.text = context.getString(R.string.price_avg, fish.avgCost)
             seasons.text = context.getString(R.string.seasons, fish.season)
+            Log.e("넘무넘무해>>", "${fish}")
 
             // 이미지 로드 (Glide 사용 예제)
             Glide.with(context)
@@ -87,20 +91,21 @@ class FishAdapter(private val context: Context, private val fishList: MutableLis
         }
 
         private fun deleteFish(fish: ComparingPriceItem) {
-            val firestore = FirebaseFirestore.getInstance()
-            val collectionReference = firestore.collection("fish")
+            val db = FirebaseFirestore.getInstance()
+            val collectionReference = db.collection("fish")
 
-            // 해당 물고기 항목의 Firestore 문서 ID를 가져옴 (앞서 설명한 방법 사용)
-            val documentId = getDocumentIdForFish(fish)
+            val documentId: String? = getDocumentIdForFish(fish)
 
-            // Firestore에서 해당 문서 삭제
             if (documentId != null) {
                 collectionReference.document(documentId)
                     .delete()
                     .addOnSuccessListener {
                         // 삭제 성공 시, 데이터 목록에서도 제거
-                        fishList.removeAt(adapterPosition)
-                        notifyItemRemoved(adapterPosition)
+                        val deletedIndex = fishList.indexOfFirst { it.fishName == fish.fishName }
+                        if (deletedIndex != -1) {
+                            fishList.removeAt(deletedIndex)
+                            notifyItemRemoved(deletedIndex)
+                        }
                     }
                     .addOnFailureListener { e ->
                         // 삭제 실패 시 처리
@@ -109,19 +114,29 @@ class FishAdapter(private val context: Context, private val fishList: MutableLis
             }
         }
 
-        // 앞에서 설명한 getDocumentIdForFish 함수 추가
-        private fun getDocumentIdForFish(fish: ComparingPriceItem): String? {
-            // Firestore 문서 ID를 가져오는 코드
-            for (fishItem in fishList) {
-                if (fishItem == fish) {
-                    return fishItem.fishName
+        fun getDocumentIdForFish(fish: ComparingPriceItem): String? = runBlocking{
+            // 일반적으로 suspend 함수를 사용...다음부터는 그렇게 만들 것!!
+            val db = FirebaseFirestore.getInstance()
+            val collectionReference = db.collection("fish")
+
+            var documentId: String? = null
+
+            try {
+                val querySnapshot = collectionReference
+                    .whereEqualTo("f_name", fish.fishName)
+                    .get()
+                    .await()
+
+                for (document in querySnapshot.documents) {
+                    documentId = document.id
+                    break
                 }
+            } catch (exception: Exception) {
+                // 오류 처리
+                exception.printStackTrace()
             }
-            return null
+
+            documentId
         }
-
-
     }
 }
-
-

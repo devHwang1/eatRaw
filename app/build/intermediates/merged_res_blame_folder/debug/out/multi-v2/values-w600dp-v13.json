@@ -4,7 +4,11 @@
             "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-w600dp-v13/values-w600dp-v13.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\admin\\Documents\\eatRaw\\app\\src\\main\\res\\values-w600dp\\dimens.xml",
+=======
+                    "source": "C:\\workspace\\eatRaw\\app\\src\\main\\res\\values-w600dp\\dimens.xml",
+>>>>>>> dd125369ec6f82ff50d2ebb973b13742be453bf1
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

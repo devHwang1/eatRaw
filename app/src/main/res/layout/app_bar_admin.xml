@@ -16,7 +16,15 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/black"
-            app:popupTheme="@style/Theme.EatRaw.PopupOverlay" />
+            app:popupTheme="@style/Theme.EatRaw.PopupOverlay" >
+            <TextView
+                android:id="@+id/adminHome"
+                android:text="Home"
+                android:layout_gravity="right"
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -41,6 +41,14 @@
             android:exported="true"
             android:label="@string/title_activity_admin"
             android:theme="@style/Theme.EatRaw.NoActionBar" >
+<<<<<<< HEAD
+=======
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+>>>>>>> dd125369ec6f82ff50d2ebb973b13742be453bf1
         </activity>
         <activity
             android:name="com.example.eatraw.SplashActivity"
@@ -76,11 +84,6 @@
         <activity
             android:name="com.example.eatraw.MainActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <provider
