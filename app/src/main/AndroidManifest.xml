@@ -22,15 +22,11 @@
             android:exported="true"
             android:label="@string/title_activity_admin"
             android:theme="@style/Theme.EatRaw.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="false">
         </activity>
         <activity
             android:name=".ComparingPriceDetailActivity"
@@ -55,7 +51,14 @@
             android:exported="true" />
         <activity
             android:name=".MypageActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".QuoteActivity"
             android:exported="false" />

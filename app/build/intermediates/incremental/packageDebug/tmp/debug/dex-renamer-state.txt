@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-#Wed Nov 08 11:07:54 KST 2023
+#Wed Nov 08 11:26:04 KST 2023
 base.0=C\:\\Users\\admin\\Documents\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\admin\\Documents\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.10=C\:\\Users\\admin\\Documents\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
@@ -14,23 +13,6 @@ base.6=C\:\\Users\\admin\\Documents\\eatRaw\\app\\build\\intermediates\\dex\\deb
 base.7=C\:\\Users\\admin\\Documents\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
 base.8=C\:\\Users\\admin\\Documents\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
 base.9=C\:\\Users\\admin\\Documents\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
-=======
-#Tue Nov 07 17:17:35 KST 2023
-base.0=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.10=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
-base.11=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
-base.12=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.13=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
-base.2=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
-base.3=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
-base.4=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
-base.5=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
-base.6=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
-base.7=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.8=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
-base.9=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
->>>>>>> dd125369ec6f82ff50d2ebb973b13742be453bf1
 path.0=classes.dex
 path.1=0/classes.dex
 path.10=7/classes.dex

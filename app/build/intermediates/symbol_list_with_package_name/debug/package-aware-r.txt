@@ -3324,10 +3324,7 @@ id add
 id adjust_height
 id adjust_width
 id admin
-<<<<<<< HEAD
-=======
 id adminHome
->>>>>>> dd125369ec6f82ff50d2ebb973b13742be453bf1
 id alarm
 id alarmFragment
 id alertTitle
@@ -4086,10 +4083,7 @@ layout item_banner
 layout item_best_review
 layout item_comparing_price
 layout item_fish_list
-<<<<<<< HEAD
-=======
 layout item_review_list
->>>>>>> dd125369ec6f82ff50d2ebb973b13742be453bf1
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
