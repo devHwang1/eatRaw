@@ -3678,6 +3678,7 @@ id nickInput
 id nickcheck
 id nickhello
 id nickname
+id noReviewsTextView
 id noScroll
 id noState
 id none

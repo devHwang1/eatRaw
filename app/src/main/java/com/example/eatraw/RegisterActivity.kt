@@ -101,11 +101,15 @@ class RegisterActivity : AppCompatActivity() {
                         // 사용자가 성공적으로 생성되었으므로, 사용자 정보를 데이터베이스에 저장
                         val currentUser = mAuth.currentUser
 
-                        val user = Users(email, nickname="", aouthLogin = false,admin = false,imageUrl="") // 사용자 정보 생성
+                        val user = currentUser?.let { it -> Users(email, nickname ="", aouthLogin = false,
+                            admin = false,
+                            imageUrl ="", userId = it.uid) } // 사용자 정보 생성
 
                         // 또는 Cloud Firestore에 사용자 정보 저장
                         if (currentUser != null) {
-                            usersCollection.document(currentUser.uid).set(user)
+                            if (user != null) {
+                                usersCollection.document(currentUser.uid).set(user)
+                            }
                         }
 
                         val nickFragment = NickFragment().apply {
@@ -180,12 +184,17 @@ class RegisterActivity : AppCompatActivity() {
                         // 사용자가 성공적으로 로그인되었으므로, 사용자 정보를 데이터베이스에 저장
                         val currentUser = mAuth.currentUser
 
-                        val user = Users(account?.email!!, nickname="",aouthLogin = true,admin = false,imageUrl="") // 사용자 정보 생성
+                        val user = currentUser?.let { Users(account?.email!!, nickname ="",
+                            aouthLogin = true,
+                            admin = false,
+                            imageUrl ="", userId = it.uid) } // 사용자 정보 생성
 
 
                         // 또는 Cloud Firestore에 사용자 정보 저장
                         if (currentUser != null) {
-                            usersCollection.document(currentUser.uid).set(user)
+                            if (user != null) {
+                                usersCollection.document(currentUser.uid).set(user)
+                            }
                         }
                         // Create a new Fragment to be placed in the activity layout
                         val nickFragment = NickFragment().apply {

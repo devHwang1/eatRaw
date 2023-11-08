@@ -3677,6 +3677,7 @@ int id nickInput 0x7f0a01b8
 int id nickcheck 0x7f0a01b9
 int id nickhello 0x7f0a01ba
 int id nickname 0x7f0a01bb
+int id noReviewsTextView 0x7f0a02a4
 int id noScroll 0x7f0a01bc
 int id noState 0x7f0a01bd
 int id none 0x7f0a01be

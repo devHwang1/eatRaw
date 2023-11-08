@@ -211,6 +211,7 @@ id nickInput
 id nickcheck
 id nickhello
 id nickname
+id noReviewsTextView
 id password
 id quoteButton
 id rating
