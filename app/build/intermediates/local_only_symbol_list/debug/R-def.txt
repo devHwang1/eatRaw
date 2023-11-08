@@ -61,6 +61,7 @@ drawable login_border
 drawable login_border_click
 drawable login_button
 drawable login_selector
+drawable map
 drawable market
 drawable menubar
 drawable menubar1
@@ -109,6 +110,7 @@ id action_mypageFragment_to_centerFragment
 id action_mypageFragment_to_modifyFragment
 id action_mypageFragment_to_myreviewFragment
 id action_mypageFragment_to_termFragment
+id addressTextView
 id admin
 id alarm
 id alarmFragment
@@ -140,6 +142,7 @@ id cardView6
 id cardView7
 id center
 id centerFragment
+id contentTextView
 id contentView
 id detailRecylerView
 id drawer_layout
@@ -186,6 +189,8 @@ id mName
 id mReiview
 id mStarsocore
 id mainSearchbar
+id map
+id mapView
 id marketName
 id menuSend
 id menubar1
@@ -212,6 +217,7 @@ id nickInput
 id nickcheck
 id nickhello
 id nickname
+id openTextView
 id password
 id quoteButton
 id rating
@@ -224,7 +230,6 @@ id reviewContent
 id reviewImage
 id reviewRating
 id reviewRecycler
-id reviewStar
 id searchId
 id searchView
 id seasons
@@ -236,6 +241,7 @@ id spinner2
 id starSelect
 id storeName
 id swipeRefreshLayout
+id telTextView
 id termFragment
 id texMax
 id textAvg
@@ -288,6 +294,7 @@ layout item_banner
 layout item_best_review
 layout item_comparing_price
 layout item_fish_list
+layout map_modal
 layout nav_header_admin
 layout recyclerview_review
 menu activity_main_drawer

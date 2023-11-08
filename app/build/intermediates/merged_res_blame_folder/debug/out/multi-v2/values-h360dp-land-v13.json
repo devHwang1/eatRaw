@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-61:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\comed\\.gradle\\caches\\transforms-3\\6a3b8aca25653227095f518471209d50\\transformed\\material-1.10.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
+                    "source": "C:\\Users\\comed\\.gradle\\caches\\transforms-3\\7ee14e77682b6fd71e9f42b0ee435b54\\transformed\\material-1.10.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

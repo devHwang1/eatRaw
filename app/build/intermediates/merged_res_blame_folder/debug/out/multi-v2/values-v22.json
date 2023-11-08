@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-v22/values-v22.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-61:/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\comed\\.gradle\\caches\\transforms-3\\f5a878f5efa9da64f16a1f8d56f27ab8\\transformed\\appcompat-1.6.1\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\comed\\.gradle\\caches\\transforms-3\\d65d20eb261ad2c016687575f6fada42\\transformed\\appcompat-1.6.1\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",

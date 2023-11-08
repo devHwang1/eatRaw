@@ -61,43 +61,65 @@
                     android:textSize="15dp" />
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <ImageView
-                    android:id="@+id/reviewStar"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="15dp"
-                    app:srcCompat="@drawable/reviewstar" />
 
-                <TextView
-                    android:id="@+id/rating"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="3dp"
-                    android:text="4.9"
-                    android:layout_marginRight="5dp"
-                    />
+                    android:orientation="horizontal">
 
-                <TextView
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="15dp"
+                        app:srcCompat="@drawable/reviewstar" />
+
+                    <TextView
+                        android:id="@+id/rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3dp"
+                        android:text="4.9"
+                        android:layout_marginRight="5dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="(15)">
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/map"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="(15)">
-                </TextView>
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    tools:ignore="UseCompoundDrawables"
+                    android:layout_alignParentRight="true">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:text="#자갈치시장"
-                    android:id="@+id/button1"
-                    android:gravity="end"
-                    android:textColor="@color/blue"
-                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/map">
+                    </ImageView>
 
-                </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="자갈치시장"
+                        android:id="@+id/button1"
+                        android:gravity="end"
+                        android:textColor="@color/blue"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                </LinearLayout>
+            </RelativeLayout>
 
-            </LinearLayout>
 
         </LinearLayout>
 
