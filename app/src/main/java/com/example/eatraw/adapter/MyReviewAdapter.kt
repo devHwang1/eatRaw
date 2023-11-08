@@ -17,8 +17,8 @@ class MyReviewAdapter(private val review: List<Review>, private val users: List<
         val userNickname: TextView = itemView.findViewById(R.id.mName)
         val userImage: ImageView = itemView.findViewById(R.id.mImg)
         val rating: TextView = itemView.findViewById(R.id.mStarsocore)
-        val fishKind: TextView = itemView.findViewById(R.id.StorePriceInt)
-        val cost: TextView = itemView.findViewById(R.id.MenuFishName)
+        val fishKind: TextView = itemView.findViewById(R.id.MenuFishName)
+        val cost: TextView = itemView.findViewById(R.id.StorePriceInt)
         val Image: ImageView = itemView.findViewById(R.id.Reviewimg)
         val userimg: ImageView = itemView.findViewById(R.id.mImg)
         val fishMinText: TextView = itemView.findViewById(R.id.IntMin)
@@ -47,7 +47,7 @@ class MyReviewAdapter(private val review: List<Review>, private val users: List<
             }
 
             rating.text = currentReview.rating.toString()
-            fishKind.text = currentReview.fishKind.toString()
+            fishKind.text = currentReview.fishKind
             cost.text = currentReview.cost.toString()
             Glide.with(itemView)
                 .load(currentReview.storeImg)

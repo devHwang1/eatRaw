@@ -76,6 +76,21 @@ class WriteActivity : AppCompatActivity() {
 
     private fun uploadImageAndAddReviewToFirestore() {
         if (selectedImageUri != null) {
+            val fishKind = editFishKind.text.toString().trim()
+            val costInput = editFishPrice.text.toString().trim()
+            if (fishKind.isEmpty()) {
+                Toast.makeText(this, "생선 종류를 입력해주세요.", Toast.LENGTH_SHORT).show()
+                return
+            }
+            if (costInput.isEmpty()) {
+                Toast.makeText(this, "가격을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                return
+            }
+            if (!costInput.all { it.isDigit() }) {
+                Toast.makeText(this, "숫자만 입력 해주세요.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
             val imageFileName = selectedImageUri!!.lastPathSegment // 이미지 파일 이름을 원본 파일명으로 설정
 
             // Image upload
@@ -88,8 +103,7 @@ class WriteActivity : AppCompatActivity() {
             uploadTask.addOnSuccessListener { taskSnapshot ->
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                     val content = editText.text.toString()
-                    val fishKind = editFishKind.text.toString()
-                    val cost = editFishPrice.text.toString().toInt()
+                    val cost = costInput.toInt()
                     val storeName = editStoreName.text.toString()
                     val selectedRating = starSelect.selectedItem.toString().toFloat()
                     val marketName = marketName.text.toString()
