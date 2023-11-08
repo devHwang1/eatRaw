@@ -29,6 +29,7 @@ class ComparingPriceListActivity : AppCompatActivity() {
 
         // Firestore에서 데이터 가져오고 정렬하기
         firestore.collection("fish")
+            .orderBy("f_season")
             .get()
             .addOnSuccessListener { documents ->
                 val comparingPriceData = mutableListOf<ComparingPriceItem>()
@@ -40,18 +41,18 @@ class ComparingPriceListActivity : AppCompatActivity() {
                     val maxCost = (document["f_max"] as? Long)?.toInt()
                     val fishImg = document.getString("f_img")
                     val season = document.getString("f_season")
-                    val storageReference = FirebaseStorage.getInstance().reference
-                    val imageRef = storageReference.child("FishImg/$fishImg")
+//                    val storageReference = FirebaseStorage.getInstance().reference
+//                    val imageRef = storageReference.child("FishImg/$fishImg")
 
                     if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
-                        imageRef.downloadUrl.addOnSuccessListener { uri ->
-                            val imageUrl = uri.toString()
+//                        imageRef.downloadUrl.addOnSuccessListener { uri ->
+//                            val imageUrl = uri.toString()
                             val comparingPriceItem = ComparingPriceItem(
                                 fishName,
                                 minCost.toString(),
                                 avgCost.toString(),
                                 maxCost.toString(),
-                                imageUrl,
+                                fishImg,
                                 season
                             )
                             comparingPriceData.add(comparingPriceItem)
@@ -59,7 +60,7 @@ class ComparingPriceListActivity : AppCompatActivity() {
                             // 데이터를 RecyclerView에 설정
                             val adapterComparingPrice = ComparingPriceAdapter(comparingPriceData)
                             recyclerViewComparingPrice.adapter = adapterComparingPrice
-                        }
+//                        }
                     }
                 }
 

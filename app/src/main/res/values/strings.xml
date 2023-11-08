@@ -15,7 +15,8 @@
     <string name="logout">LOGOUT</string>
     <string name="register">회원가입</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="password">비밀번호</string>
+    <string name="password_confirm">비밀번호 확인</string>
     <string name="click_to_login">로그인페이지로</string>
     <!--    <string name="click_to_register">Click to Register</string>-->
     <string name="nick">정보입력</string>
@@ -24,6 +25,8 @@
     <string name="hello">환영합니다!</string>
     <string name="review_write">리뷰쓰기</string>
     <string name="your_client_id">445898306997-536v99s1hoakntjbkepl9c8n2vv8hvgv.apps.googleusercontent.com</string>
+    <string name="del">회원탈퇴</string>
+    <string name="nickname_modify">수정할 닉네임</string>
 
     <string name="err">→</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -33,5 +36,22 @@
     <string name="my_review">나의 리뷰 확인</string>
     <string name="my_center">고객센터</string>
     <string name="my_term">약관 확인</string>
+    <string name="admin">관리자페이지</string>
+    <string name="title_activity_admin">AdminActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="price_max">최고가: %s</string>
+    <string name="price_min">최저가: %s</string>
+    <string name="price_avg">평균가: %s</string>
+    <string name="seasons">제철: %s</string>
 
 </resources>

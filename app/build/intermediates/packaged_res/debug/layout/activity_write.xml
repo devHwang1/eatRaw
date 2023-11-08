@@ -1,138 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:layout_margin="30dp"
+            android:textColor="@color/black"
+            android:text="리뷰 등록" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/editBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editStoreName"
+        <!-- 첫 번째 CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
-            android:text="가게이름"
-            android:textColor="#979797"
-            android:theme="@style/text_edit" />
-        <EditText
-            android:id="@+id/marketName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
-            android:text="시장이름"
-            android:textColor="#979797"
-            android:theme="@style/text_edit" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="4dp"
+            app:cardUseCompatPadding="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="음식점명, 가게명"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/editStoreName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textSize="15dp"
+                    android:inputType="text"
+                    android:hint="가게이름을 입력해주세요."
+                    android:textColor="#979797"
+                    android:textColorHint="#dbdbdb"
+                    android:theme="@style/text_edit"
+                    android:background="@null" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <EditText
-            android:id="@+id/editFishName"
+        <!-- 두 번째 CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
-            android:text="생선이름"
-            android:textColor="#979797"
-            android:theme="@style/text_edit" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="4dp"
+            app:cardUseCompatPadding="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="시장명"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/marketName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textSize="15dp"
+                    android:inputType="text"
+                    android:hint="노량진시장, 자갈치시장"
+                    android:textColor="#979797"
+                    android:textColorHint="#dbdbdb"
+                    android:theme="@style/text_edit"
+                    android:background="@null" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <EditText
-            android:id="@+id/editFishPrice"
+        <!-- 세 번째 CardView (수산물명) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
-            android:text="생선가격"
-            android:textColor="#979797"
-            android:theme="@style/text_edit" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="4dp"
+            app:cardUseCompatPadding="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="수산물명"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/editFishName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textSize="15dp"
+                    android:inputType="text"
+                    android:hint="광어, 우럭, 참돔"
+                    android:textColor="#979797"
+                    android:textColorHint="#dbdbdb"
+                    android:theme="@style/text_edit"
+                    android:background="@null" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
+        <!-- 네 번째 CardView (가격) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="4dp"
+            app:cardUseCompatPadding="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="가격"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/editFishPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textSize="15dp"
+                    android:inputType="text"
+                    android:hint="30,000"
+                    android:textColor="#979797"
+                    android:textColorHint="#dbdbdb"
+                    android:theme="@style/text_edit"
+                    android:background="@null" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 별점 관련 뷰 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="4dp"
+            app:cardUseCompatPadding="true">
         <LinearLayout
             android:id="@+id/StarBox"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="10dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
-
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/textScore"
-                android:layout_width="226dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:text="별점"
-                android:textAlignment="viewStart"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content"
+                 />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/starfill"
+                    android:layout_height="match_parent">
 
+                </ImageView>
             <Spinner
                 android:id="@+id/starSelect"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:entries="@array/scoreSelect"
-                />
+                android:layout_width="match_parent"
+                android:padding="0dp"
 
+                android:gravity="start"
+                android:layout_height="wrap_content"
+                android:entries="@array/scoreSelect" />
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-    <LinearLayout
+        </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
         android:layout_width="match_parent"
-        android:layout_height="478dp"
-        android:orientation="vertical">
-
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true">
         <Button
             android:id="@+id/btnImage"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:background="#00ff0000"
-            android:drawableRight="@drawable/clip"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/addphoto"
+            android:background="@null"
             android:drawablePadding="0dp"
-            android:paddingLeft="3dp"
-            android:text="파일첨부"
-            android:textAlignment="textStart"
-            android:textColor="#000000" />
-
+            android:padding="10dp"
+            android:text="사진/영상추가"
+            android:textColor="#000000"
+            android:gravity="center" />
+    </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/thumbnailImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:visibility="gone" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true">
         <EditText
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="235dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/text_edit_box"
+            android:background="@null"
             android:ems="10"
             android:gravity="top"
-            android:inputType="text"
-            android:padding="5dp"
-            android:text="내용을 입력해주세요"
+            android:textSize="15dp"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:padding="10dp"
+            android:minLines="5"
+            android:maxLines="10"
+            android:textColorHint="#dbdbdb"
+            android:hint="다음 방문자들을 위해서 맛이나 서비스에 대해서 적어주세요(최소10자 이상)"
             android:textColor="#9C9C9C" />
-
+    </androidx.cardview.widget.CardView>
         <Button
             android:id="@+id/btnReview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="6dp"
             android:backgroundTint="#2B98FE"
             android:text="리뷰등록하기"
             android:textColor="#FFFFFF"
             android:textColorHint="#000000"
             android:textSize="15sp"
             android:textStyle="bold" />
-
-
     </LinearLayout>
+</ScrollView>
 
-</LinearLayout>

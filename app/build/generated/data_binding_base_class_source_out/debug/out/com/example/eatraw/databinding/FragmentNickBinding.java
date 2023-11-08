@@ -29,17 +29,21 @@ public final class FragmentNickBinding implements ViewBinding {
   public final Button btnRegister;
 
   @NonNull
+  public final Button nickcheck;
+
+  @NonNull
   public final TextInputEditText nickname;
 
   @NonNull
   public final ImageView thumbnail;
 
   private FragmentNickBinding(@NonNull LinearLayout rootView, @NonNull ImageButton backButton,
-      @NonNull Button btnRegister, @NonNull TextInputEditText nickname,
+      @NonNull Button btnRegister, @NonNull Button nickcheck, @NonNull TextInputEditText nickname,
       @NonNull ImageView thumbnail) {
     this.rootView = rootView;
     this.backButton = backButton;
     this.btnRegister = btnRegister;
+    this.nickcheck = nickcheck;
     this.nickname = nickname;
     this.thumbnail = thumbnail;
   }
@@ -83,6 +87,12 @@ public final class FragmentNickBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.nickcheck;
+      Button nickcheck = ViewBindings.findChildViewById(rootView, id);
+      if (nickcheck == null) {
+        break missingId;
+      }
+
       id = R.id.nickname;
       TextInputEditText nickname = ViewBindings.findChildViewById(rootView, id);
       if (nickname == null) {
@@ -95,8 +105,8 @@ public final class FragmentNickBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentNickBinding((LinearLayout) rootView, backButton, btnRegister, nickname,
-          thumbnail);
+      return new FragmentNickBinding((LinearLayout) rootView, backButton, btnRegister, nickcheck,
+          nickname, thumbnail);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
