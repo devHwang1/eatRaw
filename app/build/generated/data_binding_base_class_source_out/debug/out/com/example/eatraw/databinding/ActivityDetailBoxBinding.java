@@ -81,7 +81,11 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
   public final TextView textMin;
 
   @NonNull
+<<<<<<< HEAD
   public final ImageView up;
+=======
+  public final Button up;
+>>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
 
   private ActivityDetailBoxBinding(@NonNull LinearLayout rootView, @NonNull RatingBar DratingBar,
       @NonNull CardView ImageView, @NonNull TextView IntAvg, @NonNull TextView IntMax,
@@ -90,7 +94,11 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
       @NonNull TextView Textcomparison, @NonNull TextView contentView, @NonNull TextView likeInt,
       @NonNull CircleImageView mImg, @NonNull TextView mName, @NonNull LinearLayout mReiview,
       @NonNull TextView mStarsocore, @NonNull TextView texMax, @NonNull TextView textAvg,
+<<<<<<< HEAD
       @NonNull TextView textMin, @NonNull ImageView up) {
+=======
+      @NonNull TextView textMin, @NonNull Button up) {
+>>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
     this.rootView = rootView;
     this.DratingBar = DratingBar;
     this.ImageView = ImageView;
@@ -252,7 +260,11 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
       }
 
       id = R.id.up;
+<<<<<<< HEAD
       ImageView up = ViewBindings.findChildViewById(rootView, id);
+=======
+      Button up = ViewBindings.findChildViewById(rootView, id);
+>>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
       if (up == null) {
         break missingId;
       }
