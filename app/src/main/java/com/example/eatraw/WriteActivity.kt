@@ -4,15 +4,18 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.webkit.MimeTypeMap
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.common.io.Files.getFileExtension
+import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.storage.FirebaseStorage
@@ -32,7 +35,8 @@ class WriteActivity : AppCompatActivity() {
     private lateinit var editText: EditText
     private lateinit var btnReview: Button
     private lateinit var btnImage: Button
-    private lateinit var marketName : EditText
+    private lateinit var marketName: EditText
+    private lateinit var thumbnailImageView: ImageView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +56,7 @@ class WriteActivity : AppCompatActivity() {
         btnReview = findViewById(R.id.btnReview)
         btnImage = findViewById(R.id.btnImage)
         marketName = findViewById(R.id.marketName)
+        thumbnailImageView = findViewById(R.id.thumbnailImageView)
 
         btnImage.setOnClickListener {
             openImagePicker()
@@ -77,11 +82,14 @@ class WriteActivity : AppCompatActivity() {
             val imageRef = storageReference.child("storeImg/$imageFileName")
             val uploadTask: UploadTask = imageRef.putFile(selectedImageUri!!)
 
+            val user = Firebase.auth.currentUser
+            val userUid = user?.uid
+
             uploadTask.addOnSuccessListener { taskSnapshot ->
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                     val content = editText.text.toString()
                     val fishKind = editFishKind.text.toString()
-                    val cost = editFishPrice.text.toString()
+                    val cost = editFishPrice.text.toString().toInt()
                     val storeName = editStoreName.text.toString()
                     val selectedRating = starSelect.selectedItem.toString().toFloat()
                     val marketName = marketName.text.toString()
@@ -93,7 +101,8 @@ class WriteActivity : AppCompatActivity() {
                         "storeImg" to uri.toString(), // 이미지 URL을 저장
                         "storeName" to storeName,
                         "rating" to selectedRating,
-                        "marketName" to marketName
+                        "marketName" to marketName,
+                        "userId" to userUid
                     )
 
                     db.collection("review")
@@ -101,6 +110,9 @@ class WriteActivity : AppCompatActivity() {
                         .addOnSuccessListener { documentReference: DocumentReference ->
                             val reviewId = documentReference.id
                             showResultMessage("리뷰가 성공적으로 등록되었습니다.")
+                            val intent = Intent(this, ReviewActivity::class.java)
+                            startActivity(intent)
+                            finish()
                         }
                         .addOnFailureListener { e ->
                             showResultMessage("리뷰 등록 중 오류가 발생했습니다.")
@@ -112,13 +124,6 @@ class WriteActivity : AppCompatActivity() {
         }
     }
 
-
-    private fun getFileExtension(uri: Uri): String {
-        val contentResolver = contentResolver
-        val mimeTypeMap = MimeTypeMap.getSingleton()
-        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ?: "jpg"
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -126,6 +131,10 @@ class WriteActivity : AppCompatActivity() {
             data?.data?.let { uri ->
                 selectedImageUri = uri
                 showResultMessage("이미지 선택 완료")
+
+                // 섬네일 이미지 표시
+                thumbnailImageView.visibility = View.VISIBLE
+                thumbnailImageView.setImageURI(uri)
             }
         }
     }

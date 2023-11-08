@@ -8,6 +8,7 @@ data class Review(
     val rating: Double?,
     val region: String?,
     val like: Int?,
-    val fishKind: Int?,
-    val cost: String?
+    val fishKind: String,
+    val cost: Int,
+    val userId: String?  // 사용자 UID를 추가
 )
