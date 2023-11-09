@@ -179,7 +179,7 @@ class ReviewActivity : AppCompatActivity() {
                             val imageUrl = storeImg ?: "기본 이미지 URL"  // 여기에 기본 이미지 URL을 넣으세요
 
                             val marketNameWithHash = "$marketName"
-                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, cost, fishKind, userId)
+                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, fishKind, cost, userId)
                             newItems.add(item)
                         }
 
@@ -263,7 +263,7 @@ class ReviewActivity : AppCompatActivity() {
                     val storeImg = document["storeImg"] as String?
                     val region = document["region"] as String?
                     val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                    val cost = (document["cost"] as? Double)?.toInt()
+                    val cost = (document["cost"] as? Long)?.toInt()
                     val fishKind = document["fishKind"] as String?
                     val userId = document["userId"] as String?
 
@@ -271,7 +271,7 @@ class ReviewActivity : AppCompatActivity() {
                     val imageUrl = storeImg ?: "기본 이미지 URL" // 여기에 기본 이미지 URL을 넣으세요
 
                     val marketNameWithHash = "$marketName"
-                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, cost, fishKind,userId)
+                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, fishKind,cost,userId)
                     newItems.add(item)
                 }
 
@@ -310,7 +310,7 @@ class ReviewActivity : AppCompatActivity() {
                         val imageUrl = storeImg ?: "기본 이미지 URL"
 
                         val marketNameWithHash = "$marketName"
-                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, cost, fishKind, userId)
+                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like,  fishKind,cost, userId)
                         newItems.add(item)
                     }
                     itemList.clear()

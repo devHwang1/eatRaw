@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.example.eatraw.admin.fish.FishFragment
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -29,6 +31,7 @@ class AddFishActivity : AppCompatActivity() {
 
     private var imageUri: Uri? = null
     private var storageReference: StorageReference? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_fish)
@@ -61,35 +64,20 @@ class AddFishActivity : AppCompatActivity() {
             val season = seasonEditText.text.toString()
 
             // Firebase Firestore에 데이터 업로드
-            if (fishName.isNotBlank() && minCost.isNotBlank() && avgCost.isNotBlank() && maxCost.isNotBlank() && season.isNotBlank()) {
+            if (fishName.isNotBlank() && minCost.isNotBlank() && avgCost.isNotBlank() && maxCost.isNotBlank() && season.isNotBlank() && imageUri != null) {
                 // Firestore에 데이터 업로드
-                val fishData = hashMapOf(
-                    "f_name" to fishName,
-                    "f_min" to minCost.toLong(),
-                    "f_avg" to avgCost.toLong(),
-                    "f_max" to maxCost.toLong(),
-                    "f_season" to season,
-                    // 이미지 URL도 업로드할 수 있습니다.
-                )
-
-                firestore.collection("fish")
-                    .add(fishData)
-                    .addOnSuccessListener { documentReference ->
-                        // 업로드 성공 시 처리
-                        Toast.makeText(this, "생선 정보가 성공적으로 등록되었습니다.", Toast.LENGTH_SHORT).show()
-                        // 필요한 경우 추가 작업을 수행하실 수 있습니다.
-                    }
-                    .addOnFailureListener { e ->
-                        // 업로드 실패 시 처리
-                        Toast.makeText(this, "생선 정보 업로드 실패: $e", Toast.LENGTH_SHORT).show()
-                    }
+                uploadImage(imageUri!!, fishName)
             } else {
                 Toast.makeText(this, "모든 필드를 입력하세요.", Toast.LENGTH_SHORT).show()
             }
         }
 
+        // 뒤로가기 버튼 처리
+        val backButton = findViewById<ImageView>(R.id.img_backarrow)
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
     }
-
 
     private fun openImageChooser() {
         val intent = Intent()
@@ -104,28 +92,52 @@ class AddFishActivity : AppCompatActivity() {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
             // 사용자가 이미지를 선택하면 이미지의 Uri를 저장합니다.
             imageUri = data.data
-            // 이제 이미지를 Firebase Storage에 업로드할 수 있습니다.
-            uploadImage(imageUri)
+            // 이미지를 로드하고 표시
+            Glide.with(this)
+                .load(imageUri)
+                .into(fishImage)
         }
     }
 
     // 이미지 업로드 함수
-    private fun uploadImage(uri: Uri?) {
-        if (uri != null) {
-            // Firebase Storage에 이미지를 저장하기 위한 고유한 이름으로 참조를 생성합니다.
-            val imagesRef = storageReference?.child("images/${System.currentTimeMillis()}")
-            val uploadTask: UploadTask = imagesRef?.putFile(uri)!!
+    private fun uploadImage(uri: Uri, fishName: String) {
+        // Firebase Storage에 이미지를 저장하기 위한 고유한 이름으로 참조를 생성합니다.
 
-            uploadTask.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // 이미지 업로드 성공 처리
-                    val downloadUrl = imagesRef.downloadUrl.result
-                    Toast.makeText(this, "이미지가 성공적으로 업로드되었습니다.", Toast.LENGTH_SHORT).show()
-                    // 이 URL은 다른 생선 정보와 함께 Firestore 데이터베이스에 저장할 수 있습니다.
-                } else {
-                    // 업로드 실패 처리
-                    Toast.makeText(this, "이미지 업로드 실패.", Toast.LENGTH_SHORT).show()
+        val imagesRef = storageReference?.child("FishImg/$fishName")
+        val uploadTask: UploadTask = imagesRef?.putFile(uri)!!
+
+        uploadTask.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                imagesRef.downloadUrl.addOnSuccessListener { uri ->
+                    val downloadUrl = uri
+                    // Firestore에 데이터 업로드
+                    val fishData = hashMapOf(
+                        "f_img" to downloadUrl.toString(),
+                        "f_name" to fishName,
+                        "f_min" to minCostEditText.text.toString().toLong(),
+                        "f_avg" to avgCostEditText.text.toString().toLong(),
+                        "f_max" to maxCostEditText.text.toString().toLong(),
+                        "f_season" to seasonEditText.text.toString()
+                    )
+
+
+                    firestore.collection("fish")
+                        .add(fishData)
+                        .addOnSuccessListener { documentReference ->
+                            // 업로드 성공 시 처리
+                            Toast.makeText(this, "생선 정보가 성공적으로 등록되었습니다.", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, FishFragment::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                        .addOnFailureListener { e ->
+                            // 업로드 실패 시 처리
+                            Toast.makeText(this, "생선 정보 업로드 실패: $e", Toast.LENGTH_SHORT).show()
+                        }
                 }
+            } else {
+                // 업로드 실패 처리
+                Toast.makeText(this, "이미지 업로드 실패.", Toast.LENGTH_SHORT).show()
             }
         }
     }

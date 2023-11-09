@@ -24,18 +24,31 @@
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="xvb0d2ii63" />
         <activity
+            android:name=".banner.Banner3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".banner.Banner2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".banner.Banner1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Banner1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".BannerDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddFishActivity"
             android:exported="false" />
         <activity
             android:name=".AdminActivity"
             android:exported="true"
             android:label="@string/title_activity_admin"
-            android:theme="@style/Theme.EatRaw.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.EatRaw.NoActionBar" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ComparingPriceDetailActivity"
             android:exported="false" />
@@ -72,7 +85,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

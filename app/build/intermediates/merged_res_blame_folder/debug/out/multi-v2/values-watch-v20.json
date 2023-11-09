@@ -4,7 +4,7 @@
             "outputFile": "com.example.eatraw.app-mergeDebugResources-61:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\comed\\.gradle\\caches\\transforms-3\\f79e28815eb62593321ef1f53aff0bc3\\transformed\\jetified-play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\46218805887e05b26818b5f97519ebf1\\transformed\\jetified-play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\comed\\.gradle\\caches\\transforms-3\\d65d20eb261ad2c016687575f6fada42\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\269db65f3fcdeb7f2fd69a7853292436\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

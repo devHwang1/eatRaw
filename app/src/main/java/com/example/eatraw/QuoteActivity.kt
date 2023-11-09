@@ -117,7 +117,7 @@ class QuoteActivity : AppCompatActivity() {
         }
 
         val colors = intArrayOf(Color.rgb(197,255,140), Color.rgb(255,247,139)
-        + Color.rgb(255, 211, 140),Color.rgb(140, 235, 255),Color.rgb(255, 142, 155)) // 막대의 갯수에 따라서 원하는 색상을 추가하세요
+                + Color.rgb(255, 211, 140),Color.rgb(140, 235, 255),Color.rgb(255, 142, 155)) // 막대의 갯수에 따라서 원하는 색상을 추가하세요
 
         val barDataSet = BarDataSet(barEntries, "어종별 평균 시세")
         barDataSet.setColors(*colors)
