@@ -254,6 +254,14 @@
                     android:orientation="horizontal">
 
 
+<<<<<<< HEAD
+                    <ImageView
+                        android:id="@+id/up"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/thumb" />
+=======
                     <Button
                         android:id="@+id/btnLike"
                         android:layout_width="35dp"
@@ -264,9 +272,14 @@
                         android:drawablePadding="0dp"
                         android:paddingLeft="3dp"
                         android:textAlignment="textStart"
+<<<<<<< HEAD
                         android:textColor="#000000"
                         android:onClick="onLikeButtonClicked" />
 
+=======
+                        android:textColor="#000000" />
+>>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
+>>>>>>> 31b06537f7e25bbdd9f616e623a1b594fd74ee8d
 
                     <TextView
                         android:id="@+id/likeInt"

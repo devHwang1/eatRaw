@@ -4,7 +4,6 @@ package com.example.eatraw.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -84,14 +83,35 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
   @NonNull
   public final TextView textMin;
 
+<<<<<<< HEAD
+=======
+  @NonNull
+<<<<<<< HEAD
+  public final ImageView up;
+=======
+  public final Button up;
+>>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
+
+>>>>>>> 31b06537f7e25bbdd9f616e623a1b594fd74ee8d
   private ActivityDetailBoxBinding(@NonNull LinearLayout rootView, @NonNull RatingBar DratingBar,
       @NonNull CardView ImageView, @NonNull TextView IntAvg, @NonNull TextView IntMax,
       @NonNull TextView IntMin, @NonNull TextView MenuFishName, @NonNull ImageView Reviewimg,
       @NonNull TextView StorePrice, @NonNull TextView StorePriceInt,
+<<<<<<< HEAD
       @NonNull TextView Textcomparison, @NonNull Button btnLike, @NonNull TextView contentView,
       @NonNull TextView likeInt, @NonNull CircleImageView mImg, @NonNull TextView mName,
       @NonNull LinearLayout mReiview, @NonNull TextView mStarsocore, @NonNull TextView texMax,
       @NonNull TextView textAvg, @NonNull TextView textMin) {
+=======
+      @NonNull TextView Textcomparison, @NonNull TextView contentView, @NonNull TextView likeInt,
+      @NonNull CircleImageView mImg, @NonNull TextView mName, @NonNull LinearLayout mReiview,
+      @NonNull TextView mStarsocore, @NonNull TextView texMax, @NonNull TextView textAvg,
+<<<<<<< HEAD
+      @NonNull TextView textMin, @NonNull ImageView up) {
+=======
+      @NonNull TextView textMin, @NonNull Button up) {
+>>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
+>>>>>>> 31b06537f7e25bbdd9f616e623a1b594fd74ee8d
     this.rootView = rootView;
     this.DratingBar = DratingBar;
     this.ImageView = ImageView;
@@ -258,6 +278,19 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
         break missingId;
       }
 
+<<<<<<< HEAD
+=======
+      id = R.id.up;
+<<<<<<< HEAD
+      ImageView up = ViewBindings.findChildViewById(rootView, id);
+=======
+      Button up = ViewBindings.findChildViewById(rootView, id);
+>>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
+      if (up == null) {
+        break missingId;
+      }
+
+>>>>>>> 31b06537f7e25bbdd9f616e623a1b594fd74ee8d
       return new ActivityDetailBoxBinding((LinearLayout) rootView, DratingBar, ImageView, IntAvg,
           IntMax, IntMin, MenuFishName, Reviewimg, StorePrice, StorePriceInt, Textcomparison,
           btnLike, contentView, likeInt, mImg, mName, mReiview, mStarsocore, texMax, textAvg,
