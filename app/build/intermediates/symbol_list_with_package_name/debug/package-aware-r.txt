@@ -3071,6 +3071,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable croaker
 drawable cursor_drawble
 drawable custom_back_ground
 drawable custom_background
@@ -3205,6 +3206,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable november_2fish
 drawable pragment
 drawable profil
 drawable raiting_empty
@@ -3225,6 +3227,7 @@ drawable text_radius
 drawable thumb
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable yellow_croaker
 font black
 font bold
 font extrabold

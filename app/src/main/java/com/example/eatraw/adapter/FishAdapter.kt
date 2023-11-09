@@ -22,6 +22,12 @@ import kotlinx.coroutines.tasks.await
 class FishAdapter(private val context: Context, private val fishList: MutableList<ComparingPriceItem>) :
     RecyclerView.Adapter<FishAdapter.ViewHolder>() {
 
+    fun setData(newFishList: List<ComparingPriceItem>) {
+        fishList.clear()
+        fishList.addAll(newFishList)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_fish_list, parent, false)
         return ViewHolder(view)

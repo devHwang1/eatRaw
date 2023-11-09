@@ -31,6 +31,7 @@ drawable baseline_reviews_24
 drawable baseline_show_chart_24
 drawable check_button
 drawable clip
+drawable croaker
 drawable cursor_drawble
 drawable custom_back_ground
 drawable custom_background
@@ -67,6 +68,7 @@ drawable menubar
 drawable menubar1
 drawable menubar2
 drawable modify_button
+drawable november_2fish
 drawable pragment
 drawable profil
 drawable raiting_empty
@@ -84,6 +86,7 @@ drawable test_image
 drawable text_edit_box
 drawable text_radius
 drawable thumb
+drawable yellow_croaker
 font black
 font bold
 font extrabold

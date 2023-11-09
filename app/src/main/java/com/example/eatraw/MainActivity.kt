@@ -274,21 +274,21 @@ class MainActivity : AppCompatActivity() {
         when(viewPager2.currentItem){
             0 ->
             {
-                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.red))
+                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.black))
                 iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
                 iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
             }
             1 ->
             {
                 iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
-                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.red))
+                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.black))
                 iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
             }
             2 ->
             {
                 iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
                 iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
-                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.red))
+                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.black))
             }
         }
     }

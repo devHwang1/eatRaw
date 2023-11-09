@@ -3,6 +3,7 @@ package com.example.eatraw
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -73,6 +74,23 @@ class ComparingPriceListActivity : AppCompatActivity() {
                 Log.e("FirestoreError", "Error getting documents: ", exception)
             }
 
+
+        val searchView = findViewById<SearchView>(R.id.mainSearchbar)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // 사용자가 검색 버튼을 눌렀을 때의 동작
+                query?.let { searchFish(it) }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // 검색어가 변경될 때의 동작
+                newText?.let { searchFish(it) }
+                return true
+            }
+        })
+
+
         // 뒤로가기 버튼 처리
         val backButton = binding.imgBackarrow
         backButton.setOnClickListener {
@@ -109,4 +127,48 @@ class ComparingPriceListActivity : AppCompatActivity() {
             true
         }}
     }
+
+    private fun searchFish(query: String) {
+        // Firestore에서 검색어를 기반으로 데이터 가져오기
+        val uppercaseQuery = query.toUpperCase() // 대소문자 구분 없이 검색하기 위해 대문자로 변환
+
+        firestore.collection("fish")
+            .orderBy("f_name")
+            .startAt(uppercaseQuery)
+            .endAt(uppercaseQuery + "\uf8ff")
+            .get()
+            .addOnSuccessListener { documents ->
+                val comparingPriceData = mutableListOf<ComparingPriceItem>()
+
+                for (document in documents) {
+                    val fishName = document.getString("f_name")
+                    val minCost = (document["f_min"] as? Long)?.toInt()
+                    val avgCost = (document["f_avg"] as? Long)?.toInt()
+                    val maxCost = (document["f_max"] as? Long)?.toInt()
+                    val fishImg = document.getString("f_img")
+                    val season = document.getString("f_season")
+
+                    if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
+                        val comparingPriceItem = ComparingPriceItem(
+                            fishName,
+                            minCost.toString(),
+                            avgCost.toString(),
+                            maxCost.toString(),
+                            fishImg,
+                            season
+                        )
+                        comparingPriceData.add(comparingPriceItem)
+                    }
+                }
+
+                // RecyclerView에 업데이트
+                val adapterComparingPrice = ComparingPriceAdapter(comparingPriceData)
+                recyclerViewComparingPrice.adapter = adapterComparingPrice
+            }
+            .addOnFailureListener { exception ->
+                // 데이터 가져오기 실패 시 처리
+                Log.e("FirestoreError", "Error getting documents: ", exception)
+            }
+    }
+
 }
