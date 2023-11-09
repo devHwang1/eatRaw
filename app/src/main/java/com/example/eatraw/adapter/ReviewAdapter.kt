@@ -54,8 +54,8 @@ class ReviewAdapter(private val reviews: List<Review>) :
             intent.putExtra("region", review.region)    // 지역
             intent.putExtra("userId", review.userId)    // 회원이름
             intent.putExtra("image", review.storeImg)   // 사진
-            intent.putExtra("fishkindcost",review.cost) // 물고기 가격
-            intent.putExtra("menuCost",review.fishKind) //물고기 이름
+            intent.putExtra("fishkind",review.fishKind) // 물고기이름
+            intent.putExtra("menuCost",review.cost) //메뉴 가격
 
 
 

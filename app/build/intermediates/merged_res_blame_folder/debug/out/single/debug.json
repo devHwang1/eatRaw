@@ -256,6 +256,10 @@
         "source": "com.example.eatraw.app-main-64:/drawable/google.png"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-62:/drawable_thumbfill.png.flat",
+        "source": "com.example.eatraw.app-main-64:/drawable/thumbfill.png"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-62:/layout_item_main.xml.flat",
         "source": "com.example.eatraw.app-main-64:/layout/item_main.xml"
     },

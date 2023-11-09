@@ -14,4 +14,5 @@ data class Review(
     val cost: Int?,
     val userId: String?,  // 사용자 UID를 추가
     val reviewId: String? = null //  리뷰 고유 아이디 추가
-)
+ )
+

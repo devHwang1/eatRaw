@@ -3225,6 +3225,7 @@ drawable test_level_drawable
 drawable text_edit_box
 drawable text_radius
 drawable thumb
+drawable thumbfill
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 font black
@@ -3377,6 +3378,7 @@ id btnDeleteFish
 id btnDeleteReviewAdmin
 id btnDeleteUser
 id btnImage
+id btnLike
 id btnRegisterFish
 id btnReview
 id btnUpdateUserAdmin

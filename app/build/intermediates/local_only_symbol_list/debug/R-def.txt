@@ -86,6 +86,7 @@ drawable test_image
 drawable text_edit_box
 drawable text_radius
 drawable thumb
+drawable thumbfill
 font black
 font bold
 font extrabold
@@ -130,6 +131,7 @@ id btnDeleteFish
 id btnDeleteReviewAdmin
 id btnDeleteUser
 id btnImage
+id btnLike
 id btnRegisterFish
 id btnReview
 id btnUpdateUserAdmin
@@ -274,7 +276,6 @@ id thumbnailImageView
 id title_switch
 id toolbar
 id topLayout
-id up
 id userAdmin
 id userAouthLogin
 id userImg
