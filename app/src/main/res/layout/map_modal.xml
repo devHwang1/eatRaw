@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/map"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:ignore="MissingClass">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="시장 정보"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_marginBottom="15dp"
+        android:layout_height="wrap_content">
+    </TextView>
+<!--    <com.naver.maps.map.MapView-->
+<!--        android:id="@+id/mapView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:layout_height="380dp" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="주소 : "
+            android:textSize="18dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent">
+        </TextView>
+        <TextView
+            android:id="@+id/addressTextView"
+            android:text="asdfadg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="전화번호 : "
+            android:textSize="18dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent">
+        </TextView>
+        <TextView
+            android:id="@+id/telTextView"
+            android:layout_width="match_parent"
+            android:text="sfdfsd"
+            android:layout_height="match_parent">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="영업시간 : "
+            android:textSize="18dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent">
+        </TextView>
+        <TextView
+            android:id="@+id/openTextView"
+            android:layout_width="match_parent"
+            android:text="sdfsf"
+            android:layout_height="match_parent">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="시장내용 : "
+            android:textSize="18dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent">
+        </TextView>
+        <TextView
+            android:id="@+id/contentTextView"
+            android:text="sdfsf"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </TextView>
+    </LinearLayout>
+</LinearLayout>

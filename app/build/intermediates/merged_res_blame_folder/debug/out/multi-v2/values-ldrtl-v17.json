@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-61:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\95be413f60dd9541f91625ac8d4fdb72\\transformed\\material-1.10.0\\res\\values-ldrtl-v17\\values-ldrtl-v17.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\29a624b9ad7b9258285fa04ebeed112a\\transformed\\material-1.10.0\\res\\values-ldrtl-v17\\values-ldrtl-v17.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

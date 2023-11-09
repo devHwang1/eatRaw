@@ -25,6 +25,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.ServerTimestamp
+import java.util.Date
 
 class WriteActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
@@ -43,6 +46,8 @@ class WriteActivity : AppCompatActivity() {
     private lateinit var thumbnailImageView: ImageView
     private var reviewId: String? = null
 
+    @ServerTimestamp
+    private var timestamp: Date? = null
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,6 +122,8 @@ class WriteActivity : AppCompatActivity() {
 
             val user = Firebase.auth.currentUser
             val userUid = user?.uid
+            val timestamp = Timestamp.now()
+
 
             uploadTask.addOnSuccessListener { taskSnapshot ->
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
@@ -136,7 +143,7 @@ class WriteActivity : AppCompatActivity() {
                         "marketName" to marketName,
                         "userId" to userUid,
 
-                    )
+                        )
                     if (reviewId != null) {
                         // 수정 모드인 경우
                         db.collection("review").document(reviewId!!)
@@ -148,7 +155,8 @@ class WriteActivity : AppCompatActivity() {
                                 "storeName", reviewData["storeName"],
                                 "rating", reviewData["rating"],
                                 "marketName", reviewData["marketName"],
-                                "userId", reviewData["userId"]
+                                "userId", reviewData["userId"],
+                                "timestamp" to timestamp
                             )
                             .addOnSuccessListener {
                                 showResultMessage("리뷰가 성공적으로 수정되었습니다.")
