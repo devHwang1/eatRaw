@@ -1,18 +1,14 @@
-package com.example.eatraw.ui.users
+package com.example.eatraw.admin.users
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.eatraw.R
-import com.example.eatraw.adapter.FishAdapter
 import com.example.eatraw.adapter.UsersAdapter
 import com.example.eatraw.data.Users
 import com.example.eatraw.databinding.FragmentUsersBinding

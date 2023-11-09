@@ -1,4 +1,4 @@
-package com.example.eatraw.ui.fish
+package com.example.eatraw.admin.fish
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

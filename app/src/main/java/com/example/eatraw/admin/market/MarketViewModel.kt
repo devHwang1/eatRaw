@@ -1,4 +1,4 @@
-package com.example.eatraw.ui.market
+package com.example.eatraw.admin.market
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

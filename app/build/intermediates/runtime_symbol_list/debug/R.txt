@@ -3565,6 +3565,10 @@ int id invisible 0x7f0a0147
 int id inward 0x7f0a0148
 int id italic 0x7f0a0149
 int id item_touch_helper_previous_elevation 0x7f0a014a
+int id iv1 0x7f0a02b4
+int id iv2 0x7f0a02b5
+int id iv3 0x7f0a02b6
+int id ivImage 0x7f0a02b7
 int id jumpToEnd 0x7f0a014b
 int id jumpToStart 0x7f0a014c
 int id labeled 0x7f0a014d
@@ -3740,7 +3744,6 @@ int id rating 0x7f0a01f6
 int id ratingAdmin 0x7f0a01f7
 int id ratio 0x7f0a01f8
 int id rectangles 0x7f0a01f9
-int id recyclerViewBanner 0x7f0a01fa
 int id recyclerViewBestReview 0x7f0a01fb
 int id recyclerViewComparingPrice 0x7f0a01fc
 int id recyclerViewFishList 0x7f0a01fd
@@ -3909,6 +3912,7 @@ int id userNickName 0x7f0a029f
 int id userSearchbar 0x7f0a02a0
 int id vertical_only 0x7f0a02a1
 int id view_offset_helper 0x7f0a02a2
+int id view_pager2_banner 0x7f0a02b8
 int id view_transition 0x7f0a02a3
 int id view_tree_lifecycle_owner 0x7f0a02a4
 int id view_tree_on_back_pressed_dispatcher_owner 0x7f0a02a5
@@ -4044,6 +4048,9 @@ int layout abc_select_dialog_material 0x7f0d001a
 int layout abc_tooltip 0x7f0d001b
 int layout activity_add_fish 0x7f0d001c
 int layout activity_admin 0x7f0d001d
+int layout activity_banner1 0x7f0d0099
+int layout activity_banner2 0x7f0d009a
+int layout activity_banner3 0x7f0d009b
 int layout activity_comparing_price_detail 0x7f0d001e
 int layout activity_comparing_price_list 0x7f0d001f
 int layout activity_detail 0x7f0d0020
@@ -4078,6 +4085,9 @@ int layout design_navigation_menu_item 0x7f0d003c
 int layout design_text_input_end_icon 0x7f0d003d
 int layout design_text_input_start_icon 0x7f0d003e
 int layout fragment_alarm 0x7f0d003f
+int layout fragment_banner1 0x7f0d0095
+int layout fragment_banner2 0x7f0d0096
+int layout fragment_banner3 0x7f0d0097
 int layout fragment_center 0x7f0d0040
 int layout fragment_del 0x7f0d0041
 int layout fragment_fish 0x7f0d0042
@@ -4099,6 +4109,7 @@ int layout item_fish_list 0x7f0d0051
 int layout item_review_admin_list 0x7f0d0052
 int layout item_review_list 0x7f0d0053
 int layout item_users_list 0x7f0d0054
+int layout item_viewpager2_banner 0x7f0d0094
 int layout m3_alert_dialog 0x7f0d0055
 int layout m3_alert_dialog_actions 0x7f0d0056
 int layout m3_alert_dialog_title 0x7f0d0057
