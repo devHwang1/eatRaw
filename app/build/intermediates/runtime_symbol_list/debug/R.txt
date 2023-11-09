@@ -3092,6 +3092,8 @@ int drawable googleg_standard_color_18 0x7f0800b4
 int drawable group_1 0x7f0800b5
 int drawable group_40 0x7f0800b6
 int drawable group_41 0x7f0800b7
+int drawable group_42 0x7f08013b
+int drawable group_43 0x7f08013c
 int drawable ic_add 0x7f0800b8
 int drawable ic_arrow_back_black_24 0x7f0800b9
 int drawable ic_call_answer 0x7f0800ba
@@ -3304,7 +3306,9 @@ int id action_bar_subtitle 0x7f0a0043
 int id action_bar_title 0x7f0a0044
 int id action_container 0x7f0a0045
 int id action_context_bar 0x7f0a0046
+int id action_delete 0x7f0a02a9
 int id action_divider 0x7f0a0047
+int id action_edit 0x7f0a02aa
 int id action_image 0x7f0a0048
 int id action_menu_divider 0x7f0a0049
 int id action_menu_presenter 0x7f0a004a
@@ -3458,6 +3462,7 @@ int id dragRight 0x7f0a00dd
 int id dragStart 0x7f0a00de
 int id dragUp 0x7f0a00df
 int id drawer_layout 0x7f0a00e0
+int id drop_detail 0x7f0a02ad
 int id dropdown_menu 0x7f0a00e1
 int id easeIn 0x7f0a00e2
 int id easeInOut 0x7f0a00e3
@@ -3468,6 +3473,7 @@ int id editAvgCost 0x7f0a00e7
 int id editBox 0x7f0a00e8
 int id editFishName 0x7f0a00e9
 int id editFishPrice 0x7f0a00ea
+int id editMarketName 0x7f0a02af
 int id editMaxCost 0x7f0a00eb
 int id editMinCost 0x7f0a00ec
 int id editSeason 0x7f0a00ed
@@ -3584,7 +3590,6 @@ int id mReiview 0x7f0a015b
 int id mStarsocore 0x7f0a015c
 int id mainSearchbar 0x7f0a015d
 int id marketAverage 0x7f0a015e
-int id marketName 0x7f0a015f
 int id marquee 0x7f0a0160
 int id masked 0x7f0a0161
 int id match_constraint 0x7f0a0162
@@ -3875,6 +3880,7 @@ int id thumbnailImageView 0x7f0a027e
 int id time 0x7f0a027f
 int id title 0x7f0a0280
 int id titleDividerNoCustom 0x7f0a0281
+int id title_switch 0x7f0a02ae
 int id title_template 0x7f0a0282
 int id toggle 0x7f0a0283
 int id toolbar 0x7f0a0284
@@ -4068,6 +4074,7 @@ int layout design_text_input_start_icon 0x7f0d003e
 int layout fragment_alarm 0x7f0d003f
 int layout fragment_center 0x7f0d0040
 int layout fragment_del 0x7f0d0041
+int layout fragment_dropdown 0x7f0d0093
 int layout fragment_fish 0x7f0d0042
 int layout fragment_google_del 0x7f0d0043
 int layout fragment_home 0x7f0d0044
@@ -4151,6 +4158,7 @@ int layout select_dialog_singlechoice_material 0x7f0d0091
 int layout support_simple_spinner_dropdown_item 0x7f0d0092
 int menu activity_main_drawer 0x7f0f0000
 int menu navi_menu 0x7f0f0001
+int menu popup_menu 0x7f0f0002
 int mipmap ic_launcher 0x7f100000
 int mipmap ic_launcher_round 0x7f100001
 int navigation mobile_navigation 0x7f110000

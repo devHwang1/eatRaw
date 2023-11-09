@@ -3093,6 +3093,8 @@ drawable googleg_standard_color_18
 drawable group_1
 drawable group_40
 drawable group_41
+drawable group_42
+drawable group_43
 drawable ic_add
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
@@ -3305,7 +3307,9 @@ id action_bar_subtitle
 id action_bar_title
 id action_container
 id action_context_bar
+id action_delete
 id action_divider
+id action_edit
 id action_image
 id action_menu_divider
 id action_menu_presenter
@@ -3459,6 +3463,7 @@ id dragRight
 id dragStart
 id dragUp
 id drawer_layout
+id drop_detail
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -3469,6 +3474,7 @@ id editAvgCost
 id editBox
 id editFishName
 id editFishPrice
+id editMarketName
 id editMaxCost
 id editMinCost
 id editSeason
@@ -3585,7 +3591,6 @@ id mReiview
 id mStarsocore
 id mainSearchbar
 id marketAverage
-id marketName
 id marquee
 id masked
 id match_constraint
@@ -3876,6 +3881,7 @@ id thumbnailImageView
 id time
 id title
 id titleDividerNoCustom
+id title_switch
 id title_template
 id toggle
 id toolbar
@@ -4069,6 +4075,7 @@ layout design_text_input_start_icon
 layout fragment_alarm
 layout fragment_center
 layout fragment_del
+layout fragment_dropdown
 layout fragment_fish
 layout fragment_google_del
 layout fragment_home
@@ -4152,6 +4159,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu activity_main_drawer
 menu navi_menu
+menu popup_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation

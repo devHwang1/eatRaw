@@ -46,6 +46,8 @@ drawable google_up_btn
 drawable group_1
 drawable group_40
 drawable group_41
+drawable group_42
+drawable group_43
 drawable ic_add
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -104,6 +106,8 @@ id StarBox
 id StorePrice
 id StorePriceInt
 id Textcomparison
+id action_delete
+id action_edit
 id action_mypageFragment_to_alarmFragment
 id action_mypageFragment_to_centerFragment
 id action_mypageFragment_to_modifyFragment
@@ -144,10 +148,12 @@ id centerFragment
 id contentView
 id detailRecylerView
 id drawer_layout
+id drop_detail
 id editAvgCost
 id editBox
 id editFishName
 id editFishPrice
+id editMarketName
 id editMaxCost
 id editMinCost
 id editSeason
@@ -189,7 +195,6 @@ id mReiview
 id mStarsocore
 id mainSearchbar
 id marketAverage
-id marketName
 id menuSend
 id menubar1
 id menubar3
@@ -253,6 +258,7 @@ id text_users
 id third
 id thumbnail
 id thumbnailImageView
+id title_switch
 id toolbar
 id topLayout
 id up
@@ -276,6 +282,7 @@ layout content_admin
 layout fragment_alarm
 layout fragment_center
 layout fragment_del
+layout fragment_dropdown
 layout fragment_fish
 layout fragment_google_del
 layout fragment_home
@@ -296,6 +303,7 @@ layout nav_header_admin
 layout recyclerview_review
 menu activity_main_drawer
 menu navi_menu
+menu popup_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation

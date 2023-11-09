@@ -1,9 +1,12 @@
 package com.example.eatraw.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.PopupMenu
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -11,11 +14,14 @@ import com.bumptech.glide.Glide
 import com.example.eatraw.R
 import com.example.eatraw.data.Review
 import com.example.eatraw.data.Users
+import com.google.firebase.auth.FirebaseAuth
+
 
 //사용 데이터 : Review
 open class ReviewDetailAdapter(private var review : List<Review>, var users:List<Users>) :
     RecyclerView.Adapter<ReviewDetailAdapter.ReviewDetailAdapterViewHolder>() {
 
+    private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     open class ReviewDetailAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView : ImageView = itemView.findViewById(R.id.Reviewimg)
         val menuFishName : TextView = itemView.findViewById(R.id.MenuFishName)
@@ -109,6 +115,7 @@ open class ReviewDetailAdapter(private var review : List<Review>, var users:List
 //            holder.fishPrice.setTextColor(holder.itemView.context.getColor(R.color.blue))
 //        }
 
+        //드롭다운 버튼
 
     }
 

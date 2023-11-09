@@ -67,6 +67,7 @@ class MyreviewFragment : Fragment() {
                 }
             }
         }
+
     }
 
     private suspend fun getAllReviewsFromDb(): List<Review> {
@@ -77,25 +78,22 @@ class MyreviewFragment : Fragment() {
             try {
                 val documents = docRef.get().await()
                 for (document in documents) {
-                    val content = document.getString("content")
-                    val marketName = document.getString("marketName")
-                    val storeImg = document.getString("storeImg")
-                    val storeName = document.getString("storeName")
-                    val rating = document.getDouble("rating")
-                    val region = document.getString("region")
-                    val like = document.getLong("like")
-                    val fishKind = document.getString("fishKind")
-                    val cost = document.getLong("cost")
-                    val userId = document.getString("userId")
+                    val data = document.data // 데이터를 Map으로 가져옵니다.
+                    val reviewId = document.id
+                    val content = data["content"] as? String ?: ""
+                    val marketName = data["marketName"] as? String ?: ""
+                    val storeImg = data["storeImg"] as? String ?: ""
+                    val storeName = data["storeName"] as? String ?: ""
+                    val rating = (data["rating"] as? Double) ?: 0.0
+                    val region = data["region"] as? String ?: ""
+                    val like = (data["like"] as? Long)?.toInt() ?: 0
+                    val fishKind = data["fishKind"] as? String ?: ""
+                    val cost = (data["cost"] as? Long)?.toInt() ?: 0
+                    val userId = data["userId"] as? String ?: ""
 
-
-                    if (content != null && rating != null && marketName != null && userId != null && storeImg != null
-                        && storeName != null && storeName != null && fishKind != null && cost != null
-                    ) {
-                        val review = Review(content,marketName,storeImg,storeName,rating.toDouble(), region,
-                            like?.toInt(),fishKind,cost.toInt(),userId)
-                        reviews.add(review)
-                    }
+                    val review = Review( content, marketName, storeImg, storeName, rating, region,
+                        like, fishKind, cost, userId,reviewId)
+                    reviews.add(review)
                 }
 
                 // 어댑터 초기화 및 설정
@@ -123,7 +121,7 @@ class MyreviewFragment : Fragment() {
                     val imageUrl = document.getString("imageUrl")
                     val userId = document.getString("userId")
 
-                    if (email != null && nickname != null && aouthLogin != null && admin != null&&  admin != null && userId != null) {
+                    if (email != null && nickname != null && aouthLogin != null && admin != null&& userId != null) {
                         val user = Users(email, nickname, aouthLogin, admin, imageUrl, userId)
                         users.add(user)
                     }
