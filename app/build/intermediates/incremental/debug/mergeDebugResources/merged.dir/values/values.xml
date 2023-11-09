@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools" xmlns:ns2="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="navermap_info_menu">
+        <item>@string/navermap_legend</item>
+        <item>@string/navermap_legal_notice</item>
+        <item>@string/navermap_open_source_license</item>
+    </string-array>
     <string-array name="scoreSelect">
-        <item>1.0</item>
-        <item>1.5</item>
-        <item>2.0</item>
-        <item>2.5</item>
-        <item>3.0</item>
-        <item>3.5</item>
-        <item>4.0</item>
-        <item>4.5</item>
         <item>5.0</item>
+        <item>4.5</item>
+        <item>4.0</item>
+        <item>3.5</item>
+        <item>3.0</item>
+        <item>2.5</item>
+        <item>2.0</item>
+        <item>1.5</item>
+        <item>1.0</item>
+
+
+
     </string-array>
     <attr format="enum" name="animateCircleAngleTo">
         <enum name="bestChoice" value="0"/>
@@ -969,6 +977,13 @@
     <color name="mtrl_textinput_filled_box_default_background_color">#0A000000</color>
     <color name="mtrl_textinput_focused_box_stroke_color">#00000000</color>
     <color name="mtrl_textinput_hovered_box_stroke_color">#DE000000</color>
+    <color name="navermap_indoor_level_picker_item_background_normal">#FFFFFF</color>
+    <color name="navermap_indoor_level_picker_item_background_pressed">#888888</color>
+    <color name="navermap_indoor_level_picker_item_background_selected">#F2F2F2</color>
+    <color name="navermap_location_button_progress">#3B85F7</color>
+    <color name="navermap_primary">#00C42E</color>
+    <color name="navermap_scale_bar_text_dark">#FFFFFF</color>
+    <color name="navermap_scale_bar_text_light">#444444</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
@@ -1778,6 +1793,9 @@
     <dimen name="mtrl_transition_shared_axis_slide_distance">30dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="navermap_default_logo_margin_bottom">16dp</dimen>
+    <dimen name="navermap_default_logo_margin_left">12dp</dimen>
+    <dimen name="navermap_scale_bar_min_width">80dp</dimen>
     <dimen name="notification_action_icon_size">32dp</dimen>
     <dimen name="notification_action_text_size">13sp</dimen>
     <dimen name="notification_big_circle_margin">12dp</dimen>
@@ -1865,6 +1883,7 @@
     <item name="mtrl_view_tag_bottom_padding" type="id"/>
     <item name="nav_controller_view_tag" type="id"/>
     <item name="nav_host_fragment_container" type="id"/>
+    <item name="navermap_map_view" type="id"/>
     <item name="navigation_bar_item_active_indicator_view" type="id"/>
     <item name="navigation_bar_item_icon_container" type="id"/>
     <item name="navigation_bar_item_icon_view" type="id"/>
@@ -2219,6 +2238,22 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_title">Android Studio</string>
+    <string name="navermap_compass">Compass</string>
+    <string name="navermap_copyright" translatable="false">Copyright © 2018-%d NAVER Corp.\nAll rights reserved.</string>
+    <string name="navermap_current_location">Current location</string>
+    <string name="navermap_info_title" translatable="false">NAVER Map Android SDK</string>
+    <string name="navermap_legal_notice">Legal Notice / Info Providers</string>
+    <string name="navermap_legend">Legend</string>
+    <string name="navermap_map">Map</string>
+    <string name="navermap_naver_logo" translatable="false">NAVER</string>
+    <string name="navermap_open_source_license">Open Source Licence</string>
+    <string name="navermap_pathway">Pathway</string>
+    <string name="navermap_scale_km" translatable="false">km</string>
+    <string name="navermap_scale_m" translatable="false">m</string>
+    <string name="navermap_version" translatable="false">Version %1$s</string>
+    <string name="navermap_zero" translatable="false">0</string>
+    <string name="navermap_zoom_in">Zoom in</string>
+    <string name="navermap_zoom_out">Zoom out</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="nick">정보입력</string>
@@ -9295,6 +9330,13 @@
     <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>
     </style>
+    <style name="navermap_app" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="colorPrimary">@color/navermap_primary</item>
+        <item name="colorPrimaryDark">@color/navermap_primary</item>
+        <item name="colorAccent">@color/navermap_primary</item>
+    </style>
     <style name="text_edit">
     <item name="colorControlNormal">#9A9A9A</item>
     </style>
@@ -12563,6 +12605,101 @@
     </declare-styleable>
     <declare-styleable name="NavInclude">
         <attr format="reference" name="graph"/>
+    </declare-styleable>
+    <declare-styleable name="NaverMap">
+        <attr format="float" name="navermap_latitude"/>
+        <attr format="float" name="navermap_longitude"/>
+        <attr format="float" name="navermap_zoom"/>
+        <attr format="float" name="navermap_bearing"/>
+        <attr format="float" name="navermap_tilt"/>
+
+        <attr format="string" name="navermap_extent"/>
+
+        <attr format="float" name="navermap_minZoom"/>
+        <attr format="float" name="navermap_maxZoom"/>
+        <attr format="float" name="navermap_maxTilt"/>
+
+        <attr format="dimension" name="navermap_contentPadding"/>
+        <attr format="dimension" name="navermap_contentPaddingLeft"/>
+        <attr format="dimension" name="navermap_contentPaddingTop"/>
+        <attr format="dimension" name="navermap_contentPaddingRight"/>
+        <attr format="dimension" name="navermap_contentPaddingBottom"/>
+
+        <attr format="integer" name="navermap_defaultCameraAnimationDuration"/>
+
+        <attr format="string" name="navermap_mapType"/>
+        <attr format="string" name="navermap_enabledLayerGroups"/>
+
+        <attr format="boolean" name="navermap_liteModeEnabled"/>
+        <attr format="boolean" name="navermap_nightModeEnabled"/>
+
+        <attr format="float" name="navermap_buildingHeight"/>
+        <attr format="float" name="navermap_lightness"/>
+
+        <attr format="float" name="navermap_symbolScale"/>
+        <attr format="float" name="navermap_symbolPerspectiveRatio"/>
+
+        <attr format="boolean" name="navermap_indoorEnabled"/>
+        <attr format="dimension" name="navermap_indoorFocusRadius"/>
+
+        <attr format="reference|color" name="navermap_background"/>
+        <attr format="color" name="navermap_backgroundColor"/>
+        <attr format="reference" name="navermap_backgroundImage"/>
+
+        <attr format="dimension" name="navermap_pickTolerance"/>
+
+        <attr format="boolean" name="navermap_scrollGesturesEnabled"/>
+        <attr format="boolean" name="navermap_zoomGesturesEnabled"/>
+        <attr format="boolean" name="navermap_tiltGesturesEnabled"/>
+        <attr format="boolean" name="navermap_rotateGesturesEnabled"/>
+        <attr format="boolean" name="navermap_stopGesturesEnabled"/>
+
+        <attr format="float" name="navermap_scrollGesturesFriction"/>
+        <attr format="float" name="navermap_zoomGesturesFriction"/>
+        <attr format="float" name="navermap_rotateGesturesFriction"/>
+
+        <attr format="boolean" name="navermap_compassEnabled"/>
+        <attr format="boolean" name="navermap_scaleBarEnabled"/>
+        <attr format="boolean" name="navermap_zoomControlEnabled"/>
+        <attr format="boolean" name="navermap_indoorLevelPickerEnabled"/>
+        <attr format="boolean" name="navermap_locationButtonEnabled"/>
+        <attr format="boolean" name="navermap_logoClickEnabled"/>
+        <attr format="flags" name="navermap_logoGravity">
+            <flag name="top" value="0x30"/>
+            <flag name="bottom" value="0x50"/>
+            <flag name="left" value="0x03"/>
+            <flag name="right" value="0x05"/>
+            <flag name="center_vertical" value="0x10"/>
+            <flag name="fill_vertical" value="0x70"/>
+            <flag name="center_horizontal" value="0x01"/>
+            <flag name="fill_horizontal" value="0x07"/>
+            <flag name="center" value="0x11"/>
+            <flag name="fill" value="0x77"/>
+            <flag name="clip_vertical" value="0x80"/>
+            <flag name="clip_horizontal" value="0x08"/>
+            <flag name="start" value="0x00800003"/>
+            <flag name="end" value="0x00800005"/>
+        </attr>
+        <attr format="dimension" name="navermap_logoMargin"/>
+        <attr format="dimension" name="navermap_logoMarginLeft"/>
+        <attr format="dimension" name="navermap_logoMarginTop"/>
+        <attr format="dimension" name="navermap_logoMarginRight"/>
+        <attr format="dimension" name="navermap_logoMarginBottom"/>
+
+        <attr format="integer" name="navermap_fpsLimit"/>
+        <attr format="boolean" name="navermap_useTextureView"/>
+        <attr format="boolean" name="navermap_useVulkanView"/>
+        <attr format="boolean" name="navermap_msaaEnabled"/>
+        <attr format="boolean" name="navermap_translucentTextureSurface"/>
+        <attr format="boolean" name="navermap_zOrderMediaOverlay"/>
+        <attr format="boolean" name="navermap_preserveEGLContextOnPause"/>
+        <attr format="boolean" name="navermap_object3dEnabled"/>
+
+        <attr format="string" name="navermap_localTypefaceFactoryClass"/>
+        <attr format="boolean" name="navermap_cjkLocalGlyphRasterizationEnabled"/>
+    </declare-styleable>
+    <declare-styleable name="NaverMapScaleBarView">
+        <attr format="boolean" name="navermap_rtlEnabled"/>
     </declare-styleable>
     <declare-styleable name="NavigationBarActiveIndicator">
     

@@ -1,24 +1,17 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.example.eatraw.data.Review
 import com.example.eatraw.databinding.ActivityDetailBoxBinding
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import java.lang.Exception
 
 
 class DetailActivity : AppCompatActivity() {
@@ -28,14 +21,15 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var likeCountText: TextView
     private var liked: Boolean = false
     private lateinit var reviewId: String
+    private lateinit var binding : ActivityDetailBoxBinding
 
 
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityDetailBoxBinding.inflate(layoutInflater)
+        binding = ActivityDetailBoxBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
         //좋아요 텍스트뷰 표시 아이디
         likeBtn = findViewById(R.id.btnLike)
         likeCountText = findViewById(R.id.likeInt)
@@ -63,8 +57,8 @@ class DetailActivity : AppCompatActivity() {
             //Firebase 사용
             val db = FirebaseFirestore.getInstance()
             val ref = db.collection("review").document(reviewId)
-            
-            
+
+
             db.runTransaction { transition ->
                 val document : DocumentSnapshot
                 try {

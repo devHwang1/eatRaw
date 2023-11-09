@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -26,11 +27,16 @@ public final class FragmentMyreviewBinding implements ViewBinding {
   @NonNull
   public final TextView noReviewsTextView;
 
+  @NonNull
+  public final SearchView searchView;
+
   private FragmentMyreviewBinding(@NonNull FrameLayout rootView,
-      @NonNull RecyclerView detailRecylerView, @NonNull TextView noReviewsTextView) {
+      @NonNull RecyclerView detailRecylerView, @NonNull TextView noReviewsTextView,
+      @NonNull SearchView searchView) {
     this.rootView = rootView;
     this.detailRecylerView = detailRecylerView;
     this.noReviewsTextView = noReviewsTextView;
+    this.searchView = searchView;
   }
 
   @Override
@@ -72,8 +78,14 @@ public final class FragmentMyreviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.searchView;
+      SearchView searchView = ViewBindings.findChildViewById(rootView, id);
+      if (searchView == null) {
+        break missingId;
+      }
+
       return new FragmentMyreviewBinding((FrameLayout) rootView, detailRecylerView,
-          noReviewsTextView);
+          noReviewsTextView, searchView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

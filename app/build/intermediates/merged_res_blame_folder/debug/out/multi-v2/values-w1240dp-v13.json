@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-w1240dp-v13/values-w1240dp-v13.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-61:/values-w1240dp-v13/values-w1240dp-v13.xml",
             "map": [
                 {
                     "source": "C:\\workspace\\eatRaw_main\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",

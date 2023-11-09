@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.eatraw.ui.home.HomeFragment"
+        android:name="com.example.eatraw.admin.home.HomeFragment"
         android:label="@string/admin"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_fish"
-        android:name="com.example.eatraw.ui.fish.FishFragment"
+        android:name="com.example.eatraw.admin.fish.FishFragment"
         android:label="생선 관리"
         tools:layout="@layout/fragment_fish" />
 
     <fragment
         android:id="@+id/nav_market"
-        android:name="com.example.eatraw.ui.market.MarketFragment"
+        android:name="com.example.eatraw.admin.market.MarketFragment"
         android:label="시장 관리"
         tools:layout="@layout/fragment_market" />
 
     <fragment
         android:id="@+id/nav_review"
-        android:name="com.example.eatraw.ui.review.ReviewFragment"
+        android:name="com.example.eatraw.admin.review.ReviewFragment"
         android:label="리뷰 관리"
         tools:layout="@layout/fragment_review" />
 
     <fragment
         android:id="@+id/nav_users"
-        android:name="com.example.eatraw.ui.users.UsersFragment"
+        android:name="com.example.eatraw.admin.users.UsersFragment"
         android:label="유저 관리"
         tools:layout="@layout/fragment_users" />
 </navigation>

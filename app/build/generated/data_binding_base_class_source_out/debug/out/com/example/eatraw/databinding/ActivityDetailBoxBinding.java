@@ -61,6 +61,9 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
   public final TextView contentView;
 
   @NonNull
+  public final ImageView dropDetail;
+
+  @NonNull
   public final TextView likeInt;
 
   @NonNull
@@ -89,9 +92,9 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
       @NonNull TextView IntMin, @NonNull TextView MenuFishName, @NonNull ImageView Reviewimg,
       @NonNull TextView StorePrice, @NonNull TextView StorePriceInt,
       @NonNull TextView Textcomparison, @NonNull Button btnLike, @NonNull TextView contentView,
-      @NonNull TextView likeInt, @NonNull CircleImageView mImg, @NonNull TextView mName,
-      @NonNull LinearLayout mReiview, @NonNull TextView mStarsocore, @NonNull TextView texMax,
-      @NonNull TextView textAvg, @NonNull TextView textMin) {
+      @NonNull ImageView dropDetail, @NonNull TextView likeInt, @NonNull CircleImageView mImg,
+      @NonNull TextView mName, @NonNull LinearLayout mReiview, @NonNull TextView mStarsocore,
+      @NonNull TextView texMax, @NonNull TextView textAvg, @NonNull TextView textMin) {
     this.rootView = rootView;
     this.DratingBar = DratingBar;
     this.ImageView = ImageView;
@@ -105,6 +108,7 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
     this.Textcomparison = Textcomparison;
     this.btnLike = btnLike;
     this.contentView = contentView;
+    this.dropDetail = dropDetail;
     this.likeInt = likeInt;
     this.mImg = mImg;
     this.mName = mName;
@@ -214,6 +218,12 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.drop_detail;
+      ImageView dropDetail = ViewBindings.findChildViewById(rootView, id);
+      if (dropDetail == null) {
+        break missingId;
+      }
+
       id = R.id.likeInt;
       TextView likeInt = ViewBindings.findChildViewById(rootView, id);
       if (likeInt == null) {
@@ -260,8 +270,8 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
 
       return new ActivityDetailBoxBinding((LinearLayout) rootView, DratingBar, ImageView, IntAvg,
           IntMax, IntMin, MenuFishName, Reviewimg, StorePrice, StorePriceInt, Textcomparison,
-          btnLike, contentView, likeInt, mImg, mName, mReiview, mStarsocore, texMax, textAvg,
-          textMin);
+          btnLike, contentView, dropDetail, likeInt, mImg, mName, mReiview, mStarsocore, texMax,
+          textAvg, textMin);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
