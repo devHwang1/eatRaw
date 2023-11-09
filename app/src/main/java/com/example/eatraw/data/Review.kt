@@ -1,7 +1,5 @@
 package com.example.eatraw.data
 
-import com.google.firebase.storage.StorageReference
-
 data class Review(
     val content: String,
     val marketName: String,
@@ -10,7 +8,7 @@ data class Review(
     val rating: Double?,
     val region: String?,
     val like: Int?,
-    val fishKind: String,
+    val fishKind: String?,
     val cost: Int,
     val userId: String?  // 사용자 UID를 추가
 )
