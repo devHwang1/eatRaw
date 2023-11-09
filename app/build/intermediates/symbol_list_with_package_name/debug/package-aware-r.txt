@@ -3123,6 +3123,7 @@ drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable check_button
 drawable clip
+drawable clock
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -3189,10 +3190,12 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable image_radius
+drawable info
 drawable kakao_login_medium_narrow
 drawable kakao_login_medium_wide
 drawable kakao_login_up_wide
 drawable line
+drawable loc
 drawable login_border
 drawable login_border_click
 drawable login_button
@@ -3324,6 +3327,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable phone
 drawable pragment
 drawable profil
 drawable raiting_empty
@@ -3705,7 +3709,6 @@ id mReiview
 id mStarsocore
 id mainSearchbar
 id map
-id mapView
 id marketName
 id marquee
 id masked

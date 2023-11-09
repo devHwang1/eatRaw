@@ -2,8 +2,10 @@ package com.example.eatraw.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.eatraw.DetailActivity
@@ -21,38 +24,69 @@ import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapView
 import com.naver.maps.map.overlay.Marker
+import kotlin.properties.Delegates
 
 class ReviewAdapter(private val reviews: List<Review>) :
     RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
 
-    class ReviewViewHolder(itemView: View,private val context: Context) : RecyclerView.ViewHolder(itemView) {
-
+    class ReviewViewHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val reviewContent: TextView = itemView.findViewById(R.id.reviewContent)
         val textView: TextView = itemView.findViewById(R.id.rating)
         val button1: TextView = itemView.findViewById(R.id.button1)
         val storeName: TextView = itemView.findViewById(R.id.storeName)
         val map: LinearLayout = itemView.findViewById(R.id.map)
-        val mapLayout: View = itemView.findViewById(R.id.map)
-        val mapModalLayout = LayoutInflater.from(context).inflate(R.layout.map_modal, null)
-        val addressTextView: TextView = mapModalLayout.findViewById(R.id.addressTextView)
-        val telTextView : TextView= mapModalLayout.findViewById(R.id.telTextView)
-        val openTextView : TextView= mapModalLayout.findViewById(R.id.openTextView)
-        val contentTextView : TextView= mapModalLayout.findViewById(R.id.contentTextView)
 
+        // ViewHolder 안에 데이터를 표시할 View 선언
+        lateinit var address: String
+        lateinit var tel: String
+        lateinit var open: String
+        lateinit var content: String
+        var dbLatitude by Delegates.notNull<Double>()
+        var dbLongitude by Delegates.notNull<Double>()
+
+        init {
+            // Firestore에서 데이터를 가져와 프로퍼티에 초기화
+            val marketName = "자갈치시장" // 원하는 시장 이름으로 변경
+            val db = FirebaseFirestore.getInstance()
+            val docRef = db.collection("map").document(marketName)
+
+            docRef.get()
+                .addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot != null && documentSnapshot.exists()) {
+                        address = documentSnapshot.getString("address") ?: "주소 정보 없음"
+                        tel = documentSnapshot.getString("tel") ?: "전화번호 정보 없음"
+                        open = documentSnapshot.getString("open") ?: "영업시간 정보 없음"
+                        content = documentSnapshot.getString("mcontent") ?: "시장내용 정보 없음"
+                        dbLatitude = documentSnapshot.getDouble("latitude")!!
+                        dbLongitude = documentSnapshot.getDouble("longitude")!!
+                    } else {
+                        address = "주소 정보 없음"
+                        tel = "전화번호 정보 없음"
+                        open = "영업시간 정보 없음"
+                        content = "시장내용 정보 없음"
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.e("FirestoreError", "Error getting document: ", exception)
+                    address = "주소 정보 없음"
+                    tel = "전화번호 정보 없음"
+                    open = "영업시간 정보 없음"
+                    content = "시장내용 정보 없음"
+                }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
-        val context = parent.context // 뷰의 컨텍스트를 얻음
+        val context = parent.context
         val view = LayoutInflater.from(context).inflate(R.layout.recyclerview_review, parent, false)
-        return ReviewViewHolder(view, context) // context를 생성자에 전달
+        return ReviewViewHolder(view, context)
     }
 
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
         val review = reviews[position]
 
         // 리뷰 데이터를 뷰에 연결
-        // 이미지 URL을 Glide로 로드
         review.storeImg?.let {
             Glide.with(holder.itemView)
                 .load(it)
@@ -61,19 +95,19 @@ class ReviewAdapter(private val reviews: List<Review>) :
 
         holder.reviewContent.text = review.content
         holder.textView.text = review.rating?.toString() ?: "N/A"
-        holder.button1.text = review.marketName // 시장 이름
+        holder.button1.text = review.marketName
         holder.storeName.text = review.storeName
-
 
         // map 뷰 클릭 리스너 설정
         holder.map.setOnClickListener {
             showMapModal(
                 holder.itemView.context,
-                holder.addressTextView,
-                holder.telTextView,
-                holder.openTextView,
-                holder.contentTextView,
-
+                holder.address,
+                holder.tel,
+                holder.open,
+                holder.content,
+                holder.dbLatitude,
+                holder.dbLongitude
             )
         }
 
@@ -90,7 +124,6 @@ class ReviewAdapter(private val reviews: List<Review>) :
             intent.putExtra("userId", review.userId)
             intent.putExtra("image", review.storeImg)
 
-            // 사용자 정보(닉네임) 추가
             val db = FirebaseFirestore.getInstance()
             db.collection("users")
                 .document(review.userId.toString())
@@ -109,9 +142,9 @@ class ReviewAdapter(private val reviews: List<Review>) :
                 }
                 .addOnFailureListener { exception ->
                     Log.e("FirestoreError", "Error getting user document: ", exception)
+                    holder.itemView.context.startActivity(intent)
                 }
 
-            // Fish 종류 정보 추가
             db.collection("fish")
                 .document(review.fishKind.toString())
                 .get()
@@ -125,9 +158,12 @@ class ReviewAdapter(private val reviews: List<Review>) :
                         intent.putExtra("fishAvg", avgCost)
                         intent.putExtra("fishMax", maxCost)
                     }
+
+                    holder.itemView.context.startActivity(intent)
                 }
                 .addOnFailureListener { exception ->
                     Log.e("FirestoreError", "Error getting fish document: ", exception)
+                    holder.itemView.context.startActivity(intent)
                 }
         }
     }
@@ -138,81 +174,145 @@ class ReviewAdapter(private val reviews: List<Review>) :
 
     private fun showMapModal(
         context: Context,
-        addressTextView: TextView,
-        telTextView: TextView,
-        openTextView: TextView,
-        contentTextView: TextView
+        address: String,
+        tel: String,
+        open: String,
+        content: String,
+        dbLatitude: Double?,
+        dbLongitude: Double?
     ) {
-        Log.d("Debug", "showMapModal started")
-        Log.w("addressTextView", "$addressTextView")
-
-        // Firestore에서 데이터 가져오기
-        val db = FirebaseFirestore.getInstance()
-        val marketName = "자갈치시장" // 원하는 시장 이름으로 변경
-
-        db.collection("map")
-            .document(marketName)
-            .get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val documentSnapshot = task.result
-                    if (documentSnapshot != null && documentSnapshot.exists()) {
-                        val tel = documentSnapshot.getString("tel")
-                        val open = documentSnapshot.getString("open")
-                        val content = documentSnapshot.getString("mcontent")
-                        val dbLatitude = documentSnapshot.getDouble("latitude")
-                        val dbLongitude = documentSnapshot.getDouble("longitude")
-
-                        // Firestore에서 가져온 데이터를 새로운 변수에 할당
-                        val marketLatitude: Double? = dbLatitude
-                        val marketLongitude: Double? = dbLongitude
-
-                        // 나머지 내용은 동일하게 유지
-                        telTextView.text = "전화번호: $tel"
-                        openTextView.text = "영업 시간: $open"
-                        contentTextView.text = "시장 얘기: $content"
-                        Log.w("sdfsdfsdfsdfsdf","$marketLongitude")
-                        Log.w("sdfsdfsdfsdfsdf","$marketLatitude")
-                        Log.w("sdfsdfsdfsdfsdf","$tel")
-                        Log.w("sdfsdfsdfsdfsdf","$open")
-                        Log.w("sdfsdfsdfsdfsdf","$content")
-                        // 새로운 변수를 사용하여 지도에 마크 표시
-                        if (marketLatitude != null && marketLongitude != null) {
-                            val mapViewBundle = Bundle()
-                            val mapView = MapView(context)
-                            mapView.onCreate(mapViewBundle)
-
-                            mapView.getMapAsync { naverMap ->
-                                val cameraPosition = CameraPosition(LatLng(marketLatitude, marketLongitude), 16.0)
-                                naverMap.cameraPosition = cameraPosition
-
-                                val marker = Marker()
-                                marker.position = LatLng(marketLatitude, marketLongitude)
-                                marker.map = naverMap
-                            }
-                        }
-                    } else {
-                        // Document가 없을 때 처리
-                    }
-                } else {
-                    // Firestore 작업 실패 시 처리
-                    val exception = task.exception
-                    if (exception != null) {
-                        Log.e("FirestoreError", "Error getting market document: ", exception)
-                    }
-                }
-            }
-        val mapViewBundle = Bundle()
-        val mapView = MapView(context)
-        mapView.onCreate(mapViewBundle)
         val builder = AlertDialog.Builder(context)
-        val dialogLayout = LayoutInflater.from(context).inflate(R.layout.map_modal, null)
-        val mapLayout = dialogLayout.findViewById<LinearLayout>(R.id.map)
-        // 지도를 모달 창에 추가
+
+        val dialogLayout = LinearLayout(context)
+        dialogLayout.orientation = LinearLayout.VERTICAL
+        dialogLayout.setPadding(70, 70, 70, 70) // 패딩 추가
+
+        // 여기서 `z` 값을 설정하여 텍스트 뷰가 앞에 표시되도록 합니다.
+        dialogLayout.z = 1.0f
+
+        // 텍스트 뷰들 추가
+        val titleTextView = TextView(context)
+        val titleLayoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        titleLayoutParams.setMargins(0, 0, 0, 50) // 여기서 marginBottom 값을 설정합니다
+        titleTextView.layoutParams = titleLayoutParams
+        titleTextView.text = "시장정보"
+        titleTextView.textSize = 30f // 글꼴 크기 설정
+        titleTextView.setTextColor(Color.BLACK)
+        dialogLayout.gravity = Gravity.CENTER
+        dialogLayout.addView(titleTextView)
+
+        if (dbLatitude != null && dbLongitude != null) {
+            val mapViewBundle = Bundle()
+            val mapView = MapView(context)
+            mapView.onCreate(mapViewBundle)
+
+            val mapHeightPx = 900 // 예: 400px
+            val mapLayoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                mapHeightPx
+            )
+
+            // 여기서 `marginBottom` 값을 설정합니다.
+            mapLayoutParams.setMargins(0, 0, 0, 35) // marginBottom 값을 설정합니다
+            mapView.layoutParams = mapLayoutParams
+
+            mapView.getMapAsync { naverMap ->
+                val cameraPosition = CameraPosition(LatLng(dbLatitude, dbLongitude), 16.0)
+                naverMap.cameraPosition = cameraPosition
+
+                val marker = Marker()
+                marker.position = LatLng(dbLatitude, dbLongitude)
+                marker.map = naverMap
+            }
+            dialogLayout.addView(mapView)
+        }
+
+        //주소 레이아웃
+        val addressLayout = LinearLayout(context)
+        addressLayout.orientation = LinearLayout.HORIZONTAL
+
+        val addressImageView = ImageView(context)
+        addressImageView.setImageResource(R.drawable.loc)
+        val imageSize = 36 // 예: 36dp
+        val params = LinearLayout.LayoutParams(imageSize, imageSize)
+        params.setMargins(0, 9, 8, 25) // 이미지와 텍스트 사이 간격 조절
+        addressImageView.layoutParams = params
+
+        val addressTextView = TextView(context)
+        addressTextView.text = "$address"
+        addressTextView.textSize = 16f // 글꼴 크기 설정
+
+        addressLayout.addView(addressImageView)
+        addressLayout.addView(addressTextView)
+
+        dialogLayout.addView(addressLayout)
+
+        //번호 레이아웃
+        val telLayout = LinearLayout(context)
+        telLayout.orientation = LinearLayout.HORIZONTAL
+
+        val telImageView = ImageView(context)
+        telImageView.setImageResource(R.drawable.phone)
+        val telImageViewParams = LinearLayout.LayoutParams(imageSize, imageSize)
+        telImageViewParams.setMargins(0, 9, 8, 25)
+        telImageView.layoutParams = telImageViewParams
+
+        val telTextView = TextView(context)
+        telTextView.text = "$tel"
+        telTextView.textSize = 16f
+
+        telLayout.addView(telImageView)
+        telLayout.addView(telTextView)
+
+        dialogLayout.addView(telLayout)
+
+        // 영업시간 레이아웃
+        val openLayout = LinearLayout(context)
+        openLayout.orientation = LinearLayout.HORIZONTAL
+
+        val openImageView = ImageView(context)
+        openImageView.setImageResource(R.drawable.clock)
+        val openImageViewParams = LinearLayout.LayoutParams(imageSize, imageSize)
+        openImageViewParams.setMargins(0, 9, 8, 25)
+        openImageView.layoutParams = openImageViewParams
+
+        val openTextView = TextView(context)
+        openTextView.text = "$open"
+        openTextView.textSize = 16f
+
+        openLayout.addView(openImageView)
+        openLayout.addView(openTextView)
+
+        dialogLayout.addView(openLayout)
+
+        // 시장내용 레이아웃
+        val contentLayout = LinearLayout(context)
+        contentLayout.orientation = LinearLayout.HORIZONTAL
+
+        val contentImageView = ImageView(context)
+        contentImageView.setImageResource(R.drawable.info)
+        val contentImageViewParams = LinearLayout.LayoutParams(imageSize, imageSize)
+        contentImageViewParams.setMargins(0, 9, 8, 12)
+        contentImageView.layoutParams = contentImageViewParams
+
+        val contentTextView = TextView(context)
+        contentTextView.text = "$content"
+        contentTextView.textSize = 16f
+
+        contentLayout.addView(contentImageView)
+        contentLayout.addView(contentTextView)
+
+        dialogLayout.addView(contentLayout)
+
         builder.setView(dialogLayout)
 
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
+
+
 
 }

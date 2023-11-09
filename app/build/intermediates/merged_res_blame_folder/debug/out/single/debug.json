@@ -92,10 +92,6 @@
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\navigation\\mobile_navigation.xml"
     },
     {
-        "merged": "com.example.eatraw.app-merged_res-63:/layout_map_modal.xml.flat",
-        "source": "com.example.eatraw.app-main-65:/layout/map_modal.xml"
-    },
-    {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_fish.jpg.flat",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\fish.jpg"
     },
@@ -110,6 +106,10 @@
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_activity_add_fish.xml.flat",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_add_fish.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_info.png.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/info.png"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\xml_data_extraction_rules.xml.flat",
@@ -186,6 +186,10 @@
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_menubar1.xml.flat",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\menubar1.xml"
+    },
+    {
+        "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_loc.png.flat",
+        "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\loc.png"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_group_41.xml.flat",
@@ -414,6 +418,14 @@
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_modify_button.xml.flat",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\modify_button.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_phone.png.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/phone.png"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_clock.png.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/clock.png"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_baseline_home_24.xml.flat",

@@ -1,4 +1,4 @@
-#Wed Nov 08 18:50:12 KST 2023
+#Thu Nov 09 15:15:48 KST 2023
 base.0=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.10=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
