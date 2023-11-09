@@ -59,8 +59,8 @@ class ReviewFragment : Fragment() {
                     val storeImg = document["storeImg"] as String?
                     val region = document["region"] as String?
                     val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                    val cost = (document["cost"] as? Long)!!.toInt()
-                    val fishKind = document["fishKind"]!! as String
+                    val cost = (document["cost"] as? Long)?.toInt()
+                    val fishKind = document["fishKind"] as String?
                     val userId = document["userId"] as String?
 
                     // 이미지 URL이 없으면 기본 이미지 URL로 대체
