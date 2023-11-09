@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.eatraw.app-mergeDebugResources-60:/values-small-v4/values-small-v4.xml",
+            "outputFile": "com.example.eatraw.app-mergeDebugResources-61:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\6a3b8aca25653227095f518471209d50\\transformed\\material-1.10.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\29a624b9ad7b9258285fa04ebeed112a\\transformed\\material-1.10.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

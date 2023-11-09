@@ -27,26 +27,26 @@ public final class RecyclerviewReviewBinding implements ViewBinding {
   public final ImageView imageView;
 
   @NonNull
+  public final LinearLayout map;
+
+  @NonNull
   public final TextView rating;
 
   @NonNull
   public final TextView reviewContent;
 
   @NonNull
-  public final ImageView reviewStar;
-
-  @NonNull
   public final TextView storeName;
 
   private RecyclerviewReviewBinding(@NonNull LinearLayout rootView, @NonNull TextView button1,
-      @NonNull ImageView imageView, @NonNull TextView rating, @NonNull TextView reviewContent,
-      @NonNull ImageView reviewStar, @NonNull TextView storeName) {
+      @NonNull ImageView imageView, @NonNull LinearLayout map, @NonNull TextView rating,
+      @NonNull TextView reviewContent, @NonNull TextView storeName) {
     this.rootView = rootView;
     this.button1 = button1;
     this.imageView = imageView;
+    this.map = map;
     this.rating = rating;
     this.reviewContent = reviewContent;
-    this.reviewStar = reviewStar;
     this.storeName = storeName;
   }
 
@@ -89,6 +89,12 @@ public final class RecyclerviewReviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.map;
+      LinearLayout map = ViewBindings.findChildViewById(rootView, id);
+      if (map == null) {
+        break missingId;
+      }
+
       id = R.id.rating;
       TextView rating = ViewBindings.findChildViewById(rootView, id);
       if (rating == null) {
@@ -101,20 +107,14 @@ public final class RecyclerviewReviewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.reviewStar;
-      ImageView reviewStar = ViewBindings.findChildViewById(rootView, id);
-      if (reviewStar == null) {
-        break missingId;
-      }
-
       id = R.id.storeName;
       TextView storeName = ViewBindings.findChildViewById(rootView, id);
       if (storeName == null) {
         break missingId;
       }
 
-      return new RecyclerviewReviewBinding((LinearLayout) rootView, button1, imageView, rating,
-          reviewContent, reviewStar, storeName);
+      return new RecyclerviewReviewBinding((LinearLayout) rootView, button1, imageView, map, rating,
+          reviewContent, storeName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
