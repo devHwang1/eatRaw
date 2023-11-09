@@ -34,18 +34,31 @@
         android:testOnly="true"
         android:theme="@style/Theme.EatRaw" >
         <activity
+            android:name="com.example.eatraw.banner.Banner3Activity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.eatraw.banner.Banner2Activity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.eatraw.banner.Banner1Activity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.eatraw.Banner1Activity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.eatraw.BannerDetailActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.eatraw.AddFishActivity"
             android:exported="false" />
         <activity
             android:name="com.example.eatraw.AdminActivity"
             android:exported="true"
             android:label="@string/title_activity_admin"
-            android:theme="@style/Theme.EatRaw.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.EatRaw.NoActionBar" />
         <activity
             android:name="com.example.eatraw.SplashActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name="com.example.eatraw.ComparingPriceDetailActivity"
             android:exported="false" />
@@ -69,19 +82,18 @@
             android:exported="true" />
         <activity
             android:name="com.example.eatraw.MypageActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name="com.example.eatraw.QuoteActivity"
             android:exported="false" />
         <activity
             android:name="com.example.eatraw.MainActivity"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <provider

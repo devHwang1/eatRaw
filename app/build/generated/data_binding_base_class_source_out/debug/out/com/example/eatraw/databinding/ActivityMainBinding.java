@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import androidx.viewpager2.widget.ViewPager2;
 import com.example.eatraw.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.NullPointerException;
@@ -46,6 +47,15 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ImageView imageView3;
 
   @NonNull
+  public final ImageView iv1;
+
+  @NonNull
+  public final ImageView iv2;
+
+  @NonNull
+  public final ImageView iv3;
+
+  @NonNull
   public final ActionMenuView menubar1;
 
   @NonNull
@@ -56,9 +66,6 @@ public final class ActivityMainBinding implements ViewBinding {
 
   @NonNull
   public final TextView nalLo;
-
-  @NonNull
-  public final RecyclerView recyclerViewBanner;
 
   @NonNull
   public final RecyclerView recyclerViewBestReview;
@@ -72,15 +79,18 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final LinearLayout topLayout;
 
+  @NonNull
+  public final ViewPager2 viewPager2Banner;
+
   private ActivityMainBinding(@NonNull RelativeLayout rootView,
       @NonNull BottomNavigationView bnvMain, @NonNull TextView fishName1,
       @NonNull TextView fishName2, @NonNull TextView fishPrice1, @NonNull TextView fishPrice2,
-      @NonNull ImageView imageView2, @NonNull ImageView imageView3,
-      @NonNull ActionMenuView menubar1, @NonNull LinearLayout menubar3,
-      @NonNull LinearLayout menubar4, @NonNull TextView nalLo,
-      @NonNull RecyclerView recyclerViewBanner, @NonNull RecyclerView recyclerViewBestReview,
+      @NonNull ImageView imageView2, @NonNull ImageView imageView3, @NonNull ImageView iv1,
+      @NonNull ImageView iv2, @NonNull ImageView iv3, @NonNull ActionMenuView menubar1,
+      @NonNull LinearLayout menubar3, @NonNull LinearLayout menubar4, @NonNull TextView nalLo,
+      @NonNull RecyclerView recyclerViewBestReview,
       @NonNull RecyclerView recyclerViewComparingPrice, @NonNull TextView seeingMore,
-      @NonNull LinearLayout topLayout) {
+      @NonNull LinearLayout topLayout, @NonNull ViewPager2 viewPager2Banner) {
     this.rootView = rootView;
     this.bnvMain = bnvMain;
     this.fishName1 = fishName1;
@@ -89,15 +99,18 @@ public final class ActivityMainBinding implements ViewBinding {
     this.fishPrice2 = fishPrice2;
     this.imageView2 = imageView2;
     this.imageView3 = imageView3;
+    this.iv1 = iv1;
+    this.iv2 = iv2;
+    this.iv3 = iv3;
     this.menubar1 = menubar1;
     this.menubar3 = menubar3;
     this.menubar4 = menubar4;
     this.nalLo = nalLo;
-    this.recyclerViewBanner = recyclerViewBanner;
     this.recyclerViewBestReview = recyclerViewBestReview;
     this.recyclerViewComparingPrice = recyclerViewComparingPrice;
     this.seeingMore = seeingMore;
     this.topLayout = topLayout;
+    this.viewPager2Banner = viewPager2Banner;
   }
 
   @Override
@@ -169,6 +182,24 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.iv1;
+      ImageView iv1 = ViewBindings.findChildViewById(rootView, id);
+      if (iv1 == null) {
+        break missingId;
+      }
+
+      id = R.id.iv2;
+      ImageView iv2 = ViewBindings.findChildViewById(rootView, id);
+      if (iv2 == null) {
+        break missingId;
+      }
+
+      id = R.id.iv3;
+      ImageView iv3 = ViewBindings.findChildViewById(rootView, id);
+      if (iv3 == null) {
+        break missingId;
+      }
+
       id = R.id.menubar1;
       ActionMenuView menubar1 = ViewBindings.findChildViewById(rootView, id);
       if (menubar1 == null) {
@@ -190,12 +221,6 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.nalLo;
       TextView nalLo = ViewBindings.findChildViewById(rootView, id);
       if (nalLo == null) {
-        break missingId;
-      }
-
-      id = R.id.recyclerViewBanner;
-      RecyclerView recyclerViewBanner = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerViewBanner == null) {
         break missingId;
       }
 
@@ -223,10 +248,16 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.view_pager2_banner;
+      ViewPager2 viewPager2Banner = ViewBindings.findChildViewById(rootView, id);
+      if (viewPager2Banner == null) {
+        break missingId;
+      }
+
       return new ActivityMainBinding((RelativeLayout) rootView, bnvMain, fishName1, fishName2,
-          fishPrice1, fishPrice2, imageView2, imageView3, menubar1, menubar3, menubar4, nalLo,
-          recyclerViewBanner, recyclerViewBestReview, recyclerViewComparingPrice, seeingMore,
-          topLayout);
+          fishPrice1, fishPrice2, imageView2, imageView3, iv1, iv2, iv3, menubar1, menubar3,
+          menubar4, nalLo, recyclerViewBestReview, recyclerViewComparingPrice, seeingMore,
+          topLayout, viewPager2Banner);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-73:12
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:2:1-81:12
 MERGED from [androidx.databinding:databinding-adapters:8.1.2] C:\Users\admin\.gradle\caches\transforms-3\187c46ef55c888e5c89a91a087615494\transformed\databinding-adapters-8.1.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-ktx:8.1.2] C:\Users\admin\.gradle\caches\transforms-3\b1b95155625aca88ebb15b7bc77a8168\transformed\databinding-ktx-8.1.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-runtime:8.1.2] C:\Users\admin\.gradle\caches\transforms-3\ed38c2e2f30bb982f6cfe2a88e19aadb\transformed\databinding-runtime-8.1.2\AndroidManifest.xml:2:1-7:12
@@ -148,8 +148,8 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.4.0] C:
 	android:name
 		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:7:5-71:19
-INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:7:5-71:19
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:7:5-79:19
+INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:7:5-79:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\admin\.gradle\caches\transforms-3\95be413f60dd9541f91625ac8d4fdb72\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\admin\.gradle\caches\transforms-3\95be413f60dd9541f91625ac8d4fdb72\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\admin\.gradle\caches\transforms-3\8edb922c282ff99d21d1d62b34a35e0d\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -254,98 +254,128 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\admin\.gradle\caches\t
 		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:15:9-44
 	android:dataExtractionRules
 		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:9:9-65
-activity#com.example.eatraw.AddFishActivity
+activity#com.example.eatraw.banner.Banner3Activity
 ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:17:9-19:40
 	android:exported
 		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:19:13-37
 	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:18:13-44
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:18:13-51
+activity#com.example.eatraw.banner.Banner2Activity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:20:9-22:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:22:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:21:13-51
+activity#com.example.eatraw.banner.Banner1Activity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:23:9-25:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:24:13-51
+activity#com.example.eatraw.Banner1Activity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:26:9-28:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:27:13-44
+activity#com.example.eatraw.BannerDetailActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:29:9-31:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:30:13-49
+activity#com.example.eatraw.AddFishActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:33:13-44
 activity#com.example.eatraw.AdminActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:20:9-26:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:35:9-39:63
 	android:label
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:23:13-57
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:38:13-57
 	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:22:13-36
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:37:13-36
 	android:theme
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:24:13-60
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:39:13-60
 	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:21:13-42
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:36:13-42
 activity#com.example.eatraw.SplashActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:27:9-30:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:40:9-42:39
 	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:29:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:42:13-36
 	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:28:13-43
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:41:13-43
 activity#com.example.eatraw.ComparingPriceDetailActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:31:9-33:40
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:43:9-45:40
 	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:33:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:45:13-37
 	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:32:13-57
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:44:13-57
 activity#com.example.eatraw.ComparingPriceListActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:34:9-36:40
-	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:36:13-37
-	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:35:13-55
-activity#com.example.eatraw.WriteActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:37:9-39:40
-	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:39:13-37
-	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:38:13-42
-activity#com.example.eatraw.RegisterActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:40:9-42:40
-	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:42:13-37
-	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:41:13-45
-activity#com.example.eatraw.LoginActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:43:9-45:39
-	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:45:13-36
-	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:44:13-42
-activity#com.example.eatraw.DetailActivity
 ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:46:9-48:40
 	android:exported
 		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:48:13-37
 	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:47:13-43
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:47:13-55
+activity#com.example.eatraw.WriteActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:49:9-51:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:51:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:50:13-42
+activity#com.example.eatraw.RegisterActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:52:9-54:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:54:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:53:13-45
+activity#com.example.eatraw.LoginActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:55:9-57:39
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:57:13-36
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:56:13-42
+activity#com.example.eatraw.DetailActivity
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:58:9-60:40
+	android:exported
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:60:13-37
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:59:13-43
 activity#com.example.eatraw.ReviewActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:49:9-51:39
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:61:9-63:39
 	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:51:13-36
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:63:13-36
 	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:50:13-43
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:62:13-43
 activity#com.example.eatraw.MypageActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:52:9-61:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:64:9-66:40
 	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:54:13-36
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:66:13-37
 	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:53:13-43
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:56:13-60:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:57:17-69
-	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:57:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:59:17-77
-	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:59:27-74
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:65:13-43
 activity#com.example.eatraw.QuoteActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:62:9-64:40
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:67:9-69:40
 	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:64:13-37
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:69:13-37
 	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:63:13-42
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:68:13-42
 activity#com.example.eatraw.MainActivity
-ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:65:9-69:20
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:70:9-78:20
 	android:exported
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:67:13-36
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:72:13-36
 	android:name
-		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:66:13-41
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:71:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:73:13-77:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:74:17-69
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:74:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:76:17-77
+	android:name
+		ADDED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml:76:27-74
 uses-sdk
 INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\admin\Documents\eatRaw\app\src\main\AndroidManifest.xml

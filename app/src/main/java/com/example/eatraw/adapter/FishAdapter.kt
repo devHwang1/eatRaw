@@ -1,6 +1,5 @@
 package com.example.eatraw.adapter
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -76,11 +75,15 @@ class FishAdapter(private val context: Context, private val fishList: MutableLis
 
         fun bind(fish: ComparingPriceItem) {
             fishName.text = fish.fishName
-            fishPriceMax.text = context.getString(R.string.price_max, fish.maxCost)
-            fishPriceMin.text = context.getString(R.string.price_min, fish.minCost)
-            fishPriceAvg.text = context.getString(R.string.price_avg, fish.avgCost)
-            seasons.text = context.getString(R.string.seasons, fish.season)
-            Log.e("넘무넘무해>>", "${fish}")
+            fishPriceMax.text = fish.maxCost
+            fishPriceMin.text = fish.minCost
+            fishPriceAvg.text = fish.avgCost
+            seasons.text = fish.season
+//            fishPriceMax.text = context.getString(R.string.price_max, fish.maxCost)
+//            fishPriceMin.text = context.getString(R.string.price_min, fish.minCost)
+//            fishPriceAvg.text = context.getString(R.string.price_avg, fish.avgCost)
+//            seasons.text = context.getString(R.string.seasons, fish.season)
+//            Log.e("넘무넘무해>>", "${fish}")
 
             // 이미지 로드 (Glide 사용 예제)
             Glide.with(context)

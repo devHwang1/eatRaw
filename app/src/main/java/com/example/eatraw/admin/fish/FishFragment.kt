@@ -1,4 +1,4 @@
-package com.example.eatraw.ui.fish
+package com.example.eatraw.admin.fish
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,20 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eatraw.AddFishActivity
-import com.example.eatraw.ComparingPriceListActivity
-import com.example.eatraw.R
 import com.example.eatraw.adapter.FishAdapter
 import com.example.eatraw.data.ComparingPriceItem
 import com.example.eatraw.databinding.FragmentFishBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
 
 class FishFragment : Fragment() {
 
@@ -97,10 +92,10 @@ class FishFragment : Fragment() {
 
 
 
-        val textView: TextView = binding.textFish
-        fishViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+//        val textView: TextView = binding.textFish
+//        fishViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
         return root
     }
 
