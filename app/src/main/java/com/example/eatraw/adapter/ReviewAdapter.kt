@@ -54,8 +54,8 @@ class ReviewAdapter(private val reviews: List<Review>) :
             intent.putExtra("region", review.region)    // 지역
             intent.putExtra("userId", review.userId)    // 회원이름
             intent.putExtra("image", review.storeImg)   // 사진
-            intent.putExtra("fishkindcost",review.cost) // 물고기이름
-            intent.putExtra("menuCost",review.fishKind) //물고기 가격
+            intent.putExtra("fishkind",review.fishKind) // 물고기이름
+            intent.putExtra("menuCost",review.cost) //메뉴 가격
 
 
 
@@ -86,12 +86,8 @@ class ReviewAdapter(private val reviews: List<Review>) :
                     Log.e("FirestoreError", "Error getting user document: ", exception)
                 }
 
-<<<<<<< HEAD
-
-=======
             //좋아요 기능
             db.collection("revew")
->>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
         }
 
     }

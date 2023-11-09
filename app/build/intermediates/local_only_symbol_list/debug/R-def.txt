@@ -83,6 +83,7 @@ drawable test_image
 drawable text_edit_box
 drawable text_radius
 drawable thumb
+drawable thumbfill
 font black
 font bold
 font extrabold
@@ -122,6 +123,7 @@ id btnAddFish
 id btnBuyReview
 id btnDeleteFish
 id btnImage
+id btnLike
 id btnRegisterFish
 id btnReview
 id btnUploadData
@@ -179,6 +181,8 @@ id imageView
 id imageView2
 id imageView3
 id img_backarrow
+id item_data
+id item_root
 id likeInt
 id logout
 id mImg
@@ -253,7 +257,6 @@ id thumbnail
 id thumbnailImageView
 id toolbar
 id topLayout
-id up
 layout activity_add_fish
 layout activity_admin
 layout activity_comparing_price_detail
@@ -288,6 +291,7 @@ layout item_banner
 layout item_best_review
 layout item_comparing_price
 layout item_fish_list
+layout item_main
 layout item_review_list
 layout nav_header_admin
 layout recyclerview_review

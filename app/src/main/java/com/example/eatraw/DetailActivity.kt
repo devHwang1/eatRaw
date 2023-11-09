@@ -1,28 +1,96 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.example.eatraw.data.Review
 import com.example.eatraw.databinding.ActivityDetailBoxBinding
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import java.lang.Exception
 
 
 class DetailActivity : AppCompatActivity() {
 
-<<<<<<< HEAD
-=======
+    //좋아요 관련 변수
+    private lateinit var likeBtn : Button
+    private lateinit var likeCountText: TextView
+    private var liked: Boolean = false
+    private lateinit var reviewId: String
 
->>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
+
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityDetailBoxBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //좋아요 텍스트뷰 표시 아이디
+        likeBtn = findViewById(R.id.btnLike)
+        likeCountText = findViewById(R.id.likeInt)
+
+
+        //좋아요 기본이미지
+        likeBtn.setBackgroundResource(R.drawable.thumb)
+
+        val reviewId = "3rGd9fgt9r9ulwVy2EVG" // 리뷰 ID
+
+        //좋아요 숫자 초기화
+        updateLikeCount(reviewId)
+
+
+        likeBtn.setOnClickListener {
+            //좋아요 이미지바꾸기
+            if(liked){
+                likeBtn.setBackgroundResource(R.drawable.thumb)
+                liked = false
+            }else{
+                likeBtn.setBackgroundResource(R.drawable.thumbfill)
+                liked = true
+            }
+
+            //Firebase 사용
+            val db = FirebaseFirestore.getInstance()
+            val ref = db.collection("review").document(reviewId)
+
+
+            db.runTransaction { transition ->
+                val document : DocumentSnapshot
+                try {
+                    document = transition.get(ref)
+                }catch (fetchError: Exception){
+                    return@runTransaction null
+                }
+                val like = document.data?.get("like") as? Long ?: run{
+                    //좋아요수를 가져오지 못할때
+                    return@runTransaction null
+                }
+
+                // 트랜잭션으로 1을 더해줌
+                val updatedLike = if (liked) like + 1 else like - 1
+                transition.update(ref, "like", updatedLike)
+            }.addOnSuccessListener {
+                // 성공
+                Log.d("DetailActivity", "좋아요를 눌렀다")
+                updateLikeCount(reviewId)
+            }.addOnFailureListener { error ->
+                Log.e("DetailActivity", "Transaction failed: $error")
+            }
+        }
+
+
+
 
         val intent = intent
         val reviewContentIntent = intent.getStringExtra("reviewContent")  //댓글내용
@@ -30,7 +98,7 @@ class DetailActivity : AppCompatActivity() {
         val storeNameIntent = intent.getStringExtra("storeName")          //가게이름
         val ratingIntent = intent.getDoubleExtra("rating", 0.0)   //별점
         val regionIntent = intent.getStringExtra("region")                  //지역
-        val costIntent = intent.getStringExtra("cost")               //물고기종류
+        val fishKindIntent = intent.getStringExtra("fishkind")               //물고기종류
         val userIdIntent = intent.getStringExtra("userId")     // 회원id
         val imageIntent = intent.getStringExtra("image")        //이미지
         val menuCostIntent = intent.getStringExtra("menuCost")        //메뉴가격
@@ -40,171 +108,99 @@ class DetailActivity : AppCompatActivity() {
         val nicknameInten = intent.getStringExtra("userNickname")
         val UserimageInten = intent.getStringExtra("userImage")
 
-<<<<<<< HEAD
-        //좋아요
-        val likeInten = intent.getStringExtra("likefiled")
-
 
         //파이어베이스사용
         val db = FirebaseFirestore.getInstance()
 
 
-                //물고기종류에 따른 가격가져오기
-                val fishkindCostIntent = intent.getStringExtra("fishkindcost")
-                db.collection("fish")
-                    .whereEqualTo("f_name", fishkindCostIntent)
-                    .get()
-                    .addOnSuccessListener { fishDocuments ->
-                        if (!fishDocuments.isEmpty) {
-                            val fishDocument = fishDocuments.documents[0]
-                            val fishMin = fishDocument.getLong("f_min")
-                            val fishAvg = fishDocument.getLong("f_avg")
-                            val fishMax = fishDocument.getLong("f_max")
+        //물고기종류에 따른 가격가져오기
+        val fishkindCostIntent = intent.getStringExtra("fishkind")
+        db.collection("fish")
+            .whereEqualTo("f_name", fishkindCostIntent)
+            .get()
+            .addOnSuccessListener { fishDocuments ->
+                if (!fishDocuments.isEmpty) {
+                    val fishDocument = fishDocuments.documents[0]
+                    val fishMin = fishDocument.getLong("f_min")
+                    val fishAvg = fishDocument.getLong("f_avg")
+                    val fishMax = fishDocument.getLong("f_max")
 
-                            val fishMinText = findViewById<TextView>(R.id.IntMin)
-                            val fishAvgText = findViewById<TextView>(R.id.IntAvg)
-                            val fishMaxText = findViewById<TextView>(R.id.IntMax)
+                    val fishMinText = findViewById<TextView>(R.id.IntMin)
+                    val fishAvgText = findViewById<TextView>(R.id.IntAvg)
+                    val fishMaxText = findViewById<TextView>(R.id.IntMax)
 
-                            fishMinText.text = fishMin.toString()
-                            fishAvgText.text = fishAvg.toString()
-                            fishMaxText.text = fishMax.toString()
-                        } else {
-                            Log.e("FirestoreError", "Error getting fish document: ")
-                        }
-
-=======
-
-        //파이어베이스사용
-        val db = FirebaseFirestore.getInstance()
-
-
-                //물고기종류에 따른 가격가져오기
-                val fishkindCostIntent = intent.getStringExtra("fishkindcost")
-                db.collection("fish")
-                    .whereEqualTo("f_name", fishkindCostIntent)
-                    .get()
-                    .addOnSuccessListener { fishDocuments ->
-                        if (!fishDocuments.isEmpty) {
-                            val fishDocument = fishDocuments.documents[0]
-                            val fishMin = fishDocument.getLong("f_min")
-                            val fishAvg = fishDocument.getLong("f_avg")
-                            val fishMax = fishDocument.getLong("f_max")
-
-                            val fishMinText = findViewById<TextView>(R.id.IntMin)
-                            val fishAvgText = findViewById<TextView>(R.id.IntAvg)
-                            val fishMaxText = findViewById<TextView>(R.id.IntMax)
-
-                            fishMinText.text = fishMin.toString()
-                            fishAvgText.text = fishAvg.toString()
-                            fishMaxText.text = fishMax.toString()
-                        } else {
-                            Log.e("FirestoreError", "Error getting fish document: ")
-                        }
-
->>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
-                    }
-
-
-                // 데이터를 TextView에 설정
-                val reviewContent = findViewById<TextView>(R.id.contentView)
-//        val storeName = findViewById<TextView>(R.id.storeNameBar)
-                val rating = findViewById<TextView>(R.id.mStarsocore)
-                val userNicName = findViewById<TextView>(R.id.mName)
-                val Image = findViewById<ImageView>(R.id.Reviewimg)
-                val userimg = findViewById<ImageView>(R.id.mImg)
-                val menuCost = findViewById<TextView>(R.id.StorePriceInt)
-
-<<<<<<< HEAD
-                //좋아요
-                val likeText =  findViewById<TextView>(R.id.likeInt)
-
-=======
->>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
-
-                //물고기 TextView에 설정
-                val fishKindCost = findViewById<TextView>(R.id.MenuFishName)
-
-
-<<<<<<< HEAD
-=======
-//                // 좋아요 버튼
-//                val likeButton = findViewById<ImageView>(R.id.up)
-//                val likeCount = findViewById<TextView>(R.id.likeInt)
-//                var isLiked = false
-
-
-
->>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
-
-                //별모양
-                val DratingBar = findViewById<RatingBar>(R.id.DratingBar)
-                DratingBar.rating = ratingIntent.toFloat()
-
-
-                //리뷰
-                reviewContent.text = "$reviewContentIntent"
-//        storeName.text = "$storeNameIntent"
-                rating.text = "$ratingIntent"
-                userNicName.text = "$nicknameInten"
-                menuCost.text = "$menuCostIntent"
-<<<<<<< HEAD
-                likeText.text = "$likeInten"
-=======
->>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
-
-
-                //몰고기 이름
-                fishKindCost.text = "$fishkindCostIntent"
-
-
-                //이미지 설정
-                Glide.with(this)
-                    .load(imageIntent)
-                    .into(Image)
-
-                //이미지 설정(유저)
-                Glide.with(this)
-                    .load(UserimageInten)
-                    .into(userimg)
-
-
-
+                    fishMinText.text = fishMin.toString()
+                    fishAvgText.text = fishAvg.toString()
+                    fishMaxText.text = fishMax.toString()
+                } else {
+                    Log.e("FirestoreError", "Error getting fish document: ")
+                }
 
             }
-<<<<<<< HEAD
-=======
 
-    //좋아요 기능
-//    private fun onLikeButtonClicked(userId: String?, reviewContent: String?) {
-//        if(userId != null && reviewContent != null){
-//            val db = FirebaseFirestore.getInstance()
-//
-//            //리뷰내용
-//            val reviewRef = db.collection("review").document(reviewContent)
-//
-//            //좋아요 처리
-//            db.runTransaction{ transaction ->
-//                val reviewDoc = transaction.get(reviewRef)
-//
-//                if(reviewDoc.exists()){
-//                    val currentLikes = reviewDoc.getLong("likes") ?: 0
-//                    transaction.update(reviewRef, "likes", currentLikes + 1)
-//                }else{
-//                    Log.e("LikeButtonError", "Review document does not exist.")
-//                }
-//
-//                null
-//            }.addOnSuccessListener {
-//                isLiked = true
-//                likeButton.setImageResource(R.drawable.thumb)
-//            }.addOnFailureListener { e ->
-//                Log.e("LikeButtonError", "Error updating likes: $e")
-//            }
-//        } else {
-//            Log.e("LikeButtonError", "User ID or Review Content is null.")
-//        }
-//            }
 
->>>>>>> e6343df945f4d1bf2f683aaffc2611f55bbb3128
+        // 데이터를 TextView에 설정
+        val reviewContent = findViewById<TextView>(R.id.contentView)
+//        val storeName = findViewById<TextView>(R.id.storeNameBar)
+        val rating = findViewById<TextView>(R.id.mStarsocore)
+        val userNicName = findViewById<TextView>(R.id.mName)
+        val Image = findViewById<ImageView>(R.id.Reviewimg)
+        val userimg = findViewById<ImageView>(R.id.mImg)
+        val menuCost = findViewById<TextView>(R.id.StorePriceInt)
+
+
+        //물고기 TextView에 설정
+        val fishKinName = findViewById<TextView>(R.id.MenuFishName)
+
+
+        //별모양
+        val DratingBar = findViewById<RatingBar>(R.id.DratingBar)
+        DratingBar.rating = ratingIntent.toFloat()
+
+
+        //리뷰
+        reviewContent.text = "$reviewContentIntent"
+//        storeName.text = "$storeNameIntent"
+        rating.text = "$ratingIntent"
+        userNicName.text = "$nicknameInten"
+        menuCost.text = "$menuCostIntent"
+
+
+        //몰고기 이름
+        fishKinName.text = "$fishKindIntent"
+
+
+        //이미지 설정
+        Glide.with(this)
+            .load(imageIntent)
+            .into(Image)
+
+        //이미지 설정(유저)
+        Glide.with(this)
+            .load(UserimageInten)
+            .into(userimg)
+
+
+
+    }
+
+
+    //좋아요 수 업데이트
+    fun updateLikeCount(reviewId: String) {
+        val db = FirebaseFirestore.getInstance()
+        val ref = db.collection("review").document(reviewId)
+
+        ref.get().addOnSuccessListener { document ->
+            if(document !=null){
+                val likeCount = document.getLong("like") ?: 0
+                likeCountText.text = likeCount.toString()
+            }else{
+                Log.e("DetailActivity", "No such document")
+            }
+        }.addOnFailureListener { e ->
+            Log.e("DetailActivity", "Error updating like count: $e")
+        }
+    }
+
 
 }

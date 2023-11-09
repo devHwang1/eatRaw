@@ -3222,6 +3222,7 @@ drawable test_level_drawable
 drawable text_edit_box
 drawable text_radius
 drawable thumb
+drawable thumbfill
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 font black
@@ -3369,6 +3370,7 @@ id btnAddFish
 id btnBuyReview
 id btnDeleteFish
 id btnImage
+id btnLike
 id btnRegisterFish
 id btnReview
 id btnUploadData
@@ -3558,6 +3560,8 @@ id info
 id invisible
 id inward
 id italic
+id item_data
+id item_root
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
@@ -4083,6 +4087,7 @@ layout item_banner
 layout item_best_review
 layout item_comparing_price
 layout item_fish_list
+layout item_main
 layout item_review_list
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
