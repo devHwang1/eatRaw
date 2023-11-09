@@ -9,10 +9,10 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
-import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -21,7 +21,6 @@ import com.example.eatraw.databinding.ActivityReviewBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
 
 class ReviewActivity : AppCompatActivity() {
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
@@ -33,6 +32,7 @@ class ReviewActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     private val itemList = arrayListOf<Review>()
     private lateinit var searchView : SearchView
+
     fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
@@ -44,6 +44,8 @@ class ReviewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityReviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         swipeRefreshLayout.setOnRefreshListener {
@@ -153,44 +155,35 @@ class ReviewActivity : AppCompatActivity() {
                     .get()
                     .addOnSuccessListener { result ->
                         val newItems = mutableListOf<Review>()
-                        if (result.size() > 0) {
-                            for (document in result) {
-                                val content = document["content"] as String
-                                val marketName = document["marketName"] as String
-                                val storeImg = document["storeImg"] as String
-                                val storeName = document["storeName"] as String
-                                val rating = document["rating"]?.toString()?.toDoubleOrNull()
-                                val region = document["region"] as String?
-                                val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                                val fishKind = document["fishKind"] as String
-                                val cost = (document["cost"] as? Long)!!.toInt()
-                                val userId = document["userId"] as String?
+                        for (document in result) {
+                            val content = document["content"] as String
+                            val marketName = document["marketName"] as String
+                            val storeName = document["storeName"] as String
+                            val rating = document["rating"]?.toString()?.toDoubleOrNull()
+                            val storeImg = document["storeImg"] as String?
+                            val region = document["region"] as String?
+                            val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
+                            val cost = (document["cost"] as? Long)!!.toInt()
+                            val fishKind = document["fishKind"] as String
+                            val userId = document["userId"] as String?
 
+                            // 이미지 URL이 없으면 기본 이미지 URL로 대체
+                            val imageUrl = storeImg ?: "기본 이미지 URL"  // 여기에 기본 이미지 URL을 넣으세요
 
-                                val storageReference = FirebaseStorage.getInstance().reference
-                                val imageRef = storageReference.child("storeImg/$storeImg")
-
-                                imageRef.downloadUrl.addOnSuccessListener { uri ->
-                                    val imageUrl = uri.toString()
-                                    val marketNameWithHash = "#$marketName"
-                                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,fishKind,cost,userId)
-                                    newItems.add(item)
-                                    Log.w("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@result.size()", "$result.size()")
-                                    Log.w("%#######################", "들오엄")
-                                    itemList.clear()
-                                    itemList.addAll(newItems)
-                                    adapter.notifyDataSetChanged()
-                                }
-                            }
-                        } else {
-                            Log.w("%#&&&&&&&&&&&&&&&&&&&&&&&", "들오엄2")
-                            showToast("해당 시장에는 리뷰가 없습니다.")
+                            val marketNameWithHash = "$marketName"
+                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,fishKind,cost,userId)
+                            newItems.add(item)
                         }
+
+                        itemList.clear()
+                        itemList.addAll(newItems)
+                        adapter.notifyDataSetChanged()
                     }
                     .addOnFailureListener { exception ->
                         Log.w("ReviewActivity", "Error: $exception")
                     }
             }
+
         }
         quoteButton.setOnClickListener {
             val selectedMarket = spinner2.selectedItem.toString()
@@ -204,8 +197,6 @@ class ReviewActivity : AppCompatActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 performSearch(query)
-                performSearch2(query)
-                performSearch3(query)
                 return true
             }
 
@@ -221,21 +212,25 @@ class ReviewActivity : AppCompatActivity() {
                     // 다른 액티비티로 이동
                     val intent = Intent(this@ReviewActivity, MainActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 R.id.second -> {
                     // 다른 액티비티로 이동
                     val intent = Intent(this@ReviewActivity, ReviewActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 R.id.third -> {
                     // 다른 액티비티로 이동
                     val intent = Intent(this@ReviewActivity, ComparingPriceListActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 R.id.four -> {
                     // 다른 액티비티로 이동
                     val intent = Intent(this@ReviewActivity, MypageActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
             }
             true
@@ -262,16 +257,21 @@ class ReviewActivity : AppCompatActivity() {
                     val storeImg = document["storeImg"] as String?
                     val region = document["region"] as String?
                     val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                    val cost = (document["cost"] as? Long)!!.toInt()
+                    val cost = (document["cost"] as? Double)?.toInt()
                     val fishKind = document["fishKind"] as String
                     val userId = document["userId"] as String?
 
                     // 이미지 URL이 없으면 기본 이미지 URL로 대체
                     val imageUrl = storeImg ?: "기본 이미지 URL" // 여기에 기본 이미지 URL을 넣으세요
 
-                    val marketNameWithHash = "#$marketName"
-                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like,fishKind, cost, userId)
-                    newItems.add(item)
+                    val marketNameWithHash = "$marketName"
+                    val item = cost?.let {
+                        Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,fishKind,
+                            it,userId)
+                    }
+                    if (item != null) {
+                        newItems.add(item)
+                    }
                 }
 
                 itemList.clear()
@@ -285,12 +285,13 @@ class ReviewActivity : AppCompatActivity() {
 
     private fun performSearch(query: String?) {
         if (query.isNullOrBlank()) {
-            // 검색어가 비어있거나 공백인 경우, 모든 리뷰를 표시
             loadAllReviews()
         } else {
-            // Firestore에서 검색어를 이용하여 데이터 검색
             db.collection("review")
-                .whereEqualTo("marketName", query) // marketName 필드에서 검색어와 일치하는 항목을 찾습니다.
+                .orderBy("content") // content 필드로 정렬
+                .startAt(query) // query로 시작하는 값부터 검색
+                .endAt(query + "\uf8ff") // query로 끝나는 값까지 검색 (파이어스토어 특수 문자를 추가)
+
                 .get()
                 .addOnSuccessListener { result ->
                     val newItems = mutableListOf<Review>()
@@ -301,125 +302,26 @@ class ReviewActivity : AppCompatActivity() {
                         val rating = document["rating"]?.toString()?.toDoubleOrNull()
                         val storeImg = document["storeImg"] as String?
                         val region = document["region"] as String?
-                        val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
+                        val like = (document["like"] as? Long)?.toInt()
                         val cost = (document["cost"] as? Long)!!.toInt()
                         val fishKind = document["fishKind"] as String
                         val userId = document["userId"] as String?
-                        val storageReference = FirebaseStorage.getInstance().reference
-                        val imageRef = storageReference.child("storeImg/$storeImg")
+                        val imageUrl = storeImg ?: "기본 이미지 URL"
 
-                        imageRef.downloadUrl.addOnSuccessListener { uri ->
-                            val imageUrl = uri.toString()
-                            val marketNameWithHash = "#$marketName"
-                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,fishKind,cost,userId)
-                            newItems.add(item)
-                            itemList.clear()
-                            itemList.addAll(newItems)
-                            adapter.notifyDataSetChanged()
-
-                            if (newItems.isEmpty()) {
-                                // 검색 결과가 없을 때 사용자에게 메시지를 표시합니다.
-                                showToast("검색 결과가 없습니다.")
-                            }
-                        }
+                        val marketNameWithHash = "$marketName"
+                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,fishKind,cost,userId)
+                        newItems.add(item)
                     }
+                    itemList.clear()
+                    itemList.addAll(newItems)
+                    adapter.notifyDataSetChanged()
                 }
                 .addOnFailureListener { exception ->
                     Log.w("ReviewActivity", "Error: $exception")
                 }
         }
     }
-    private fun performSearch2(query: String?) {
-        if (query.isNullOrBlank()) {
-            // 검색어가 비어있거나 공백인 경우, 모든 리뷰를 표시
-            loadAllReviews()
-        } else {
-            // Firestore에서 검색어를 이용하여 데이터 검색
-            db.collection("review")
-                .whereEqualTo("storeName", query) // marketName 필드에서 검색어와 일치하는 항목을 찾습니다.
-                .get()
-                .addOnSuccessListener { result ->
-                    val newItems = mutableListOf<Review>()
-                    for (document in result) {
-                        val content = document["content"] as String
-                        val marketName = document["marketName"] as String
-                        val storeName = document["storeName"] as String
-                        val rating = document["rating"]?.toString()?.toDoubleOrNull()
-                        val storeImg = document["storeImg"] as String?
-                        val region = document["region"] as String?
-                        val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                        val cost = (document["cost"] as? Long)!!.toInt()
-                        val fishKind = document["fishKind"] as String
-                        val userId = document["userId"] as String?
-                        val storageReference = FirebaseStorage.getInstance().reference
-                        val imageRef = storageReference.child("storeImg/$storeImg")
 
-                        imageRef.downloadUrl.addOnSuccessListener { uri ->
-                            val imageUrl = uri.toString()
-                            val marketNameWithHash = "#$marketName"
-                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like, fishKind,cost,userId)
-                            newItems.add(item)
-                            itemList.clear()
-                            itemList.addAll(newItems)
-                            adapter.notifyDataSetChanged()
 
-                            if (newItems.isEmpty()) {
-                                // 검색 결과가 없을 때 사용자에게 메시지를 표시합니다.
-                                showToast("검색 결과가 없습니다.")
-                            }
-                        }
-                    }
-                }
-                .addOnFailureListener { exception ->
-                    Log.w("ReviewActivity", "Error: $exception")
-                }
-        }
-    }
-    private fun performSearch3(query: String?) {
-        if (query.isNullOrBlank()) {
-            // 검색어가 비어있거나 공백인 경우, 모든 리뷰를 표시
-            loadAllReviews()
-        } else {
-            // Firestore에서 검색어를 이용하여 데이터 검색
-            db.collection("review")
-                .whereEqualTo("content", query) // marketName 필드에서 검색어와 일치하는 항목을 찾습니다.
-                .get()
-                .addOnSuccessListener { result ->
-                    val newItems = mutableListOf<Review>()
-                    for (document in result) {
-                        val content = document["content"] as String
-                        val marketName = document["marketName"] as String
-                        val storeName = document["storeName"] as String
-                        val rating = document["rating"]?.toString()?.toDoubleOrNull()
-                        val storeImg = document["storeImg"] as String?
-                        val region = document["region"] as String?
-                        val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                        val cost = (document["cost"] as? Long)!!.toInt()
-                        val fishKind = document["fishKind"] as String
-                        val userId = document["userId"] as String?
-                        val storageReference = FirebaseStorage.getInstance().reference
-                        val imageRef = storageReference.child("storeImg/$storeImg")
-
-                        imageRef.downloadUrl.addOnSuccessListener { uri ->
-                            val imageUrl = uri.toString()
-                            val marketNameWithHash = "#$marketName"
-                            val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region,like,  fishKind,cost,userId)
-                            newItems.add(item)
-                            itemList.clear()
-                            itemList.addAll(newItems)
-                            adapter.notifyDataSetChanged()
-
-                            if (newItems.isEmpty()) {
-                                // 검색 결과가 없을 때 사용자에게 메시지를 표시합니다.
-                                showToast("검색 결과가 없습니다.")
-                            }
-                        }
-                    }
-                }
-                .addOnFailureListener { exception ->
-                    Log.w("ReviewActivity", "Error: $exception")
-                }
-        }
-    }
 
 }
