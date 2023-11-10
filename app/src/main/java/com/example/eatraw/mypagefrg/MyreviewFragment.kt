@@ -177,8 +177,6 @@ class MyreviewFragment : Fragment() {
     }
 
     private fun loadAllReviews() {
-        val currentUserId = mAuth.currentUser!!.uid
-
         db.collection("review")
             .get()
             .addOnSuccessListener { result ->
@@ -187,36 +185,23 @@ class MyreviewFragment : Fragment() {
                     val content = document["content"] as String
                     val marketName = document["marketName"] as String
                     val storeName = document["storeName"] as String
-                    val rating =
-                        document["rating"]?.toString()?.toDoubleOrNull() // rating을 Float로 가져옴
+                    val rating = document["rating"]?.toString()?.toDoubleOrNull() // rating을 Float로 가져옴
                     val storeImg = document["storeImg"] as String?
                     val region = document["region"] as String?
                     val like = (document["like"] as? Long)?.toInt() // "like" 필드를 Int로 가져오기
-                    val cost = (document["cost"] as? Long)!!.toInt()
-                    val fishKind = document["fishKind"] as String
+                    val cost = (document["cost"] as? Double)?.toInt()
+                    val fishKind = document["fishKind"] as String?
                     val userId = document["userId"] as String?
 
-                    // Check if the review is written by the current user
-                    if (userId == currentUserId) {
-                        // 이미지 URL이 없으면 기본 이미지 URL로 대체
-                        val imageUrl = storeImg ?: "기본 이미지 URL" // 여기에 기본 이미지 URL을 넣으세요
 
-                        val marketNameWithHash = "#$marketName"
-                        val item = Review(
-                            content,
-                            marketNameWithHash,
-                            imageUrl,
-                            storeName,
-                            rating,
-                            region,
-                            like,
-                            fishKind,
-                            cost,
-                            userId
-                        )
-                        newItems.add(item)
-                    }
+                    // 이미지 URL이 없으면 기본 이미지 URL로 대체
+                    val imageUrl = storeImg ?: "기본 이미지 URL" // 여기에 기본 이미지 URL을 넣으세요
+
+                    val marketNameWithHash = "$marketName"
+                    val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, fishKind, cost,userId)
+                    newItems.add(item)
                 }
+
                 itemList.clear()
                 itemList.addAll(newItems)
                 adapter.notifyDataSetChanged()
@@ -227,155 +212,118 @@ class MyreviewFragment : Fragment() {
     }
 
     private fun performSearch(query: String?) {
+        if (query.isNullOrBlank()) {
+            loadAllReviews()
+        } else {
+            db.collection("review")
+                .orderBy("content") // content 필드로 정렬
+                .startAt(query) // query로 시작하는 값부터 검색
+                .endAt(query + "\uf8ff") // query로 끝나는 값까지 검색 (파이어스토어 특수 문자를 추가)
 
+                .get()
+                .addOnSuccessListener { result ->
+                    val newItems = mutableListOf<Review>()
+                    for (document in result) {
+                        val content = document["content"] as String
+                        val marketName = document["marketName"] as String
+                        val storeName = document["storeName"] as String
+                        val rating = document["rating"]?.toString()?.toDoubleOrNull()
+                        val storeImg = document["storeImg"] as String?
+                        val region = document["region"] as String?
+                        val like = (document["like"] as? Long)?.toInt()
+                        val cost = (document["cost"] as? Long)?.toInt()
+                        val fishKind = document["fishKind"] as String?
+                        val userId = document["userId"] as String?
+                        val imageUrl = storeImg ?: "기본 이미지 URL"
 
-        db.collection("review")
-            // 현재 로그인한 사용자의 ID와 일치하는 문서만 검색
-            .orderBy("content") // content 필드로 정렬
-            .startAt(query) // query로 시작하는 값부터 검색
-            .endAt(query + "\uf8ff")
-
-            .get()
-            .addOnSuccessListener { result ->
-                val newItems = mutableListOf<Review>()
-                for (document in result) {
-                    val data = document.data
-                    val content = data["content"] as String
-                    val marketName = data["marketName"] as String
-                    val storeName = data["storeName"] as String
-                    val rating = (data["rating"] as? Double) ?: 0.0
-                    val storeImg = data["storeImg"] as String?
-                    val region = data["region"] as String?
-                    val like = (data["like"] as? Long)?.toInt() ?: 0
-                    val cost = (data["cost"] as? Long)?.toInt() ?: 0
-                    val fishKind = data["fishKind"] as String
-                    val userId = data["userId"] as String
-                    val reviewId = document.id
-
-                    val review = Review(
-                        content,
-                        marketName,
-                        storeImg,
-                        storeName,
-                        rating,
-                        region,
-                        like,
-                        fishKind,
-                        cost,
-                        userId,
-                        reviewId
-                    )
-                    newItems.add(review)
+                        val marketNameWithHash = "$marketName"
+                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, fishKind, cost,userId)
+                        newItems.add(item)
+                    }
+                    itemList.clear()
+                    itemList.addAll(newItems)
+                    adapter.notifyDataSetChanged()
                 }
-
-                itemList.clear()
-                itemList.addAll(newItems)
-                adapter.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                Log.w("ReviewActivity", "Error: $exception")
-            }
-
+                .addOnFailureListener { exception ->
+                    Log.w("ReviewActivity", "Error: $exception")
+                }
+        }
     }
-
     private fun performSearch2(query: String?) {
+        if (query.isNullOrBlank()) {
+            loadAllReviews()
+        } else {
+            db.collection("review")
+                .orderBy("marketName") // content 필드로 정렬
+                .startAt(query) // query로 시작하는 값부터 검색
+                .endAt(query + "\uf8ff") // query로 끝나는 값까지 검색 (파이어스토어 특수 문자를 추가)
 
+                .get()
+                .addOnSuccessListener { result ->
+                    val newItems = mutableListOf<Review>()
+                    for (document in result) {
+                        val content = document["content"] as String
+                        val marketName = document["marketName"] as String
+                        val storeName = document["storeName"] as String
+                        val rating = document["rating"]?.toString()?.toDoubleOrNull()
+                        val storeImg = document["storeImg"] as String?
+                        val region = document["region"] as String?
+                        val like = (document["like"] as? Long)?.toInt()
+                        val cost = (document["cost"] as? Long)?.toInt()
+                        val fishKind = document["fishKind"] as String?
+                        val userId = document["userId"] as String?
+                        val imageUrl = storeImg ?: "기본 이미지 URL"
 
-        db.collection("review")
-
-            .orderBy("fishKind") // content 필드로 정렬
-            .startAt(query) // query로 시작하는 값부터 검색
-            .endAt(query + "\uf8ff") // query로 끝나는 값까지 검색 (파이어스토어 특수 문자를 추가)
-
-            .get()
-            .addOnSuccessListener { result ->
-                val newItems = mutableListOf<Review>()
-                for (document in result) {
-                    val content = document["content"] as String
-                    val marketName = document["marketName"] as String
-                    val storeName = document["storeName"] as String
-                    val rating = document["rating"]?.toString()?.toDoubleOrNull()
-                    val storeImg = document["storeImg"] as String?
-                    val region = document["region"] as String?
-                    val like = (document["like"] as? Long)?.toInt()
-                    val cost = (document["cost"] as? Long)!!.toInt()
-                    val fishKind = document["fishKind"] as String
-                    val userId = document["userId"] as String?
-                    val imageUrl = storeImg ?: "기본 이미지 URL"
-
-                    val marketNameWithHash = "$marketName"
-                    val item = Review(
-                        content,
-                        marketNameWithHash,
-                        imageUrl,
-                        storeName,
-                        rating,
-                        region,
-                        like,
-                        fishKind,
-                        cost,
-                        userId
-                    )
-                    newItems.add(item)
+                        val marketNameWithHash = "$marketName"
+                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, fishKind, cost,userId)
+                        newItems.add(item)
+                    }
+                    itemList.clear()
+                    itemList.addAll(newItems)
+                    adapter.notifyDataSetChanged()
                 }
-                itemList.clear()
-                itemList.addAll(newItems)
-                adapter.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                Log.w("ReviewActivity", "Error: $exception")
-            }
-
-
+                .addOnFailureListener { exception ->
+                    Log.w("ReviewActivity", "Error: $exception")
+                }
+        }
     }
-
     private fun performSearch3(query: String?) {
+        if (query.isNullOrBlank()) {
+            loadAllReviews()
+        } else {
+            db.collection("review")
+                .orderBy("storeName") // content 필드로 정렬
+                .startAt(query) // query로 시작하는 값부터 검색
+                .endAt(query + "\uf8ff") // query로 끝나는 값까지 검색 (파이어스토어 특수 문자를 추가)
 
+                .get()
+                .addOnSuccessListener { result ->
+                    val newItems = mutableListOf<Review>()
+                    for (document in result) {
+                        val content = document["content"] as String
+                        val marketName = document["marketName"] as String
+                        val storeName = document["storeName"] as String
+                        val rating = document["rating"]?.toString()?.toDoubleOrNull()
+                        val storeImg = document["storeImg"] as String?
+                        val region = document["region"] as String?
+                        val like = (document["like"] as? Long)?.toInt()
+                        val cost = (document["cost"] as? Long)?.toInt()
+                        val fishKind = document["fishKind"] as String?
+                        val userId = document["userId"] as String?
+                        val imageUrl = storeImg ?: "기본 이미지 URL"
 
-        db.collection("review")
-
-            .orderBy("marketName") // content 필드로 정렬
-            .startAt(query) // query로 시작하는 값부터 검색
-            .endAt(query + "\uf8ff") // query로 끝나는 값까지 검색 (파이어스토어 특수 문자를 추가)
-
-            .get()
-            .addOnSuccessListener { result ->
-                val newItems = mutableListOf<Review>()
-                for (document in result) {
-                    val content = document["content"] as String
-                    val marketName = document["marketName"] as String
-                    val storeName = document["storeName"] as String
-                    val rating = document["rating"]?.toString()?.toDoubleOrNull()
-                    val storeImg = document["storeImg"] as String?
-                    val region = document["region"] as String?
-                    val like = (document["like"] as? Long)?.toInt()
-                    val cost = (document["cost"] as? Long)!!.toInt()
-                    val fishKind = document["fishKind"] as String
-                    val userId = document["userId"] as String?
-                    val imageUrl = storeImg ?: "기본 이미지 URL"
-
-                    val marketNameWithHash = "$marketName"
-                    val item = Review(
-                        content,
-                        marketNameWithHash,
-                        imageUrl,
-                        storeName,
-                        rating,
-                        region,
-                        like,
-                        fishKind,
-                        cost,
-                        userId
-                    )
-                    newItems.add(item)
+                        val marketNameWithHash = "$marketName"
+                        val item = Review(content, marketNameWithHash, imageUrl, storeName, rating, region, like, fishKind, cost,userId)
+                        newItems.add(item)
+                    }
+                    itemList.clear()
+                    itemList.addAll(newItems)
+                    adapter.notifyDataSetChanged()
                 }
-                itemList.clear()
-                itemList.addAll(newItems)
-                adapter.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                Log.w("ReviewActivity", "Error: $exception")
-            }
+                .addOnFailureListener { exception ->
+                    Log.w("ReviewActivity", "Error: $exception")
+                }
+        }
     }
 
 

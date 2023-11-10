@@ -23,7 +23,11 @@ import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapView
 import com.naver.maps.map.overlay.Marker
-import kotlin.properties.Delegates
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class ReviewAdapter(private val reviews: List<Review>) :
     RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
@@ -41,38 +45,42 @@ class ReviewAdapter(private val reviews: List<Review>) :
         lateinit var tel: String
         lateinit var open: String
         lateinit var content: String
-        var dbLatitude by Delegates.notNull<Double>()
-        var dbLongitude by Delegates.notNull<Double>()
+        var dbLatitude: Double = 0.0
+        var dbLongitude: Double = 0.0
 
-        init {
-            // Firestore에서 데이터를 가져와 프로퍼티에 초기화
-            val marketName = "자갈치시장" // 원하는 시장 이름으로 변경
+        fun fetchMarketDataAsync(marketName: String, onComplete: (String, String, String, String, Double, Double) -> Unit) {
             val db = FirebaseFirestore.getInstance()
             val docRef = db.collection("map").document(marketName)
 
-            docRef.get()
-                .addOnSuccessListener { documentSnapshot ->
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    val documentSnapshot = docRef.get().await()
                     if (documentSnapshot != null && documentSnapshot.exists()) {
                         address = documentSnapshot.getString("address") ?: "주소 정보 없음"
                         tel = documentSnapshot.getString("tel") ?: "전화번호 정보 없음"
                         open = documentSnapshot.getString("open") ?: "영업시간 정보 없음"
                         content = documentSnapshot.getString("mcontent") ?: "시장내용 정보 없음"
-                        dbLatitude = documentSnapshot.getDouble("latitude")!!
-                        dbLongitude = documentSnapshot.getDouble("longitude")!!
+                        dbLatitude = documentSnapshot.getDouble("latitude") ?: 0.0
+                        dbLongitude = documentSnapshot.getDouble("longitude") ?: 0.0
                     } else {
                         address = "주소 정보 없음"
                         tel = "전화번호 정보 없음"
                         open = "영업시간 정보 없음"
                         content = "시장내용 정보 없음"
+                        dbLatitude = 0.0
+                        dbLongitude = 0.0
+                    }
+
+                    withContext(Dispatchers.Main) {
+                        onComplete(address, tel, open, content, dbLatitude, dbLongitude)
+                    }
+                } catch (exception: Exception) {
+                    Log.e("FirestoreError", "Error getting document: ", exception)
+                    withContext(Dispatchers.Main) {
+                        // Handle the error appropriately.
                     }
                 }
-                .addOnFailureListener { exception ->
-                    Log.e("FirestoreError", "Error getting document: ", exception)
-                    address = "주소 정보 없음"
-                    tel = "전화번호 정보 없음"
-                    open = "영업시간 정보 없음"
-                    content = "시장내용 정보 없음"
-                }
+            }
         }
     }
 
@@ -85,7 +93,6 @@ class ReviewAdapter(private val reviews: List<Review>) :
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
         val review = reviews[position]
 
-        // 리뷰 데이터를 뷰에 연결
         review.storeImg?.let {
             Glide.with(holder.itemView)
                 .load(it)
@@ -97,17 +104,18 @@ class ReviewAdapter(private val reviews: List<Review>) :
         holder.button1.text = review.marketName
         holder.storeName.text = review.storeName
 
-        // map 뷰 클릭 리스너 설정
         holder.map.setOnClickListener {
-            showMapModal(
-                holder.itemView.context,
-                holder.address,
-                holder.tel,
-                holder.open,
-                holder.content,
-                holder.dbLatitude,
-                holder.dbLongitude
-            )
+            holder.fetchMarketDataAsync(review.marketName) { address, tel, open, content, dbLatitude, dbLongitude ->
+                showMapModal(
+                    holder.itemView.context,
+                    address,
+                    tel,
+                    open,
+                    content,
+                    dbLatitude,
+                    dbLongitude
+                )
+            }
         }
 
         holder.itemView.setOnClickListener {
@@ -177,45 +185,42 @@ class ReviewAdapter(private val reviews: List<Review>) :
         tel: String,
         open: String,
         content: String,
-        dbLatitude: Double?,
-        dbLongitude: Double?
+        dbLatitude: Double,
+        dbLongitude: Double
     ) {
         val builder = AlertDialog.Builder(context)
 
         val dialogLayout = LinearLayout(context)
         dialogLayout.orientation = LinearLayout.VERTICAL
-        dialogLayout.setPadding(70, 70, 70, 70) // 패딩 추가
+        dialogLayout.setPadding(70, 70, 70, 70)
 
-        // 여기서 `z` 값을 설정하여 텍스트 뷰가 앞에 표시되도록 합니다.
         dialogLayout.z = 1.0f
 
-        // 텍스트 뷰들 추가
         val titleTextView = TextView(context)
         val titleLayoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
-        titleLayoutParams.setMargins(0, 0, 0, 50) // 여기서 marginBottom 값을 설정합니다
+        titleLayoutParams.setMargins(0, 0, 0, 50)
         titleTextView.layoutParams = titleLayoutParams
         titleTextView.text = "시장정보"
-        titleTextView.textSize = 30f // 글꼴 크기 설정
+        titleTextView.textSize = 30f
         titleTextView.setTextColor(Color.BLACK)
         dialogLayout.gravity = Gravity.CENTER
         dialogLayout.addView(titleTextView)
 
-        if (dbLatitude != null && dbLongitude != null) {
+        if (dbLatitude != 0.0 && dbLongitude != 0.0) {
             val mapViewBundle = Bundle()
             val mapView = MapView(context)
             mapView.onCreate(mapViewBundle)
 
-            val mapHeightPx = 900 // 예: 400px
+            val mapHeightPx = 900
             val mapLayoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 mapHeightPx
             )
 
-            // 여기서 `marginBottom` 값을 설정합니다.
-            mapLayoutParams.setMargins(0, 0, 0, 35) // marginBottom 값을 설정합니다
+            mapLayoutParams.setMargins(0, 0, 0, 35)
             mapView.layoutParams = mapLayoutParams
 
             mapView.getMapAsync { naverMap ->
@@ -229,27 +234,25 @@ class ReviewAdapter(private val reviews: List<Review>) :
             dialogLayout.addView(mapView)
         }
 
-        //주소 레이아웃
         val addressLayout = LinearLayout(context)
         addressLayout.orientation = LinearLayout.HORIZONTAL
 
         val addressImageView = ImageView(context)
         addressImageView.setImageResource(R.drawable.loc)
-        val imageSize = 36 // 예: 36dp
+        val imageSize = 36
         val params = LinearLayout.LayoutParams(imageSize, imageSize)
-        params.setMargins(0, 9, 8, 25) // 이미지와 텍스트 사이 간격 조절
+        params.setMargins(0, 9, 8, 25)
         addressImageView.layoutParams = params
 
         val addressTextView = TextView(context)
         addressTextView.text = "$address"
-        addressTextView.textSize = 16f // 글꼴 크기 설정
+        addressTextView.textSize = 16f
 
         addressLayout.addView(addressImageView)
         addressLayout.addView(addressTextView)
 
         dialogLayout.addView(addressLayout)
 
-        //번호 레이아웃
         val telLayout = LinearLayout(context)
         telLayout.orientation = LinearLayout.HORIZONTAL
 
@@ -268,7 +271,6 @@ class ReviewAdapter(private val reviews: List<Review>) :
 
         dialogLayout.addView(telLayout)
 
-        // 영업시간 레이아웃
         val openLayout = LinearLayout(context)
         openLayout.orientation = LinearLayout.HORIZONTAL
 
@@ -287,7 +289,6 @@ class ReviewAdapter(private val reviews: List<Review>) :
 
         dialogLayout.addView(openLayout)
 
-        // 시장내용 레이아웃
         val contentLayout = LinearLayout(context)
         contentLayout.orientation = LinearLayout.HORIZONTAL
 
@@ -311,7 +312,4 @@ class ReviewAdapter(private val reviews: List<Review>) :
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-
-
-
 }

@@ -161,6 +161,9 @@ class WriteActivity : AppCompatActivity() {
                             .addOnFailureListener { e ->
                                 showResultMessage("리뷰 수정 중 오류가 발생했습니다.")
                             }
+
+
+
                     } else {
                         // 새 리뷰 추가 모드인 경우
                         db.collection("review")
@@ -168,6 +171,51 @@ class WriteActivity : AppCompatActivity() {
                             .addOnSuccessListener { documentReference: DocumentReference ->
                                 val newReviewId = documentReference.id
                                 showResultMessage("리뷰가 성공적으로 등록되었습니다.")
+                                // fish 컬렉션에서 fishKind와 동일한 문서를 조회합니다.
+                                val fishKind = editFishKind.text.toString().trim()
+                                val cost = editFishPrice.text.toString().toInt() // 사용자로부터 입력받은 cost
+
+                                db.collection("fish")
+                                    .whereEqualTo("f_name", fishKind)
+                                    .get()
+                                    .addOnSuccessListener { querySnapshot ->
+                                        if (!querySnapshot.isEmpty) {
+                                            val fishDoc = querySnapshot.documents[0]
+                                            val f_max = fishDoc.getLong("f_max") ?: 0
+                                            val f_min = fishDoc.getLong("f_min") ?: 0
+
+                                            // cost와 f_max, f_min을 비교하여 업데이트
+                                            val newData = HashMap<String, Any>()
+                                            if (cost > f_max) {
+                                                newData["f_max"] = cost
+                                            }
+                                            if (cost < f_min || f_min.toInt() == 0) {
+                                                newData["f_min"] = cost
+                                            }
+
+                                            // fishKind와 동일한 문서 업데이트
+                                            db.collection("fish")
+                                                .document(fishDoc.id)
+                                                .update(newData)
+                                                .addOnSuccessListener {
+                                                    // 업데이트가 성공한 경우
+                                                    // 여기에서 리뷰를 추가하는 나머지 코드를 실행할 수 있습니다.
+                                                    uploadImageAndAddReviewToFirestore()
+                                                }
+                                                .addOnFailureListener { e ->
+                                                    // 업데이트 실패 시 처리
+                                                    showResultMessage("fish 업데이트 중 오류가 발생했습니다.")
+                                                }
+                                        } else {
+                                            // fishKind와 동일한 문서가 없는 경우
+                                            // 여기에서 리뷰를 추가하는 나먈지 코드를 실행할 수 있습니다.
+                                            uploadImageAndAddReviewToFirestore()
+                                        }
+                                    }
+                                    .addOnFailureListener { e ->
+                                        // 조회 실패 시 처리
+                                        showResultMessage("fish 조회 중 오류가 발생했습니다.")
+                                    }
                                 db.collection("review").document(newReviewId)
                                     .update("reviewId", newReviewId)
                                     .addOnSuccessListener {
@@ -179,6 +227,7 @@ class WriteActivity : AppCompatActivity() {
                             .addOnFailureListener { e ->
                                 showResultMessage("리뷰 등록 중 오류가 발생했습니다.")
                             }
+
                     }
                 }
             }.addOnFailureListener { e ->
@@ -285,9 +334,11 @@ class WriteActivity : AppCompatActivity() {
                     .placeholder(R.mipmap.ic_launcher_round)
                     .error(R.mipmap.ic_launcher_round)
 
-
-                Glide.with(this).load(review.storeImg).apply(options).into(thumbnailImageView)
+                Glide.with(this)
+                    .load(review.storeImg)
+                    .apply(options).into(thumbnailImageView)
                 thumbnailImageView.visibility = View.VISIBLE
+
 
                 Log.d(TAG, "Image URL: ${review.storeImg}")
 
@@ -306,5 +357,6 @@ class WriteActivity : AppCompatActivity() {
         }
         return 0 // default value
     }
+
 
 }
