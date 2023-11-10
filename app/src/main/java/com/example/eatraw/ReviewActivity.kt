@@ -267,6 +267,7 @@ class ReviewActivity : AppCompatActivity() {
                     val fishKind = document["fishKind"] as String?
                     val userId = document["userId"] as String?
 
+
                     // 이미지 URL이 없으면 기본 이미지 URL로 대체
                     val imageUrl = storeImg ?: "기본 이미지 URL" // 여기에 기본 이미지 URL을 넣으세요
 
