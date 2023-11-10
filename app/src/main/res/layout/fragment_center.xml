@@ -63,7 +63,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp">
+            android:layout_height="180dp">
             <ImageView
                 android:id="@+id/fishImg"
                 android:layout_width="match_parent"
@@ -81,7 +81,8 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:text="날로먹기 고객센터 정보"/>
 
 
         </LinearLayout>
