@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fish.FishFragment">
+    tools:context=".admin.fish.FishFragment">
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/userSearchbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:iconifiedByDefault="false"
         android:layout_margin="5dp"
         android:background="@drawable/menubar" />
     <!-- 상단 부분 끝 -->

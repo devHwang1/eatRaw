@@ -65,13 +65,13 @@ public final class ActivityWriteBinding implements ViewBinding {
   public final EditText editFishPrice;
 
   @NonNull
+  public final EditText editMarketName;
+
+  @NonNull
   public final EditText editStoreName;
 
   @NonNull
   public final EditText editText;
-
-  @NonNull
-  public final EditText marketName;
 
   @NonNull
   public final Spinner starSelect;
@@ -82,14 +82,18 @@ public final class ActivityWriteBinding implements ViewBinding {
   @NonNull
   public final ImageView thumbnailImageView;
 
+  @NonNull
+  public final TextView titleSwitch;
+
   private ActivityWriteBinding(@NonNull ScrollView rootView, @NonNull LinearLayout StarBox,
       @NonNull Button btnImage, @NonNull Button btnReview, @NonNull CardView cardView,
       @NonNull CardView cardView2, @NonNull CardView cardView3, @NonNull CardView cardView4,
       @NonNull CardView cardView5, @NonNull CardView cardView6, @NonNull CardView cardView7,
       @NonNull LinearLayout editBox, @NonNull EditText editFishName,
-      @NonNull EditText editFishPrice, @NonNull EditText editStoreName, @NonNull EditText editText,
-      @NonNull EditText marketName, @NonNull Spinner starSelect, @NonNull TextView textScore,
-      @NonNull ImageView thumbnailImageView) {
+      @NonNull EditText editFishPrice, @NonNull EditText editMarketName,
+      @NonNull EditText editStoreName, @NonNull EditText editText, @NonNull Spinner starSelect,
+      @NonNull TextView textScore, @NonNull ImageView thumbnailImageView,
+      @NonNull TextView titleSwitch) {
     this.rootView = rootView;
     this.StarBox = StarBox;
     this.btnImage = btnImage;
@@ -104,12 +108,13 @@ public final class ActivityWriteBinding implements ViewBinding {
     this.editBox = editBox;
     this.editFishName = editFishName;
     this.editFishPrice = editFishPrice;
+    this.editMarketName = editMarketName;
     this.editStoreName = editStoreName;
     this.editText = editText;
-    this.marketName = marketName;
     this.starSelect = starSelect;
     this.textScore = textScore;
     this.thumbnailImageView = thumbnailImageView;
+    this.titleSwitch = titleSwitch;
   }
 
   @Override
@@ -217,6 +222,12 @@ public final class ActivityWriteBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.editMarketName;
+      EditText editMarketName = ViewBindings.findChildViewById(rootView, id);
+      if (editMarketName == null) {
+        break missingId;
+      }
+
       id = R.id.editStoreName;
       EditText editStoreName = ViewBindings.findChildViewById(rootView, id);
       if (editStoreName == null) {
@@ -226,12 +237,6 @@ public final class ActivityWriteBinding implements ViewBinding {
       id = R.id.editText;
       EditText editText = ViewBindings.findChildViewById(rootView, id);
       if (editText == null) {
-        break missingId;
-      }
-
-      id = R.id.marketName;
-      EditText marketName = ViewBindings.findChildViewById(rootView, id);
-      if (marketName == null) {
         break missingId;
       }
 
@@ -253,10 +258,16 @@ public final class ActivityWriteBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.title_switch;
+      TextView titleSwitch = ViewBindings.findChildViewById(rootView, id);
+      if (titleSwitch == null) {
+        break missingId;
+      }
+
       return new ActivityWriteBinding((ScrollView) rootView, StarBox, btnImage, btnReview, cardView,
           cardView2, cardView3, cardView4, cardView5, cardView6, cardView7, editBox, editFishName,
-          editFishPrice, editStoreName, editText, marketName, starSelect, textScore,
-          thumbnailImageView);
+          editFishPrice, editMarketName, editStoreName, editText, starSelect, textScore,
+          thumbnailImageView, titleSwitch);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
