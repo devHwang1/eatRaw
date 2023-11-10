@@ -97,6 +97,14 @@ class FishAdapter(
                 bundle.putString("fishImg", fish.fishImg)
                 bundle.putString("season", fish.season)
 
+                // Firestore에서 해당 물고기의 문서 ID를 가져와서 번들에 추가
+                val documentId = getDocumentIdForFish(fish)
+                if (documentId != null) {
+                    bundle.putString("documentId", documentId)  // 문서 ID를 번들에 추가
+                    val documentData = getDocumentDataForFish(documentId)
+                    bundle.putSerializable("fishDocumentData", documentData)
+                }
+
                 intent.putExtras(bundle)
 
                 // 수정 페이지로 이동
@@ -166,6 +174,27 @@ class FishAdapter(
             }
 
             documentId
+        }
+
+
+        private fun getDocumentDataForFish(documentId: String): HashMap<String, Any>? = runBlocking {
+            val db = FirebaseFirestore.getInstance()
+            val documentReference = db.collection("fish").document(documentId)
+
+            var documentData: HashMap<String, Any>? = null
+
+            try {
+                val documentSnapshot = documentReference.get().await()
+
+                if (documentSnapshot.exists()) {
+                    documentData = documentSnapshot.data as HashMap<String, Any>
+                }
+            } catch (exception: Exception) {
+                // 오류 처리
+                exception.printStackTrace()
+            }
+
+            documentData
         }
     }
 

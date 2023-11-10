@@ -126,9 +126,9 @@ class AddFishActivity : AppCompatActivity() {
                         .addOnSuccessListener { documentReference ->
                             // 업로드 성공 시 처리
                             Toast.makeText(this, "생선 정보가 성공적으로 등록되었습니다.", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this, FishFragment::class.java)
-                            startActivity(intent)
-                            finish()
+                            val fragmentTransaction = supportFragmentManager.beginTransaction()
+                            fragmentTransaction.replace(R.id.fragment_container, FishFragment())
+                            fragmentTransaction.commit()
                         }
                         .addOnFailureListener { e ->
                             // 업로드 실패 시 처리
