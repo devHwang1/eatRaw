@@ -4,7 +4,7 @@
             "outputFile": "com.example.eatraw.app-mergeDebugResources-61:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\29a624b9ad7b9258285fa04ebeed112a\\transformed\\material-1.10.0\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\comed\\.gradle\\caches\\transforms-3\\29a624b9ad7b9258285fa04ebeed112a\\transformed\\material-1.10.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-3\\269db65f3fcdeb7f2fd69a7853292436\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\comed\\.gradle\\caches\\transforms-3\\269db65f3fcdeb7f2fd69a7853292436\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

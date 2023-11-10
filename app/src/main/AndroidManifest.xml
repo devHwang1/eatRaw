@@ -33,12 +33,6 @@
             android:name=".banner.Banner1Activity"
             android:exported="false" />
         <activity
-            android:name=".Banner1Activity"
-            android:exported="false" />
-        <activity
-            android:name=".BannerDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".AddFishActivity"
             android:exported="false" />
         <activity
