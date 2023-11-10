@@ -198,9 +198,9 @@ class MainActivity : AppCompatActivity() {
                 for (document in documents) {
                     val fishName = document.getString("f_name")
                     val count = document.getLong("f_count")?.toInt()
-                    val minCost = (document["f_min"] as? Double)?.toInt()
-                    val avgCost = (document["f_avg"] as? Double)?.toInt()
-                    val maxCost = (document["f_max"] as? Double)?.toInt()
+                    val minCost = (document["f_min"] as? Long)?.toInt()
+                    val avgCost = (document["f_avg"] as? Long)?.toInt()
+                    val maxCost = (document["f_max"] as? Long)?.toInt()
                     val fishImg = document.getString("f_img")
                     val season = document.getString("f_season")
 //                    val storageReference = FirebaseStorage.getInstance().reference
@@ -314,7 +314,7 @@ class MainActivity : AppCompatActivity() {
 
                     // Extract fish data
                     val fishName = randomDocument.getString("f_name")
-                    val count = randomDocument.getLong("f_count")?.toInt() ?: 0 // Handle null case or use a default value
+                    val count = randomDocument.getLong("f_count")?.toInt() ?: 0
                     val minCost = randomDocument.getLong("f_min")
                     val avgCost = randomDocument.getLong("f_avg")
                     val maxCost = randomDocument.getLong("f_max")

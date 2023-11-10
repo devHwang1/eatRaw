@@ -22,7 +22,7 @@ class QuoteActivity : AppCompatActivity() {
     private lateinit var barChart: BarChart
     private lateinit var textViewq: TextView
 
-    private val fishKinds = listOf("광어", "우럭", "참돔", "방어", "전어", "전복", "굴","돌돔")
+    private val fishKinds = listOf( "우럭", "참돔", "방어", "전복", "돌돔")
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
