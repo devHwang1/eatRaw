@@ -38,7 +38,7 @@ class DetailActivity : AppCompatActivity() {
         //좋아요 기본이미지
         likeBtn.setBackgroundResource(R.drawable.thumb)
 
-        val reviewId = "3rGd9fgt9r9ulwVy2EVG" // 리뷰 ID
+        val reviewId = "2DhQjBjJgFbNjjafzizz" // 리뷰 ID
 
         //좋아요 숫자 초기화
         updateLikeCount(reviewId)
@@ -92,7 +92,7 @@ class DetailActivity : AppCompatActivity() {
         val storeNameIntent = intent.getStringExtra("storeName")          //가게이름
         val ratingIntent = intent.getDoubleExtra("rating", 0.0)   //별점
         val regionIntent = intent.getStringExtra("region")                  //지역
-        val fishKindIntent = intent.getStringExtra("fishkind")               //물고기종류
+        val fishKindIntent = intent.getStringExtra("fishKind")               //물고기종류
         val userIdIntent = intent.getStringExtra("userId")     // 회원id
         val imageIntent = intent.getStringExtra("image")        //이미지
         val menuCostIntent = intent.getStringExtra("menuCost")        //메뉴가격
@@ -108,7 +108,7 @@ class DetailActivity : AppCompatActivity() {
 
 
         //물고기종류에 따른 가격가져오기
-        val fishkindCostIntent = intent.getStringExtra("fishkind")
+        val fishkindCostIntent = intent.getStringExtra("fishKind")
         db.collection("fish")
             .whereEqualTo("f_name", fishkindCostIntent)
             .get()

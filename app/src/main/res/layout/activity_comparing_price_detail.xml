@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".ComparingPriceDetailActivity">
 
     <!-- 상단 부분 유지 -->
@@ -93,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -117,6 +119,7 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
+                android:textColor="@color/red"
                 android:text="최고가"
                 android:textStyle="bold" />
 
@@ -141,6 +144,7 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
+                android:textColor="@color/blue"
                 android:text="최저가"
                 android:textStyle="bold" />
 
@@ -167,6 +171,7 @@
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
                 android:text="평균가"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <TextView
@@ -176,6 +181,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="40dp"
                 android:gravity="end"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
         </LinearLayout>
 

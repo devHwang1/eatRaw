@@ -14,7 +14,8 @@
             android:id="@+id/fishName"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
+            android:textColor="@color/black"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView

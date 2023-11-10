@@ -5,27 +5,28 @@ import android.os.Parcelable
 
 data class ComparingPriceItem(
     val fishName: String,
-    val minCost: String,
-    val avgCost: String,
-    val maxCost: String,
+    val minCost: Long,
+    val avgCost: Long,
+    val maxCost: Long,
     val fishImg: String?,
     val season: String?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.readString() ?: ""
+        parcel.readLong(),
+        parcel.readLong(),
+        parcel.readLong(),
+        parcel.readString(),
+        parcel.readString()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(fishName)
-        parcel.writeString(minCost)
-        parcel.writeString(avgCost)
-        parcel.writeString(maxCost)
+        parcel.writeLong(minCost)
+        parcel.writeLong(avgCost)
+        parcel.writeLong(maxCost)
         parcel.writeString(fishImg)
+        parcel.writeString(season)
     }
 
     override fun describeContents(): Int {
@@ -42,3 +43,4 @@ data class ComparingPriceItem(
         }
     }
 }
+

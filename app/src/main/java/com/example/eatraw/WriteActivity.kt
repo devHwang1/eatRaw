@@ -121,7 +121,7 @@ class WriteActivity : AppCompatActivity() {
 
                     if (reviewCount > 0) {
                         // 평균값 계산 및 'fish' 문서 업데이트
-                        val avgCost = totalCost.toDouble() / reviewCount.toDouble()
+                        val avgCost = totalCost.toLong() / reviewCount.toLong()
                         db.collection("fish")
                             .whereEqualTo("f_name", fishKind)
                             .get()
@@ -154,6 +154,19 @@ class WriteActivity : AppCompatActivity() {
         }
         val fishKind = editFishKind.text.toString().trim()
         val costInput = editFishPrice.text.toString().trim()
+        if (fishKind.isEmpty()) {
+            Toast.makeText(this, "생선 종류를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (costInput.isEmpty()) {
+            Toast.makeText(this, "가격을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (!costInput.all { it.isDigit() }) {
+            Toast.makeText(this, "숫자만 입력 해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         if (fishKind.isEmpty()) {
             Toast.makeText(this, "생선 종류를 입력해주세요.", Toast.LENGTH_SHORT).show()
             return
@@ -406,6 +419,5 @@ class WriteActivity : AppCompatActivity() {
         }
         return 0 // default value
     }
-
 
 }
