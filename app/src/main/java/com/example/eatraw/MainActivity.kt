@@ -197,19 +197,19 @@ class MainActivity : AppCompatActivity() {
 
                 for (document in documents) {
                     val fishName = document.getString("f_name")
-                    val minCost = (document["f_min"] as? Long)?.toInt()
-                    val avgCost = (document["f_avg"] as? Long)?.toInt()
-                    val maxCost = (document["f_max"] as? Long)?.toInt()
+                    val count = document.getLong("f_count")?.toInt()
+                    val minCost = (document["f_min"] as? Double)?.toInt()
+                    val avgCost = (document["f_avg"] as? Double)?.toInt()
+                    val maxCost = (document["f_max"] as? Double)?.toInt()
                     val fishImg = document.getString("f_img")
                     val season = document.getString("f_season")
 //                    val storageReference = FirebaseStorage.getInstance().reference
 //                    val imageRef = storageReference.child("FishImg/$fishImg")
 
-                    if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
-//                        imageRef.downloadUrl.addOnSuccessListener { uri ->
-//                            val imageUrl = uri.toString()
+                    if (fishName != null && count != null && minCost != null && avgCost != null && maxCost != null) {
                         val comparingPriceItem = ComparingPriceItem(
                             fishName,
+                            count,
                             minCost.toLong(),
                             avgCost.toLong(),
                             maxCost.toLong(),
@@ -314,6 +314,7 @@ class MainActivity : AppCompatActivity() {
 
                     // Extract fish data
                     val fishName = randomDocument.getString("f_name")
+                    val count = randomDocument.getLong("f_count")?.toInt() ?: 0 // Handle null case or use a default value
                     val minCost = randomDocument.getLong("f_min")
                     val avgCost = randomDocument.getLong("f_avg")
                     val maxCost = randomDocument.getLong("f_max")
@@ -322,7 +323,7 @@ class MainActivity : AppCompatActivity() {
 
                     if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
                         // Update the global variable with the random fish data
-                        randomFishData = ComparingPriceItem(fishName, minCost, avgCost, maxCost, fishImg, season)
+                        randomFishData = ComparingPriceItem(fishName, count, minCost, avgCost, maxCost, fishImg, season)
                         updateRandomFishViews()
                     }
                 }

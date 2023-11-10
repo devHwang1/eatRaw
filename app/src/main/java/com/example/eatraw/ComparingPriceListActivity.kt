@@ -3,7 +3,6 @@ package com.example.eatraw
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,8 +11,6 @@ import com.example.eatraw.data.ComparingPriceItem
 import com.example.eatraw.databinding.ActivityComparingPriceListBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.storage.FirebaseStorage
 
 class ComparingPriceListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityComparingPriceListBinding
@@ -37,25 +34,25 @@ class ComparingPriceListActivity : AppCompatActivity() {
 
                 for (document in documents) {
                     val fishName = document.getString("f_name")
-                    val minCost = (document["f_min"] as? Long)?.toInt()
-                    val avgCost = (document["f_avg"] as? Long)?.toInt()
-                    val maxCost = (document["f_max"] as? Long)?.toInt()
+                    val count = (document["f_count"] as? Long)?.toInt() ?: 0
+                    val minCost = (document["f_min"] as? Double)?.toInt()
+                    val avgCost = (document["f_avg"] as? Double)?.toInt()
+                    val maxCost = (document["f_max"] as? Double)?.toInt()
                     val fishImg = document.getString("f_img")
                     val season = document.getString("f_season")
 //                    val storageReference = FirebaseStorage.getInstance().reference
 //                    val imageRef = storageReference.child("FishImg/$fishImg")
 
-                    if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
-//                        imageRef.downloadUrl.addOnSuccessListener { uri ->
-//                            val imageUrl = uri.toString()
-                            val comparingPriceItem = ComparingPriceItem(
-                                fishName,
-                                minCost.toLong(),
-                                avgCost.toLong(),
-                                maxCost.toLong(),
-                                fishImg,
-                                season
-                            )
+                    if (fishName != null && count != null && minCost != null && avgCost != null && maxCost != null) {
+                        val comparingPriceItem = ComparingPriceItem(
+                            fishName,
+                            count,
+                            minCost.toLong(),
+                            avgCost.toLong(),
+                            maxCost.toLong(),
+                            fishImg,
+                            season
+                        )
                             comparingPriceData.add(comparingPriceItem)
 
                             // 데이터를 RecyclerView에 설정
@@ -142,15 +139,19 @@ class ComparingPriceListActivity : AppCompatActivity() {
 
                 for (document in documents) {
                     val fishName = document.getString("f_name")
-                    val minCost = (document["f_min"] as? Long)?.toInt()
-                    val avgCost = (document["f_avg"] as? Long)?.toInt()
-                    val maxCost = (document["f_max"] as? Long)?.toInt()
+                    val count = document.getLong("f_count")?.toInt() ?: 0
+                    val minCost = (document["f_min"] as? Double)?.toInt()
+                    val avgCost = (document["f_avg"] as? Double)?.toInt()
+                    val maxCost = (document["f_max"] as? Double)?.toInt()
                     val fishImg = document.getString("f_img")
                     val season = document.getString("f_season")
+//                    val storageReference = FirebaseStorage.getInstance().reference
+//                    val imageRef = storageReference.child("FishImg/$fishImg")
 
-                    if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
+                    if (fishName != null && count != null && minCost != null && avgCost != null && maxCost != null) {
                         val comparingPriceItem = ComparingPriceItem(
                             fishName,
+                            count,
                             minCost.toLong(),
                             avgCost.toLong(),
                             maxCost.toLong(),

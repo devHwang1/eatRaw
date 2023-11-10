@@ -21,9 +21,9 @@ class ComparingPriceDetailActivity : AppCompatActivity() {
         val extras = intent.extras
         if (extras != null) {
             val fishName = extras.getString("fishName")
-            val minCost = extras.getString("minCost")
-            val avgCost = extras.getString("avgCost")
-            val maxCost = extras.getString("maxCost")
+            val minCost = extras.getDouble("minCost")
+            val avgCost = extras.getDouble("avgCost")
+            val maxCost = extras.getDouble("maxCost")
             var fishImg = extras.getString("fishImg")
 
             // 받아온 정보를 화면에 표시
