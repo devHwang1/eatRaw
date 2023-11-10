@@ -3143,6 +3143,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable croaker
 drawable cursor_drawble
 drawable custom_back_ground
 drawable custom_background
@@ -3155,6 +3156,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable fb
 drawable fish
+drawable fish_column
 drawable fisherman
 drawable fishpicture
 drawable google
@@ -3330,6 +3332,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable november_2fish
 drawable phone
 drawable pragment
 drawable profil
@@ -3352,6 +3355,8 @@ drawable thumb
 drawable thumbfill
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable yellow_croaker
+drawable yellow_star
 font black
 font bold
 font extrabold
@@ -3507,6 +3512,7 @@ id btnImage
 id btnLike
 id btnRegisterFish
 id btnReview
+id btnUpdateFish
 id btnUpdateUserAdmin
 id btnUploadData
 id btnUploadImage
@@ -3631,7 +3637,6 @@ id etLastName
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id fab
 id fade
 id fill
 id fill_horizontal
@@ -3646,10 +3651,6 @@ id fishPriceAvg
 id fishPriceMax
 id fishPriceMin
 id fishSearchbar
-id fish_name1
-id fish_name2
-id fish_price1
-id fish_price2
 id fitCenter
 id fitEnd
 id fitStart
@@ -3691,8 +3692,6 @@ id ignore
 id ignoreRequest
 id image
 id imageView
-id imageView2
-id imageView3
 id img_backarrow
 id immediateStop
 id included
@@ -3759,8 +3758,6 @@ id material_value_index
 id matrix
 id menuSend
 id menubar1
-id menubar3
-id menubar4
 id message
 id middle
 id mini
@@ -3907,6 +3904,9 @@ id progress_circular
 id progress_horizontal
 id quoteButton
 id radio
+id random_fish_image
+id random_fish_name
+id random_fish_price
 id rating
 id ratingAdmin
 id ratio
@@ -3914,7 +3914,6 @@ id rectangles
 id recyclerViewBestReview
 id recyclerViewComparingPrice
 id recyclerViewFishList
-id recyclerViewMarketList
 id recyclerViewReviewList
 id recyclerViewUsersList
 id registerNow
@@ -3926,6 +3925,7 @@ id reviewImage
 id reviewImageAdmin
 id reviewRating
 id reviewRecycler
+id reviewSearchbar
 id reviewStar
 id reviewStarAdmin
 id reviewStoreNameAdmin
@@ -4234,6 +4234,7 @@ layout activity_register
 layout activity_review
 layout activity_splash
 layout activity_test
+layout activity_update_fish
 layout activity_write
 layout app_bar_admin
 layout browser_actions_context_menu_page

@@ -32,6 +32,7 @@ drawable baseline_show_chart_24
 drawable check_button
 drawable clip
 drawable clock
+drawable croaker
 drawable cursor_drawble
 drawable custom_back_ground
 drawable custom_background
@@ -39,6 +40,7 @@ drawable default_nallo
 drawable del_button
 drawable fb
 drawable fish
+drawable fish_column
 drawable fisherman
 drawable fishpicture
 drawable google
@@ -73,6 +75,7 @@ drawable menubar
 drawable menubar1
 drawable menubar2
 drawable modify_button
+drawable november_2fish
 drawable phone
 drawable pragment
 drawable profil
@@ -92,6 +95,8 @@ drawable text_edit_box
 drawable text_radius
 drawable thumb
 drawable thumbfill
+drawable yellow_croaker
+drawable yellow_star
 font black
 font bold
 font extrabold
@@ -141,6 +146,7 @@ id btnImage
 id btnLike
 id btnRegisterFish
 id btnReview
+id btnUpdateFish
 id btnUpdateUserAdmin
 id btnUploadData
 id btnUploadImage
@@ -180,7 +186,6 @@ id email
 id etAge
 id etFirstName
 id etLastName
-id fab
 id first
 id fishImg
 id fishName
@@ -190,18 +195,12 @@ id fishPriceAvg
 id fishPriceMax
 id fishPriceMin
 id fishSearchbar
-id fish_name1
-id fish_name2
-id fish_price1
-id fish_price2
 id floatingActionButton
 id four
 id fragment_container
 id google_login
 id google_rg_login
 id imageView
-id imageView2
-id imageView3
 id img_backarrow
 id item_data
 id item_root
@@ -219,8 +218,6 @@ id mainSearchbar
 id map
 id menuSend
 id menubar1
-id menubar3
-id menubar4
 id mobile_navigation
 id modify
 id modifyFragment
@@ -246,12 +243,14 @@ id noReviewsTextView
 id openTextView
 id password
 id quoteButton
+id random_fish_image
+id random_fish_name
+id random_fish_price
 id rating
 id ratingAdmin
 id recyclerViewBestReview
 id recyclerViewComparingPrice
 id recyclerViewFishList
-id recyclerViewMarketList
 id recyclerViewReviewList
 id recyclerViewUsersList
 id registerNow
@@ -261,6 +260,7 @@ id reviewImage
 id reviewImageAdmin
 id reviewRating
 id reviewRecycler
+id reviewSearchbar
 id reviewStar
 id reviewStarAdmin
 id reviewStoreNameAdmin
@@ -312,6 +312,7 @@ layout activity_register
 layout activity_review
 layout activity_splash
 layout activity_test
+layout activity_update_fish
 layout activity_write
 layout app_bar_admin
 layout content_admin

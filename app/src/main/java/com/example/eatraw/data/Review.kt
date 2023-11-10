@@ -1,7 +1,7 @@
 package com.example.eatraw.data
 
-import com.google.firebase.storage.StorageReference
-import java.sql.Timestamp
+
+import com.google.firebase.Timestamp
 
 data class Review(
     val content: String,

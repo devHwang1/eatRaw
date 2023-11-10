@@ -19,6 +19,13 @@ import kotlinx.coroutines.tasks.await
 class UsersAdapter(private val context: Context, private val userList: MutableList<Users>) :
     RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
+    fun setData(newUsersList: List<Users>) {
+        userList.clear()
+        userList.addAll(newUsersList)
+        Log.d("UsersAdapter", "Data set: $userList")
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_users_list, parent, false)

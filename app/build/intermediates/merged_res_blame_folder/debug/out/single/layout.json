@@ -84,6 +84,10 @@
         "source": "com.example.eatraw.app-main-65:/layout/item_viewpager2_banner.xml"
     },
     {
+        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/activity_update_fish.xml",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_update_fish.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/item_comparing_price.xml",
         "source": "com.example.eatraw.app-main-65:/layout/item_comparing_price.xml"
     },

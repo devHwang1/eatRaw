@@ -121,7 +121,9 @@ class WriteActivity : AppCompatActivity() {
 
                     if (reviewCount > 0) {
                         // 평균값 계산 및 'fish' 문서 업데이트
-                        val avgCost = totalCost.toDouble() / reviewCount.toDouble()
+
+                        val avgCost = totalCost.toLong() / reviewCount.toLong()
+
                         db.collection("fish")
                             .whereEqualTo("f_name", fishKind)
                             .get()

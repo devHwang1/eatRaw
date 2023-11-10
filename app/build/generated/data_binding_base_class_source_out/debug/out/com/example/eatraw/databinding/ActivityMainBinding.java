@@ -29,24 +29,6 @@ public final class ActivityMainBinding implements ViewBinding {
   public final BottomNavigationView bnvMain;
 
   @NonNull
-  public final TextView fishName1;
-
-  @NonNull
-  public final TextView fishName2;
-
-  @NonNull
-  public final TextView fishPrice1;
-
-  @NonNull
-  public final TextView fishPrice2;
-
-  @NonNull
-  public final ImageView imageView2;
-
-  @NonNull
-  public final ImageView imageView3;
-
-  @NonNull
   public final ImageView iv1;
 
   @NonNull
@@ -59,13 +41,16 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ActionMenuView menubar1;
 
   @NonNull
-  public final LinearLayout menubar3;
-
-  @NonNull
-  public final LinearLayout menubar4;
-
-  @NonNull
   public final TextView nalLo;
+
+  @NonNull
+  public final ImageView randomFishImage;
+
+  @NonNull
+  public final TextView randomFishName;
+
+  @NonNull
+  public final TextView randomFishPrice;
 
   @NonNull
   public final RecyclerView recyclerViewBestReview;
@@ -83,29 +68,22 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ViewPager2 viewPager2Banner;
 
   private ActivityMainBinding(@NonNull RelativeLayout rootView,
-      @NonNull BottomNavigationView bnvMain, @NonNull TextView fishName1,
-      @NonNull TextView fishName2, @NonNull TextView fishPrice1, @NonNull TextView fishPrice2,
-      @NonNull ImageView imageView2, @NonNull ImageView imageView3, @NonNull ImageView iv1,
-      @NonNull ImageView iv2, @NonNull ImageView iv3, @NonNull ActionMenuView menubar1,
-      @NonNull LinearLayout menubar3, @NonNull LinearLayout menubar4, @NonNull TextView nalLo,
-      @NonNull RecyclerView recyclerViewBestReview,
+      @NonNull BottomNavigationView bnvMain, @NonNull ImageView iv1, @NonNull ImageView iv2,
+      @NonNull ImageView iv3, @NonNull ActionMenuView menubar1, @NonNull TextView nalLo,
+      @NonNull ImageView randomFishImage, @NonNull TextView randomFishName,
+      @NonNull TextView randomFishPrice, @NonNull RecyclerView recyclerViewBestReview,
       @NonNull RecyclerView recyclerViewComparingPrice, @NonNull TextView seeingMore,
       @NonNull LinearLayout topLayout, @NonNull ViewPager2 viewPager2Banner) {
     this.rootView = rootView;
     this.bnvMain = bnvMain;
-    this.fishName1 = fishName1;
-    this.fishName2 = fishName2;
-    this.fishPrice1 = fishPrice1;
-    this.fishPrice2 = fishPrice2;
-    this.imageView2 = imageView2;
-    this.imageView3 = imageView3;
     this.iv1 = iv1;
     this.iv2 = iv2;
     this.iv3 = iv3;
     this.menubar1 = menubar1;
-    this.menubar3 = menubar3;
-    this.menubar4 = menubar4;
     this.nalLo = nalLo;
+    this.randomFishImage = randomFishImage;
+    this.randomFishName = randomFishName;
+    this.randomFishPrice = randomFishPrice;
     this.recyclerViewBestReview = recyclerViewBestReview;
     this.recyclerViewComparingPrice = recyclerViewComparingPrice;
     this.seeingMore = seeingMore;
@@ -146,42 +124,6 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.fish_name1;
-      TextView fishName1 = ViewBindings.findChildViewById(rootView, id);
-      if (fishName1 == null) {
-        break missingId;
-      }
-
-      id = R.id.fish_name2;
-      TextView fishName2 = ViewBindings.findChildViewById(rootView, id);
-      if (fishName2 == null) {
-        break missingId;
-      }
-
-      id = R.id.fish_price1;
-      TextView fishPrice1 = ViewBindings.findChildViewById(rootView, id);
-      if (fishPrice1 == null) {
-        break missingId;
-      }
-
-      id = R.id.fish_price2;
-      TextView fishPrice2 = ViewBindings.findChildViewById(rootView, id);
-      if (fishPrice2 == null) {
-        break missingId;
-      }
-
-      id = R.id.imageView2;
-      ImageView imageView2 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView2 == null) {
-        break missingId;
-      }
-
-      id = R.id.imageView3;
-      ImageView imageView3 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView3 == null) {
-        break missingId;
-      }
-
       id = R.id.iv1;
       ImageView iv1 = ViewBindings.findChildViewById(rootView, id);
       if (iv1 == null) {
@@ -206,21 +148,27 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.menubar3;
-      LinearLayout menubar3 = ViewBindings.findChildViewById(rootView, id);
-      if (menubar3 == null) {
-        break missingId;
-      }
-
-      id = R.id.menubar4;
-      LinearLayout menubar4 = ViewBindings.findChildViewById(rootView, id);
-      if (menubar4 == null) {
-        break missingId;
-      }
-
       id = R.id.nalLo;
       TextView nalLo = ViewBindings.findChildViewById(rootView, id);
       if (nalLo == null) {
+        break missingId;
+      }
+
+      id = R.id.random_fish_image;
+      ImageView randomFishImage = ViewBindings.findChildViewById(rootView, id);
+      if (randomFishImage == null) {
+        break missingId;
+      }
+
+      id = R.id.random_fish_name;
+      TextView randomFishName = ViewBindings.findChildViewById(rootView, id);
+      if (randomFishName == null) {
+        break missingId;
+      }
+
+      id = R.id.random_fish_price;
+      TextView randomFishPrice = ViewBindings.findChildViewById(rootView, id);
+      if (randomFishPrice == null) {
         break missingId;
       }
 
@@ -254,10 +202,9 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((RelativeLayout) rootView, bnvMain, fishName1, fishName2,
-          fishPrice1, fishPrice2, imageView2, imageView3, iv1, iv2, iv3, menubar1, menubar3,
-          menubar4, nalLo, recyclerViewBestReview, recyclerViewComparingPrice, seeingMore,
-          topLayout, viewPager2Banner);
+      return new ActivityMainBinding((RelativeLayout) rootView, bnvMain, iv1, iv2, iv3, menubar1,
+          nalLo, randomFishImage, randomFishName, randomFishPrice, recyclerViewBestReview,
+          recyclerViewComparingPrice, seeingMore, topLayout, viewPager2Banner);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

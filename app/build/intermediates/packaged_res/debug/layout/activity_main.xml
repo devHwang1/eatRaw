@@ -26,10 +26,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:text="Nal Lo"
+                android:text="N a l   L o"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </ActionMenuView>
 
         <!--        <SearchView-->
@@ -59,7 +60,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager2_banner"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="300dp">
 
             </androidx.viewpager2.widget.ViewPager2>
 
@@ -70,9 +71,9 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_margin="10dp"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_margin="5dp"
                     app:cardElevation="0dp">
 
                     <ImageView
@@ -84,9 +85,9 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_margin="10dp"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_margin="5dp"
                     app:cardElevation="0dp">
 
                     <ImageView
@@ -98,9 +99,9 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_margin="10dp"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_margin="5dp"
                     app:cardElevation="0dp">
 
                     <ImageView
@@ -129,6 +130,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:text="Best Review"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -143,7 +145,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="300dp"
                     android:background="@drawable/menubar2"
                     android:orientation="vertical">
 
@@ -160,6 +162,7 @@
                             android:layout_marginRight="20dp"
                             android:layout_marginBottom="10dp"
                             android:text="가격 비교"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
@@ -169,7 +172,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginRight="20dp"
                             android:text="더 보기"
-                            android:textAlignment="textEnd" />
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black" />
                     </LinearLayout>
 
                     <View
@@ -189,7 +193,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/menubar3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -205,6 +208,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:text="추천 어종"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -214,12 +218,13 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/fish_name1"
+                        android:id="@+id/random_fish_name"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:layout_marginTop="20dp"
                         android:text="연어"
+                        android:textColor="@color/black"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
@@ -237,25 +242,38 @@
                             android:text="1kg 당"
                             android:textSize="20sp" />
 
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
                         <TextView
-                            android:id="@+id/fish_price1"
+                            android:id="@+id/random_fish_price"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="30,000 원"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="30,000"
+                            android:layout_weight="1"
                             android:textColor="@color/blue"
-                            android:textSize="25sp"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
-                    </LinearLayout>
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom"
+                                android:text="원 부터"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/random_fish_image"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
+                    android:scaleType="centerCrop"
                     app:srcCompat="@drawable/fishpicture" />
 
                 <TextView
@@ -263,88 +281,16 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="center"
-                    android:text="추천수 최다! 가장 많이 팔린 어종입니다."
-                    android:textSize="20sp" />
-
-
+                    android:text="두근두근~~ 오늘의 추천 어종입니다!!"
+                    android:textSize="16sp" />
             </LinearLayout>
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/mainReviewRecycler"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="20dp" />-->
 
-            <LinearLayout
-                android:id="@+id/menubar4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/menubar1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="제철 어종"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/fish_name2"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="20dp"
-                        android:text="전어"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:gravity="right"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="right"
-                            android:text="1kg 당"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/fish_price2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="15,000 원"
-                            android:textColor="@color/blue"
-                            android:textSize="25sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_margin="10dp"
-                    app:srcCompat="@drawable/fishpicture" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:text="파닥파닥!! 이시기 가장 신선한 어종입니다."
-                    android:textSize="20sp" />
-
-            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"

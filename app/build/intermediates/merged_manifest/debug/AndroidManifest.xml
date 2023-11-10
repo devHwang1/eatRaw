@@ -46,6 +46,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.EatRaw" >
+        <activity
+            android:name="com.example.eatraw.UpdateFishActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="xvb0d2ii63" />
@@ -64,9 +68,10 @@
             android:exported="false" />
         <activity
             android:name="com.example.eatraw.AdminActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/title_activity_admin"
-            android:theme="@style/Theme.EatRaw.NoActionBar" />
+            android:theme="@style/Theme.EatRaw.NoActionBar" >
+        </activity>
         <activity
             android:name="com.example.eatraw.SplashActivity"
             android:exported="true" />
