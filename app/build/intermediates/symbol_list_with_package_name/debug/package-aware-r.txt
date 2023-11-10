@@ -3458,6 +3458,7 @@ id admin
 id adminHome
 id alarm
 id alarmFragment
+id alarm_switch
 id alertTitle
 id aligned
 id all
