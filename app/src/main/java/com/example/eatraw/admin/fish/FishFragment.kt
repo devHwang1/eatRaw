@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -68,9 +67,9 @@ class FishFragment : Fragment() {
 //                        Log.e(">>", "${imageUrl}")
                         val comparingPriceItem = ComparingPriceItem(
                             fishName,
-                            minCost.toString(),
-                            avgCost.toString(),
-                            maxCost.toString(),
+                            minCost.toLong(),
+                            avgCost.toLong(),
+                            maxCost.toLong(),
                             fishImg, // 위에서 생성한 이미지 URL 사용
                             season
                         )
@@ -87,7 +86,7 @@ class FishFragment : Fragment() {
         val searchView = binding.fishSearchbar
 
         // SearchView에 텍스트가 변경될 때마다 호출되는 리스너
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // 사용자가 엔터 키를 눌렀을 때 호출됨
                 // 여기에서 Firestore에서 검색을 수행하고 결과를 리사이클러뷰에 업데이트하는 로직을 추가할 수 있습니다.
@@ -150,9 +149,9 @@ class FishFragment : Fragment() {
                         if (fishName != null && minCost != null && avgCost != null && maxCost != null && fishImg != null) {
                             val comparingPriceItem = ComparingPriceItem(
                                 fishName,
-                                minCost.toString(),
-                                avgCost.toString(),
-                                maxCost.toString(),
+                                minCost.toLong(),
+                                avgCost.toLong(),
+                                maxCost.toLong(),
                                 fishImg,
                                 season
                             )
@@ -190,9 +189,9 @@ class FishFragment : Fragment() {
                     if (fishName != null && minCost != null && avgCost != null && maxCost != null && fishImg != null) {
                         val comparingPriceItem = ComparingPriceItem(
                             fishName,
-                            minCost.toString(),
-                            avgCost.toString(),
-                            maxCost.toString(),
+                            minCost.toLong(),
+                            avgCost.toLong(),
+                            maxCost.toLong(),
                             fishImg,
                             season
                         )

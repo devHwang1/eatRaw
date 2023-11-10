@@ -50,9 +50,9 @@ class ComparingPriceListActivity : AppCompatActivity() {
 //                            val imageUrl = uri.toString()
                             val comparingPriceItem = ComparingPriceItem(
                                 fishName,
-                                minCost.toString(),
-                                avgCost.toString(),
-                                maxCost.toString(),
+                                minCost.toLong(),
+                                avgCost.toLong(),
+                                maxCost.toLong(),
                                 fishImg,
                                 season
                             )
@@ -75,8 +75,8 @@ class ComparingPriceListActivity : AppCompatActivity() {
             }
 
 
-        val searchView = findViewById<SearchView>(R.id.mainSearchbar)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        val searchView = findViewById<androidx.appcompat.widget.SearchView>(R.id.mainSearchbar)
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // 사용자가 검색 버튼을 눌렀을 때의 동작
                 query?.let { searchFish(it) }
@@ -151,9 +151,9 @@ class ComparingPriceListActivity : AppCompatActivity() {
                     if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
                         val comparingPriceItem = ComparingPriceItem(
                             fishName,
-                            minCost.toString(),
-                            avgCost.toString(),
-                            maxCost.toString(),
+                            minCost.toLong(),
+                            avgCost.toLong(),
+                            maxCost.toLong(),
                             fishImg,
                             season
                         )

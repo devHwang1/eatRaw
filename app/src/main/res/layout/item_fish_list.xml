@@ -11,15 +11,21 @@
 
         <TextView
             android:id="@+id/fishName"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:layout_weight="1"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btnUpdateFish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수정" />
+        <Button
             android:id="@+id/btnDeleteFish"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="삭제" />
     </LinearLayout>

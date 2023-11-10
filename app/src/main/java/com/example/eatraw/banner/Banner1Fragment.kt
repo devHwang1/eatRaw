@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.os.bundleOf
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.example.eatraw.R
 
 class Banner1Fragment : Fragment() {
@@ -25,6 +26,11 @@ class Banner1Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val ivImage = view.findViewById<ImageView>(R.id.ivImage)
+
+        // Glide를 사용하여 이미지 로드
+        Glide.with(this)
+            .load(R.drawable.fish_column) // gif 리소스 ID
+            .into(ivImage)
 
         // 이미지 클릭 이벤트 처리
         ivImage.setOnClickListener {

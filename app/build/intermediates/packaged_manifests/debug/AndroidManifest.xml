@@ -45,6 +45,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.EatRaw" >
+        <activity
+            android:name="com.example.eatraw.UpdateFishActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="xvb0d2ii63" />
@@ -104,8 +108,7 @@
             android:exported="false" />
         <activity
             android:name="com.example.eatraw.MainActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name="com.naver.maps.map.app.LegendActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"

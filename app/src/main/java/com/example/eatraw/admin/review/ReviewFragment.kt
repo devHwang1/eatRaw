@@ -18,9 +18,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class ReviewFragment : Fragment() {
 
     private var _binding: FragmentReviewBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
@@ -46,7 +43,7 @@ class ReviewFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
 
-
+        // Firestore에서 데이터 가져오고 정렬하기
         firestore.collection("review")
             .get()
             .addOnSuccessListener { result ->
@@ -94,7 +91,7 @@ class ReviewFragment : Fragment() {
 
         // 검색창 초기화
         val reviewSearchbar = binding.reviewSearchbar
-        reviewSearchbar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        reviewSearchbar.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // 검색어를 기반으로 데이터 가져오기
                 performSearch(query)
@@ -126,7 +123,7 @@ class ReviewFragment : Fragment() {
 
             // Firestore에서 검색 쿼리 수행
             firestore.collection("review")
-                .orderBy("content") // content 필드로 정렬
+                .orderBy("storeName") // storeName 필드로 정렬
                 .startAt(query) // query로 시작하는 값부터 검색
                 .endAt(query + "\uf8ff") // query로 끝나는 값까지 검색 (파이어스토어 특수 문자를 추가)
                 .get()

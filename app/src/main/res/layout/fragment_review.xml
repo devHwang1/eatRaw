@@ -7,11 +7,12 @@
     android:orientation="vertical"
     tools:context=".admin.fish.FishFragment">
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/reviewSearchbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        app:iconifiedByDefault="false"
         android:background="@drawable/menubar" />
     <!-- 상단 부분 끝 -->
 

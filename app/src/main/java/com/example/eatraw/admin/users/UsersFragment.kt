@@ -76,7 +76,7 @@ class UsersFragment : Fragment() {
 
         // 검색창 초기화
         val searchView = binding.userSearchbar
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // 검색어를 기반으로 데이터 가져오기
                 performSearch(query)
