@@ -375,7 +375,7 @@ class WriteActivity : AppCompatActivity() {
                 val content = data["content"] as? String ?: ""
                 val marketName = data["marketName"] as? String ?: ""
                 val storeImg = data["storeImg"] as? String ?: ""
-
+                thumbnailImageView.visibility = View.VISIBLE
                 if (storeImg.isNotEmpty()) {
                     loadedImageUrl = storeImg
                 }
