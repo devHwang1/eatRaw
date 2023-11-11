@@ -1,6 +1,7 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -10,83 +11,68 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.eatraw.databinding.ActivityDetailBoxBinding
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class DetailActivity : AppCompatActivity() {
 
-    //좋아요 관련 변수
-    private lateinit var likeBtn : Button
+    private lateinit var likeBtn: Button
     private lateinit var likeCountText: TextView
     private var liked: Boolean = false
     private lateinit var reviewId: String
-    private lateinit var binding : ActivityDetailBoxBinding
-
+    private lateinit var binding: ActivityDetailBoxBinding
 
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBoxBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //좋아요 텍스트뷰 표시 아이디
+        likeCountText = findViewById(R.id.likeInt)
         likeBtn = findViewById(R.id.btnLike)
         likeCountText = findViewById(R.id.likeInt)
-
-
-        //좋아요 기본이미지
         likeBtn.setBackgroundResource(R.drawable.thumb)
 
-        val reviewId = "2DhQjBjJgFbNjjafzizz" // 리뷰 ID
+        val bundle = intent.extras
+        val reviewId = intent.getStringExtra("reviewId")
 
-        //좋아요 숫자 초기화
-        updateLikeCount(reviewId)
+        val db = FirebaseFirestore.getInstance()
 
 
         likeBtn.setOnClickListener {
-            //좋아요 이미지바꾸기
-            if(liked){
+            if (liked) {
                 likeBtn.setBackgroundResource(R.drawable.thumb)
                 liked = false
-            }else{
+            } else {
                 likeBtn.setBackgroundResource(R.drawable.thumbfill)
                 liked = true
             }
-
-            //Firebase 사용
-            val db = FirebaseFirestore.getInstance()
-            val ref = db.collection("review").document(reviewId)
-
-
-            db.runTransaction { transition ->
-                val document : DocumentSnapshot
-                try {
-                    document = transition.get(ref)
-                }catch (fetchError: Exception){
-                    return@runTransaction null
+            Log.d("Sdfsadfsadf","$reviewId")
+            // 리뷰의 좋아요 수 업데이트
+            GlobalScope.launch(Dispatchers.Main) {
+                if (reviewId != null) {
+                    updateLikeCount(reviewId, likeCountText)
                 }
-                val like = document.data?.get("like") as? Long ?: run{
-                    //좋아요수를 가져오지 못할때
-                    return@runTransaction null
-                }
-
-                // 트랜잭션으로 1을 더해줌
-                val updatedLike = if (liked) like + 1 else like - 1
-                transition.update(ref, "like", updatedLike)
-            }.addOnSuccessListener {
-                // 성공
-                Log.d("DetailActivity", "좋아요를 눌렀다")
-                updateLikeCount(reviewId)
-            }.addOnFailureListener { error ->
-                Log.e("DetailActivity", "Transaction failed: $error")
             }
         }
 
+// ...
 
 
 
-        val intent = intent
+
+
+
+
+
+
+
         val reviewContentIntent = intent.getStringExtra("reviewContent")  //댓글내용
         val marketNameIntent = intent.getStringExtra("marketName")        //시장이름
         val storeNameIntent = intent.getStringExtra("storeName")          //가게이름
@@ -104,7 +90,7 @@ class DetailActivity : AppCompatActivity() {
 
 
         //파이어베이스사용
-        val db = FirebaseFirestore.getInstance()
+
 
 
         //물고기종류에 따른 가격가져오기
@@ -177,24 +163,58 @@ class DetailActivity : AppCompatActivity() {
 
 
     }
+    suspend fun updateLikeCount(reviewId: String, likeCountText: TextView) {
+        val db = FirebaseFirestore.getInstance()
+
+        try {
+            withContext(Dispatchers.IO) {
+                if(reviewId != null) {
+                val querySnapshot = db.collection("reviews")
+                    .document(reviewId)
+                    .get()
+                    .await()
+
+                if (querySnapshot.exists()) {
+                    val reviewRef = db.collection("reviews").document()
+
+                    db.runTransaction { transaction ->
+                        val currentLikes = transaction.get(reviewRef).getLong("like") ?: 0
+
+                        // 좋아요 수 업데이트
+                        transaction.update(reviewRef, "like", FieldValue.increment(1))
+
+                        // "liked" 필드 업데이트 (liked 여부를 나타내는 필드가 있다고 가정)
+                        transaction.update(reviewRef, "liked", liked)
+
+                        // 좋아요 수를 반환
+                        currentLikes + 1
+                    }.addOnSuccessListener { updatedLikes ->
+                        // 트랜잭션 성공
+                        Log.d("DetailActivity", "좋아요를 눌렀다")
+
+                        // 좋아요 트랜잭션이 성공한 후에 UI 업데이트
+                        likeCountText.text = updatedLikes.toString()
+                    }.addOnFailureListener { error ->
+                        // 트랜잭션 실패
+                        Log.e("DetailActivity", "Transaction failed: $error")
+                    }
+                } else {
+                    Log.e("DetailActivity", "No document found with reviewId: $reviewId")
+                }
+            }}
+        } catch (e: Exception) {
+            Log.e("DetailActivity", "Error: $e")
+        }
+    }
+
+
+
+
 
 
     //좋아요 수 업데이트
-    fun updateLikeCount(reviewId: String) {
-        val db = FirebaseFirestore.getInstance()
-        val ref = db.collection("review").document(reviewId)
 
-        ref.get().addOnSuccessListener { document ->
-            if(document !=null){
-                val likeCount = document.getLong("like") ?: 0
-                likeCountText.text = likeCount.toString()
-            }else{
-                Log.e("DetailActivity", "No such document")
-            }
-        }.addOnFailureListener { e ->
-            Log.e("DetailActivity", "Error updating like count: $e")
-        }
-    }
+
 
 
 }

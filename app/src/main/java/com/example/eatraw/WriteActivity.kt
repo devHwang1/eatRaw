@@ -44,7 +44,7 @@ class WriteActivity : AppCompatActivity() {
     private lateinit var btnImage: Button
     private lateinit var editMarketName: EditText
     private lateinit var thumbnailImageView: ImageView
-    private var reviewId: String? = null
+    private lateinit var reviewId: String
     private var loadedImageUrl: String? = null
 
     @ServerTimestamp
@@ -78,7 +78,8 @@ class WriteActivity : AppCompatActivity() {
             uploadImageAndAddReviewToFirestore()
         }
 
-        reviewId = intent.getStringExtra("reviewId")
+        reviewId = intent?.getStringExtra("reviewId") ?: ""
+        Log.d("sadfsafsa!!!!!!!","$reviewId")
         if (reviewId != null) {
             // 수정 모드인 경우 기존 리뷰 데이터 불러오기
 
@@ -267,6 +268,10 @@ class WriteActivity : AppCompatActivity() {
                                                     // 여기에서 리뷰를 추가하는 나머지 코드를 실행할 수 있습니다.
                                                     // (아래의 코드는 필요에 따라 수정하셔야 합니다.)
                                                     updateFishAvg(fishKind)
+                                                    val intent = Intent(this, DetailActivity::class.java)
+                                                    intent.putExtra("reviewId", newReviewId)
+                                                    startActivity(intent)
+                                                    finish()
                                                 }
                                                 .addOnFailureListener { e ->
                                                     // 업데이트 실패 시 처리
@@ -277,6 +282,11 @@ class WriteActivity : AppCompatActivity() {
                                             // 여기에서 리뷰를 추가하는 나눈지 코드를 실행할 수 있습니다.
                                             // (아래의 코드는 필요에 따라 수정하셔야 합니다.)
                                             updateFishAvg(fishKind)
+
+                                            val intent = Intent(this, DetailActivity::class.java)
+                                            intent.putExtra("reviewId", reviewId)
+                                            startActivity(intent)
+                                            finish()
                                         }
                                     }
                                     .addOnFailureListener { e ->
