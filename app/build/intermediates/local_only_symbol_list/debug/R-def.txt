@@ -87,6 +87,7 @@ drawable phone
 drawable pragment
 drawable profil
 drawable radiusback
+drawable radiusback20
 drawable raiting_empty
 drawable raitingbar_filled
 drawable ratingbar_custom
@@ -97,6 +98,7 @@ drawable reviewstar
 drawable rounded_top_corners
 drawable rounded_top_corners_blue
 drawable search_border
+drawable shadow
 drawable side_nav_bar
 drawable star
 drawable starfill

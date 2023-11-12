@@ -24,6 +24,10 @@
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_comparing_price.xml"
     },
     {
+        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/activity_comparing_price_list.xml",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_comparing_price_list.xml"
+    },
+    {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_detail.xml",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_detail.xml"
     },
@@ -156,6 +160,10 @@
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_comparing_price_list.xml"
     },
     {
+        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/activity_comparing_price_detail.xml",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_comparing_price_detail.xml"
+    },
+    {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\item_fish_list.xml",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_fish_list.xml"
     },
@@ -194,10 +202,6 @@
     {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_market.xml",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_market.xml"
-    },
-    {
-        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/activity_main.xml",
-        "source": "com.example.eatraw.app-main-65:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_update_fish.xml",

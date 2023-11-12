@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -47,10 +48,16 @@ public final class ActivityMypageBinding implements ViewBinding {
   public final TextView logout;
 
   @NonNull
+  public final LinearLayout menubar1;
+
+  @NonNull
   public final TextView modify;
 
   @NonNull
   public final TextView myreview;
+
+  @NonNull
+  public final TextView nalLo;
 
   @NonNull
   public final TextView nickhello;
@@ -58,11 +65,15 @@ public final class ActivityMypageBinding implements ViewBinding {
   @NonNull
   public final ImageView thumbnail;
 
+  @NonNull
+  public final LinearLayout topLayout;
+
   private ActivityMypageBinding(@NonNull RelativeLayout rootView, @NonNull TextView admin,
       @NonNull TextView alarm, @NonNull BottomNavigationView bnvMain, @NonNull TextView btnDel,
       @NonNull TextView center, @NonNull TextView email, @NonNull FrameLayout fragmentContainer,
-      @NonNull TextView logout, @NonNull TextView modify, @NonNull TextView myreview,
-      @NonNull TextView nickhello, @NonNull ImageView thumbnail) {
+      @NonNull TextView logout, @NonNull LinearLayout menubar1, @NonNull TextView modify,
+      @NonNull TextView myreview, @NonNull TextView nalLo, @NonNull TextView nickhello,
+      @NonNull ImageView thumbnail, @NonNull LinearLayout topLayout) {
     this.rootView = rootView;
     this.admin = admin;
     this.alarm = alarm;
@@ -72,10 +83,13 @@ public final class ActivityMypageBinding implements ViewBinding {
     this.email = email;
     this.fragmentContainer = fragmentContainer;
     this.logout = logout;
+    this.menubar1 = menubar1;
     this.modify = modify;
     this.myreview = myreview;
+    this.nalLo = nalLo;
     this.nickhello = nickhello;
     this.thumbnail = thumbnail;
+    this.topLayout = topLayout;
   }
 
   @Override
@@ -153,6 +167,12 @@ public final class ActivityMypageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.menubar1;
+      LinearLayout menubar1 = ViewBindings.findChildViewById(rootView, id);
+      if (menubar1 == null) {
+        break missingId;
+      }
+
       id = R.id.modify;
       TextView modify = ViewBindings.findChildViewById(rootView, id);
       if (modify == null) {
@@ -162,6 +182,12 @@ public final class ActivityMypageBinding implements ViewBinding {
       id = R.id.myreview;
       TextView myreview = ViewBindings.findChildViewById(rootView, id);
       if (myreview == null) {
+        break missingId;
+      }
+
+      id = R.id.nalLo;
+      TextView nalLo = ViewBindings.findChildViewById(rootView, id);
+      if (nalLo == null) {
         break missingId;
       }
 
@@ -177,8 +203,15 @@ public final class ActivityMypageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.topLayout;
+      LinearLayout topLayout = ViewBindings.findChildViewById(rootView, id);
+      if (topLayout == null) {
+        break missingId;
+      }
+
       return new ActivityMypageBinding((RelativeLayout) rootView, admin, alarm, bnvMain, btnDel,
-          center, email, fragmentContainer, logout, modify, myreview, nickhello, thumbnail);
+          center, email, fragmentContainer, logout, menubar1, modify, myreview, nalLo, nickhello,
+          thumbnail, topLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
