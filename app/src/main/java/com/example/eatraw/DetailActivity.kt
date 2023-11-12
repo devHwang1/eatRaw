@@ -144,7 +144,8 @@ class DetailActivity : AppCompatActivity() {
         val Image = findViewById<ImageView>(R.id.Reviewimg)
         val userimg = findViewById<ImageView>(R.id.mImg)
         val menuCost = findViewById<TextView>(R.id.StorePriceInt)
-
+        Log.e("reviewContent", "$reviewContent")
+        Log.e("menuCost", "$menuCost")
 
         //물고기 TextView에 설정
         val fishKinName = findViewById<TextView>(R.id.MenuFishName)

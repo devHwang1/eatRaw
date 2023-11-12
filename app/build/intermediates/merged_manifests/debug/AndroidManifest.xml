@@ -70,8 +70,7 @@
             android:name="com.example.eatraw.AdminActivity"
             android:exported="false"
             android:label="@string/title_activity_admin"
-            android:theme="@style/Theme.EatRaw.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.EatRaw.NoActionBar" />
         <activity
             android:name="com.example.eatraw.SplashActivity"
             android:exported="true" />
@@ -110,6 +109,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.eatraw.StartActivity"
+            android:exported="false" >
         </activity>
         <activity
             android:name="com.naver.maps.map.app.LegendActivity"

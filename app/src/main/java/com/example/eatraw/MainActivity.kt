@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
         user = auth.currentUser
 
         if (user == null) {
-            val intent = Intent(applicationContext, LoginActivity::class.java)
+            val intent = Intent(applicationContext, StartActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -283,21 +283,21 @@ class MainActivity : AppCompatActivity() {
         when(viewPager2.currentItem){
             0 ->
             {
-                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.black))
-                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
-                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
+                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.blue))
+                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
+                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
             }
             1 ->
             {
-                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
-                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.black))
-                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
+                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
+                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.blue))
+                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
             }
             2 ->
             {
-                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
-                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
-                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.black))
+                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
+                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
+                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.blue))
             }
         }
     }

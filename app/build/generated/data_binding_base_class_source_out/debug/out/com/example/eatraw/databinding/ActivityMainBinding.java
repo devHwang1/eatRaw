@@ -4,7 +4,6 @@ package com.example.eatraw.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ActionMenuView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -38,7 +37,7 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ImageView iv3;
 
   @NonNull
-  public final ActionMenuView menubar1;
+  public final LinearLayout menubar1;
 
   @NonNull
   public final TextView nalLo;
@@ -69,7 +68,7 @@ public final class ActivityMainBinding implements ViewBinding {
 
   private ActivityMainBinding(@NonNull RelativeLayout rootView,
       @NonNull BottomNavigationView bnvMain, @NonNull ImageView iv1, @NonNull ImageView iv2,
-      @NonNull ImageView iv3, @NonNull ActionMenuView menubar1, @NonNull TextView nalLo,
+      @NonNull ImageView iv3, @NonNull LinearLayout menubar1, @NonNull TextView nalLo,
       @NonNull ImageView randomFishImage, @NonNull TextView randomFishName,
       @NonNull TextView randomFishPrice, @NonNull RecyclerView recyclerViewBestReview,
       @NonNull RecyclerView recyclerViewComparingPrice, @NonNull TextView seeingMore,
@@ -143,7 +142,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       id = R.id.menubar1;
-      ActionMenuView menubar1 = ViewBindings.findChildViewById(rootView, id);
+      LinearLayout menubar1 = ViewBindings.findChildViewById(rootView, id);
       if (menubar1 == null) {
         break missingId;
       }

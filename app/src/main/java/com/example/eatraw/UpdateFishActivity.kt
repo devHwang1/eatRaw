@@ -1,6 +1,7 @@
 package com.example.eatraw
 
 import NickFragment.Companion.PICK_IMAGE_REQUEST
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -40,6 +41,7 @@ class UpdateFishActivity : AppCompatActivity() {
     private var existingMaxCost: Long = 0
     private lateinit var existingSeason: String
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_fish)
@@ -154,7 +156,7 @@ class UpdateFishActivity : AppCompatActivity() {
                     )
 
                     // 기존 물고기 정보 업데이트
-                    firestore.collection("fish").document(existingFishName)
+                    firestore.collection("fish").document(documentId)
                         .set(fishData)
                         .addOnSuccessListener {
                             // 업데이트 성공 시 처리

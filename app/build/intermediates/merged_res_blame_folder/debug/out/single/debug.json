@@ -128,6 +128,10 @@
         "source": "com.example.eatraw.app-main-65:/drawable/login_selector.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_baseline_dehaze_24.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/baseline_dehaze_24.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_thumb.png.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/thumb.png"
     },
@@ -154,6 +158,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_market.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/fragment_market.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_rounded_top_corners_blue.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/rounded_top_corners_blue.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_default_nallo.jpg.flat",
@@ -232,8 +240,16 @@
         "source": "com.example.eatraw.app-main-65:/drawable/google_up_btn.png"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_bottom_shadow.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/bottom_shadow.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_google_del.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/fragment_google_del.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_baseline_star_24.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/baseline_star_24.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_banner1.xml.flat",
@@ -284,12 +300,20 @@
         "source": "com.example.eatraw.app-main-65:/drawable/croaker.jpg"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_rounded_top_corners.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/rounded_top_corners.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_ic_launcher_background.xml.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/ic_launcher_background.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_home.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_backgroundcover.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/backgroundcover.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_password.xml.flat",
@@ -484,6 +508,10 @@
         "source": "com.example.eatraw.app-main-65:/drawable/yellow_croaker.jpg"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_start.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_start.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_phone.png.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/phone.png"
     },
@@ -494,6 +522,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_content_admin.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/content_admin.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_good_border.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/good_border.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_cursor_drawble.xml.flat",
@@ -534,6 +566,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_fish.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/fragment_fish.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_top_shadow.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/top_shadow.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_banner3.xml.flat",
@@ -614,6 +650,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_baseline_person_pin_24.xml.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/baseline_person_pin_24.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_start.jpg.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/start.jpg"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_main.xml.flat",
