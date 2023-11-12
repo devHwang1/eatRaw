@@ -24,7 +24,6 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDetailBoxBinding
 
 
-    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBoxBinding.inflate(layoutInflater)
@@ -87,6 +86,7 @@ class DetailActivity : AppCompatActivity() {
 
 
         val intent = intent
+        Log.e("intent>>", "$intent")
         val reviewContentIntent = intent.getStringExtra("reviewContent")  //댓글내용
         val marketNameIntent = intent.getStringExtra("marketName")        //시장이름
         val storeNameIntent = intent.getStringExtra("storeName")          //가게이름
@@ -98,9 +98,12 @@ class DetailActivity : AppCompatActivity() {
         val menuCostIntent = intent.getStringExtra("menuCost")        //메뉴가격
 
 
+        Log.e("menuCostIntent>>", "$menuCostIntent")
+        Log.e("userIdIntent>>", "$userIdIntent")
+
         //유저
-        val nicknameInten = intent.getStringExtra("userNickname")
-        val UserimageInten = intent.getStringExtra("userImage")
+        val nicknameIntent = intent.getStringExtra("userNickname")
+        val UserimageIntent = intent.getStringExtra("userImage")
 
 
         //파이어베이스사용
@@ -156,7 +159,7 @@ class DetailActivity : AppCompatActivity() {
         reviewContent.text = "$reviewContentIntent"
 //        storeName.text = "$storeNameIntent"
         rating.text = "$ratingIntent"
-        userNicName.text = "$nicknameInten"
+        userNicName.text = "$nicknameIntent"
         menuCost.text = "$menuCostIntent"
 
 
@@ -171,7 +174,7 @@ class DetailActivity : AppCompatActivity() {
 
         //이미지 설정(유저)
         Glide.with(this)
-            .load(UserimageInten)
+            .load(UserimageIntent)
             .into(userimg)
 
 
