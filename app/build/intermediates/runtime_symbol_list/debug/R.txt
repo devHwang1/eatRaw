@@ -3169,6 +3169,7 @@ int drawable google_in_btn 0x7f0800b7
 int drawable google_up_btn 0x7f0800b8
 int drawable googleg_disabled_color_18 0x7f0800b9
 int drawable googleg_standard_color_18 0x7f0800ba
+int drawable graph_icon 0x7f080182
 int drawable gray_ellipse 0x7f0800bb
 int drawable group_1 0x7f0800bc
 int drawable group_40 0x7f0800bd
@@ -3341,6 +3342,7 @@ int drawable november_2fish 0x7f080163
 int drawable phone 0x7f080164
 int drawable pragment 0x7f080165
 int drawable profil 0x7f080166
+int drawable radiusback 0x7f080183
 int drawable raiting_empty 0x7f080167
 int drawable raitingbar_filled 0x7f080168
 int drawable ratingbar_custom 0x7f080169
@@ -3654,6 +3656,7 @@ int id fill_horizontal 0x7f0a0112
 int id fill_vertical 0x7f0a0113
 int id filled 0x7f0a0114
 int id first 0x7f0a0115
+int id first_graph 0x7f0a02e6
 int id fishImg 0x7f0a0116
 int id fishName 0x7f0a0117
 int id fishNameDetail 0x7f0a0118
@@ -3685,6 +3688,8 @@ int id gone 0x7f0a0130
 int id google_login 0x7f0a0131
 int id google_rg_login 0x7f0a0132
 int id graph 0x7f0a0133
+int id graph_icon 0x7f0a02e7
+int id graph_layout 0x7f0a02e8
 int id graph_wrap 0x7f0a0134
 int id group_divider 0x7f0a0135
 int id grouping 0x7f0a0136

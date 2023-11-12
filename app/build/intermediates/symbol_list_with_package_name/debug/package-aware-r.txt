@@ -3170,6 +3170,7 @@ drawable google_in_btn
 drawable google_up_btn
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable graph_icon
 drawable gray_ellipse
 drawable group_1
 drawable group_40
@@ -3342,6 +3343,7 @@ drawable november_2fish
 drawable phone
 drawable pragment
 drawable profil
+drawable radiusback
 drawable raiting_empty
 drawable raitingbar_filled
 drawable ratingbar_custom
@@ -3655,6 +3657,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id first
+id first_graph
 id fishImg
 id fishName
 id fishNameDetail
@@ -3686,6 +3689,8 @@ id gone
 id google_login
 id google_rg_login
 id graph
+id graph_icon
+id graph_layout
 id graph_wrap
 id group_divider
 id grouping

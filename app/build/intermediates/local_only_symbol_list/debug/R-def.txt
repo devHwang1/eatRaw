@@ -52,6 +52,7 @@ drawable good_border
 drawable google
 drawable google_in_btn
 drawable google_up_btn
+drawable graph_icon
 drawable gray_ellipse
 drawable group_1
 drawable group_40
@@ -85,6 +86,7 @@ drawable november_2fish
 drawable phone
 drawable pragment
 drawable profil
+drawable radiusback
 drawable raiting_empty
 drawable raitingbar_filled
 drawable ratingbar_custom
@@ -199,6 +201,7 @@ id etAge
 id etFirstName
 id etLastName
 id first
+id first_graph
 id fishImg
 id fishName
 id fishNameDetail
@@ -213,6 +216,8 @@ id four
 id fragment_container
 id google_login
 id google_rg_login
+id graph_icon
+id graph_layout
 id imageView
 id img_backarrow
 id item_data
