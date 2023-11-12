@@ -1,11 +1,11 @@
 package com.example.eatraw
 
 import NickFragment.Companion.PICK_IMAGE_REQUEST
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -41,12 +41,12 @@ class UpdateFishActivity : AppCompatActivity() {
     private var existingMaxCost: Long = 0
     private lateinit var existingSeason: String
 
-    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_fish)
 
         fishImage = findViewById(R.id.fishImg)
+        uploadButton = findViewById(R.id.btnUploadImage)
         fishNameEditText = findViewById(R.id.editFishName)
         minCostEditText = findViewById(R.id.editMinCost)
         avgCostEditText = findViewById(R.id.editAvgCost)
@@ -58,23 +58,37 @@ class UpdateFishActivity : AppCompatActivity() {
         storage = FirebaseStorage.getInstance()
         storageReference = Firebase.storage.reference
 
-        // Intent에서 기존 물고기 정보 가져오기
-        val intent = intent
-        if (intent != null && intent.extras != null) {
-            val bundle = intent.extras!!
-            existingFishName = bundle.getString("fishName", "")
-            existingFishImg = bundle.getString("fishImg", "")
-            existingMinCost = bundle.getLong("minCost", 0)
-            existingAvgCost = bundle.getLong("avgCost", 0)
-            existingMaxCost = bundle.getLong("maxCost", 0)
-            existingSeason = bundle.getString("season", "")
-
-            // 기존 물고기 정보를 UI에 표시
-            displayExistingFishInfo()
+        // "이미지 업로드" 버튼 클릭 시
+        uploadButton?.setOnClickListener {
+            openImageChooser()
         }
 
-        // 이미지 업로드 버튼(uploadButton)을 클릭할 때 이미지를 선택할 수 있도록 클릭 이벤트를 설정합니다.
-        uploadButton?.setOnClickListener {
+        // UpdateFishActivity의 onCreate 함수 내에서 데이터 받아오기
+        val intent = intent
+        if (intent != null && intent.extras != null) {
+            existingFishName = intent.getStringExtra("fishName") ?: ""
+            existingFishImg = intent.getStringExtra("fishImg") ?: ""
+            existingMinCost = intent.getLongExtra("minCost", 0)
+            existingAvgCost = intent.getLongExtra("avgCost", 0)
+            existingMaxCost = intent.getLongExtra("maxCost", 0)
+            existingSeason = intent.getStringExtra("season") ?: ""
+
+            // 문서 ID를 얻음
+            val documentId = intent.getStringExtra("documentId") ?: ""
+
+            // documentData를 받아옴
+            val documentData = intent.getSerializableExtra("fishDocumentData") as Map<String, Any>?
+
+            // 기존 물고기 정보를 UI에 표시
+            displayExistingFishInfo(documentData)
+
+            // documentId를 사용할 수 있습니다.
+            Log.d("DocumentId", "Document ID: $documentId")
+        }
+
+        // 생선 이미지 업로드 버튼에 대한 클릭 이벤트 핸들러
+        val btnUploadImage = findViewById<Button>(R.id.btnUploadImage)
+        btnUploadImage.setOnClickListener {
             openImageChooser()
         }
 
@@ -83,18 +97,22 @@ class UpdateFishActivity : AppCompatActivity() {
         btnUpdateFish.setOnClickListener {
             // 사용자로부터 필요한 정보 가져오기
             val fishName = fishNameEditText.text.toString()
-            val minCost = minCostEditText.text.toString()
-            val avgCost = avgCostEditText.text.toString()
-            val maxCost = maxCostEditText.text.toString()
-            val season = seasonEditText.text.toString()
 
-            // Firebase Firestore에 데이터 업로드
-//            if (fishName.isNotBlank() && minCost.isNotBlank() && avgCost.isNotBlank() && maxCost.isNotBlank() && season.isNotBlank() && imageUri != null) {
-                // Firestore에 데이터 업로드
-                updateFishData(imageUri!!, fishName, minCost, avgCost, maxCost, season)
-//            } else {
-//                Toast.makeText(this, "모든 필드를 입력하세요.", Toast.LENGTH_SHORT).show()
-//            }
+            if (fishName.isNotBlank()) {
+                val minCost = minCostEditText.text.toString().toLong()
+                val avgCost = avgCostEditText.text.toString().toLong()
+                val maxCost = maxCostEditText.text.toString().toLong()
+                val season = seasonEditText.text.toString()
+
+                // Firebase Firestore에 데이터 업로드
+                if (imageUri != null) {
+                    updateFishData(imageUri!!, fishName, minCost, avgCost, maxCost, season)
+                } else {
+                    Toast.makeText(this, "이미지를 선택하세요.", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "이름을 넣어주세요.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         // 뒤로가기 버튼 처리
@@ -104,7 +122,8 @@ class UpdateFishActivity : AppCompatActivity() {
         }
     }
 
-    private fun displayExistingFishInfo() {
+    // displayExistingFishInfo 함수 내에서 documentData를 사용하여 UI에 표시
+    private fun displayExistingFishInfo(documentData: Map<String, Any>?) {
         // 기존 물고기 정보를 UI에 표시
         fishNameEditText.setText(existingFishName)
         Glide.with(this).load(existingFishImg).into(fishImage)
@@ -112,8 +131,15 @@ class UpdateFishActivity : AppCompatActivity() {
         avgCostEditText.setText(existingAvgCost.toString())
         maxCostEditText.setText(existingMaxCost.toString())
         seasonEditText.setText(existingSeason)
+
+        // documentData를 사용하여 추가적인 정보를 UI에 표시 (예: 어떤 필드의 데이터를 사용할지에 따라 적절하게 수정)
+        if (documentData != null) {
+            val additionalData = documentData["additionalField"] as String?
+            // 추가적인 정보를 UI에 표시하는 코드 추가
+        }
     }
 
+    // 이미지를 선택하는 메소드
     private fun openImageChooser() {
         val intent = Intent()
         intent.type = "image/*"
@@ -136,41 +162,60 @@ class UpdateFishActivity : AppCompatActivity() {
 
     // 물고기 정보 업데이트 함수
     // 업데이트 함수에 기존 정보를 추가하여 업데이트하도록 함
-    private fun updateFishData(uri: Uri, fishName: String, minCost: String, avgCost: String, maxCost: String, season: String) {
-        // Firebase Storage에 이미지를 저장하기 위한 고유한 이름으로 참조를 생성합니다.
+    private fun updateFishData(
+        uri: Uri?,
+        fishName: String,
+        minCost: Long,
+        avgCost: Long,
+        maxCost: Long,
+        season: String
+    ) {
         val imagesRef = storageReference?.child("FishImg/$fishName")
-        val uploadTask: UploadTask = imagesRef?.putFile(uri)!!
+        val uploadTask: UploadTask = uri?.let { imagesRef?.putFile(it) }!!
 
         uploadTask.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                imagesRef.downloadUrl.addOnSuccessListener { uri ->
-                    val downloadUrl = uri
-                    // Firestore에 데이터 업데이트
-                    val fishData = hashMapOf(
-                        "f_img" to downloadUrl.toString(),
-                        "f_name" to fishName,
-                        "f_min" to minCost.toLong(),
-                        "f_avg" to avgCost.toLong(),
-                        "f_max" to maxCost.toLong(),
-                        "f_season" to season
-                    )
+                if (imagesRef != null) {
+                    imagesRef.downloadUrl.addOnSuccessListener { uri ->
+                        val downloadUrl = uri
+                        val updatedData = hashMapOf(
+                            "f_img" to downloadUrl.toString(),
+                            "f_name" to fishName,
+                            "f_min" to minCost,
+                            "f_avg" to avgCost,
+                            "f_max" to maxCost,
+                            "f_season" to season
+                        )
 
-                    // 기존 물고기 정보 업데이트
-                    firestore.collection("fish").document(documentId)
-                        .set(fishData)
-                        .addOnSuccessListener {
-                            // 업데이트 성공 시 처리
-                            Toast.makeText(this, "물고기 정보가 성공적으로 수정되었습니다.", Toast.LENGTH_SHORT).show()
-                            finish()
+                        // 수정된 코드: 직접 문서 ID를 사용
+                        val documentId = intent.getStringExtra("documentId") ?: ""
+                        Log.e("documentId123>>", "$documentId")
+                        val existingDocumentRef = firestore.collection("fish").document(documentId)
+
+                        existingDocumentRef.get().addOnSuccessListener { documentSnapshot ->
+                            if (documentSnapshot.exists()) {
+                                existingDocumentRef.update(updatedData as Map<String, Any>)
+                                    .addOnSuccessListener {
+                                        // 업데이트 성공
+                                        Toast.makeText(
+                                            this,
+                                            "물고기 정보가 성공적으로 수정되었습니다.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        finish()
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.e("FirestoreError", "Error updating document: $e")
+                                        Toast.makeText(this, "물고기 정보 수정 실패: $e", Toast.LENGTH_SHORT)
+                                            .show()
+                                    }
+                            } else {
+                                Toast.makeText(this, "물고기 정보 갱신에 실패했습니다.", Toast.LENGTH_SHORT)
+                                    .show()
+                            }
                         }
-                        .addOnFailureListener { e ->
-                            // 업데이트 실패 시 처리
-                            Toast.makeText(this, "물고기 정보 수정 실패: $e", Toast.LENGTH_SHORT).show()
-                        }
+                    }
                 }
-            } else {
-                // 업로드 실패 처리
-                Toast.makeText(this, "이미지 업로드 실패.", Toast.LENGTH_SHORT).show()
             }
         }
     }

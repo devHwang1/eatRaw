@@ -71,7 +71,8 @@ open class ReviewDetailAdapter(private var review : List<Review>, var users:List
         holder.reviewContent.text = currentReview.content
         holder.likecounter.text = currentReview.like.toString()
 
-        //가격 및 멤버이름
+
+//가격 및 멤버이름
         //멤버이름 , 사진
         user?.imageUrl?.let {
             Glide.with(holder.itemView)

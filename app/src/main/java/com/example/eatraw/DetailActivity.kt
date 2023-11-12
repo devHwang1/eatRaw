@@ -24,6 +24,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDetailBoxBinding
 
 
+    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBoxBinding.inflate(layoutInflater)
@@ -86,7 +87,6 @@ class DetailActivity : AppCompatActivity() {
 
 
         val intent = intent
-        Log.e("intent>>", "$intent")
         val reviewContentIntent = intent.getStringExtra("reviewContent")  //댓글내용
         val marketNameIntent = intent.getStringExtra("marketName")        //시장이름
         val storeNameIntent = intent.getStringExtra("storeName")          //가게이름
@@ -98,12 +98,9 @@ class DetailActivity : AppCompatActivity() {
         val menuCostIntent = intent.getStringExtra("menuCost")        //메뉴가격
 
 
-        Log.e("menuCostIntent>>", "$menuCostIntent")
-        Log.e("userIdIntent>>", "$userIdIntent")
-
         //유저
-        val nicknameIntent = intent.getStringExtra("userNickname")
-        val UserimageIntent = intent.getStringExtra("userImage")
+        val nicknameInten = intent.getStringExtra("userNickname")
+        val UserimageInten = intent.getStringExtra("userImage")
 
 
         //파이어베이스사용
@@ -144,8 +141,7 @@ class DetailActivity : AppCompatActivity() {
         val Image = findViewById<ImageView>(R.id.Reviewimg)
         val userimg = findViewById<ImageView>(R.id.mImg)
         val menuCost = findViewById<TextView>(R.id.StorePriceInt)
-        Log.e("reviewContent", "$reviewContent")
-        Log.e("menuCost", "$menuCost")
+
 
         //물고기 TextView에 설정
         val fishKinName = findViewById<TextView>(R.id.MenuFishName)
@@ -160,7 +156,7 @@ class DetailActivity : AppCompatActivity() {
         reviewContent.text = "$reviewContentIntent"
 //        storeName.text = "$storeNameIntent"
         rating.text = "$ratingIntent"
-        userNicName.text = "$nicknameIntent"
+        userNicName.text = "$nicknameInten"
         menuCost.text = "$menuCostIntent"
 
 
@@ -175,7 +171,7 @@ class DetailActivity : AppCompatActivity() {
 
         //이미지 설정(유저)
         Glide.with(this)
-            .load(UserimageIntent)
+            .load(UserimageInten)
             .into(userimg)
 
 
