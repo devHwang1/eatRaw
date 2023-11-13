@@ -62,7 +62,7 @@ class UsersFragment : Fragment() {
                     val likeMarket = document.getString("likeMarket")
                     if (email != null && nickname != null) {
                         val user =
-                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "",likeMarket = "")
+                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "", likeMarket = "")
                         usersList.add(user)
                     }
                 }
@@ -123,6 +123,7 @@ class UsersFragment : Fragment() {
                         val admin = document.getBoolean("admin") ?: false
                         val imageUrl = document.getString("imageUrl")
                         val userId = document.getString("userId")
+                        val likeMarket = document.getString("likeMarket")
                         if (email != null && nickname != null) {
                             val user = Users(
                                 email,

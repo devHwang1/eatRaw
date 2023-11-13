@@ -118,7 +118,6 @@ class BestReviewAdapter(private val bestReviews: List<Review>) :
 
                         intent.putExtra("userNickname", userNicName)
                         intent.putExtra("userImage", userImage)
-                        holder.itemView.context.startActivity(intent)
                     } else {
                         holder.itemView.context.startActivity(intent)
                     }
