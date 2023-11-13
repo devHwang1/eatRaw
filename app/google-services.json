@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "445898306997-aj03lpnofchnuhqkfkimeasvs2air76v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eatraw",
+            "certificate_hash": "cc5689219f86d000eeb787bf6294ab557644ebc0"
+          }
+        },
+        {
           "client_id": "445898306997-536v99s1hoakntjbkepl9c8n2vv8hvgv.apps.googleusercontent.com",
           "client_type": 3
         }

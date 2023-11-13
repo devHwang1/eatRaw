@@ -21,6 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.GoogleSignInStatusCodes
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputEditText
@@ -101,7 +102,8 @@ class RegisterActivity : AppCompatActivity() {
                         // 사용자가 성공적으로 생성되었으므로, 사용자 정보를 데이터베이스에 저장
                         val currentUser = mAuth.currentUser
 
-                        val user = currentUser?.let { it -> Users(email, nickname ="", aouthLogin = false,
+                        val user = currentUser?.let {
+                            Users(email, nickname ="", aouthLogin = false,
                             admin = false,
                             imageUrl ="", userId = it.uid,likeMarket = null) } // 사용자 정보 생성
 
@@ -215,7 +217,23 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
         } catch (e: ApiException) {
+            // 로그인 실패 처리
             Log.w("failed", "signInResult:failed code=" + e.statusCode)
+
+            when(e.statusCode){
+                // 사용자가 로그인을 취소한 경우
+                GoogleSignInStatusCodes.SIGN_IN_CANCELLED -> {
+                    Toast.makeText(this, "Sign in was cancelled.", Toast.LENGTH_SHORT).show()
+                }
+                // 네트워크 연결 문제가 있는 경우
+                GoogleSignInStatusCodes.NETWORK_ERROR -> {
+                    Toast.makeText(this, "Network error occurred.", Toast.LENGTH_SHORT).show()
+                }
+                // 기타 에러 처리
+                else -> {
+                    Toast.makeText(this, "An error occurred: ${e.statusCode}", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }

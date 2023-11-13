@@ -62,10 +62,9 @@ dependencies {
     implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.naver.maps:map-sdk:3.17.0")
-
+    implementation ("com.google.android.gms:play-services-auth:20.7.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 

@@ -178,10 +178,7 @@ class LoginActivity
                             usersCollection.whereEqualTo("email", email).get()
                                 .addOnSuccessListener { documents ->
                                     if (documents.isEmpty) {
-                                        val newUser = hashMapOf(
-                                            "email" to email,
-                                            // Add other user info as needed
-                                        )
+
                                         // If the user is new, show the You need to Register first message.
                                         Toast.makeText(this@LoginActivity, "가입이 필요합니다.", Toast.LENGTH_SHORT).show()
                                     } else {
