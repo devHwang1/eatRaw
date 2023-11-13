@@ -53,13 +53,14 @@ class FishFragment : Fragment() {
 
                 for (document in documents) {
                     val fishName = document.getString("f_name")
+                    val count = (document["f_count"] as? Long)?.toInt() ?: 0
                     val minCost = (document["f_min"] as? Long)?.toInt()
                     val avgCost = (document["f_avg"] as? Long)?.toInt()
                     val maxCost = (document["f_max"] as? Long)?.toInt()
                     val fishImg = document.getString("f_img")
                     val season = document.getString("f_season")
 
-                    Log.e("피쉬이미지>>", "${fishImg}")
+//                    Log.e("피쉬이미지>>", "${fishImg}")
 
                     if (fishName != null && minCost != null && avgCost != null && maxCost != null && fishImg != null) {
                         // 이미지의 다운로드 URL 생성
@@ -67,6 +68,7 @@ class FishFragment : Fragment() {
 //                        Log.e(">>", "${imageUrl}")
                         val comparingPriceItem = ComparingPriceItem(
                             fishName,
+                            count,
                             minCost.toLong(),
                             avgCost.toLong(),
                             maxCost.toLong(),
@@ -138,21 +140,30 @@ class FishFragment : Fragment() {
                 .addOnSuccessListener { documents ->
                     val searchResult = mutableListOf<ComparingPriceItem>()
 
+                    val fishData = mutableListOf<ComparingPriceItem>()
+
                     for (document in documents) {
                         val fishName = document.getString("f_name")
+                        val count = (document["f_count"] as? Long)?.toInt() ?: 0
                         val minCost = (document["f_min"] as? Long)?.toInt()
                         val avgCost = (document["f_avg"] as? Long)?.toInt()
                         val maxCost = (document["f_max"] as? Long)?.toInt()
                         val fishImg = document.getString("f_img")
                         val season = document.getString("f_season")
 
+                        Log.e("피쉬이미지>>", "${fishImg}")
+
                         if (fishName != null && minCost != null && avgCost != null && maxCost != null && fishImg != null) {
+                            // 이미지의 다운로드 URL 생성
+//                        val imageUrl = "https://firebasestorage.googleapis.com/v0/b/androidtest-e6bbe.appspot.com/o/FishImg%2F$fishImg?alt=media"
+//                        Log.e(">>", "${imageUrl}")
                             val comparingPriceItem = ComparingPriceItem(
                                 fishName,
+                                count,
                                 minCost.toLong(),
                                 avgCost.toLong(),
                                 maxCost.toLong(),
-                                fishImg,
+                                fishImg, // 위에서 생성한 이미지 URL 사용
                                 season
                             )
                             searchResult.add(comparingPriceItem)
@@ -178,21 +189,30 @@ class FishFragment : Fragment() {
             .addOnSuccessListener { documents ->
                 val allFish = mutableListOf<ComparingPriceItem>()
 
+                val fishData = mutableListOf<ComparingPriceItem>()
+
                 for (document in documents) {
                     val fishName = document.getString("f_name")
+                    val count = (document["f_count"] as? Long)?.toInt() ?: 0
                     val minCost = (document["f_min"] as? Long)?.toInt()
                     val avgCost = (document["f_avg"] as? Long)?.toInt()
                     val maxCost = (document["f_max"] as? Long)?.toInt()
                     val fishImg = document.getString("f_img")
                     val season = document.getString("f_season")
 
+                    Log.e("피쉬이미지>>", "${fishImg}")
+
                     if (fishName != null && minCost != null && avgCost != null && maxCost != null && fishImg != null) {
+                        // 이미지의 다운로드 URL 생성
+//                        val imageUrl = "https://firebasestorage.googleapis.com/v0/b/androidtest-e6bbe.appspot.com/o/FishImg%2F$fishImg?alt=media"
+//                        Log.e(">>", "${imageUrl}")
                         val comparingPriceItem = ComparingPriceItem(
                             fishName,
+                            count,
                             minCost.toLong(),
                             avgCost.toLong(),
                             maxCost.toLong(),
-                            fishImg,
+                            fishImg, // 위에서 생성한 이미지 URL 사용
                             season
                         )
                         allFish.add(comparingPriceItem)

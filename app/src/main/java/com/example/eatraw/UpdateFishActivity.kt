@@ -87,12 +87,12 @@ class UpdateFishActivity : AppCompatActivity() {
             val season = seasonEditText.text.toString()
 
             // Firebase Firestore에 데이터 업로드
-            if (fishName.isNotBlank() && minCost.isNotBlank() && avgCost.isNotBlank() && maxCost.isNotBlank() && season.isNotBlank() && imageUri != null) {
+//            if (fishName.isNotBlank() && minCost.isNotBlank() && avgCost.isNotBlank() && maxCost.isNotBlank() && season.isNotBlank() && imageUri != null) {
                 // Firestore에 데이터 업로드
-                updateFishData(imageUri!!, fishName)
-            } else {
-                Toast.makeText(this, "모든 필드를 입력하세요.", Toast.LENGTH_SHORT).show()
-            }
+                updateFishData(imageUri!!, fishName, minCost, avgCost, maxCost, season)
+//            } else {
+//                Toast.makeText(this, "모든 필드를 입력하세요.", Toast.LENGTH_SHORT).show()
+//            }
         }
 
         // 뒤로가기 버튼 처리
@@ -133,7 +133,8 @@ class UpdateFishActivity : AppCompatActivity() {
     }
 
     // 물고기 정보 업데이트 함수
-    private fun updateFishData(uri: Uri, fishName: String) {
+    // 업데이트 함수에 기존 정보를 추가하여 업데이트하도록 함
+    private fun updateFishData(uri: Uri, fishName: String, minCost: String, avgCost: String, maxCost: String, season: String) {
         // Firebase Storage에 이미지를 저장하기 위한 고유한 이름으로 참조를 생성합니다.
         val imagesRef = storageReference?.child("FishImg/$fishName")
         val uploadTask: UploadTask = imagesRef?.putFile(uri)!!
@@ -146,10 +147,10 @@ class UpdateFishActivity : AppCompatActivity() {
                     val fishData = hashMapOf(
                         "f_img" to downloadUrl.toString(),
                         "f_name" to fishName,
-                        "f_min" to minCostEditText.text.toString().toLong(),
-                        "f_avg" to avgCostEditText.text.toString().toLong(),
-                        "f_max" to maxCostEditText.text.toString().toLong(),
-                        "f_season" to seasonEditText.text.toString()
+                        "f_min" to minCost.toLong(),
+                        "f_avg" to avgCost.toLong(),
+                        "f_max" to maxCost.toLong(),
+                        "f_season" to season
                     )
 
                     // 기존 물고기 정보 업데이트

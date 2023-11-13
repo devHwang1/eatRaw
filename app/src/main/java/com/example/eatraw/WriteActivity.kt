@@ -44,7 +44,7 @@ class WriteActivity : AppCompatActivity() {
     private lateinit var btnImage: Button
     private lateinit var editMarketName: EditText
     private lateinit var thumbnailImageView: ImageView
-    private lateinit var reviewId: String
+    private var reviewId: String? = null
     private var loadedImageUrl: String? = null
 
     @ServerTimestamp
@@ -78,8 +78,7 @@ class WriteActivity : AppCompatActivity() {
             uploadImageAndAddReviewToFirestore()
         }
 
-        reviewId = intent?.getStringExtra("reviewId") ?: ""
-        Log.d("sadfsafsa!!!!!!!","$reviewId")
+        reviewId = intent.getStringExtra("reviewId")
         if (reviewId != null) {
             // 수정 모드인 경우 기존 리뷰 데이터 불러오기
 
@@ -122,7 +121,9 @@ class WriteActivity : AppCompatActivity() {
 
                     if (reviewCount > 0) {
                         // 평균값 계산 및 'fish' 문서 업데이트
+
                         val avgCost = totalCost.toLong() / reviewCount.toLong()
+
                         db.collection("fish")
                             .whereEqualTo("f_name", fishKind)
                             .get()
@@ -268,10 +269,6 @@ class WriteActivity : AppCompatActivity() {
                                                     // 여기에서 리뷰를 추가하는 나머지 코드를 실행할 수 있습니다.
                                                     // (아래의 코드는 필요에 따라 수정하셔야 합니다.)
                                                     updateFishAvg(fishKind)
-                                                    val intent = Intent(this, DetailActivity::class.java)
-                                                    intent.putExtra("reviewId", newReviewId)
-                                                    startActivity(intent)
-                                                    finish()
                                                 }
                                                 .addOnFailureListener { e ->
                                                     // 업데이트 실패 시 처리
@@ -282,11 +279,6 @@ class WriteActivity : AppCompatActivity() {
                                             // 여기에서 리뷰를 추가하는 나눈지 코드를 실행할 수 있습니다.
                                             // (아래의 코드는 필요에 따라 수정하셔야 합니다.)
                                             updateFishAvg(fishKind)
-
-                                            val intent = Intent(this, DetailActivity::class.java)
-                                            intent.putExtra("reviewId", reviewId)
-                                            startActivity(intent)
-                                            finish()
                                         }
                                     }
                                     .addOnFailureListener { e ->

@@ -1,5 +1,6 @@
 package com.example.eatraw.data
 
+
 import com.google.firebase.Timestamp
 
 data class Review(

@@ -5,6 +5,7 @@ import android.os.Parcelable
 
 data class ComparingPriceItem(
     val fishName: String,
+    val count: Int,
     val minCost: Long,
     val avgCost: Long,
     val maxCost: Long,
@@ -13,6 +14,7 @@ data class ComparingPriceItem(
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
+        parcel.readInt(),
         parcel.readLong(),
         parcel.readLong(),
         parcel.readLong(),

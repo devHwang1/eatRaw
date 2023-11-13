@@ -126,8 +126,8 @@ class ReviewAdapter(private val reviews: List<Review>) :
             intent.putExtra("storeName", review.storeName)
             intent.putExtra("rating", review.rating ?: 0.0)
             intent.putExtra("region", review.region)
-            intent.putExtra("fishKind", review.fishKind.toString())
-            intent.putExtra("cost", review.cost)
+            intent.putExtra("fishKind", review.fishKind)
+            intent.putExtra("menuCost", review.cost)
             intent.putExtra("userId", review.userId)
             intent.putExtra("image", review.storeImg)
 
