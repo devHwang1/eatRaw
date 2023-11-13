@@ -364,6 +364,10 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\kakao_login_up_wide.png"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_detail_box.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_detail_box.xml"
+    },
+    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_line.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\line.xml"
     },
@@ -702,10 +706,6 @@
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_test_image.jpg.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\test_image.jpg"
-    },
-    {
-        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_main.xml.flat",
-        "source": "com.example.eatraw.app-main-65:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_map_modal.xml.flat",

@@ -128,6 +128,7 @@ class ReviewAdapter(private val reviews: List<Review>) :
             intent.putExtra("region", review.region)
             intent.putExtra("fishKind", review.fishKind)
             intent.putExtra("cost", review.cost)
+            Log.d("ReviewAdapter", "Cost: ${review.cost}")
             intent.putExtra("userId", review.userId)
             intent.putExtra("image", review.storeImg)
             intent.putExtra("reviewId", review.reviewId)

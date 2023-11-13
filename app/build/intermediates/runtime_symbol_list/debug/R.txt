@@ -3516,6 +3516,7 @@ int id beginOnFirstDraw 0x7f0a007b
 int id beginning 0x7f0a007c
 int id bestChoice 0x7f0a007d
 int id blocking 0x7f0a007e
+int id bnv_m 0x7f0a02e8
 int id bnv_main 0x7f0a007f
 int id bottom 0x7f0a0080
 int id bounce 0x7f0a0081

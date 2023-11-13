@@ -1,6 +1,7 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.eatraw.databinding.ActivityDetailBoxBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -22,6 +24,8 @@ class DetailActivity : AppCompatActivity() {
     private var liked: Boolean = false
     private lateinit var reviewId: String
     private lateinit var binding: ActivityDetailBoxBinding
+
+
 
 
     @SuppressLint("WrongViewCast")
@@ -92,6 +96,7 @@ class DetailActivity : AppCompatActivity() {
                     Log.e("FirestoreError", "Error getting fish document: ")
                 }
 
+
             }
 
 
@@ -121,10 +126,6 @@ class DetailActivity : AppCompatActivity() {
         userNicName.text = "$nicknameInten"
         menuCost.text = "$menuCostIntent"
 
-
-
-
-
                 //몰고기 이름
                 fishKinName.text = "$fishKindIntent"
 
@@ -139,8 +140,38 @@ class DetailActivity : AppCompatActivity() {
                     .load(UserimageInten)
                     .into(userimg)
 
+        var bnv_main = findViewById(R.id.bnv_main) as BottomNavigationView
 
+        // OnNavigationItemSelectedListener를 통해 탭 아이템 선택 시 이벤트를 처리
+        // navi_menu.xml 에서 설정했던 각 아이템들의 id를 통해 알맞은 프래그먼트로 변경하게 한다.
+        bnv_main.run { setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.first -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@DetailActivity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.second -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@DetailActivity, ReviewActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.third -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@DetailActivity, ComparingPriceListActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.four -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@DetailActivity, MypageActivity::class.java)
+                    startActivity(intent)
+                }
             }
+            true
+        }}
+            }
+
+
 
 
 
@@ -153,5 +184,9 @@ class DetailActivity : AppCompatActivity() {
 
 
 
+
+
 }
+
+
 
