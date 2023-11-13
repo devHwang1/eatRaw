@@ -220,7 +220,6 @@ id fishPriceAvg
 id fishPriceMax
 id fishPriceMin
 id fishSearchbar
-id fishkind
 id floatingActionButton
 id four
 id fragment_container
@@ -243,7 +242,6 @@ id mReiview
 id mStarsocore
 id mainSearchbar
 id map
-id marketname
 id menuSend
 id menubar1
 id mobile_navigation
@@ -284,8 +282,10 @@ id recyclerViewUsersList
 id registerNow
 id reviewContent
 id reviewContentAdmin
+id reviewFishkind
 id reviewImage
 id reviewImageAdmin
+id reviewMarketname
 id reviewRating
 id reviewRecycler
 id reviewSearchbar

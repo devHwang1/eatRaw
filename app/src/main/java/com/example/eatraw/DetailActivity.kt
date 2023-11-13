@@ -1,7 +1,6 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -9,20 +8,17 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.eatraw.databinding.ActivityDetailBoxBinding
-import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
+
 
 class DetailActivity : AppCompatActivity() {
 
     //좋아요 관련 변수
-
+    private lateinit var likeBtn: Button
     private lateinit var likeCountText: TextView
     private var liked: Boolean = false
     private lateinit var reviewId: String
@@ -34,14 +30,6 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBoxBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val bundle = intent.extras
-        val reviewId = intent.getStringExtra("reviewId")
-
-        val db = FirebaseFirestore.getInstance()
-
-
-
 
 
         val intent = intent
@@ -62,7 +50,7 @@ class DetailActivity : AppCompatActivity() {
 
 
         //파이어베이스사용
-
+        val db = FirebaseFirestore.getInstance()
 
 
         //물고기종류에 따른 가격가져오기
@@ -92,8 +80,10 @@ class DetailActivity : AppCompatActivity() {
                     if (fishAvg != null) {
                         if (menuCostIntent < fishAvg.toInt()) {
                             menuCostTextView.text = "가격이 평균보다 낮습니다."
+                            menuCostTextView.setTextColor(ContextCompat.getColor(this, R.color.blue)) //색변경
                         } else if (menuCostIntent > fishAvg.toInt()) {
                             menuCostTextView.text = "가격이 평균보다 높습니다."
+                            menuCostTextView.setTextColor(ContextCompat.getColor(this, R.color.red)) //색변경
                         } else {
                             menuCostTextView.text = "가격이 평균과 같습니다."
                         }
@@ -153,59 +143,5 @@ class DetailActivity : AppCompatActivity() {
 
 
     }
-    suspend fun updateLikeCount(reviewId: String, likeCountText: TextView) {
-        val db = FirebaseFirestore.getInstance()
-
-        try {
-            withContext(Dispatchers.IO) {
-                if(reviewId != null) {
-                val querySnapshot = db.collection("reviews")
-                    .document(reviewId)
-                    .get()
-                    .await()
-
-                if (querySnapshot.exists()) {
-                    val reviewRef = db.collection("reviews").document()
-
-                    db.runTransaction { transaction ->
-                        val currentLikes = transaction.get(reviewRef).getLong("like") ?: 0
-
-                        // 좋아요 수 업데이트
-                        transaction.update(reviewRef, "like", FieldValue.increment(1))
-
-                        // "liked" 필드 업데이트 (liked 여부를 나타내는 필드가 있다고 가정)
-                        transaction.update(reviewRef, "liked", liked)
-
-                        // 좋아요 수를 반환
-                        currentLikes + 1
-                    }.addOnSuccessListener { updatedLikes ->
-                        // 트랜잭션 성공
-                        Log.d("DetailActivity", "좋아요를 눌렀다")
-
-                        // 좋아요 트랜잭션이 성공한 후에 UI 업데이트
-                        likeCountText.text = updatedLikes.toString()
-                    }.addOnFailureListener { error ->
-                        // 트랜잭션 실패
-                        Log.e("DetailActivity", "Transaction failed: $error")
-                    }
-                } else {
-                    Log.e("DetailActivity", "No document found with reviewId: $reviewId")
-                }
-            }}
-        } catch (e: Exception) {
-            Log.e("DetailActivity", "Error: $e")
-        }
-    }
-
-
-
-
-
-
-    //좋아요 수 업데이트
-
-
-
 
 }
-
