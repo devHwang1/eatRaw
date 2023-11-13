@@ -1,6 +1,7 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -124,9 +125,6 @@ class DetailActivity : AppCompatActivity() {
 
 
 
-
-
-
                 //몰고기 이름
                 fishKinName.text = "$fishKindIntent"
 
@@ -143,6 +141,8 @@ class DetailActivity : AppCompatActivity() {
 
 
             }
+
+
 
         }
 
