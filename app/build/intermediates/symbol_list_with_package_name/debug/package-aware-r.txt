@@ -3126,6 +3126,9 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable chamjogi
+drawable chamjogi_head
+drawable chamjogi_stomach
 drawable check_button
 drawable clip
 drawable clock
@@ -3203,6 +3206,11 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable image_radius
 drawable info
+drawable jingjingi
+drawable jogi
+drawable jogi_division
+drawable jogi_home
+drawable jogi_tail
 drawable kakao_login_medium_narrow
 drawable kakao_login_medium_wide
 drawable kakao_login_up_wide
@@ -3364,6 +3372,7 @@ drawable test_image
 drawable test_level_drawable
 drawable text_edit_box
 drawable text_radius
+drawable threeline
 drawable thumb
 drawable thumbfill
 drawable tooltip_frame_dark
@@ -3391,6 +3400,7 @@ id ImageView
 id IntAvg
 id IntMax
 id IntMin
+id LiveCost
 id META
 id MenuFishName
 id NO_DEBUG
@@ -3507,6 +3517,7 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id bnv_m
 id bnv_main
 id bottom
 id bounce
@@ -3525,7 +3536,6 @@ id btnDeleteFish
 id btnDeleteReviewAdmin
 id btnDeleteUser
 id btnImage
-id btnLike
 id btnRegisterFish
 id btnReview
 id btnUpdateFish
@@ -3595,6 +3605,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id dehaze
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -3659,7 +3670,6 @@ id fill_horizontal
 id fill_vertical
 id filled
 id first
-id first_graph
 id fishImg
 id fishName
 id fishNameDetail
@@ -3668,7 +3678,6 @@ id fishPriceAvg
 id fishPriceMax
 id fishPriceMin
 id fishSearchbar
-id fishkind
 id fitCenter
 id fitEnd
 id fitStart
@@ -3735,7 +3744,6 @@ id left
 id leftToRight
 id legacy
 id light
-id likeInt
 id line1
 id line3
 id linear
@@ -3751,7 +3759,6 @@ id mReiview
 id mStarsocore
 id mainSearchbar
 id map
-id marketname
 id marquee
 id masked
 id match_constraint
@@ -3942,8 +3949,10 @@ id report_drawn
 id reverseSawtooth
 id reviewContent
 id reviewContentAdmin
+id reviewFishkind
 id reviewImage
 id reviewImageAdmin
+id reviewMarketname
 id reviewRating
 id reviewRecycler
 id reviewSearchbar

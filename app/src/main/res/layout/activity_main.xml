@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:src="@drawable/baseline_dehaze_24"
-
+                android:id="@+id/dehaze"
                 />
         </LinearLayout>
     </LinearLayout>
@@ -68,7 +68,7 @@
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/view_pager2_banner"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp" />
+                        android:layout_height="180dp" />
 
 
                 </FrameLayout>
@@ -146,13 +146,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:background="@drawable/rounded_top_corners"
                     android:elevation="12dp"
                     android:orientation="vertical">
@@ -167,7 +166,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-
                             android:layout_marginBottom="4dp"
                             android:text="가격 비교"
                             android:textColor="#3F3F3F"
@@ -200,53 +198,53 @@
                 </LinearLayout>
 
             </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:id="@+id/first_graph"
-            android:background="@drawable/radiusback"
-            android:elevation="12dp"
-            android:layout_margin="10dp"
-            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:id="@+id/LiveCost"
+                android:background="@drawable/radiusback"
+                android:elevation="12dp"
+                android:layout_margin="10dp"
+                >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="실시간 시장가 확인하러 가기"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="실시간 시장가 확인하러 가기"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
 
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-            <ImageView
-                android:id="@+id/graph_icon"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center"
-                android:src="@drawable/graph_icon"
-                android:scaleType="center"
-                android:layout_marginBottom="2dp"
-                />
-            <View
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:src="@drawable/graph_icon"
-                android:scaleType="center"
-                android:layout_weight="1"
-                />
-            <ImageView
-                android:id="@+id/menuSend"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:src="@drawable/arrow_1"
-                android:scaleType="center"
-                />
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:id="@+id/graph_icon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/graph_icon"
+                    android:scaleType="center"
+                    android:layout_marginBottom="2dp"
+                    />
+                <View
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/graph_icon"
+                    android:scaleType="center"
+                    android:layout_weight="1"
+                    />
+                <ImageView
+                    android:id="@+id/menuSend"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/arrow_1"
+                    android:scaleType="center"
+                    />
 
-        </LinearLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -255,6 +253,7 @@
                 android:id="@+id/graph_layout">
 
                 <TextView
+
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:text="실시간 시장가 확인하러 가기"/>
@@ -380,7 +379,7 @@
                         app:layout_constraintTop_toBottomOf="@id/textViewq"
                         tools:ignore="MissingConstraints,NotSibling" />
                 </LinearLayout>
-        </LinearLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -398,24 +397,24 @@
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp">
 
-                <!-- "추천 어종" 텍스트 -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="추천 어종"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    />
+                    <!-- "추천 어종" 텍스트 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="추천 어종"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="두근두근~~ 오늘의 추천 어종입니다!!"
                         android:textSize="12sp"
                         android:layout_gravity="bottom"/>
-            </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -433,7 +432,7 @@
                         android:layout_height="150dp"
                         android:layout_margin="10dp"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/fishpicture" />
+                        app:srcCompat="@drawable/default_nallo" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"

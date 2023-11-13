@@ -36,6 +36,8 @@ class MyReviewAdapter(val context: Context,private val review: List<Review>, pri
         val DratingBar: RatingBar = itemView.findViewById(R.id.DratingBar)
         val dropdetailImageView: ImageView = itemView.findViewById(R.id.drop_detail)
         val reviewContent : TextView = itemView.findViewById(R.id.contentView)
+        val topLayout: View = itemView.findViewById(R.id.topLayout)
+        val bnv_m: View = itemView.findViewById(R.id.bnv_m)
 
     }
 
@@ -51,6 +53,8 @@ class MyReviewAdapter(val context: Context,private val review: List<Review>, pri
         val db = FirebaseFirestore.getInstance()
 
         holder.dropdetailImageView.visibility = View.VISIBLE
+        holder.topLayout.visibility = View.GONE
+        holder.bnv_m.visibility = View.GONE
         holder.dropdetailImageView.setOnClickListener {
             currentReview?.let{
                 Log.d("MyReviewAdapter", "Review ID: ${currentReview.reviewId}")

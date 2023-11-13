@@ -60,12 +60,13 @@ class MyreviewFragment : Fragment() {
         var isSearching = false
         itemList = mutableListOf() // itemList 초기화
 
-        adapter = MyReviewAdapter(requireContext(), itemList, emptyList())
-        recyclerView.adapter = adapter
 
         lifecycleScope.launch {
             users = getAllUsersFromDb()
             reviews = getAllReviewsFromDb()
+
+            adapter = context?.let { MyReviewAdapter(it, itemList, users) }!!// adapter 초기화
+            recyclerView.adapter = adapter
 
             // 현재 로그인한 사용자의 ID를 가져오기
             val currentUserId = mAuth.currentUser!!.uid
@@ -161,8 +162,9 @@ class MyreviewFragment : Fragment() {
                     val admin = document.getBoolean("admin") ?: false
                     val imageUrl = document.getString("imageUrl") ?: ""
                     val userId = document.getString("userId") ?: ""
+                    val likeMarket = document.getString("likeMarket") ?: ""
 
-                    val user = Users(email, nickname, aouthLogin, admin, imageUrl, userId)
+                    val user = Users(email, nickname, aouthLogin, admin, imageUrl, userId,likeMarket)
                     users.add(user)
                 }
 
@@ -328,5 +330,3 @@ class MyreviewFragment : Fragment() {
 
 
 }
-
-

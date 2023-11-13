@@ -1,5 +1,6 @@
 package com.example.eatraw
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +23,8 @@ import com.example.eatraw.adapter.BestReviewAdapter
 import com.example.eatraw.adapter.ComparingPriceAdapter
 import com.example.eatraw.data.ComparingPriceItem
 import com.example.eatraw.data.Review
+import com.example.eatraw.mypagefrg.ModifyFragment
+import com.example.eatraw.mypagefrg.PasswordFragment
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -40,6 +44,7 @@ import java.util.TimerTask
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var liveCost : LinearLayout
     private lateinit var button: Button
     private lateinit var textView: TextView
     private var user: FirebaseUser? = null
@@ -54,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var iv1: ImageView
     private lateinit var iv2: ImageView
     private lateinit var iv3: ImageView
-
+    private lateinit var dehaze: ImageView
     private lateinit var viewPager2: ViewPager2
 
     // Firebase Firestore 인스턴스 가져오기
@@ -68,22 +73,37 @@ class MainActivity : AppCompatActivity() {
         // 추가적인 ComparingPriceItem 인스턴스와 생선 이름, 가격을 추가하세요.
     )
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        liveCost = findViewById(R.id.LiveCost)
         barChart = findViewById(R.id.barChart)
         viewPager2 = findViewById(R.id.view_pager2_banner)
         textViewq = findViewById(R.id.textViewq)
         iv1 = findViewById(R.id.iv1)
         iv2 = findViewById(R.id.iv2)
         iv3 = findViewById(R.id.iv3)
-
+        dehaze = findViewById(R.id.dehaze)
         val images = listOf(R.drawable.banner1, R.drawable.banner2, R.drawable.banner3)
         val adapterViewPager2Banner = BannerFragmentAdapter(this, images)
         viewPager2.adapter = adapterViewPager2Banner
 
         val handler = Handler(Looper.getMainLooper())
         val timer = Timer()
+        val db  = FirebaseFirestore.getInstance()
+
+        liveCost.setOnClickListener {
+            // Firebase Authentication을 사용한다고 가정
+            val user = FirebaseAuth.getInstance().currentUser
+            if (user != null) {
+                val userId = user.uid
+                Log.d("유저아이디에 대해알아봅시다", "$userId")
+                getUserInfo(userId)
+            } else {
+                Log.d("유저아이디에 대해알아봅시다", "안되는중입니다")
+            }
+        }
 
         // 일정 시간 간격으로 페이지를 변경
         timer.scheduleAtFixedRate(object : TimerTask() {
@@ -157,7 +177,7 @@ class MainActivity : AppCompatActivity() {
         user = auth.currentUser
 
         if (user == null) {
-            val intent = Intent(applicationContext, StartActivity::class.java)
+            val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -251,6 +271,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+
+        dehaze.setOnClickListener {
+            val intent = Intent(this, MypageActivity::class.java)
+            startActivity(intent)
+        }
+
         var bnv_main = findViewById(R.id.bnv_main) as BottomNavigationView
 
         // OnNavigationItemSelectedListener를 통해 탭 아이템 선택 시 이벤트를 처리
@@ -290,24 +317,48 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    val db  = FirebaseFirestore.getInstance()
+    fun getUserInfo(userId: String) {
+        val docRef = db.collection("users").document(userId)
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val likeMarket = document.getString("likeMarket")
+                    if (likeMarket != null) {
+                        // likeMarket이 null이 아니면 QuoteActivity로 전달
+                        val intent = Intent(this, QuoteActivity::class.java)
+                        intent.putExtra("likeMarket", likeMarket)
+                        startActivity(intent)
+                    } else {
+                        println("문서에 'likeMarket' 필드가 없습니다")
+                    }
+                } else {
+                    println("해당 문서가 없습니다")
+                }
+            }
+            .addOnFailureListener { exception ->
+                println("문서를 가져오는 중 오류가 발생했습니다: $exception")
+            }
+    }
+
     fun changeColor() {
         when(viewPager2.currentItem){
             0 ->
             {
                 iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.blue))
-                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
-                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
+                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
+                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
             }
             1 ->
             {
-                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
+                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
                 iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.blue))
-                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
+                iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
             }
             2 ->
             {
-                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
-                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.opgray))
+                iv1.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
+                iv2.setBackgroundColor(applicationContext.resources.getColor(R.color.gray))
                 iv3.setBackgroundColor(applicationContext.resources.getColor(R.color.blue))
             }
         }
@@ -356,8 +407,22 @@ class MainActivity : AppCompatActivity() {
         randomFishNameTextView.text = randomFishData.fishName
         randomFishPriceTextView.text = randomFishData.minCost.toString()
 
-        // Assuming you have a helper function to set an image by URL or resource ID
+        // URL 또는 리소스 ID를 기반으로 이미지를 설정하는 도우미 함수가 있다고 가정합니다.
         setFishImage(randomFishImageView, randomFishData.fishImg)
+
+        // random_fish_image를 클릭하는 경우를 처리하는 OnClickListener 설정
+        randomFishImageView.setOnClickListener {
+            // 클릭 이벤트 처리, 예를 들어 ComparingPriceDetailActivity를 시작합니다.
+            val intent = Intent(this, ComparingPriceDetailActivity::class.java)
+            // intent.putExtra()를 사용하여 ComparingPriceDetailActivity에 필요한 데이터를 전달합니다.
+            intent.putExtra("fishImg", randomFishData.fishImg)
+            intent.putExtra("fishName", randomFishData.fishName)
+            intent.putExtra("minCost", randomFishData.minCost)
+            intent.putExtra("avgCost", randomFishData.avgCost)
+            intent.putExtra("maxCost", randomFishData.maxCost)
+            // ... (다른 전달할 데이터가 있으면 추가하세요)
+            startActivity(intent)
+        }
     }
 
     // Hypothetical function to set the fish image
@@ -375,132 +440,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadAndDisplayFishKindAveragesForMarket(marketName: String, startTimestamp: Timestamp, endTimestamp: Timestamp) {
-        val firestore = FirebaseFirestore.getInstance()
-        val fishKindAverages = mutableMapOf<String, Float>()
-        Log.w("시간값알기", "$startTimestamp")
-        Log.w("시간값알기", "$endTimestamp")
-        Log.w("시간값알기", "$marketName")
-        textViewq.text = "$marketName" + " 어종별 시세"
-        for (fishKind in fishKinds) {
-            firestore.collection("review")
-                .whereEqualTo("marketName", marketName)
-                .whereEqualTo("fishKind", fishKind)
-                .whereGreaterThanOrEqualTo("timestamp", startTimestamp)
-                .whereLessThanOrEqualTo("timestamp", endTimestamp)
-                .get()
-                .addOnSuccessListener { querySnapshot ->
-                    var totalCost = 0.0
-                    var count = 0
 
-                    for (document in querySnapshot) {
-                        val cost = document.getDouble("cost")
-                        if (cost != null) {
-                            totalCost += cost
-                            count++
-                        }
-                    }
-
-                    if (count > 0) {
-                        val averageCost = totalCost.toFloat() / count
-                        fishKindAverages[fishKind] = averageCost
-                        Log.w("평균값알기", "$averageCost")
-                        Log.w("평균값알기", "$totalCost")
-                        Log.w("평균값알기", "$fishKindAverages")
-                    }
-
-                    if (fishKindAverages.size == fishKinds.size) {
-                        displayFishKindAveragesChart(fishKindAverages)
-                    }
-                }
-                .addOnFailureListener { exception ->
-                }
-        }
-    }
-
-    private fun displayFishKindAveragesChart(fishKindAverages: Map<String, Float>) {
-        val barEntries = mutableListOf<BarEntry>()
-        val labels = mutableListOf<String>()
-
-        for ((index, fishKind) in fishKinds.withIndex()) {
-            val averageCost = fishKindAverages[fishKind] ?: 0.0f
-            barEntries.add(BarEntry(index.toFloat(), averageCost))
-            labels.add(fishKind)
-        }
-
-        val colors = intArrayOf(
-            Color.rgb(197,255,140), Color.rgb(255,247,139)
-                + Color.rgb(255, 211, 140), Color.rgb(140, 235, 255), Color.rgb(255, 142, 155)) // 막대의 갯수에 따라서 원하는 색상을 추가하세요
-
-        val barDataSet = BarDataSet(barEntries, "어종별 평균 시세")
-        barDataSet.setColors(*colors)
-
-        val dataSets: ArrayList<IBarDataSet> = ArrayList()
-        dataSets.add(barDataSet)
-
-        val data = BarData(dataSets)
-        data.setValueTextSize(15f)
-        data.barWidth = 0.4f
-
-        barChart.data = data
-        barChart.description.isEnabled = false
-        barChart.setFitBars(true)
-        barChart.animateY(1000)
-        barChart.setDrawGridBackground(false)
-
-        val xAxis = barChart.xAxis
-        xAxis.valueFormatter = IndexAxisValueFormatter(labels)
-        xAxis.position = XAxis.XAxisPosition.BOTTOM
-        xAxis.setDrawGridLines(false)
-        xAxis.setGranularity(1f)
-        xAxis.textSize = 12f
-
-        barChart.invalidate()
-    }
-    // 최신순으로 9개의 리뷰를 가져오는 함수
-//    private fun fetchLatestReviews() {
-//        // Firestore에서 review 컬렉션을 최신순으로 정렬하여 상위 9개를 가져옵니다.
-//        firestore.collection("review")
-//            .orderBy("timestamp", Query.Direction.DESCENDING)
-//            .limit(9)
-//            .get()
-//            .addOnSuccessListener { documents ->
-//                val latestReviewsData = mutableListOf<Review>()
-//
-//                for (document in documents) {
-//                    val content = document.getString("content")
-//                    val marketName = document.getString("marketName")
-//                    val storeImg = document.getString("storeImg")
-//                    val storeName = document.getString("storeName")
-//                    val rating = document.getDouble("rating")
-//                    val region = document.getString("region")
-//                    val like = document.getLong("like")?.toInt()
-//                    val fishKind = document.getString("fishKind")
-//                    val cost = document.getLong("cost")?.toInt()
-//                    val userId = document.getString("userId")
-//                    val reviewId = document.getString("reviewId")
-//                    val timestamp = document.getTimestamp("timestamp")
-//
-//                    if (content != null && marketName != null && storeName != null && rating != null
-//                        && userId != null && reviewId != null && timestamp != null) {
-//                        // 데이터를 RecyclerView에 설정할 데이터 클래스에 추가합니다.
-//                        val review = Review(
-//                            content, marketName, storeImg, storeName, rating, region,
-//                            like, fishKind, cost, userId, reviewId, timestamp
-//                        )
-//                        latestReviewsData.add(review)
-//                    }
-//                }
-//
-//                // RecyclerView 어댑터에 데이터를 설정합니다.
-//                val adapterLatestReviews = ReviewAdapter(latestReviewsData)
-//                mainReviewRecycler.adapter = adapterLatestReviews
-//            }
-//            .addOnFailureListener { exception ->
-//                // 데이터를 가져오지 못한 경우 처리
-//                Log.e("FirestoreError", "최신 리뷰 가져오기 오류: ", exception)
-//            }
-//    }
 
 
 

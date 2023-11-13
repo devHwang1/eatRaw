@@ -1,6 +1,7 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -8,20 +9,23 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.eatraw.databinding.ActivityDetailBoxBinding
-import com.google.firebase.firestore.DocumentSnapshot
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 
 
 class DetailActivity : AppCompatActivity() {
 
     //좋아요 관련 변수
-    private lateinit var likeBtn : Button
+    private lateinit var likeBtn: Button
     private lateinit var likeCountText: TextView
     private var liked: Boolean = false
     private lateinit var reviewId: String
-    private lateinit var binding : ActivityDetailBoxBinding
+    private lateinit var binding: ActivityDetailBoxBinding
+
+
 
 
     @SuppressLint("WrongViewCast")
@@ -29,60 +33,6 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBoxBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //좋아요 텍스트뷰 표시 아이디
-        likeBtn = findViewById(R.id.btnLike)
-        likeCountText = findViewById(R.id.likeInt)
-
-
-        //좋아요 기본이미지
-        likeBtn.setBackgroundResource(R.drawable.thumb)
-
-        val reviewId = "2DhQjBjJgFbNjjafzizz" // 리뷰 ID
-
-        //좋아요 숫자 초기화
-        updateLikeCount(reviewId)
-
-
-        likeBtn.setOnClickListener {
-            //좋아요 이미지바꾸기
-            if(liked){
-                likeBtn.setBackgroundResource(R.drawable.thumb)
-                liked = false
-            }else{
-                likeBtn.setBackgroundResource(R.drawable.thumbfill)
-                liked = true
-            }
-
-            //Firebase 사용
-            val db = FirebaseFirestore.getInstance()
-            val ref = db.collection("review").document(reviewId)
-
-
-            db.runTransaction { transition ->
-                val document : DocumentSnapshot
-                try {
-                    document = transition.get(ref)
-                }catch (fetchError: Exception){
-                    return@runTransaction null
-                }
-                val like = document.data?.get("like") as? Long ?: run{
-                    //좋아요수를 가져오지 못할때
-                    return@runTransaction null
-                }
-
-                // 트랜잭션으로 1을 더해줌
-                val updatedLike = if (liked) like + 1 else like - 1
-                transition.update(ref, "like", updatedLike)
-            }.addOnSuccessListener {
-                // 성공
-                Log.d("DetailActivity", "좋아요를 눌렀다")
-                updateLikeCount(reviewId)
-            }.addOnFailureListener { error ->
-                Log.e("DetailActivity", "Transaction failed: $error")
-            }
-        }
-
 
 
 
@@ -95,7 +45,7 @@ class DetailActivity : AppCompatActivity() {
         val fishKindIntent = intent.getStringExtra("fishKind")               //물고기종류
         val userIdIntent = intent.getStringExtra("userId")     // 회원id
         val imageIntent = intent.getStringExtra("image")        //이미지
-        val menuCostIntent = intent.getStringExtra("menuCost")        //메뉴가격
+        val menuCostIntent = intent.getIntExtra("cost", 0)        //메뉴가격
 
 
         //유저
@@ -126,9 +76,26 @@ class DetailActivity : AppCompatActivity() {
                     fishMinText.text = fishMin.toString()
                     fishAvgText.text = fishAvg.toString()
                     fishMaxText.text = fishMax.toString()
+
+                    // menuCostIntent 값과 fishAvg 값을 비교하여 문구 업데이트
+                    val menuCostIntent = intent.getIntExtra("cost", 0)
+                    val menuCostTextView = findViewById<TextView>(R.id.Textcomparison)
+
+                    if (fishAvg != null) {
+                        if (menuCostIntent < fishAvg.toInt()) {
+                            menuCostTextView.text = "가격이 평균보다 낮습니다."
+                            menuCostTextView.setTextColor(ContextCompat.getColor(this, R.color.blue)) //색변경
+                        } else if (menuCostIntent > fishAvg.toInt()) {
+                            menuCostTextView.text = "가격이 평균보다 높습니다."
+                            menuCostTextView.setTextColor(ContextCompat.getColor(this, R.color.red)) //색변경
+                        } else {
+                            menuCostTextView.text = "가격이 평균과 같습니다."
+                        }
+                    }
                 } else {
                     Log.e("FirestoreError", "Error getting fish document: ")
                 }
+
 
             }
 
@@ -159,42 +126,67 @@ class DetailActivity : AppCompatActivity() {
         userNicName.text = "$nicknameInten"
         menuCost.text = "$menuCostIntent"
 
-
-        //몰고기 이름
-        fishKinName.text = "$fishKindIntent"
-
-
-        //이미지 설정
-        Glide.with(this)
-            .load(imageIntent)
-            .into(Image)
-
-        //이미지 설정(유저)
-        Glide.with(this)
-            .load(UserimageInten)
-            .into(userimg)
+                //몰고기 이름
+                fishKinName.text = "$fishKindIntent"
 
 
+                //이미지 설정
+                Glide.with(this)
+                    .load(imageIntent)
+                    .into(Image)
 
-    }
+                //이미지 설정(유저)
+                Glide.with(this)
+                    .load(UserimageInten)
+                    .into(userimg)
 
+        var bnv_main = findViewById(R.id.bnv_main) as BottomNavigationView
 
-    //좋아요 수 업데이트
-    fun updateLikeCount(reviewId: String) {
-        val db = FirebaseFirestore.getInstance()
-        val ref = db.collection("review").document(reviewId)
-
-        ref.get().addOnSuccessListener { document ->
-            if(document !=null){
-                val likeCount = document.getLong("like") ?: 0
-                likeCountText.text = likeCount.toString()
-            }else{
-                Log.e("DetailActivity", "No such document")
+        // OnNavigationItemSelectedListener를 통해 탭 아이템 선택 시 이벤트를 처리
+        // navi_menu.xml 에서 설정했던 각 아이템들의 id를 통해 알맞은 프래그먼트로 변경하게 한다.
+        bnv_main.run { setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.first -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@DetailActivity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.second -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@DetailActivity, ReviewActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.third -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@DetailActivity, ComparingPriceListActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.four -> {
+                    // 다른 액티비티로 이동
+                    val intent = Intent(this@DetailActivity, MypageActivity::class.java)
+                    startActivity(intent)
+                }
             }
-        }.addOnFailureListener { e ->
-            Log.e("DetailActivity", "Error updating like count: $e")
-        }
+            true
+        }}
+            }
+
+
+
+
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
+
+
+
+
 
 
 }
+
+
+

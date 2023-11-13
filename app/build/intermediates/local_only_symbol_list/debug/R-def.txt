@@ -34,6 +34,9 @@ drawable baseline_reviews_24
 drawable baseline_show_chart_24
 drawable baseline_star_24
 drawable bottom_shadow
+drawable chamjogi
+drawable chamjogi_head
+drawable chamjogi_stomach
 drawable check_button
 drawable clip
 drawable clock
@@ -67,6 +70,11 @@ drawable ic_menu_gallery
 drawable ic_menu_slideshow
 drawable image_radius
 drawable info
+drawable jingjingi
+drawable jogi
+drawable jogi_division
+drawable jogi_home
+drawable jogi_tail
 drawable kakao_login_medium_narrow
 drawable kakao_login_medium_wide
 drawable kakao_login_up_wide
@@ -106,6 +114,7 @@ drawable start
 drawable test_image
 drawable text_edit_box
 drawable text_radius
+drawable threeline
 drawable thumb
 drawable thumbfill
 drawable top_shadow
@@ -126,6 +135,7 @@ id ImageView
 id IntAvg
 id IntMax
 id IntMin
+id LiveCost
 id MenuFishName
 id Reviewimg
 id StarBox
@@ -151,6 +161,7 @@ id backgroundImageView
 id backgroundcover
 id bannerImage
 id barChart
+id bnv_m
 id bnv_main
 id btnAddFish
 id btnAddMarket
@@ -159,7 +170,6 @@ id btnDeleteFish
 id btnDeleteReviewAdmin
 id btnDeleteUser
 id btnImage
-id btnLike
 id btnRegisterFish
 id btnReview
 id btnUpdateFish
@@ -184,6 +194,7 @@ id center
 id centerFragment
 id contentTextView
 id contentView
+id dehaze
 id detailRecylerView
 id drawer_layout
 id drop_detail
@@ -203,7 +214,6 @@ id etAge
 id etFirstName
 id etLastName
 id first
-id first_graph
 id fishImg
 id fishName
 id fishNameDetail
@@ -212,7 +222,6 @@ id fishPriceAvg
 id fishPriceMax
 id fishPriceMin
 id fishSearchbar
-id fishkind
 id floatingActionButton
 id four
 id fragment_container
@@ -228,7 +237,6 @@ id iv1
 id iv2
 id iv3
 id ivImage
-id likeInt
 id logout
 id mImg
 id mName
@@ -236,7 +244,6 @@ id mReiview
 id mStarsocore
 id mainSearchbar
 id map
-id marketname
 id menuSend
 id menubar1
 id mobile_navigation
@@ -277,8 +284,10 @@ id recyclerViewUsersList
 id registerNow
 id reviewContent
 id reviewContentAdmin
+id reviewFishkind
 id reviewImage
 id reviewImageAdmin
+id reviewMarketname
 id reviewRating
 id reviewRecycler
 id reviewSearchbar

@@ -1,6 +1,5 @@
 package com.example.eatraw.data
 
-
 import com.google.firebase.Timestamp
 
 data class Review(
@@ -17,4 +16,5 @@ data class Review(
     val reviewId: String? = null, //  리뷰 고유 아이디 추가
     val timestamp: Timestamp? = null
 )
+
 

@@ -12,7 +12,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="spinner1">지역</string>
     <string name="login">로그인</string>
-    <string name="logout">LOGOUT</string>
+    <string name="logout">로그아웃</string>
     <string name="register">회원가입</string>
     <string name="email">Email</string>
     <string name="password">비밀번호</string>

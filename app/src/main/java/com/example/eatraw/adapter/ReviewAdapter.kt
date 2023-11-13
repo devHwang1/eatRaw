@@ -127,9 +127,11 @@ class ReviewAdapter(private val reviews: List<Review>) :
             intent.putExtra("rating", review.rating ?: 0.0)
             intent.putExtra("region", review.region)
             intent.putExtra("fishKind", review.fishKind)
-            intent.putExtra("menuCost", review.cost)
+            intent.putExtra("cost", review.cost)
+            Log.d("ReviewAdapter", "Cost: ${review.cost}")
             intent.putExtra("userId", review.userId)
             intent.putExtra("image", review.storeImg)
+            intent.putExtra("reviewId", review.reviewId)
 
             val db = FirebaseFirestore.getInstance()
             db.collection("users")
@@ -142,7 +144,6 @@ class ReviewAdapter(private val reviews: List<Review>) :
 
                         intent.putExtra("userNickname", userNicName)
                         intent.putExtra("userImage", userImage)
-                        holder.itemView.context.startActivity(intent)
                     } else {
                         holder.itemView.context.startActivity(intent)
                     }

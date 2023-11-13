@@ -24,25 +24,25 @@ public final class ItemBestReviewBinding implements ViewBinding {
   public final View backgroundcover;
 
   @NonNull
-  public final TextView fishkind;
-
-  @NonNull
-  public final TextView marketname;
+  public final TextView reviewFishkind;
 
   @NonNull
   public final ImageView reviewImage;
 
   @NonNull
+  public final TextView reviewMarketname;
+
+  @NonNull
   public final TextView reviewRating;
 
   private ItemBestReviewBinding(@NonNull FrameLayout rootView, @NonNull View backgroundcover,
-      @NonNull TextView fishkind, @NonNull TextView marketname, @NonNull ImageView reviewImage,
-      @NonNull TextView reviewRating) {
+      @NonNull TextView reviewFishkind, @NonNull ImageView reviewImage,
+      @NonNull TextView reviewMarketname, @NonNull TextView reviewRating) {
     this.rootView = rootView;
     this.backgroundcover = backgroundcover;
-    this.fishkind = fishkind;
-    this.marketname = marketname;
+    this.reviewFishkind = reviewFishkind;
     this.reviewImage = reviewImage;
+    this.reviewMarketname = reviewMarketname;
     this.reviewRating = reviewRating;
   }
 
@@ -79,15 +79,9 @@ public final class ItemBestReviewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.fishkind;
-      TextView fishkind = ViewBindings.findChildViewById(rootView, id);
-      if (fishkind == null) {
-        break missingId;
-      }
-
-      id = R.id.marketname;
-      TextView marketname = ViewBindings.findChildViewById(rootView, id);
-      if (marketname == null) {
+      id = R.id.reviewFishkind;
+      TextView reviewFishkind = ViewBindings.findChildViewById(rootView, id);
+      if (reviewFishkind == null) {
         break missingId;
       }
 
@@ -97,14 +91,20 @@ public final class ItemBestReviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.reviewMarketname;
+      TextView reviewMarketname = ViewBindings.findChildViewById(rootView, id);
+      if (reviewMarketname == null) {
+        break missingId;
+      }
+
       id = R.id.reviewRating;
       TextView reviewRating = ViewBindings.findChildViewById(rootView, id);
       if (reviewRating == null) {
         break missingId;
       }
 
-      return new ItemBestReviewBinding((FrameLayout) rootView, backgroundcover, fishkind,
-          marketname, reviewImage, reviewRating);
+      return new ItemBestReviewBinding((FrameLayout) rootView, backgroundcover, reviewFishkind,
+          reviewImage, reviewMarketname, reviewRating);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

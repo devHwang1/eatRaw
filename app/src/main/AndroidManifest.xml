@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
 
     <application
         android:allowBackup="false"
@@ -20,7 +20,6 @@
         android:theme="@style/Theme.EatRaw"
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
-
         <activity
             android:name=".UpdateFishActivity"
             android:exported="false" />
@@ -45,7 +44,9 @@
             android:name=".AdminActivity"
             android:exported="false"
             android:label="@string/title_activity_admin"
-            android:theme="@style/Theme.EatRaw.NoActionBar"></activity>
+            android:theme="@style/Theme.EatRaw.NoActionBar">
+
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:exported="true" />
@@ -79,16 +80,15 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+        </activity>
+        <activity
+            android:name=".StartActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".StartActivity"
-            android:exported="false">
-
         </activity>
 
     </application>
