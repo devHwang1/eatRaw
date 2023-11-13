@@ -1,6 +1,7 @@
 package com.example.eatraw
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -8,19 +9,24 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.eatraw.databinding.ActivityDetailBoxBinding
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class DetailActivity : AppCompatActivity() {
 
     //좋아요 관련 변수
-    private lateinit var likeBtn: Button
-    private lateinit var likeCountText: TextView
-    private var liked: Boolean = false
+//    private lateinit var likeBtn: Button
+//    private lateinit var likeCountText: TextView
+//    private var liked: Boolean = false
     private lateinit var reviewId: String
     private lateinit var binding: ActivityDetailBoxBinding
 
@@ -30,6 +36,12 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBoxBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val bundle = intent.extras
+        val reviewId = intent.getStringExtra("reviewId")
+        val db = FirebaseFirestore.getInstance()
+
+
+
 
 
         val intent = intent
@@ -50,7 +62,7 @@ class DetailActivity : AppCompatActivity() {
 
 
         //파이어베이스사용
-        val db = FirebaseFirestore.getInstance()
+
 
 
         //물고기종류에 따른 가격가져오기
@@ -80,10 +92,8 @@ class DetailActivity : AppCompatActivity() {
                     if (fishAvg != null) {
                         if (menuCostIntent < fishAvg.toInt()) {
                             menuCostTextView.text = "가격이 평균보다 낮습니다."
-                            menuCostTextView.setTextColor(ContextCompat.getColor(this, R.color.blue)) //색변경
                         } else if (menuCostIntent > fishAvg.toInt()) {
                             menuCostTextView.text = "가격이 평균보다 높습니다."
-                            menuCostTextView.setTextColor(ContextCompat.getColor(this, R.color.red)) //색변경
                         } else {
                             menuCostTextView.text = "가격이 평균과 같습니다."
                         }
@@ -143,5 +153,14 @@ class DetailActivity : AppCompatActivity() {
 
 
     }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
+
+
 
 }
