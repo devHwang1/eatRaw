@@ -2185,6 +2185,7 @@ color navermap_scale_bar_text_dark
 color navermap_scale_bar_text_light
 color notification_action_color_filter
 color notification_icon_bg_color
+color opgray
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -3106,13 +3107,17 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable backarrow
 drawable backarrowbtn
+drawable backgroundcover
 drawable banner1
 drawable banner2
 drawable banner3
+drawable baseline_dehaze_24
 drawable baseline_home_24
 drawable baseline_person_pin_24
 drawable baseline_reviews_24
 drawable baseline_show_chart_24
+drawable baseline_star_24
+drawable bottom_shadow
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3162,11 +3167,13 @@ drawable fish
 drawable fish_column
 drawable fisherman
 drawable fishpicture
+drawable good_border
 drawable google
 drawable google_in_btn
 drawable google_up_btn
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable graph_icon
 drawable gray_ellipse
 drawable group_1
 drawable group_40
@@ -3344,6 +3351,8 @@ drawable november_2fish
 drawable phone
 drawable pragment
 drawable profil
+drawable radiusback
+drawable radiusback20
 drawable raiting_empty
 drawable raitingbar_filled
 drawable ratingbar_custom
@@ -3351,10 +3360,14 @@ drawable review1
 drawable review2
 drawable review_border
 drawable reviewstar
+drawable rounded_top_corners
+drawable rounded_top_corners_blue
 drawable search_border
+drawable shadow
 drawable side_nav_bar
 drawable star
 drawable starfill
+drawable start
 drawable test_image
 drawable test_level_drawable
 drawable text_edit_box
@@ -3364,6 +3377,7 @@ drawable thumb
 drawable thumbfill
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable top_shadow
 drawable yellow_croaker
 drawable yellow_star
 font black
@@ -3491,6 +3505,8 @@ id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id backButton
+id backgroundImageView
+id backgroundcover
 id bannerImage
 id barChart
 id barrier
@@ -3651,6 +3667,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id first
+id first_graph
 id fishImg
 id fishName
 id fishNameDetail
@@ -3681,6 +3698,8 @@ id gone
 id google_login
 id google_rg_login
 id graph
+id graph_icon
+id graph_layout
 id graph_wrap
 id group_divider
 id grouping
@@ -4009,6 +4028,7 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
+id startbutton
 id staticLayout
 id staticPostLayout
 id stop
@@ -4046,6 +4066,9 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView2
+id textView3
+id textView4
 id textViewq
 id textWatcher
 id text_input_end_icon
@@ -4241,6 +4264,7 @@ layout activity_quote
 layout activity_register
 layout activity_review
 layout activity_splash
+layout activity_start
 layout activity_test
 layout activity_update_fish
 layout activity_write

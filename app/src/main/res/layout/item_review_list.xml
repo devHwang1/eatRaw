@@ -70,7 +70,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="15dp"
-                    app:srcCompat="@drawable/reviewstar" />
+                    app:srcCompat="@drawable/baseline_star_24" />
 
                 <TextView
                     android:id="@+id/rating"
