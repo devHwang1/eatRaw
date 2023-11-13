@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
@@ -32,16 +33,29 @@ public final class ActivityComparingPriceListBinding implements ViewBinding {
   public final SearchView mainSearchbar;
 
   @NonNull
+  public final LinearLayout menubar1;
+
+  @NonNull
+  public final TextView nalLo;
+
+  @NonNull
   public final RecyclerView recyclerViewComparingPrice;
+
+  @NonNull
+  public final LinearLayout topLayout;
 
   private ActivityComparingPriceListBinding(@NonNull LinearLayout rootView,
       @NonNull BottomNavigationView bnvMain, @NonNull ImageView imgBackarrow,
-      @NonNull SearchView mainSearchbar, @NonNull RecyclerView recyclerViewComparingPrice) {
+      @NonNull SearchView mainSearchbar, @NonNull LinearLayout menubar1, @NonNull TextView nalLo,
+      @NonNull RecyclerView recyclerViewComparingPrice, @NonNull LinearLayout topLayout) {
     this.rootView = rootView;
     this.bnvMain = bnvMain;
     this.imgBackarrow = imgBackarrow;
     this.mainSearchbar = mainSearchbar;
+    this.menubar1 = menubar1;
+    this.nalLo = nalLo;
     this.recyclerViewComparingPrice = recyclerViewComparingPrice;
+    this.topLayout = topLayout;
   }
 
   @Override
@@ -89,14 +103,32 @@ public final class ActivityComparingPriceListBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.menubar1;
+      LinearLayout menubar1 = ViewBindings.findChildViewById(rootView, id);
+      if (menubar1 == null) {
+        break missingId;
+      }
+
+      id = R.id.nalLo;
+      TextView nalLo = ViewBindings.findChildViewById(rootView, id);
+      if (nalLo == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerViewComparingPrice;
       RecyclerView recyclerViewComparingPrice = ViewBindings.findChildViewById(rootView, id);
       if (recyclerViewComparingPrice == null) {
         break missingId;
       }
 
+      id = R.id.topLayout;
+      LinearLayout topLayout = ViewBindings.findChildViewById(rootView, id);
+      if (topLayout == null) {
+        break missingId;
+      }
+
       return new ActivityComparingPriceListBinding((LinearLayout) rootView, bnvMain, imgBackarrow,
-          mainSearchbar, recyclerViewComparingPrice);
+          mainSearchbar, menubar1, nalLo, recyclerViewComparingPrice, topLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

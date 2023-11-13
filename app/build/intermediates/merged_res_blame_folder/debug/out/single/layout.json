@@ -8,6 +8,10 @@
         "source": "com.example.eatraw.app-main-65:/layout/map_modal.xml"
     },
     {
+        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/activity_start.xml",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_start.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/content_admin.xml",
         "source": "com.example.eatraw.app-main-65:/layout/content_admin.xml"
     },

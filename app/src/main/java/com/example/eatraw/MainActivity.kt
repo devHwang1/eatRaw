@@ -1,6 +1,7 @@
 package com.example.eatraw
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -20,7 +21,15 @@ import com.example.eatraw.adapter.BestReviewAdapter
 import com.example.eatraw.adapter.ComparingPriceAdapter
 import com.example.eatraw.data.ComparingPriceItem
 import com.example.eatraw.data.Review
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -35,12 +44,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textView: TextView
     private var user: FirebaseUser? = null
     private lateinit var randomFishData: ComparingPriceItem
-
+    private lateinit var barChart: BarChart
+    private lateinit var textViewq: TextView
 //    private lateinit var recyclerViewBanner: RecyclerView
     private lateinit var recyclerViewBestReview: RecyclerView
     private lateinit var recyclerViewComparingPrice: RecyclerView
 //    private lateinit var mainReviewRecycler: RecyclerView
-
+    private val fishKinds = listOf( "우럭", "참돔", "방어", "전복", "돌돔")
     private lateinit var iv1: ImageView
     private lateinit var iv2: ImageView
     private lateinit var iv3: ImageView
@@ -61,8 +71,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        barChart = findViewById(R.id.barChart)
         viewPager2 = findViewById(R.id.view_pager2_banner)
+        textViewq = findViewById(R.id.textViewq)
         iv1 = findViewById(R.id.iv1)
         iv2 = findViewById(R.id.iv2)
         iv3 = findViewById(R.id.iv3)
@@ -364,6 +375,88 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun loadAndDisplayFishKindAveragesForMarket(marketName: String, startTimestamp: Timestamp, endTimestamp: Timestamp) {
+        val firestore = FirebaseFirestore.getInstance()
+        val fishKindAverages = mutableMapOf<String, Float>()
+        Log.w("시간값알기", "$startTimestamp")
+        Log.w("시간값알기", "$endTimestamp")
+        Log.w("시간값알기", "$marketName")
+        textViewq.text = "$marketName" + " 어종별 시세"
+        for (fishKind in fishKinds) {
+            firestore.collection("review")
+                .whereEqualTo("marketName", marketName)
+                .whereEqualTo("fishKind", fishKind)
+                .whereGreaterThanOrEqualTo("timestamp", startTimestamp)
+                .whereLessThanOrEqualTo("timestamp", endTimestamp)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    var totalCost = 0.0
+                    var count = 0
+
+                    for (document in querySnapshot) {
+                        val cost = document.getDouble("cost")
+                        if (cost != null) {
+                            totalCost += cost
+                            count++
+                        }
+                    }
+
+                    if (count > 0) {
+                        val averageCost = totalCost.toFloat() / count
+                        fishKindAverages[fishKind] = averageCost
+                        Log.w("평균값알기", "$averageCost")
+                        Log.w("평균값알기", "$totalCost")
+                        Log.w("평균값알기", "$fishKindAverages")
+                    }
+
+                    if (fishKindAverages.size == fishKinds.size) {
+                        displayFishKindAveragesChart(fishKindAverages)
+                    }
+                }
+                .addOnFailureListener { exception ->
+                }
+        }
+    }
+
+    private fun displayFishKindAveragesChart(fishKindAverages: Map<String, Float>) {
+        val barEntries = mutableListOf<BarEntry>()
+        val labels = mutableListOf<String>()
+
+        for ((index, fishKind) in fishKinds.withIndex()) {
+            val averageCost = fishKindAverages[fishKind] ?: 0.0f
+            barEntries.add(BarEntry(index.toFloat(), averageCost))
+            labels.add(fishKind)
+        }
+
+        val colors = intArrayOf(
+            Color.rgb(197,255,140), Color.rgb(255,247,139)
+                + Color.rgb(255, 211, 140), Color.rgb(140, 235, 255), Color.rgb(255, 142, 155)) // 막대의 갯수에 따라서 원하는 색상을 추가하세요
+
+        val barDataSet = BarDataSet(barEntries, "어종별 평균 시세")
+        barDataSet.setColors(*colors)
+
+        val dataSets: ArrayList<IBarDataSet> = ArrayList()
+        dataSets.add(barDataSet)
+
+        val data = BarData(dataSets)
+        data.setValueTextSize(15f)
+        data.barWidth = 0.4f
+
+        barChart.data = data
+        barChart.description.isEnabled = false
+        barChart.setFitBars(true)
+        barChart.animateY(1000)
+        barChart.setDrawGridBackground(false)
+
+        val xAxis = barChart.xAxis
+        xAxis.valueFormatter = IndexAxisValueFormatter(labels)
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.setDrawGridLines(false)
+        xAxis.setGranularity(1f)
+        xAxis.textSize = 12f
+
+        barChart.invalidate()
+    }
     // 최신순으로 9개의 리뷰를 가져오는 함수
 //    private fun fetchLatestReviews() {
 //        // Firestore에서 review 컬렉션을 최신순으로 정렬하여 상위 9개를 가져옵니다.

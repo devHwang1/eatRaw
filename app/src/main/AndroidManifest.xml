@@ -7,9 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
-
     <application
         android:allowBackup="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -47,6 +44,7 @@
             android:exported="false"
             android:label="@string/title_activity_admin"
             android:theme="@style/Theme.EatRaw.NoActionBar">
+
         </activity>
         <activity
             android:name=".SplashActivity"
@@ -83,6 +81,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

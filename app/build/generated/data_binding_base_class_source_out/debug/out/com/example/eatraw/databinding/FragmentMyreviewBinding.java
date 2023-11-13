@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,18 +26,31 @@ public final class FragmentMyreviewBinding implements ViewBinding {
   public final RecyclerView detailRecylerView;
 
   @NonNull
+  public final LinearLayout menubar1;
+
+  @NonNull
+  public final TextView nalLo;
+
+  @NonNull
   public final TextView noReviewsTextView;
 
   @NonNull
   public final SearchView searchView;
 
+  @NonNull
+  public final LinearLayout topLayout;
+
   private FragmentMyreviewBinding(@NonNull FrameLayout rootView,
-      @NonNull RecyclerView detailRecylerView, @NonNull TextView noReviewsTextView,
-      @NonNull SearchView searchView) {
+      @NonNull RecyclerView detailRecylerView, @NonNull LinearLayout menubar1,
+      @NonNull TextView nalLo, @NonNull TextView noReviewsTextView, @NonNull SearchView searchView,
+      @NonNull LinearLayout topLayout) {
     this.rootView = rootView;
     this.detailRecylerView = detailRecylerView;
+    this.menubar1 = menubar1;
+    this.nalLo = nalLo;
     this.noReviewsTextView = noReviewsTextView;
     this.searchView = searchView;
+    this.topLayout = topLayout;
   }
 
   @Override
@@ -72,6 +86,18 @@ public final class FragmentMyreviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.menubar1;
+      LinearLayout menubar1 = ViewBindings.findChildViewById(rootView, id);
+      if (menubar1 == null) {
+        break missingId;
+      }
+
+      id = R.id.nalLo;
+      TextView nalLo = ViewBindings.findChildViewById(rootView, id);
+      if (nalLo == null) {
+        break missingId;
+      }
+
       id = R.id.noReviewsTextView;
       TextView noReviewsTextView = ViewBindings.findChildViewById(rootView, id);
       if (noReviewsTextView == null) {
@@ -84,8 +110,14 @@ public final class FragmentMyreviewBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentMyreviewBinding((FrameLayout) rootView, detailRecylerView,
-          noReviewsTextView, searchView);
+      id = R.id.topLayout;
+      LinearLayout topLayout = ViewBindings.findChildViewById(rootView, id);
+      if (topLayout == null) {
+        break missingId;
+      }
+
+      return new FragmentMyreviewBinding((FrameLayout) rootView, detailRecylerView, menubar1, nalLo,
+          noReviewsTextView, searchView, topLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

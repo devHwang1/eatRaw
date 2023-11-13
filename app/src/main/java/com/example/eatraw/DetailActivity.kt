@@ -62,17 +62,6 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-// ...
-
-
-
-
-
-
-
-
-
-
         val reviewContentIntent = intent.getStringExtra("reviewContent")  //댓글내용
         val marketNameIntent = intent.getStringExtra("marketName")        //시장이름
         val storeNameIntent = intent.getStringExtra("storeName")          //가게이름

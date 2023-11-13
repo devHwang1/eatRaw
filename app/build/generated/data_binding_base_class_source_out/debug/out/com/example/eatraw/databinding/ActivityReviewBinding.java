@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
@@ -32,6 +33,12 @@ public final class ActivityReviewBinding implements ViewBinding {
   public final FloatingActionButton floatingActionButton;
 
   @NonNull
+  public final LinearLayout menubar1;
+
+  @NonNull
+  public final TextView nalLo;
+
+  @NonNull
   public final Button quoteButton;
 
   @NonNull
@@ -49,20 +56,27 @@ public final class ActivityReviewBinding implements ViewBinding {
   @NonNull
   public final SwipeRefreshLayout swipeRefreshLayout;
 
+  @NonNull
+  public final LinearLayout topLayout;
+
   private ActivityReviewBinding(@NonNull LinearLayout rootView,
       @NonNull BottomNavigationView bnvMain, @NonNull FloatingActionButton floatingActionButton,
-      @NonNull Button quoteButton, @NonNull RecyclerView reviewRecycler,
-      @NonNull SearchView searchView, @NonNull Spinner spinner1, @NonNull Spinner spinner2,
-      @NonNull SwipeRefreshLayout swipeRefreshLayout) {
+      @NonNull LinearLayout menubar1, @NonNull TextView nalLo, @NonNull Button quoteButton,
+      @NonNull RecyclerView reviewRecycler, @NonNull SearchView searchView,
+      @NonNull Spinner spinner1, @NonNull Spinner spinner2,
+      @NonNull SwipeRefreshLayout swipeRefreshLayout, @NonNull LinearLayout topLayout) {
     this.rootView = rootView;
     this.bnvMain = bnvMain;
     this.floatingActionButton = floatingActionButton;
+    this.menubar1 = menubar1;
+    this.nalLo = nalLo;
     this.quoteButton = quoteButton;
     this.reviewRecycler = reviewRecycler;
     this.searchView = searchView;
     this.spinner1 = spinner1;
     this.spinner2 = spinner2;
     this.swipeRefreshLayout = swipeRefreshLayout;
+    this.topLayout = topLayout;
   }
 
   @Override
@@ -104,6 +118,18 @@ public final class ActivityReviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.menubar1;
+      LinearLayout menubar1 = ViewBindings.findChildViewById(rootView, id);
+      if (menubar1 == null) {
+        break missingId;
+      }
+
+      id = R.id.nalLo;
+      TextView nalLo = ViewBindings.findChildViewById(rootView, id);
+      if (nalLo == null) {
+        break missingId;
+      }
+
       id = R.id.quoteButton;
       Button quoteButton = ViewBindings.findChildViewById(rootView, id);
       if (quoteButton == null) {
@@ -140,8 +166,15 @@ public final class ActivityReviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.topLayout;
+      LinearLayout topLayout = ViewBindings.findChildViewById(rootView, id);
+      if (topLayout == null) {
+        break missingId;
+      }
+
       return new ActivityReviewBinding((LinearLayout) rootView, bnvMain, floatingActionButton,
-          quoteButton, reviewRecycler, searchView, spinner1, spinner2, swipeRefreshLayout);
+          menubar1, nalLo, quoteButton, reviewRecycler, searchView, spinner1, spinner2,
+          swipeRefreshLayout, topLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

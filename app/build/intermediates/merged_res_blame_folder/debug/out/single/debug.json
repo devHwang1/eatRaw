@@ -76,12 +76,24 @@
         "source": "com.example.eatraw.app-main-65:/drawable/fish.jpg"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_jingjingi.jpg.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/jingjingi.jpg"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_baseline_home_24.xml.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/baseline_home_24.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_add_fish.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/activity_add_fish.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_graph_icon.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/graph_icon.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_jogi_home.jpg.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/jogi_home.jpg"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_loc.png.flat",
@@ -116,6 +128,10 @@
         "source": "com.example.eatraw.app-main-65:/font/extrabold.ttf"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_chamjogi.gif.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/chamjogi.gif"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/xml_data_extraction_rules.xml.flat",
         "source": "com.example.eatraw.app-main-65:/xml/data_extraction_rules.xml"
     },
@@ -126,6 +142,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_login_selector.xml.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/login_selector.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_baseline_dehaze_24.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/baseline_dehaze_24.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_thumb.png.flat",
@@ -156,12 +176,20 @@
         "source": "com.example.eatraw.app-main-65:/layout/fragment_market.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_rounded_top_corners_blue.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/rounded_top_corners_blue.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_default_nallo.jpg.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/default_nallo.jpg"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_detail.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/activity_detail.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_threeline.gif.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/threeline.gif"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_item_review_list.xml.flat",
@@ -194,6 +222,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_splash.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_radiusback.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/radiusback.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_custom_back_ground.xml.flat",
@@ -232,8 +264,16 @@
         "source": "com.example.eatraw.app-main-65:/drawable/google_up_btn.png"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_bottom_shadow.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/bottom_shadow.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_google_del.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/fragment_google_del.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_baseline_star_24.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/baseline_star_24.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_banner1.xml.flat",
@@ -284,16 +324,32 @@
         "source": "com.example.eatraw.app-main-65:/drawable/croaker.jpg"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_rounded_top_corners.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/rounded_top_corners.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_ic_launcher_background.xml.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_jogi_division.jpg.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/jogi_division.jpg"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_home.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/fragment_home.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_backgroundcover.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/backgroundcover.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_password.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/fragment_password.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_chamjogi_head.gif.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/chamjogi_head.gif"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/font_black.ttf.flat",
@@ -364,6 +420,10 @@
         "source": "com.example.eatraw.app-main-65:/layout/activity_register.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_shadow.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/shadow.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_backarrowbtn.xml.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/backarrowbtn.xml"
     },
@@ -388,6 +448,10 @@
         "source": "com.example.eatraw.app-main-65:/drawable/text_edit_box.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_jogi_tail.jpg.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/jogi_tail.jpg"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_reviewstar.png.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/reviewstar.png"
     },
@@ -398,6 +462,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_thumbfill.png.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/thumbfill.png"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_jogi.jpg.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/jogi.jpg"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/menu_popup_menu.xml.flat",
@@ -414,6 +482,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_pragment.jpg.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/pragment.jpg"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_radiusback20.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/radiusback20.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_profil.jpg.flat",
@@ -484,6 +556,10 @@
         "source": "com.example.eatraw.app-main-65:/drawable/yellow_croaker.jpg"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_start.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_start.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_phone.png.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/phone.png"
     },
@@ -496,8 +572,16 @@
         "source": "com.example.eatraw.app-main-65:/layout/content_admin.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_good_border.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/good_border.xml"
+    },
+    {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_cursor_drawble.xml.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/cursor_drawble.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_chamjogi_stomach.jpg.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/chamjogi_stomach.jpg"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_del.xml.flat",
@@ -534,6 +618,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_fish.xml.flat",
         "source": "com.example.eatraw.app-main-65:/layout/fragment_fish.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_top_shadow.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/top_shadow.xml"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_fragment_banner3.xml.flat",
@@ -614,6 +702,10 @@
     {
         "merged": "com.example.eatraw.app-merged_res-63:/drawable_baseline_person_pin_24.xml.flat",
         "source": "com.example.eatraw.app-main-65:/drawable/baseline_person_pin_24.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/drawable_start.jpg.flat",
+        "source": "com.example.eatraw.app-main-65:/drawable/start.jpg"
     },
     {
         "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_main.xml.flat",
