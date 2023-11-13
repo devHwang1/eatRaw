@@ -6,8 +6,11 @@
     import android.view.LayoutInflater
     import android.view.View
     import android.view.ViewGroup
+    import android.widget.AdapterView
+    import android.widget.ArrayAdapter
     import android.widget.Button
     import android.widget.ImageView
+    import android.widget.Spinner
     import android.widget.Toast
     import androidx.appcompat.app.AppCompatActivity
     import androidx.fragment.app.Fragment
@@ -27,6 +30,9 @@
         private lateinit var thumbnail: ImageView
         private lateinit var btnRegister: Button
         private lateinit var nickcheck:Button
+        private lateinit var spinner1: Spinner
+        private lateinit var spinner2: Spinner
+        private val db = FirebaseFirestore.getInstance()
         val storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference
         private var selectedImageUri: Uri? = null
@@ -49,6 +55,9 @@
             thumbnail = binding.thumbnail
             btnRegister = binding.btnRegister
             nickcheck = binding.nickcheck
+            spinner1 = binding.spinner1
+            spinner2 = binding.spinner2
+
             val email = arguments?.getString("email")
             Log.d("NickFragment", "Email: $email")
             thumbnail.setOnClickListener{
@@ -69,8 +78,72 @@
 
                 if(!nickBoolean){
                     Toast.makeText(context, "닉네임을 확인해주세요", Toast.LENGTH_SHORT).show()
+                }else if (spinner2.selectedItem.toString().equals("선택하세요")) {
+                    Toast.makeText(context, "마켓을 선택해주세요", Toast.LENGTH_SHORT).show()
                 }else{
                     uploadImage()
+                }
+            }
+
+            val region = ArrayList<String>()
+            region.add("지역")
+            val spinner1Adapter =
+                context?.let { ArrayAdapter(it, android.R.layout.simple_spinner_item, region) }
+            if (spinner1Adapter != null) {
+                spinner1Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            }
+
+            db.collection("region")
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        val regionName = document.id
+                        region.add(regionName)
+                    }
+                    if (spinner1Adapter != null) {
+                        spinner1Adapter.notifyDataSetChanged()
+                    }
+                    Log.w("REviewActivity성공@@@@@@@^#^#^#^", "에러내용: 성공이요")
+                }
+                .addOnFailureListener { exception ->
+                    Log.w("REviewActivity에러@@@@@@", "에러내용: $exception")
+                }
+
+            spinner1.adapter = spinner1Adapter
+
+            spinner1.setSelection(0, false)
+
+            var markets = ArrayList<String>()
+            val spinner2Adapter =
+                context?.let { ArrayAdapter(it, android.R.layout.simple_spinner_item, markets) }
+            if (spinner2Adapter != null) {
+                spinner2Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            }
+            spinner2.adapter = spinner2Adapter
+
+//스피너 이벤트 핸들링
+            spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    val selectedRegion = region[position]
+                    updateSpinner2(selectedRegion)
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
+
+                private fun updateSpinner2(selectedRegion: String) {
+                    db.collection("region").document(selectedRegion)
+                        .get()
+                        .addOnSuccessListener { document ->
+                            val marketList = document.get("markets") as List<String>
+                            markets.clear()
+                            markets.add("선택하세요")
+                            markets.addAll(marketList)
+                            (spinner2.adapter as ArrayAdapter<String>).notifyDataSetChanged()
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.w("@@@@@@@@@@@@@@@@@씰패", "실패: $exception")
+                        }
                 }
             }
 
@@ -131,7 +204,8 @@
             // Firestore에 사용자 정보 저장
             val user  = hashMapOf<String, Any>(
                 "nickname" to nickname.text.toString(),
-                "imageUrl" to imageUrl
+                "imageUrl" to imageUrl,
+                "likeMarket" to spinner2.selectedItem.toString()
             )
 
             userRef.update(user)
