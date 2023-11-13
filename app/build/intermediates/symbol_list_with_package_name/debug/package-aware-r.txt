@@ -3400,6 +3400,7 @@ id ImageView
 id IntAvg
 id IntMax
 id IntMin
+id LiveCost
 id META
 id MenuFishName
 id NO_DEBUG
@@ -3667,7 +3668,6 @@ id fill_horizontal
 id fill_vertical
 id filled
 id first
-id first_graph
 id fishImg
 id fishName
 id fishNameDetail
