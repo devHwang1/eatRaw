@@ -50,11 +50,6 @@ class ReviewActivity : AppCompatActivity() {
 
 
 
-
-
-
-
-
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         swipeRefreshLayout.setOnRefreshListener {
             // 새로 고침 작업을 수행

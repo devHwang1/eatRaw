@@ -69,7 +69,6 @@ open class ReviewDetailAdapter(private var review : List<Review>, var users:List
         holder.starScore.text = currentReview.rating.toString()
         holder.reviewContent.text = currentReview.content
 
-
 //가격 및 멤버이름
         //멤버이름 , 사진
         user?.imageUrl?.let {

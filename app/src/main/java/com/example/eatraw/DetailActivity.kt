@@ -125,23 +125,24 @@ class DetailActivity : AppCompatActivity() {
 
 
 
+                //몰고기 이름
+                fishKinName.text = "$fishKindIntent"
 
 
-        //몰고기 이름
-        fishKinName.text = "$fishKindIntent"
+                //이미지 설정
+                Glide.with(this)
+                    .load(imageIntent)
+                    .into(Image)
+
+                //이미지 설정(유저)
+                Glide.with(this)
+                    .load(UserimageInten)
+                    .into(userimg)
 
 
-        //이미지 설정
-        Glide.with(this)
-            .load(imageIntent)
-            .into(Image)
+            }
 
-        //이미지 설정(유저)
-        Glide.with(this)
-            .load(UserimageInten)
-            .into(userimg)
+        }
 
 
-    }
 
-}
