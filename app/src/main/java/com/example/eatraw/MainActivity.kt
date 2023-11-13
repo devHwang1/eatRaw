@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var iv1: ImageView
     private lateinit var iv2: ImageView
     private lateinit var iv3: ImageView
-
+    private lateinit var dehaze: ImageView
     private lateinit var viewPager2: ViewPager2
 
     // Firebase Firestore 인스턴스 가져오기
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         iv1 = findViewById(R.id.iv1)
         iv2 = findViewById(R.id.iv2)
         iv3 = findViewById(R.id.iv3)
-
+        dehaze = findViewById(R.id.dehaze)
         val images = listOf(R.drawable.banner1, R.drawable.banner2, R.drawable.banner3)
         val adapterViewPager2Banner = BannerFragmentAdapter(this, images)
         viewPager2.adapter = adapterViewPager2Banner
@@ -268,6 +268,13 @@ class MainActivity : AppCompatActivity() {
         val seeingMoreTextView = findViewById<TextView>(R.id.seeingMore)
         seeingMoreTextView.setOnClickListener {
             val intent = Intent(this, ComparingPriceListActivity::class.java)
+            startActivity(intent)
+        }
+
+
+
+        dehaze.setOnClickListener {
+            val intent = Intent(this, MypageActivity::class.java)
             startActivity(intent)
         }
 
