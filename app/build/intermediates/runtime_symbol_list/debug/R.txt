@@ -3502,7 +3502,6 @@ int id btnDeleteFish 0x7f0a0089
 int id btnDeleteReviewAdmin 0x7f0a008a
 int id btnDeleteUser 0x7f0a008b
 int id btnImage 0x7f0a008c
-int id btnLike 0x7f0a008d
 int id btnRegisterFish 0x7f0a008e
 int id btnReview 0x7f0a008f
 int id btnUpdateUserAdmin 0x7f0a0090
@@ -3714,7 +3713,6 @@ int id left 0x7f0a015d
 int id leftToRight 0x7f0a015e
 int id legacy 0x7f0a015f
 int id light 0x7f0a0160
-int id likeInt 0x7f0a0161
 int id line1 0x7f0a0162
 int id line3 0x7f0a0163
 int id linear 0x7f0a0164

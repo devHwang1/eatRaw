@@ -137,7 +137,6 @@ id btnDeleteFish
 id btnDeleteReviewAdmin
 id btnDeleteUser
 id btnImage
-id btnLike
 id btnRegisterFish
 id btnReview
 id btnUpdateUserAdmin
@@ -208,7 +207,6 @@ id iv1
 id iv2
 id iv3
 id ivImage
-id likeInt
 id logout
 id mImg
 id mName

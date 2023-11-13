@@ -26,7 +26,6 @@ open class ReviewDetailAdapter(private var review : List<Review>, var users:List
         val imageView : ImageView = itemView.findViewById(R.id.Reviewimg)
         val menuFishName : TextView = itemView.findViewById(R.id.MenuFishName)
         val fishPrice : TextView = itemView.findViewById(R.id.StorePriceInt)
-        val likecounter : TextView = itemView.findViewById(R.id.likeInt)
         val starScore: TextView = itemView.findViewById(R.id.mStarsocore)
         val ratingBar : RatingBar = itemView.findViewById(R.id.DratingBar)
         val reviewContent : TextView = itemView.findViewById(R.id.contentView)
@@ -69,7 +68,6 @@ open class ReviewDetailAdapter(private var review : List<Review>, var users:List
         holder.fishPrice.text = currentReview.cost.toString()
         holder.starScore.text = currentReview.rating.toString()
         holder.reviewContent.text = currentReview.content
-        holder.likecounter.text = currentReview.like.toString()
 
 //가격 및 멤버이름
         //멤버이름 , 사진
