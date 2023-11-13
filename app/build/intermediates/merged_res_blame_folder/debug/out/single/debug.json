@@ -8,10 +8,6 @@
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_review.xml"
     },
     {
-        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_comparing_price_list.xml.flat",
-        "source": "com.example.eatraw.app-main-65:/layout/activity_comparing_price_list.xml"
-    },
-    {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\font_light.ttf.flat",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\font\\light.ttf"
     },
@@ -82,6 +78,10 @@
     {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_baseline_person_pin_24.xml.flat",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\baseline_person_pin_24.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_add_fish.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_add_fish.xml"
     },
     {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_line.xml.flat",
@@ -236,8 +236,16 @@
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\recyclerview_review.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_detail.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_detail.xml"
+    },
+    {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_menubar.xml.flat",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\menubar.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_item_review_list.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/item_review_list.xml"
     },
     {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_banner2.png.flat",
@@ -388,6 +396,10 @@
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\custom_background.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_detail_box.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_detail_box.xml"
+    },
+    {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
@@ -516,6 +528,10 @@
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_review.xml"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_update_fish.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_update_fish.xml"
+    },
+    {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_radiusback20.xml.flat",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\radiusback20.xml"
     },
@@ -572,10 +588,6 @@
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\fish_column.gif"
     },
     {
-        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_comparing_price_detail.xml.flat",
-        "source": "com.example.eatraw.app-main-65:/layout/activity_comparing_price_detail.xml"
-    },
-    {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_info.png.flat",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\info.png"
     },
@@ -604,12 +616,12 @@
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\font\\medium.ttf"
     },
     {
-        "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_fragment_center.xml.flat",
-        "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_center.xml"
-    },
-    {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_activity_comparing_price_detail.xml.flat",
         "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_comparing_price_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_fragment_center.xml.flat",
+        "source": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_center.xml"
     },
     {
         "merged": "C:\\Users\\pys10\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_item_review_list.xml.flat",
