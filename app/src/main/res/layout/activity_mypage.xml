@@ -113,6 +113,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/my_modify" />
 
         </LinearLayout>
@@ -121,9 +123,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -138,6 +140,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/my_review" />
 
         </LinearLayout>
@@ -146,9 +150,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,6 +167,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/my_alarm" />
 
         </LinearLayout>
@@ -171,9 +177,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -188,6 +194,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/my_center" />
 
         </LinearLayout>
@@ -196,9 +204,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -213,6 +221,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/logout" />
 
 
@@ -223,9 +233,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line"/>
 
         <!--관리자페이지-->
         <LinearLayout
@@ -241,6 +251,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/admin" />
         </LinearLayout>
 

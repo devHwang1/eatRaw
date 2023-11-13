@@ -31,7 +31,7 @@ class BestReviewAdapter(private val bestReviews: List<Review>) :
     class BestReviewViewHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.reviewImage)
         val textView: TextView = itemView.findViewById(R.id.reviewRating)
-        val textViewMarket: TextView = itemView.findViewById(R.id.reviewMarketname)
+        val textViewStore: TextView = itemView.findViewById(R.id.reviewStorename)
         val textViewFishkind: TextView = itemView.findViewById(R.id.reviewFishkind)
 
         // ViewHolder 안에 데이터를 표시할 View 선언
@@ -91,7 +91,7 @@ class BestReviewAdapter(private val bestReviews: List<Review>) :
         }
 
         holder.textView.text = review.rating?.toString() ?: "기본값"
-        holder.textViewMarket.text = review.marketName ?: "기본값"
+        holder.textViewStore.text = review.storeName ?: "기본값"
         holder.textViewFishkind.text = review.fishKind?.toString() ?: "기본값"
 
         holder.itemView.setOnClickListener {

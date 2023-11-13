@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.eatraw.databinding.ActivityDetailBoxBinding
 import com.google.firebase.firestore.DocumentSnapshot
@@ -79,8 +80,10 @@ class DetailActivity : AppCompatActivity() {
                     if (fishAvg != null) {
                         if (menuCostIntent < fishAvg.toInt()) {
                             menuCostTextView.text = "가격이 평균보다 낮습니다."
+                            menuCostTextView.setTextColor(ContextCompat.getColor(this, R.color.blue)) //색변경
                         } else if (menuCostIntent > fishAvg.toInt()) {
                             menuCostTextView.text = "가격이 평균보다 높습니다."
+                            menuCostTextView.setTextColor(ContextCompat.getColor(this, R.color.red)) //색변경
                         } else {
                             menuCostTextView.text = "가격이 평균과 같습니다."
                         }
@@ -138,7 +141,7 @@ class DetailActivity : AppCompatActivity() {
             .load(UserimageInten)
             .into(userimg)
 
+
     }
 
 }
-

@@ -3400,6 +3400,7 @@ id ImageView
 id IntAvg
 id IntMax
 id IntMin
+id LiveCost
 id META
 id MenuFishName
 id NO_DEBUG
@@ -3534,7 +3535,6 @@ id btnDeleteFish
 id btnDeleteReviewAdmin
 id btnDeleteUser
 id btnImage
-id btnLike
 id btnRegisterFish
 id btnReview
 id btnUpdateFish
@@ -3668,7 +3668,6 @@ id fill_horizontal
 id fill_vertical
 id filled
 id first
-id first_graph
 id fishImg
 id fishName
 id fishNameDetail
@@ -3743,7 +3742,6 @@ id left
 id leftToRight
 id legacy
 id light
-id likeInt
 id line1
 id line3
 id linear
@@ -3952,13 +3950,13 @@ id reviewContentAdmin
 id reviewFishkind
 id reviewImage
 id reviewImageAdmin
-id reviewMarketname
 id reviewRating
 id reviewRecycler
 id reviewSearchbar
 id reviewStar
 id reviewStarAdmin
 id reviewStoreNameAdmin
+id reviewStorename
 id right
 id rightToLeft
 id right_icon

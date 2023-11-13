@@ -7,6 +7,7 @@ data class Users(
     val aouthLogin: Boolean,
     var admin: Boolean,
     val imageUrl: String?,
-    val userId: String
+    val userId: String,
+    val likeMarket: String?
 )
 

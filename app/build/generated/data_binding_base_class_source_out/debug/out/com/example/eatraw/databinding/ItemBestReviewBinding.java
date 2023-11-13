@@ -30,20 +30,20 @@ public final class ItemBestReviewBinding implements ViewBinding {
   public final ImageView reviewImage;
 
   @NonNull
-  public final TextView reviewMarketname;
+  public final TextView reviewRating;
 
   @NonNull
-  public final TextView reviewRating;
+  public final TextView reviewStorename;
 
   private ItemBestReviewBinding(@NonNull FrameLayout rootView, @NonNull View backgroundcover,
       @NonNull TextView reviewFishkind, @NonNull ImageView reviewImage,
-      @NonNull TextView reviewMarketname, @NonNull TextView reviewRating) {
+      @NonNull TextView reviewRating, @NonNull TextView reviewStorename) {
     this.rootView = rootView;
     this.backgroundcover = backgroundcover;
     this.reviewFishkind = reviewFishkind;
     this.reviewImage = reviewImage;
-    this.reviewMarketname = reviewMarketname;
     this.reviewRating = reviewRating;
+    this.reviewStorename = reviewStorename;
   }
 
   @Override
@@ -91,20 +91,20 @@ public final class ItemBestReviewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.reviewMarketname;
-      TextView reviewMarketname = ViewBindings.findChildViewById(rootView, id);
-      if (reviewMarketname == null) {
-        break missingId;
-      }
-
       id = R.id.reviewRating;
       TextView reviewRating = ViewBindings.findChildViewById(rootView, id);
       if (reviewRating == null) {
         break missingId;
       }
 
+      id = R.id.reviewStorename;
+      TextView reviewStorename = ViewBindings.findChildViewById(rootView, id);
+      if (reviewStorename == null) {
+        break missingId;
+      }
+
       return new ItemBestReviewBinding((FrameLayout) rootView, backgroundcover, reviewFishkind,
-          reviewImage, reviewMarketname, reviewRating);
+          reviewImage, reviewRating, reviewStorename);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -328,10 +328,6 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\clock.png"
     },
     {
-        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_banner3.xml.flat",
-        "source": "com.example.eatraw.app-main-65:/layout/activity_banner3.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
@@ -504,6 +500,10 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\reviewstar.png"
     },
     {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_item_best_review.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/item_best_review.xml"
+    },
+    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\font_thin.ttf.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\font\\thin.ttf"
     },
@@ -620,10 +620,6 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_review_list.xml"
     },
     {
-        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_banner2.xml.flat",
-        "source": "com.example.eatraw.app-main-65:/layout/activity_banner2.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\font_bold.ttf.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\font\\bold.ttf"
     },
@@ -710,10 +706,6 @@
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_test_image.jpg.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\test_image.jpg"
-    },
-    {
-        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_main.xml.flat",
-        "source": "com.example.eatraw.app-main-65:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_map_modal.xml.flat",

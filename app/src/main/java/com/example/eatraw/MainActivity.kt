@@ -1,5 +1,6 @@
 package com.example.eatraw
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +23,8 @@ import com.example.eatraw.adapter.BestReviewAdapter
 import com.example.eatraw.adapter.ComparingPriceAdapter
 import com.example.eatraw.data.ComparingPriceItem
 import com.example.eatraw.data.Review
+import com.example.eatraw.mypagefrg.ModifyFragment
+import com.example.eatraw.mypagefrg.PasswordFragment
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -40,6 +44,7 @@ import java.util.TimerTask
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var liveCost : LinearLayout
     private lateinit var button: Button
     private lateinit var textView: TextView
     private var user: FirebaseUser? = null
@@ -68,9 +73,11 @@ class MainActivity : AppCompatActivity() {
         // 추가적인 ComparingPriceItem 인스턴스와 생선 이름, 가격을 추가하세요.
     )
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        liveCost = findViewById(R.id.LiveCost)
         barChart = findViewById(R.id.barChart)
         viewPager2 = findViewById(R.id.view_pager2_banner)
         textViewq = findViewById(R.id.textViewq)
@@ -84,6 +91,19 @@ class MainActivity : AppCompatActivity() {
 
         val handler = Handler(Looper.getMainLooper())
         val timer = Timer()
+        val db  = FirebaseFirestore.getInstance()
+
+        liveCost.setOnClickListener {
+            // Firebase Authentication을 사용한다고 가정
+            val user = FirebaseAuth.getInstance().currentUser
+            if (user != null) {
+                val userId = user.uid
+                Log.d("유저아이디에 대해알아봅시다", "$userId")
+                getUserInfo(userId)
+            } else {
+                Log.d("유저아이디에 대해알아봅시다", "안되는중입니다")
+            }
+        }
 
         // 일정 시간 간격으로 페이지를 변경
         timer.scheduleAtFixedRate(object : TimerTask() {
@@ -288,6 +308,30 @@ class MainActivity : AppCompatActivity() {
         // 최신 리뷰
 //        fetchLatestReviews()
 
+    }
+
+    val db  = FirebaseFirestore.getInstance()
+    fun getUserInfo(userId: String) {
+        val docRef = db.collection("users").document(userId)
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val likeMarket = document.getString("likeMarket")
+                    if (likeMarket != null) {
+                        // likeMarket이 null이 아니면 QuoteActivity로 전달
+                        val intent = Intent(this, QuoteActivity::class.java)
+                        intent.putExtra("likeMarket", likeMarket)
+                        startActivity(intent)
+                    } else {
+                        println("문서에 'likeMarket' 필드가 없습니다")
+                    }
+                } else {
+                    println("해당 문서가 없습니다")
+                }
+            }
+            .addOnFailureListener { exception ->
+                println("문서를 가져오는 중 오류가 발생했습니다: $exception")
+            }
     }
 
     fun changeColor() {

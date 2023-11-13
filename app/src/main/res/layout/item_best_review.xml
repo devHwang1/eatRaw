@@ -26,7 +26,7 @@
             android:background="@drawable/backgroundcover" />
 
         <TextView
-            android:id="@+id/reviewMarketname"
+            android:id="@+id/reviewStorename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"

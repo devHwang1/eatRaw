@@ -59,9 +59,10 @@ class UsersFragment : Fragment() {
                     val admin = document.getBoolean("admin") ?: false
                     val imageUrl = document.getString("imageUrl")
                     val userId = document.getString("userId")
+                    val likeMarket = document.getString("likeMarket")
                     if (email != null && nickname != null) {
                         val user =
-                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "")
+                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "",likeMarket = "")
                         usersList.add(user)
                     }
                 }
@@ -129,7 +130,8 @@ class UsersFragment : Fragment() {
                                 aouthLogin,
                                 admin,
                                 imageUrl ?: "",
-                                userId = ""
+                                userId = "",
+                                likeMarket = ""
                             )
                             searchResult.add(user)
                         }
@@ -162,7 +164,7 @@ class UsersFragment : Fragment() {
                     val userId = document.getString("userId")
                     if (email != null && nickname != null) {
                         val user =
-                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "")
+                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "",likeMarket = "")
                         usersList.add(user)
                     }
                 }
