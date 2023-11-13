@@ -43,6 +43,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final CardView cardView2;
 
   @NonNull
+  public final ImageView dehaze;
+
+  @NonNull
   public final TextView editStoreName;
 
   @NonNull
@@ -104,7 +107,7 @@ public final class ActivityMainBinding implements ViewBinding {
 
   private ActivityMainBinding(@NonNull RelativeLayout rootView, @NonNull LinearLayout LiveCost,
       @NonNull BarChart barChart, @NonNull BottomNavigationView bnvMain, @NonNull CardView cardView,
-      @NonNull CardView cardView2, @NonNull TextView editStoreName,
+      @NonNull CardView cardView2, @NonNull ImageView dehaze, @NonNull TextView editStoreName,
       @NonNull TextView editStoreName2, @NonNull ImageView graphIcon,
       @NonNull LinearLayout graphLayout, @NonNull ImageView iv1, @NonNull ImageView iv2,
       @NonNull ImageView iv3, @NonNull ImageView menuSend, @NonNull LinearLayout menubar1,
@@ -119,6 +122,7 @@ public final class ActivityMainBinding implements ViewBinding {
     this.bnvMain = bnvMain;
     this.cardView = cardView;
     this.cardView2 = cardView2;
+    this.dehaze = dehaze;
     this.editStoreName = editStoreName;
     this.editStoreName2 = editStoreName2;
     this.graphIcon = graphIcon;
@@ -195,6 +199,12 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.cardView2;
       CardView cardView2 = ViewBindings.findChildViewById(rootView, id);
       if (cardView2 == null) {
+        break missingId;
+      }
+
+      id = R.id.dehaze;
+      ImageView dehaze = ViewBindings.findChildViewById(rootView, id);
+      if (dehaze == null) {
         break missingId;
       }
 
@@ -319,8 +329,8 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((RelativeLayout) rootView, LiveCost, barChart, bnvMain,
-          cardView, cardView2, editStoreName, editStoreName2, graphIcon, graphLayout, iv1, iv2, iv3,
-          menuSend, menubar1, nalLo, randomFishImage, randomFishName, randomFishPrice,
+          cardView, cardView2, dehaze, editStoreName, editStoreName2, graphIcon, graphLayout, iv1,
+          iv2, iv3, menuSend, menubar1, nalLo, randomFishImage, randomFishName, randomFishPrice,
           recyclerViewBestReview, recyclerViewComparingPrice, seeingMore, spinner, textViewq,
           topLayout, viewPager2Banner);
     }

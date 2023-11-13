@@ -193,6 +193,7 @@ id center
 id centerFragment
 id contentTextView
 id contentView
+id dehaze
 id detailRecylerView
 id drawer_layout
 id drop_detail
