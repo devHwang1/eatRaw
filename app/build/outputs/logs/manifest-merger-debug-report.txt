@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:2:1-91:12
-INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:2:1-91:12
-INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:2:1-91:12
-INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:2:1-91:12
+ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:2:1-96:12
+INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:2:1-96:12
+INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:2:1-96:12
+INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:2:1-96:12
 MERGED from [androidx.databinding:databinding-adapters:8.1.2] C:\Users\admin\.gradle\caches\transforms-3\94964fcbff01bf2a118327f5ad8b09ac\transformed\databinding-adapters-8.1.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-ktx:8.1.2] C:\Users\admin\.gradle\caches\transforms-3\3dfa9e52a7d92043b95ab5228a080275\transformed\jetified-databinding-ktx-8.1.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-runtime:8.1.2] C:\Users\admin\.gradle\caches\transforms-3\8a577f87d0fb39e5da1bc84eabe45ab2\transformed\databinding-runtime-8.1.2\AndroidManifest.xml:2:1-7:12
@@ -164,8 +164,8 @@ ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:8:5-81
 	android:name
 		ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:8:22-78
 application
-ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:11:5-89:19
-INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:11:5-89:19
+ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:11:5-94:19
+INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:11:5-94:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\admin\.gradle\caches\transforms-3\29a624b9ad7b9258285fa04ebeed112a\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\admin\.gradle\caches\transforms-3\29a624b9ad7b9258285fa04ebeed112a\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\admin\.gradle\caches\transforms-3\5fea52b18059ce909f7e42096733282d\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -383,12 +383,12 @@ ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:77:9-79:40
 		ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:79:13-37
 	android:name
 		ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:78:13-42
-activity#com.example.eatraw.MainActivity
+activity#com.example.eatraw.StartActivity
 ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:80:9-88:20
 	android:exported
 		ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:82:13-36
 	android:name
-		ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:81:13-41
+		ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:81:13-42
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:83:13-87:29
 action#android.intent.action.MAIN
@@ -399,6 +399,12 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:86:17-77
 	android:name
 		ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:86:27-74
+activity#com.example.eatraw.MainActivity
+ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:89:9-93:20
+	android:exported
+		ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:91:13-36
+	android:name
+		ADDED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml:90:13-41
 uses-sdk
 INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\workspace\eatRaw\app\src\main\AndroidManifest.xml
