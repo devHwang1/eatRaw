@@ -488,10 +488,6 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\menu\\navi_menu.xml"
     },
     {
-        "merged": "com.example.eatraw.app-merged_res-63:/layout_recyclerview_review.xml.flat",
-        "source": "com.example.eatraw.app-main-65:/layout/recyclerview_review.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_fragment_home.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_home.xml"
     },
@@ -706,6 +702,10 @@
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_test_image.jpg.flat",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\test_image.jpg"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_main.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_map_modal.xml.flat",

@@ -68,7 +68,7 @@
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/view_pager2_banner"
                         android:layout_width="match_parent"
-                        android:layout_height="220dp" />
+                        android:layout_height="180dp" />
 
 
                 </FrameLayout>
@@ -146,13 +146,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="180dp"
                     android:background="@drawable/rounded_top_corners"
                     android:elevation="12dp"
                     android:orientation="vertical">

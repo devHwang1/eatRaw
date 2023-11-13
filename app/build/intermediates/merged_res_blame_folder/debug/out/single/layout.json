@@ -8,12 +8,12 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_dropdown.xml"
     },
     {
-        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\item_best_review.xml",
-        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_best_review.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_admin.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\item_best_review.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_best_review.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_quote.xml",
@@ -84,12 +84,12 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_banner.xml"
     },
     {
-        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_password.xml",
-        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_password.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_main.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_password.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_password.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\item_users_list.xml",
@@ -168,12 +168,12 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_review_list.xml"
     },
     {
-        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\item_review_admin_list.xml",
-        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_review_admin_list.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\item_comparing_price.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_comparing_price.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\item_review_admin_list.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_review_admin_list.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_comparing_price_detail.xml",
@@ -192,8 +192,8 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_banner2.xml"
     },
     {
-        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/recyclerview_review.xml",
-        "source": "com.example.eatraw.app-main-65:/layout/recyclerview_review.xml"
+        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/activity_main.xml",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_review.xml",
