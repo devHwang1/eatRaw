@@ -88,28 +88,26 @@ class FishAdapter(
                 // Intent를 사용하여 수정 페이지로 이동
                 val intent = Intent(context, UpdateFishActivity::class.java)
 
-                // 정보를 번들에 담아서 전달
-                val bundle = Bundle()
-                bundle.putString("fishName", fish.fishName)
-                bundle.putLong("minCost", fish.minCost)
-                bundle.putLong("avgCost", fish.avgCost)
-                bundle.putLong("maxCost", fish.maxCost)
-                bundle.putString("fishImg", fish.fishImg)
-                bundle.putString("season", fish.season)
+                // 정보를 Intent에 추가
+                intent.putExtra("fishName", fish.fishName)
+                intent.putExtra("minCost", fish.minCost)
+                intent.putExtra("avgCost", fish.avgCost)
+                intent.putExtra("maxCost", fish.maxCost)
+                intent.putExtra("fishImg", fish.fishImg)
+                intent.putExtra("season", fish.season)
 
-                // Firestore에서 해당 물고기의 문서 ID를 가져와서 번들에 추가
+                // Firestore에서 해당 물고기의 문서 ID를 가져와서 Intent에 추가
                 val documentId = getDocumentIdForFish(fish)
                 if (documentId != null) {
-                    bundle.putString("documentId", documentId)  // 문서 ID를 번들에 추가
+                    intent.putExtra("documentId", documentId)  // 문서 ID를 Intent에 추가
                     val documentData = getDocumentDataForFish(documentId)
-                    bundle.putSerializable("fishDocumentData", documentData)
+                    intent.putExtra("fishDocumentData", documentData)
                 }
-
-                intent.putExtras(bundle)
 
                 // 수정 페이지로 이동
                 context.startActivity(intent)
             }
+
         }
 
         fun bind(fish: ComparingPriceItem) {

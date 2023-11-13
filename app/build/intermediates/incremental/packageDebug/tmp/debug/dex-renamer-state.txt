@@ -1,20 +1,20 @@
-#Fri Nov 10 19:36:18 KST 2023
-base.0=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.10=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
-base.11=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
-base.12=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
-base.13=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
-base.14=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.15=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
-base.2=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
-base.3=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
-base.4=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
-base.5=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
-base.6=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
-base.7=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
-base.8=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.9=C\:\\workspace\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
+#Mon Nov 13 22:25:54 KST 2023
+base.0=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.10=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.11=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
+base.12=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+base.13=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
+base.14=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.15=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
+base.2=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
+base.3=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
+base.4=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
+base.5=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
+base.6=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
+base.7=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
+base.8=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.9=C\:\\sjl\\Project\\eatRaw\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.10=5/classes.dex

@@ -92,7 +92,7 @@ class MypageActivity : AppCompatActivity() {
         TextView = findViewById(R.id.logout)
         TextView.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(applicationContext, LoginActivity::class.java)
+            val intent = Intent(applicationContext, StartActivity::class.java)
             startActivity(intent)
             finish()
         }

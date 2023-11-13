@@ -59,9 +59,13 @@ class UsersFragment : Fragment() {
                     val admin = document.getBoolean("admin") ?: false
                     val imageUrl = document.getString("imageUrl")
                     val userId = document.getString("userId")
+                    val likeMarket = document.getString("likeMarket") // 이 부분이 "선호 시장" 정보를 가져오는 부분입니다.
+
                     if (email != null && nickname != null) {
-                        val user =
-                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "")
+                        val user = Users(
+                            email, nickname, aouthLogin, admin,
+                            imageUrl ?: "", userId = "", likeMarket = likeMarket
+                        )
                         usersList.add(user)
                     }
                 }
@@ -73,6 +77,7 @@ class UsersFragment : Fragment() {
                 // 데이터 가져오기 실패 시 처리
                 Log.e("FirestoreError", "Error getting documents: ", exception)
             }
+
 
         // 검색창 초기화
         val searchView = binding.userSearchbar
@@ -122,6 +127,7 @@ class UsersFragment : Fragment() {
                         val admin = document.getBoolean("admin") ?: false
                         val imageUrl = document.getString("imageUrl")
                         val userId = document.getString("userId")
+                        val likeMarket = document.getString("likeMarket")
                         if (email != null && nickname != null) {
                             val user = Users(
                                 email,
@@ -129,7 +135,8 @@ class UsersFragment : Fragment() {
                                 aouthLogin,
                                 admin,
                                 imageUrl ?: "",
-                                userId = ""
+                                userId = "",
+                                likeMarket = likeMarket
                             )
                             searchResult.add(user)
                         }
@@ -160,9 +167,13 @@ class UsersFragment : Fragment() {
                     val admin = document.getBoolean("admin") ?: false
                     val imageUrl = document.getString("imageUrl")
                     val userId = document.getString("userId")
+                    val likeMarket = document.getString("likeMarket") // 이 부분이 "선호 시장" 정보를 가져오는 부분입니다.
+
                     if (email != null && nickname != null) {
-                        val user =
-                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "")
+                        val user = Users(
+                            email, nickname, aouthLogin, admin,
+                            imageUrl ?: "", userId = "", likeMarket = likeMarket
+                        )
                         usersList.add(user)
                     }
                 }

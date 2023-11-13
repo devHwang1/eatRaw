@@ -103,7 +103,7 @@ class RegisterActivity : AppCompatActivity() {
 
                         val user = currentUser?.let { it -> Users(email, nickname ="", aouthLogin = false,
                             admin = false,
-                            imageUrl ="", userId = it.uid) } // 사용자 정보 생성
+                            imageUrl ="", userId = it.uid,likeMarket = null) } // 사용자 정보 생성
 
                         // 또는 Cloud Firestore에 사용자 정보 저장
                         if (currentUser != null) {
@@ -187,7 +187,7 @@ class RegisterActivity : AppCompatActivity() {
                         val user = currentUser?.let { Users(account?.email!!, nickname ="",
                             aouthLogin = true,
                             admin = false,
-                            imageUrl ="", userId = it.uid) } // 사용자 정보 생성
+                            imageUrl ="", userId = it.uid,likeMarket = null) } // 사용자 정보 생성
 
 
                         // 또는 Cloud Firestore에 사용자 정보 저장

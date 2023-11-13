@@ -31,10 +31,8 @@ class BestReviewAdapter(private val bestReviews: List<Review>) :
     class BestReviewViewHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.reviewImage)
         val textView: TextView = itemView.findViewById(R.id.reviewRating)
-//        val reviewContent: TextView = itemView.findViewById(R.id.reviewContent)
-//        val button1: TextView = itemView.findViewById(R.id.button1)
-//        val storeName: TextView = itemView.findViewById(R.id.storeName)
-//        val map: LinearLayout = itemView.findViewById(R.id.map)
+        val textViewStore: TextView = itemView.findViewById(R.id.reviewStorename)
+        val textViewFishkind: TextView = itemView.findViewById(R.id.reviewFishkind)
 
         // ViewHolder 안에 데이터를 표시할 View 선언
         lateinit var address: String
@@ -92,23 +90,9 @@ class BestReviewAdapter(private val bestReviews: List<Review>) :
                 .into(holder.imageView)
         }
 
-        holder.textView.text = review.rating?.toString() ?: "N/A"
-//        holder.reviewContent.text = review.content
-//        holder.button1.text = review.marketName
-//        holder.storeName.text = review.storeName
-
-        // map 뷰 클릭 리스너 설정
-//        holder.map.setOnClickListener {
-//            showMapModal(
-//                holder.itemView.context,
-//                holder.address,
-//                holder.tel,
-//                holder.open,
-//                holder.content,
-//                holder.dbLatitude,
-//                holder.dbLongitude
-//            )
-//        }
+        holder.textView.text = review.rating?.toString() ?: "기본값"
+        holder.textViewStore.text = review.storeName ?: "기본값"
+        holder.textViewFishkind.text = review.fishKind?.toString() ?: "기본값"
 
         holder.itemView.setOnClickListener {
             val review = bestReviews[position]
@@ -134,7 +118,6 @@ class BestReviewAdapter(private val bestReviews: List<Review>) :
 
                         intent.putExtra("userNickname", userNicName)
                         intent.putExtra("userImage", userImage)
-                        holder.itemView.context.startActivity(intent)
                     } else {
                         holder.itemView.context.startActivity(intent)
                     }

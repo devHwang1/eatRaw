@@ -2185,6 +2185,7 @@ color navermap_scale_bar_text_dark
 color navermap_scale_bar_text_light
 color notification_action_color_filter
 color notification_icon_bg_color
+color opgray
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -3106,13 +3107,17 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable backarrow
 drawable backarrowbtn
+drawable backgroundcover
 drawable banner1
 drawable banner2
 drawable banner3
+drawable baseline_dehaze_24
 drawable baseline_home_24
 drawable baseline_person_pin_24
 drawable baseline_reviews_24
 drawable baseline_show_chart_24
+drawable baseline_star_24
+drawable bottom_shadow
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3121,6 +3126,9 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable chamjogi
+drawable chamjogi_head
+drawable chamjogi_stomach
 drawable check_button
 drawable clip
 drawable clock
@@ -3159,11 +3167,13 @@ drawable fish
 drawable fish_column
 drawable fisherman
 drawable fishpicture
+drawable good_border
 drawable google
 drawable google_in_btn
 drawable google_up_btn
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable graph_icon
 drawable gray_ellipse
 drawable group_1
 drawable group_40
@@ -3196,6 +3206,11 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable image_radius
 drawable info
+drawable jingjingi
+drawable jogi
+drawable jogi_division
+drawable jogi_home
+drawable jogi_tail
 drawable kakao_login_medium_narrow
 drawable kakao_login_medium_wide
 drawable kakao_login_up_wide
@@ -3336,6 +3351,8 @@ drawable november_2fish
 drawable phone
 drawable pragment
 drawable profil
+drawable radiusback
+drawable radiusback20
 drawable raiting_empty
 drawable raitingbar_filled
 drawable ratingbar_custom
@@ -3343,18 +3360,24 @@ drawable review1
 drawable review2
 drawable review_border
 drawable reviewstar
+drawable rounded_top_corners
+drawable rounded_top_corners_blue
 drawable search_border
+drawable shadow
 drawable side_nav_bar
 drawable star
 drawable starfill
+drawable start
 drawable test_image
 drawable test_level_drawable
 drawable text_edit_box
 drawable text_radius
+drawable threeline
 drawable thumb
 drawable thumbfill
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable top_shadow
 drawable yellow_croaker
 drawable yellow_star
 font black
@@ -3377,6 +3400,7 @@ id ImageView
 id IntAvg
 id IntMax
 id IntMin
+id LiveCost
 id META
 id MenuFishName
 id NO_DEBUG
@@ -3463,6 +3487,7 @@ id admin
 id adminHome
 id alarm
 id alarmFragment
+id alarm_switch
 id alertTitle
 id aligned
 id all
@@ -3482,6 +3507,8 @@ id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id backButton
+id backgroundImageView
+id backgroundcover
 id bannerImage
 id barChart
 id barrier
@@ -3490,6 +3517,7 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id bnv_m
 id bnv_main
 id bottom
 id bounce
@@ -3508,7 +3536,6 @@ id btnDeleteFish
 id btnDeleteReviewAdmin
 id btnDeleteUser
 id btnImage
-id btnLike
 id btnRegisterFish
 id btnReview
 id btnUpdateFish
@@ -3578,6 +3605,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id dehaze
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -3672,6 +3700,8 @@ id gone
 id google_login
 id google_rg_login
 id graph
+id graph_icon
+id graph_layout
 id graph_wrap
 id group_divider
 id grouping
@@ -3714,7 +3744,7 @@ id left
 id leftToRight
 id legacy
 id light
-id likeInt
+id likeMarket
 id line1
 id line3
 id linear
@@ -3920,6 +3950,7 @@ id report_drawn
 id reverseSawtooth
 id reviewContent
 id reviewContentAdmin
+id reviewFishkind
 id reviewImage
 id reviewImageAdmin
 id reviewRating
@@ -3928,6 +3959,7 @@ id reviewSearchbar
 id reviewStar
 id reviewStarAdmin
 id reviewStoreNameAdmin
+id reviewStorename
 id right
 id rightToLeft
 id right_icon
@@ -4000,6 +4032,7 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
+id startbutton
 id staticLayout
 id staticPostLayout
 id stop
@@ -4037,6 +4070,9 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView2
+id textView3
+id textView4
 id textViewq
 id textWatcher
 id text_input_end_icon
@@ -4232,6 +4268,7 @@ layout activity_quote
 layout activity_register
 layout activity_review
 layout activity_splash
+layout activity_start
 layout activity_test
 layout activity_update_fish
 layout activity_write

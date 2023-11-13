@@ -46,11 +46,21 @@ public final class ActivityComparingPriceDetailBinding implements ViewBinding {
   @NonNull
   public final ImageView imgBackarrow;
 
+  @NonNull
+  public final LinearLayout menubar1;
+
+  @NonNull
+  public final TextView nalLo;
+
+  @NonNull
+  public final LinearLayout topLayout;
+
   private ActivityComparingPriceDetailBinding(@NonNull LinearLayout rootView,
       @NonNull BottomNavigationView bnvMain, @NonNull Button btnBuyReview,
       @NonNull ImageView fishImg, @NonNull TextView fishNameDetail, @NonNull TextView fishPriceAvg,
       @NonNull TextView fishPriceMax, @NonNull TextView fishPriceMin,
-      @NonNull ImageView imgBackarrow) {
+      @NonNull ImageView imgBackarrow, @NonNull LinearLayout menubar1, @NonNull TextView nalLo,
+      @NonNull LinearLayout topLayout) {
     this.rootView = rootView;
     this.bnvMain = bnvMain;
     this.btnBuyReview = btnBuyReview;
@@ -60,6 +70,9 @@ public final class ActivityComparingPriceDetailBinding implements ViewBinding {
     this.fishPriceMax = fishPriceMax;
     this.fishPriceMin = fishPriceMin;
     this.imgBackarrow = imgBackarrow;
+    this.menubar1 = menubar1;
+    this.nalLo = nalLo;
+    this.topLayout = topLayout;
   }
 
   @Override
@@ -137,8 +150,27 @@ public final class ActivityComparingPriceDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.menubar1;
+      LinearLayout menubar1 = ViewBindings.findChildViewById(rootView, id);
+      if (menubar1 == null) {
+        break missingId;
+      }
+
+      id = R.id.nalLo;
+      TextView nalLo = ViewBindings.findChildViewById(rootView, id);
+      if (nalLo == null) {
+        break missingId;
+      }
+
+      id = R.id.topLayout;
+      LinearLayout topLayout = ViewBindings.findChildViewById(rootView, id);
+      if (topLayout == null) {
+        break missingId;
+      }
+
       return new ActivityComparingPriceDetailBinding((LinearLayout) rootView, bnvMain, btnBuyReview,
-          fishImg, fishNameDetail, fishPriceAvg, fishPriceMax, fishPriceMin, imgBackarrow);
+          fishImg, fishNameDetail, fishPriceAvg, fishPriceMax, fishPriceMin, imgBackarrow, menubar1,
+          nalLo, topLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

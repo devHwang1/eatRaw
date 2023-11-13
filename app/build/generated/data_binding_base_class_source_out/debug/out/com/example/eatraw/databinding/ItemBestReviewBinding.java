@@ -21,16 +21,29 @@ public final class ItemBestReviewBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final View backgroundcover;
+
+  @NonNull
+  public final TextView reviewFishkind;
+
+  @NonNull
   public final ImageView reviewImage;
 
   @NonNull
   public final TextView reviewRating;
 
-  private ItemBestReviewBinding(@NonNull FrameLayout rootView, @NonNull ImageView reviewImage,
-      @NonNull TextView reviewRating) {
+  @NonNull
+  public final TextView reviewStorename;
+
+  private ItemBestReviewBinding(@NonNull FrameLayout rootView, @NonNull View backgroundcover,
+      @NonNull TextView reviewFishkind, @NonNull ImageView reviewImage,
+      @NonNull TextView reviewRating, @NonNull TextView reviewStorename) {
     this.rootView = rootView;
+    this.backgroundcover = backgroundcover;
+    this.reviewFishkind = reviewFishkind;
     this.reviewImage = reviewImage;
     this.reviewRating = reviewRating;
+    this.reviewStorename = reviewStorename;
   }
 
   @Override
@@ -60,6 +73,18 @@ public final class ItemBestReviewBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.backgroundcover;
+      View backgroundcover = ViewBindings.findChildViewById(rootView, id);
+      if (backgroundcover == null) {
+        break missingId;
+      }
+
+      id = R.id.reviewFishkind;
+      TextView reviewFishkind = ViewBindings.findChildViewById(rootView, id);
+      if (reviewFishkind == null) {
+        break missingId;
+      }
+
       id = R.id.reviewImage;
       ImageView reviewImage = ViewBindings.findChildViewById(rootView, id);
       if (reviewImage == null) {
@@ -72,7 +97,14 @@ public final class ItemBestReviewBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemBestReviewBinding((FrameLayout) rootView, reviewImage, reviewRating);
+      id = R.id.reviewStorename;
+      TextView reviewStorename = ViewBindings.findChildViewById(rootView, id);
+      if (reviewStorename == null) {
+        break missingId;
+      }
+
+      return new ItemBestReviewBinding((FrameLayout) rootView, backgroundcover, reviewFishkind,
+          reviewImage, reviewRating, reviewStorename);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

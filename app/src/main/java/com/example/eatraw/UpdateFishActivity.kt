@@ -63,25 +63,27 @@ class UpdateFishActivity : AppCompatActivity() {
             openImageChooser()
         }
 
-        // onCreate 함수 내에서 documentData를 받아오기
+        // UpdateFishActivity의 onCreate 함수 내에서 데이터 받아오기
         val intent = intent
         if (intent != null && intent.extras != null) {
-            val bundle = intent.extras!!
-            existingFishName = bundle.getString("fishName", "")
-            existingFishImg = bundle.getString("fishImg", "")
-            existingMinCost = bundle.getLong("minCost", 0)
-            existingAvgCost = bundle.getLong("avgCost", 0)
-            existingMaxCost = bundle.getLong("maxCost", 0)
-            existingSeason = bundle.getString("season", "")
+            existingFishName = intent.getStringExtra("fishName") ?: ""
+            existingFishImg = intent.getStringExtra("fishImg") ?: ""
+            existingMinCost = intent.getLongExtra("minCost", 0)
+            existingAvgCost = intent.getLongExtra("avgCost", 0)
+            existingMaxCost = intent.getLongExtra("maxCost", 0)
+            existingSeason = intent.getStringExtra("season") ?: ""
 
             // 문서 ID를 얻음
-            val documentId = bundle.getString("documentId", "")
+            val documentId = intent.getStringExtra("documentId") ?: ""
 
             // documentData를 받아옴
-            val documentData = bundle.getSerializable("fishDocumentData") as Map<String, Any>?
+            val documentData = intent.getSerializableExtra("fishDocumentData") as Map<String, Any>?
 
             // 기존 물고기 정보를 UI에 표시
             displayExistingFishInfo(documentData)
+
+            // documentId를 사용할 수 있습니다.
+            Log.d("DocumentId", "Document ID: $documentId")
         }
 
         // 생선 이미지 업로드 버튼에 대한 클릭 이벤트 핸들러
@@ -168,15 +170,15 @@ class UpdateFishActivity : AppCompatActivity() {
         maxCost: Long,
         season: String
     ) {
-        if (uri != null) {
-            val imagesRef = storageReference?.child("FishImg/$fishName")
-            val uploadTask: UploadTask = imagesRef?.putFile(uri)!!
+        val imagesRef = storageReference?.child("FishImg/$fishName")
+        val uploadTask: UploadTask = uri?.let { imagesRef?.putFile(it) }!!
 
-            uploadTask.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
+        uploadTask.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                if (imagesRef != null) {
                     imagesRef.downloadUrl.addOnSuccessListener { uri ->
                         val downloadUrl = uri
-                        val fishData = hashMapOf(
+                        val updatedData = hashMapOf(
                             "f_img" to downloadUrl.toString(),
                             "f_name" to fishName,
                             "f_min" to minCost,
@@ -185,33 +187,31 @@ class UpdateFishActivity : AppCompatActivity() {
                             "f_season" to season
                         )
 
-                        val existingDocumentRef =
-                            firestore.collection("fish").document(existingFishName)
+                        // 수정된 코드: 직접 문서 ID를 사용
+                        val documentId = intent.getStringExtra("documentId") ?: ""
+                        Log.e("documentId123>>", "$documentId")
+                        val existingDocumentRef = firestore.collection("fish").document(documentId)
 
                         existingDocumentRef.get().addOnSuccessListener { documentSnapshot ->
                             if (documentSnapshot.exists()) {
-                                // 문서가 존재하면 문서 데이터를 기록합니다.
-                                // 기존 물고기 정보를 업데이트
-                                existingDocumentRef.update(
-                                    "f_img", downloadUrl.toString(),
-                                    "f_name", fishName,
-                                    "f_min", minCost,
-                                    "f_avg", avgCost,
-                                    "f_max", maxCost,
-                                    "f_season", season
-                                ).addOnSuccessListener {
-                                    // Update success
-                                    Toast.makeText(
-                                        this,
-                                        "물고기 정보가 성공적으로 수정되었습니다.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    finish()
-                                }.addOnFailureListener { e ->
-                                    Log.e("FirestoreError11111>>>", "Error updating document: $e")
-                                    Toast.makeText(this, "물고기 정보 수정 실패: $e", Toast.LENGTH_SHORT)
-                                        .show()
-                                }
+                                existingDocumentRef.update(updatedData as Map<String, Any>)
+                                    .addOnSuccessListener {
+                                        // 업데이트 성공
+                                        Toast.makeText(
+                                            this,
+                                            "물고기 정보가 성공적으로 수정되었습니다.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        finish()
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.e("FirestoreError", "Error updating document: $e")
+                                        Toast.makeText(this, "물고기 정보 수정 실패: $e", Toast.LENGTH_SHORT)
+                                            .show()
+                                    }
+                            } else {
+                                Toast.makeText(this, "물고기 정보 갱신에 실패했습니다.", Toast.LENGTH_SHORT)
+                                    .show()
                             }
                         }
                     }

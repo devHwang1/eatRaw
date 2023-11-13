@@ -32,6 +32,9 @@ class MyReviewAdapter(private val review: List<Review>, private val users: List<
         val fishMaxText: TextView = itemView.findViewById(R.id.IntMax)
         val DratingBar: RatingBar = itemView.findViewById(R.id.DratingBar)
         val dropdetailImageView: ImageView = itemView.findViewById(R.id.drop_detail)
+        val topLayout: View = itemView.findViewById(R.id.topLayout)
+        val bnv_m: View = itemView.findViewById(R.id.bnv_m)
+
 
     }
 
@@ -93,6 +96,8 @@ class MyReviewAdapter(private val review: List<Review>, private val users: List<
             // fishMaxText.text = /* 물고기 최대 크기 */
             // DratingBar.rating = currentReview.rating.toFloat()
         }
+        holder.topLayout.visibility = View.GONE
+        holder.bnv_m.visibility = View.GONE
     }
 
     override fun getItemCount(): Int {
