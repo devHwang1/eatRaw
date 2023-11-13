@@ -17,11 +17,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 class DetailActivity : AppCompatActivity() {
 
     //좋아요 관련 변수
-    private lateinit var likeBtn : Button
+    private lateinit var likeBtn: Button
     private lateinit var likeCountText: TextView
     private var liked: Boolean = false
     private lateinit var reviewId: String
-    private lateinit var binding : ActivityDetailBoxBinding
+    private lateinit var binding: ActivityDetailBoxBinding
 
 
     @SuppressLint("WrongViewCast")
@@ -29,61 +29,6 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBoxBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //좋아요 텍스트뷰 표시 아이디
-        likeBtn = findViewById(R.id.btnLike)
-        likeCountText = findViewById(R.id.likeInt)
-
-
-        //좋아요 기본이미지
-        likeBtn.setBackgroundResource(R.drawable.thumb)
-
-        val reviewId = "2DhQjBjJgFbNjjafzizz" // 리뷰 ID
-
-        //좋아요 숫자 초기화
-        updateLikeCount(reviewId)
-
-
-        likeBtn.setOnClickListener {
-            //좋아요 이미지바꾸기
-            if(liked){
-                likeBtn.setBackgroundResource(R.drawable.thumb)
-                liked = false
-            }else{
-                likeBtn.setBackgroundResource(R.drawable.thumbfill)
-                liked = true
-            }
-
-            //Firebase 사용
-            val db = FirebaseFirestore.getInstance()
-            val ref = db.collection("review").document(reviewId)
-
-
-            db.runTransaction { transition ->
-                val document : DocumentSnapshot
-                try {
-                    document = transition.get(ref)
-                }catch (fetchError: Exception){
-                    return@runTransaction null
-                }
-                val like = document.data?.get("like") as? Long ?: run{
-                    //좋아요수를 가져오지 못할때
-                    return@runTransaction null
-                }
-
-                // 트랜잭션으로 1을 더해줌
-                val updatedLike = if (liked) like + 1 else like - 1
-                transition.update(ref, "like", updatedLike)
-            }.addOnSuccessListener {
-                // 성공
-                Log.d("DetailActivity", "좋아요를 눌렀다")
-                updateLikeCount(reviewId)
-            }.addOnFailureListener { error ->
-                Log.e("DetailActivity", "Transaction failed: $error")
-            }
-        }
-
-
 
 
         val intent = intent
@@ -95,7 +40,7 @@ class DetailActivity : AppCompatActivity() {
         val fishKindIntent = intent.getStringExtra("fishKind")               //물고기종류
         val userIdIntent = intent.getStringExtra("userId")     // 회원id
         val imageIntent = intent.getStringExtra("image")        //이미지
-        val menuCostIntent = intent.getStringExtra("menuCost")        //메뉴가격
+        val menuCostIntent = intent.getIntExtra("cost", 0)        //메뉴가격
 
 
         //유저
@@ -126,6 +71,20 @@ class DetailActivity : AppCompatActivity() {
                     fishMinText.text = fishMin.toString()
                     fishAvgText.text = fishAvg.toString()
                     fishMaxText.text = fishMax.toString()
+
+                    // menuCostIntent 값과 fishAvg 값을 비교하여 문구 업데이트
+                    val menuCostIntent = intent.getIntExtra("cost", 0)
+                    val menuCostTextView = findViewById<TextView>(R.id.Textcomparison)
+
+                    if (fishAvg != null) {
+                        if (menuCostIntent < fishAvg.toInt()) {
+                            menuCostTextView.text = "가격이 평균보다 낮습니다."
+                        } else if (menuCostIntent > fishAvg.toInt()) {
+                            menuCostTextView.text = "가격이 평균보다 높습니다."
+                        } else {
+                            menuCostTextView.text = "가격이 평균과 같습니다."
+                        }
+                    }
                 } else {
                     Log.e("FirestoreError", "Error getting fish document: ")
                 }
@@ -160,6 +119,11 @@ class DetailActivity : AppCompatActivity() {
         menuCost.text = "$menuCostIntent"
 
 
+
+
+
+
+
         //몰고기 이름
         fishKinName.text = "$fishKindIntent"
 
@@ -174,27 +138,7 @@ class DetailActivity : AppCompatActivity() {
             .load(UserimageInten)
             .into(userimg)
 
-
-
     }
-
-
-    //좋아요 수 업데이트
-    fun updateLikeCount(reviewId: String) {
-        val db = FirebaseFirestore.getInstance()
-        val ref = db.collection("review").document(reviewId)
-
-        ref.get().addOnSuccessListener { document ->
-            if(document !=null){
-                val likeCount = document.getLong("like") ?: 0
-                likeCountText.text = likeCount.toString()
-            }else{
-                Log.e("DetailActivity", "No such document")
-            }
-        }.addOnFailureListener { e ->
-            Log.e("DetailActivity", "Error updating like count: $e")
-        }
-    }
-
 
 }
+

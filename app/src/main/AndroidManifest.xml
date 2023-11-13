@@ -41,7 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/title_activity_admin"
             android:theme="@style/Theme.EatRaw.NoActionBar">
 

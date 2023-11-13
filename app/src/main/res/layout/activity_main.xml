@@ -68,7 +68,7 @@
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/view_pager2_banner"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp" />
+                        android:layout_height="220dp" />
 
 
                 </FrameLayout>
@@ -433,7 +433,7 @@
                         android:layout_height="150dp"
                         android:layout_margin="10dp"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/fishpicture" />
+                        app:srcCompat="@drawable/default_nallo" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"

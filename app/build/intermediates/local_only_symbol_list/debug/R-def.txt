@@ -153,6 +153,7 @@ id admin
 id adminHome
 id alarm
 id alarmFragment
+id alarm_switch
 id app_bar_admin
 id backButton
 id backgroundImageView
@@ -283,8 +284,10 @@ id recyclerViewUsersList
 id registerNow
 id reviewContent
 id reviewContentAdmin
+id reviewFishkind
 id reviewImage
 id reviewImageAdmin
+id reviewMarketname
 id reviewRating
 id reviewRecycler
 id reviewSearchbar

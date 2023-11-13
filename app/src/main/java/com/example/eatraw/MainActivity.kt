@@ -356,8 +356,22 @@ class MainActivity : AppCompatActivity() {
         randomFishNameTextView.text = randomFishData.fishName
         randomFishPriceTextView.text = randomFishData.minCost.toString()
 
-        // Assuming you have a helper function to set an image by URL or resource ID
+        // URL 또는 리소스 ID를 기반으로 이미지를 설정하는 도우미 함수가 있다고 가정합니다.
         setFishImage(randomFishImageView, randomFishData.fishImg)
+
+        // random_fish_image를 클릭하는 경우를 처리하는 OnClickListener 설정
+        randomFishImageView.setOnClickListener {
+            // 클릭 이벤트 처리, 예를 들어 ComparingPriceDetailActivity를 시작합니다.
+            val intent = Intent(this, ComparingPriceDetailActivity::class.java)
+            // intent.putExtra()를 사용하여 ComparingPriceDetailActivity에 필요한 데이터를 전달합니다.
+            intent.putExtra("fishImg", randomFishData.fishImg)
+            intent.putExtra("fishName", randomFishData.fishName)
+            intent.putExtra("minCost", randomFishData.minCost)
+            intent.putExtra("avgCost", randomFishData.avgCost)
+            intent.putExtra("maxCost", randomFishData.maxCost)
+            // ... (다른 전달할 데이터가 있으면 추가하세요)
+            startActivity(intent)
+        }
     }
 
     // Hypothetical function to set the fish image
