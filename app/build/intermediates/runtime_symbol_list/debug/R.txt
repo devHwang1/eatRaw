@@ -3399,6 +3399,7 @@ int id ImageView 0x7f0a0006
 int id IntAvg 0x7f0a0007
 int id IntMax 0x7f0a0008
 int id IntMin 0x7f0a0009
+int id LiveCost 0x7f0a02e9
 int id META 0x7f0a000a
 int id MenuFishName 0x7f0a000b
 int id NO_DEBUG 0x7f0a000c
@@ -3667,7 +3668,6 @@ int id fill_horizontal 0x7f0a0112
 int id fill_vertical 0x7f0a0113
 int id filled 0x7f0a0114
 int id first 0x7f0a0115
-int id first_graph 0x7f0a0116
 int id fishImg 0x7f0a0117
 int id fishName 0x7f0a0118
 int id fishNameDetail 0x7f0a0119

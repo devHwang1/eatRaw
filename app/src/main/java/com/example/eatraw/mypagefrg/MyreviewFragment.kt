@@ -141,9 +141,10 @@ class MyreviewFragment : Fragment() {
                     val admin = document.getBoolean("admin")
                     val imageUrl = document.getString("imageUrl")
                     val userId = document.getString("userId")
+                    val likeMarket = document.getString("likeMarket")
 
                     if (email != null && nickname != null && aouthLogin != null && admin != null&& userId != null) {
-                        val user = Users(email, nickname, aouthLogin, admin, imageUrl, userId)
+                        val user = Users(email, nickname, aouthLogin, admin, imageUrl, userId,likeMarket)
                         users.add(user)
                     }
                 }

@@ -28,6 +28,9 @@ public final class ActivityMainBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final LinearLayout LiveCost;
+
+  @NonNull
   public final BarChart barChart;
 
   @NonNull
@@ -44,9 +47,6 @@ public final class ActivityMainBinding implements ViewBinding {
 
   @NonNull
   public final TextView editStoreName2;
-
-  @NonNull
-  public final LinearLayout firstGraph;
 
   @NonNull
   public final ImageView graphIcon;
@@ -102,26 +102,25 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final ViewPager2 viewPager2Banner;
 
-  private ActivityMainBinding(@NonNull RelativeLayout rootView, @NonNull BarChart barChart,
-      @NonNull BottomNavigationView bnvMain, @NonNull CardView cardView,
+  private ActivityMainBinding(@NonNull RelativeLayout rootView, @NonNull LinearLayout LiveCost,
+      @NonNull BarChart barChart, @NonNull BottomNavigationView bnvMain, @NonNull CardView cardView,
       @NonNull CardView cardView2, @NonNull TextView editStoreName,
-      @NonNull TextView editStoreName2, @NonNull LinearLayout firstGraph,
-      @NonNull ImageView graphIcon, @NonNull LinearLayout graphLayout, @NonNull ImageView iv1,
-      @NonNull ImageView iv2, @NonNull ImageView iv3, @NonNull ImageView menuSend,
-      @NonNull LinearLayout menubar1, @NonNull TextView nalLo, @NonNull ImageView randomFishImage,
-      @NonNull TextView randomFishName, @NonNull TextView randomFishPrice,
-      @NonNull RecyclerView recyclerViewBestReview,
+      @NonNull TextView editStoreName2, @NonNull ImageView graphIcon,
+      @NonNull LinearLayout graphLayout, @NonNull ImageView iv1, @NonNull ImageView iv2,
+      @NonNull ImageView iv3, @NonNull ImageView menuSend, @NonNull LinearLayout menubar1,
+      @NonNull TextView nalLo, @NonNull ImageView randomFishImage, @NonNull TextView randomFishName,
+      @NonNull TextView randomFishPrice, @NonNull RecyclerView recyclerViewBestReview,
       @NonNull RecyclerView recyclerViewComparingPrice, @NonNull TextView seeingMore,
       @NonNull Spinner spinner, @NonNull TextView textViewq, @NonNull LinearLayout topLayout,
       @NonNull ViewPager2 viewPager2Banner) {
     this.rootView = rootView;
+    this.LiveCost = LiveCost;
     this.barChart = barChart;
     this.bnvMain = bnvMain;
     this.cardView = cardView;
     this.cardView2 = cardView2;
     this.editStoreName = editStoreName;
     this.editStoreName2 = editStoreName2;
-    this.firstGraph = firstGraph;
     this.graphIcon = graphIcon;
     this.graphLayout = graphLayout;
     this.iv1 = iv1;
@@ -169,6 +168,12 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.LiveCost;
+      LinearLayout LiveCost = ViewBindings.findChildViewById(rootView, id);
+      if (LiveCost == null) {
+        break missingId;
+      }
+
       id = R.id.barChart;
       BarChart barChart = ViewBindings.findChildViewById(rootView, id);
       if (barChart == null) {
@@ -202,12 +207,6 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.editStoreName2;
       TextView editStoreName2 = ViewBindings.findChildViewById(rootView, id);
       if (editStoreName2 == null) {
-        break missingId;
-      }
-
-      id = R.id.first_graph;
-      LinearLayout firstGraph = ViewBindings.findChildViewById(rootView, id);
-      if (firstGraph == null) {
         break missingId;
       }
 
@@ -319,9 +318,9 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((RelativeLayout) rootView, barChart, bnvMain, cardView,
-          cardView2, editStoreName, editStoreName2, firstGraph, graphIcon, graphLayout, iv1, iv2,
-          iv3, menuSend, menubar1, nalLo, randomFishImage, randomFishName, randomFishPrice,
+      return new ActivityMainBinding((RelativeLayout) rootView, LiveCost, barChart, bnvMain,
+          cardView, cardView2, editStoreName, editStoreName2, graphIcon, graphLayout, iv1, iv2, iv3,
+          menuSend, menubar1, nalLo, randomFishImage, randomFishName, randomFishPrice,
           recyclerViewBestReview, recyclerViewComparingPrice, seeingMore, spinner, textViewq,
           topLayout, viewPager2Banner);
     }

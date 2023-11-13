@@ -23,11 +23,13 @@ import kotlinx.coroutines.withContext
 
 class DetailActivity : AppCompatActivity() {
 
+    //좋아요 관련 변수
     private lateinit var likeBtn: Button
     private lateinit var likeCountText: TextView
     private var liked: Boolean = false
     private lateinit var reviewId: String
     private lateinit var binding: ActivityDetailBoxBinding
+
 
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,6 +64,9 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
+
+
+        val intent = intent
         val reviewContentIntent = intent.getStringExtra("reviewContent")  //댓글내용
         val marketNameIntent = intent.getStringExtra("marketName")        //시장이름
         val storeNameIntent = intent.getStringExtra("storeName")          //가게이름
@@ -70,7 +75,7 @@ class DetailActivity : AppCompatActivity() {
         val fishKindIntent = intent.getStringExtra("fishKind")               //물고기종류
         val userIdIntent = intent.getStringExtra("userId")     // 회원id
         val imageIntent = intent.getStringExtra("image")        //이미지
-        val menuCostIntent = intent.getStringExtra("menuCost")        //메뉴가격
+        val menuCostIntent = intent.getIntExtra("cost", 0)        //메뉴가격
 
 
         //유저
@@ -101,6 +106,20 @@ class DetailActivity : AppCompatActivity() {
                     fishMinText.text = fishMin.toString()
                     fishAvgText.text = fishAvg.toString()
                     fishMaxText.text = fishMax.toString()
+
+                    // menuCostIntent 값과 fishAvg 값을 비교하여 문구 업데이트
+                    val menuCostIntent = intent.getIntExtra("cost", 0)
+                    val menuCostTextView = findViewById<TextView>(R.id.Textcomparison)
+
+                    if (fishAvg != null) {
+                        if (menuCostIntent < fishAvg.toInt()) {
+                            menuCostTextView.text = "가격이 평균보다 낮습니다."
+                        } else if (menuCostIntent > fishAvg.toInt()) {
+                            menuCostTextView.text = "가격이 평균보다 높습니다."
+                        } else {
+                            menuCostTextView.text = "가격이 평균과 같습니다."
+                        }
+                    }
                 } else {
                     Log.e("FirestoreError", "Error getting fish document: ")
                 }
@@ -135,6 +154,11 @@ class DetailActivity : AppCompatActivity() {
         menuCost.text = "$menuCostIntent"
 
 
+
+
+
+
+
         //몰고기 이름
         fishKinName.text = "$fishKindIntent"
 
@@ -148,7 +172,6 @@ class DetailActivity : AppCompatActivity() {
         Glide.with(this)
             .load(UserimageInten)
             .into(userimg)
-
 
 
     }
@@ -207,3 +230,4 @@ class DetailActivity : AppCompatActivity() {
 
 
 }
+

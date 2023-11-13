@@ -68,7 +68,7 @@
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/view_pager2_banner"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp" />
+                        android:layout_height="220dp" />
 
 
                 </FrameLayout>
@@ -204,7 +204,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:id="@+id/first_graph"
+                android:id="@+id/LiveCost"
                 android:background="@drawable/radiusback"
                 android:elevation="12dp"
                 android:layout_margin="10dp"
@@ -255,6 +255,7 @@
                 android:id="@+id/graph_layout">
 
                 <TextView
+
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:text="실시간 시장가 확인하러 가기"/>

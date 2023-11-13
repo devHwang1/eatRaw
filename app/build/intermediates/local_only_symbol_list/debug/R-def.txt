@@ -135,6 +135,7 @@ id ImageView
 id IntAvg
 id IntMax
 id IntMin
+id LiveCost
 id MenuFishName
 id Reviewimg
 id StarBox
@@ -212,7 +213,6 @@ id etAge
 id etFirstName
 id etLastName
 id first
-id first_graph
 id fishImg
 id fishName
 id fishNameDetail
