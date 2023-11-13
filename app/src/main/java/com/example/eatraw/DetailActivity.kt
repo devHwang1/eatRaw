@@ -47,22 +47,6 @@ class DetailActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
 
 
-        likeBtn.setOnClickListener {
-            if (liked) {
-                likeBtn.setBackgroundResource(R.drawable.thumb)
-                liked = false
-            } else {
-                likeBtn.setBackgroundResource(R.drawable.thumbfill)
-                liked = true
-            }
-            Log.d("Sdfsadfsadf","$reviewId")
-            // 리뷰의 좋아요 수 업데이트
-            GlobalScope.launch(Dispatchers.Main) {
-                if (reviewId != null) {
-                    updateLikeCount(reviewId, likeCountText)
-                }
-            }
-        }
 
 
 
@@ -175,56 +159,12 @@ class DetailActivity : AppCompatActivity() {
 
 
     }
-    suspend fun updateLikeCount(reviewId: String, likeCountText: TextView) {
-        val db = FirebaseFirestore.getInstance()
 
-        try {
-            withContext(Dispatchers.IO) {
-                if(reviewId != null) {
-                val querySnapshot = db.collection("reviews")
-                    .document(reviewId)
-                    .get()
-                    .await()
-
-                if (querySnapshot.exists()) {
-                    val reviewRef = db.collection("reviews").document()
-
-                    db.runTransaction { transaction ->
-                        val currentLikes = transaction.get(reviewRef).getLong("like") ?: 0
-
-                        // 좋아요 수 업데이트
-                        transaction.update(reviewRef, "like", FieldValue.increment(1))
-
-                        // "liked" 필드 업데이트 (liked 여부를 나타내는 필드가 있다고 가정)
-                        transaction.update(reviewRef, "liked", liked)
-
-                        // 좋아요 수를 반환
-                        currentLikes + 1
-                    }.addOnSuccessListener { updatedLikes ->
-                        // 트랜잭션 성공
-                        Log.d("DetailActivity", "좋아요를 눌렀다")
-
-                        // 좋아요 트랜잭션이 성공한 후에 UI 업데이트
-                        likeCountText.text = updatedLikes.toString()
-                    }.addOnFailureListener { error ->
-                        // 트랜잭션 실패
-                        Log.e("DetailActivity", "Transaction failed: $error")
-                    }
-                } else {
-                    Log.e("DetailActivity", "No document found with reviewId: $reviewId")
-                }
-            }}
-        } catch (e: Exception) {
-            Log.e("DetailActivity", "Error: $e")
-        }
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
-
-
-
-
-
-
-    //좋아요 수 업데이트
 
 
 

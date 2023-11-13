@@ -12,12 +12,12 @@
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\drawable\\rounded_top_corners.xml"
     },
     {
-        "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\font_black.ttf.flat",
-        "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\font\\black.ttf"
-    },
-    {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_fragment_myreview.xml.flat",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_myreview.xml"
+    },
+    {
+        "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\font_black.ttf.flat",
+        "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\font\\black.ttf"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_ratingbar_custom.xml.flat",
@@ -226,6 +226,10 @@
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_fragment_home.xml.flat",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_detail.xml.flat",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_detail.xml"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\drawable_default_nallo.jpg.flat",
@@ -710,10 +714,6 @@
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\mipmap-xxxhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.eatraw.app-merged_res-63:/layout_activity_main.xml.flat",
-        "source": "com.example.eatraw.app-main-65:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-merged_res-63:\\layout_activity_login.xml.flat",

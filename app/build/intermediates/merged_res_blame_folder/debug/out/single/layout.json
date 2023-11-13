@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_fish.xml",
-        "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_fish.xml"
-    },
-    {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_banner2.xml",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_banner2.xml"
+    },
+    {
+        "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_fish.xml",
+        "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_fish.xml"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_banner3.xml",
@@ -48,16 +48,20 @@
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_alarm.xml"
     },
     {
-        "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_start.xml",
-        "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_start.xml"
-    },
-    {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\item_main.xml",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\item_main.xml"
     },
     {
+        "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_start.xml",
+        "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_start.xml"
+    },
+    {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_center.xml",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_center.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/activity_detail.xml",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_detail.xml"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_comparing_price_detail.xml",
@@ -84,12 +88,12 @@
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\recyclerview_review.xml"
     },
     {
-        "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_modify.xml",
-        "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_modify.xml"
-    },
-    {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_home.xml",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_modify.xml",
+        "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_modify.xml"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\item_users_list.xml",
@@ -178,10 +182,6 @@
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_dropdown.xml",
         "source": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_dropdown.xml"
-    },
-    {
-        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/activity_main.xml",
-        "source": "com.example.eatraw.app-main-65:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\comed\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_banner2.xml",
