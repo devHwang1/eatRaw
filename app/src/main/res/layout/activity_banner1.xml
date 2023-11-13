@@ -1,41 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".banner.Banner1Activity">
+    tools:context=".banner.Banner1Activity"
+    android:background="@color/white"
+    android:orientation="vertical">
 
-    <!-- 상단 부분 유지 -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/white"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/img_backarrow"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:srcCompat="@drawable/backarrow" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="조기조기 참조기~!!"
-            android:textAlignment="center"
-            android:textColor="@color/blue"
-            android:textSize="25sp" />
+                <ImageView
+                    android:id="@+id/img_backarrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    app:srcCompat="@drawable/backarrow" />
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="조기조기 참조기~!!"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"
+                    android:textSize="25sp" />
 
-    <!--  콘텐츠 부분  -->
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/jogi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="\n지금은 식탁에서\n흔히 볼 수 있지만\n옛날에는 특별한 날에만\n먹을 수 있었던 조기!!\n\n오늘은 그 중에서도\n당연 으뜸!!\n참조기에 대해서\n 파헤쳐 볼게요!!\n" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/jogi_home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="\n조기는 산란기에\n서식지를 옮기는\n회유성 어종으로,\n가을이 찾아오면\n제주에서 출발하여\n동중국해를 거쳐\n겨울 흑산도 앞바다에서 성시를 이룹니다.\n\n진도 조기잡이는\n길게는 10일,\n짧게는 2-3일 정도\n나가서 조업을 합니다.\n\n참조기는 궁중에 진상되는\n공상품의 하나로,\n제수용 및 선물용으로 많이 쓰이는\n고급 생선입니다.\n" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/chamjogi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="\n참조기입니다.\n" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/chamjogi_head" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="\n참조기는 머리 윗부분에\n다이아몬드 형태의\n유상 돌기가 있습니다.\n" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/chamjogi_stomach" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="\n배 부분을 보면\n옅은 황금색을 띠고 있습니다.\n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="\n이 참에 다른 조기와\n구별하는 방법도\n 알아봅시다.\n" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/jogi_tail" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="\n참조기와 다른 조기를\n구별하는 대표적인 특징은\n꼬리 지느러미입니다.\n\n참조기의 꼬리는 갈라져 있고\n흰조기의 꼬리는\n가운데 부분이 들어가 있고\n흑조기의 꼬리는\n가운데 부분이 튀어나와 있습니다.\n\n그렇다면 조기의 맛과\n가격은 어떻게 다를까요?\n" />
 
 
-</LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/jogi_division" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="\n보다시피 참조기가\n맛과 가격 모두 1등입니다.\n\n맛이 좋으니 당연히\n가격도 높겠죠??\n\n참조기는 흰조기나 흑조기보다\n 더 고소하고 뒷맛이 깔끔하다고하니\n귀하신 몸이 아닐 수 없네요.\n\n\n\n지금까지 참조기에 대해서\n알아보았는데요.\n다음엔 더 알찬\n기사로 찾아뵙겠습니다.\n감사합니다!!"
+                android:textAlignment="center" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 네비게이션 바 (BottomNavigationView) -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        app:itemIconTint="@color/gray"
+        app:itemTextColor="@color/black"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/navi_menu" />
+
+</RelativeLayout>

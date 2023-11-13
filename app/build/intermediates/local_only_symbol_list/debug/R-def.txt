@@ -34,6 +34,9 @@ drawable baseline_reviews_24
 drawable baseline_show_chart_24
 drawable baseline_star_24
 drawable bottom_shadow
+drawable chamjogi
+drawable chamjogi_head
+drawable chamjogi_stomach
 drawable check_button
 drawable clip
 drawable clock
@@ -67,6 +70,11 @@ drawable ic_menu_gallery
 drawable ic_menu_slideshow
 drawable image_radius
 drawable info
+drawable jingjingi
+drawable jogi
+drawable jogi_division
+drawable jogi_home
+drawable jogi_tail
 drawable kakao_login_medium_narrow
 drawable kakao_login_medium_wide
 drawable kakao_login_up_wide
@@ -106,6 +114,7 @@ drawable start
 drawable test_image
 drawable text_edit_box
 drawable text_radius
+drawable threeline
 drawable thumb
 drawable thumbfill
 drawable top_shadow

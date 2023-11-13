@@ -79,6 +79,12 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
   public final TextView mStarsocore;
 
   @NonNull
+  public final LinearLayout menubar1;
+
+  @NonNull
+  public final TextView nalLo;
+
+  @NonNull
   public final TextView texMax;
 
   @NonNull
@@ -87,6 +93,9 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
   @NonNull
   public final TextView textMin;
 
+  @NonNull
+  public final LinearLayout topLayout;
+
   private ActivityDetailBoxBinding(@NonNull LinearLayout rootView, @NonNull RatingBar DratingBar,
       @NonNull CardView ImageView, @NonNull TextView IntAvg, @NonNull TextView IntMax,
       @NonNull TextView IntMin, @NonNull TextView MenuFishName, @NonNull ImageView Reviewimg,
@@ -94,7 +103,8 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
       @NonNull TextView Textcomparison, @NonNull Button btnLike, @NonNull TextView contentView,
       @NonNull ImageView dropDetail, @NonNull TextView likeInt, @NonNull CircleImageView mImg,
       @NonNull TextView mName, @NonNull LinearLayout mReiview, @NonNull TextView mStarsocore,
-      @NonNull TextView texMax, @NonNull TextView textAvg, @NonNull TextView textMin) {
+      @NonNull LinearLayout menubar1, @NonNull TextView nalLo, @NonNull TextView texMax,
+      @NonNull TextView textAvg, @NonNull TextView textMin, @NonNull LinearLayout topLayout) {
     this.rootView = rootView;
     this.DratingBar = DratingBar;
     this.ImageView = ImageView;
@@ -114,9 +124,12 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
     this.mName = mName;
     this.mReiview = mReiview;
     this.mStarsocore = mStarsocore;
+    this.menubar1 = menubar1;
+    this.nalLo = nalLo;
     this.texMax = texMax;
     this.textAvg = textAvg;
     this.textMin = textMin;
+    this.topLayout = topLayout;
   }
 
   @Override
@@ -250,6 +263,18 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.menubar1;
+      LinearLayout menubar1 = ViewBindings.findChildViewById(rootView, id);
+      if (menubar1 == null) {
+        break missingId;
+      }
+
+      id = R.id.nalLo;
+      TextView nalLo = ViewBindings.findChildViewById(rootView, id);
+      if (nalLo == null) {
+        break missingId;
+      }
+
       id = R.id.texMax;
       TextView texMax = ViewBindings.findChildViewById(rootView, id);
       if (texMax == null) {
@@ -268,10 +293,16 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.topLayout;
+      LinearLayout topLayout = ViewBindings.findChildViewById(rootView, id);
+      if (topLayout == null) {
+        break missingId;
+      }
+
       return new ActivityDetailBoxBinding((LinearLayout) rootView, DratingBar, ImageView, IntAvg,
           IntMax, IntMin, MenuFishName, Reviewimg, StorePrice, StorePriceInt, Textcomparison,
-          btnLike, contentView, dropDetail, likeInt, mImg, mName, mReiview, mStarsocore, texMax,
-          textAvg, textMin);
+          btnLike, contentView, dropDetail, likeInt, mImg, mName, mReiview, mStarsocore, menubar1,
+          nalLo, texMax, textAvg, textMin, topLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

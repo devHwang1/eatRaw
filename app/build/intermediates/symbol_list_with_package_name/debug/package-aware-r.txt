@@ -3126,6 +3126,9 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable chamjogi
+drawable chamjogi_head
+drawable chamjogi_stomach
 drawable check_button
 drawable clip
 drawable clock
@@ -3203,6 +3206,11 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable image_radius
 drawable info
+drawable jingjingi
+drawable jogi
+drawable jogi_division
+drawable jogi_home
+drawable jogi_tail
 drawable kakao_login_medium_narrow
 drawable kakao_login_medium_wide
 drawable kakao_login_up_wide
@@ -3364,6 +3372,7 @@ drawable test_image
 drawable test_level_drawable
 drawable text_edit_box
 drawable text_radius
+drawable threeline
 drawable thumb
 drawable thumbfill
 drawable tooltip_frame_dark
