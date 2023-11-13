@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.eatraw.databinding.ActivityDetailBoxBinding
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -30,6 +29,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBoxBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
 
         val intent = intent
@@ -142,7 +142,16 @@ class DetailActivity : AppCompatActivity() {
 
             }
 
-        }
 
 
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
+
+
+
+}
 
