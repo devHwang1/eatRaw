@@ -36,10 +36,6 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_modify.xml"
     },
     {
-        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/fragment_nick.xml",
-        "source": "com.example.eatraw.app-main-65:/layout/fragment_nick.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\fragment_review.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\fragment_review.xml"
     },
@@ -66,6 +62,10 @@
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_banner3.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-main-65:\\layout\\activity_banner3.xml"
+    },
+    {
+        "merged": "com.example.eatraw.app-mergeDebugResources-62:/layout/activity_detail_box.xml",
+        "source": "com.example.eatraw.app-main-65:/layout/activity_detail_box.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.0\\com.example.eatraw.app-mergeDebugResources-62:\\layout\\activity_splash.xml",

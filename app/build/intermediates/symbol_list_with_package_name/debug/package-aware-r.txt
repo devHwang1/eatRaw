@@ -3534,7 +3534,6 @@ id btnDeleteFish
 id btnDeleteReviewAdmin
 id btnDeleteUser
 id btnImage
-id btnLike
 id btnRegisterFish
 id btnReview
 id btnUpdateFish
@@ -3744,7 +3743,6 @@ id left
 id leftToRight
 id legacy
 id light
-id likeInt
 id line1
 id line3
 id linear
