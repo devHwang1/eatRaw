@@ -7,24 +7,51 @@
     android:orientation="vertical"
     tools:context=".ReviewActivity">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/topLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="My Page"
-        android:textAlignment="center"
-        android:textSize="24dp" />
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:id="@+id/menubar1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+
+
+            >
+
+            <TextView
+                android:id="@+id/nalLo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="My page"
+                android:textColor="#656869"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:background="@drawable/radiusback20"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="90dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
@@ -37,7 +64,9 @@
                 android:foregroundGravity="center_vertical"
                 android:outlineProvider="background"
                 android:scaleType="centerCrop"
-                android:src="@drawable/group_40"></ImageView>
+                android:src="@drawable/group_40"
+                android:layout_marginLeft="4dp"
+                ></ImageView>
 
         </LinearLayout>
 
@@ -46,7 +75,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center_vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:layout_marginLeft="6dp">
 
             <TextView
                 android:id="@+id/email"
@@ -83,6 +113,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/my_modify" />
 
         </LinearLayout>
@@ -91,9 +123,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,6 +140,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/my_review" />
 
         </LinearLayout>
@@ -116,9 +150,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -133,6 +167,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/my_alarm" />
 
         </LinearLayout>
@@ -141,9 +177,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -158,6 +194,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/my_center" />
 
         </LinearLayout>
@@ -166,9 +204,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -183,6 +221,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/logout" />
 
 
@@ -193,9 +233,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/line"></View>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/line"/>
 
         <!--관리자페이지-->
         <LinearLayout
@@ -211,6 +251,8 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:paddingLeft="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/admin" />
         </LinearLayout>
 
@@ -220,10 +262,11 @@
             android:layout_height="28dp"
             android:layout_gravity="end"
             android:layout_marginTop="6dp"
+            android:layout_marginEnd="10dp"
             android:gravity="end"
             android:paddingEnd="16dp"
             android:text="@string/del"
-            android:textColor="@color/gray"
+            android:textColor="#80C1C6C9"
             android:textSize="12dp" />
 
     </LinearLayout>

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -35,16 +36,24 @@ public final class FragmentNickBinding implements ViewBinding {
   public final TextInputEditText nickname;
 
   @NonNull
+  public final Spinner spinner1;
+
+  @NonNull
+  public final Spinner spinner2;
+
+  @NonNull
   public final ImageView thumbnail;
 
   private FragmentNickBinding(@NonNull LinearLayout rootView, @NonNull ImageButton backButton,
       @NonNull Button btnRegister, @NonNull Button nickcheck, @NonNull TextInputEditText nickname,
-      @NonNull ImageView thumbnail) {
+      @NonNull Spinner spinner1, @NonNull Spinner spinner2, @NonNull ImageView thumbnail) {
     this.rootView = rootView;
     this.backButton = backButton;
     this.btnRegister = btnRegister;
     this.nickcheck = nickcheck;
     this.nickname = nickname;
+    this.spinner1 = spinner1;
+    this.spinner2 = spinner2;
     this.thumbnail = thumbnail;
   }
 
@@ -99,6 +108,18 @@ public final class FragmentNickBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.spinner1;
+      Spinner spinner1 = ViewBindings.findChildViewById(rootView, id);
+      if (spinner1 == null) {
+        break missingId;
+      }
+
+      id = R.id.spinner2;
+      Spinner spinner2 = ViewBindings.findChildViewById(rootView, id);
+      if (spinner2 == null) {
+        break missingId;
+      }
+
       id = R.id.thumbnail;
       ImageView thumbnail = ViewBindings.findChildViewById(rootView, id);
       if (thumbnail == null) {
@@ -106,7 +127,7 @@ public final class FragmentNickBinding implements ViewBinding {
       }
 
       return new FragmentNickBinding((LinearLayout) rootView, backButton, btnRegister, nickcheck,
-          nickname, thumbnail);
+          nickname, spinner1, spinner2, thumbnail);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

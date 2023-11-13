@@ -11,8 +11,6 @@ import com.example.eatraw.data.ComparingPriceItem
 import com.example.eatraw.databinding.ActivityComparingPriceListBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.storage.FirebaseStorage
 
 class ComparingPriceListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityComparingPriceListBinding
@@ -36,6 +34,7 @@ class ComparingPriceListActivity : AppCompatActivity() {
 
                 for (document in documents) {
                     val fishName = document.getString("f_name")
+                    val count = (document["f_count"] as? Long)?.toInt() ?: 0
                     val minCost = (document["f_min"] as? Long)?.toInt()
                     val avgCost = (document["f_avg"] as? Long)?.toInt()
                     val maxCost = (document["f_max"] as? Long)?.toInt()
@@ -44,17 +43,16 @@ class ComparingPriceListActivity : AppCompatActivity() {
 //                    val storageReference = FirebaseStorage.getInstance().reference
 //                    val imageRef = storageReference.child("FishImg/$fishImg")
 
-                    if (fishName != null && minCost != null && avgCost != null && maxCost != null) {
-//                        imageRef.downloadUrl.addOnSuccessListener { uri ->
-//                            val imageUrl = uri.toString()
-                            val comparingPriceItem = ComparingPriceItem(
-                                fishName,
-                                minCost.toString(),
-                                avgCost.toString(),
-                                maxCost.toString(),
-                                fishImg,
-                                season
-                            )
+                    if (fishName != null && count != null && minCost != null && avgCost != null && maxCost != null) {
+                        val comparingPriceItem = ComparingPriceItem(
+                            fishName,
+                            count,
+                            minCost.toLong(),
+                            avgCost.toLong(),
+                            maxCost.toLong(),
+                            fishImg,
+                            season
+                        )
                             comparingPriceData.add(comparingPriceItem)
 
                             // 데이터를 RecyclerView에 설정
@@ -72,6 +70,23 @@ class ComparingPriceListActivity : AppCompatActivity() {
                 // 데이터 가져오기 실패 시 처리
                 Log.e("FirestoreError", "Error getting documents: ", exception)
             }
+
+
+        val searchView = findViewById<androidx.appcompat.widget.SearchView>(R.id.mainSearchbar)
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // 사용자가 검색 버튼을 눌렀을 때의 동작
+                query?.let { searchFish(it) }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // 검색어가 변경될 때의 동작
+                newText?.let { searchFish(it) }
+                return true
+            }
+        })
+
 
         // 뒤로가기 버튼 처리
         val backButton = binding.imgBackarrow
@@ -109,4 +124,52 @@ class ComparingPriceListActivity : AppCompatActivity() {
             true
         }}
     }
+
+    private fun searchFish(query: String) {
+        // Firestore에서 검색어를 기반으로 데이터 가져오기
+        val uppercaseQuery = query.toUpperCase() // 대소문자 구분 없이 검색하기 위해 대문자로 변환
+
+        firestore.collection("fish")
+            .orderBy("f_name")
+            .startAt(uppercaseQuery)
+            .endAt(uppercaseQuery + "\uf8ff")
+            .get()
+            .addOnSuccessListener { documents ->
+                val comparingPriceData = mutableListOf<ComparingPriceItem>()
+
+                for (document in documents) {
+                    val fishName = document.getString("f_name")
+                    val count = document.getLong("f_count")?.toInt() ?: 0
+                    val minCost = (document["f_min"] as? Long)?.toInt()
+                    val avgCost = (document["f_avg"] as? Long)?.toInt()
+                    val maxCost = (document["f_max"] as? Long)?.toInt()
+                    val fishImg = document.getString("f_img")
+                    val season = document.getString("f_season")
+//                    val storageReference = FirebaseStorage.getInstance().reference
+//                    val imageRef = storageReference.child("FishImg/$fishImg")
+
+                    if (fishName != null && count != null && minCost != null && avgCost != null && maxCost != null) {
+                        val comparingPriceItem = ComparingPriceItem(
+                            fishName,
+                            count,
+                            minCost.toLong(),
+                            avgCost.toLong(),
+                            maxCost.toLong(),
+                            fishImg,
+                            season
+                        )
+                        comparingPriceData.add(comparingPriceItem)
+                    }
+                }
+
+                // RecyclerView에 업데이트
+                val adapterComparingPrice = ComparingPriceAdapter(comparingPriceData)
+                recyclerViewComparingPrice.adapter = adapterComparingPrice
+            }
+            .addOnFailureListener { exception ->
+                // 데이터 가져오기 실패 시 처리
+                Log.e("FirestoreError", "Error getting documents: ", exception)
+            }
+    }
+
 }

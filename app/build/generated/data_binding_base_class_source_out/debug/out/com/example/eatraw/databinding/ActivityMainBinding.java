@@ -4,18 +4,20 @@ package com.example.eatraw.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ActionMenuView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import androidx.viewpager2.widget.ViewPager2;
 import com.example.eatraw.R;
+import com.github.mikephil.charting.charts.BarChart;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -26,25 +28,31 @@ public final class ActivityMainBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final LinearLayout LiveCost;
+
+  @NonNull
+  public final BarChart barChart;
+
+  @NonNull
   public final BottomNavigationView bnvMain;
 
   @NonNull
-  public final TextView fishName1;
+  public final CardView cardView;
 
   @NonNull
-  public final TextView fishName2;
+  public final CardView cardView2;
 
   @NonNull
-  public final TextView fishPrice1;
+  public final TextView editStoreName;
 
   @NonNull
-  public final TextView fishPrice2;
+  public final TextView editStoreName2;
 
   @NonNull
-  public final ImageView imageView2;
+  public final ImageView graphIcon;
 
   @NonNull
-  public final ImageView imageView3;
+  public final LinearLayout graphLayout;
 
   @NonNull
   public final ImageView iv1;
@@ -56,16 +64,22 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ImageView iv3;
 
   @NonNull
-  public final ActionMenuView menubar1;
+  public final ImageView menuSend;
 
   @NonNull
-  public final LinearLayout menubar3;
-
-  @NonNull
-  public final LinearLayout menubar4;
+  public final LinearLayout menubar1;
 
   @NonNull
   public final TextView nalLo;
+
+  @NonNull
+  public final ImageView randomFishImage;
+
+  @NonNull
+  public final TextView randomFishName;
+
+  @NonNull
+  public final TextView randomFishPrice;
 
   @NonNull
   public final RecyclerView recyclerViewBestReview;
@@ -77,38 +91,52 @@ public final class ActivityMainBinding implements ViewBinding {
   public final TextView seeingMore;
 
   @NonNull
+  public final Spinner spinner;
+
+  @NonNull
+  public final TextView textViewq;
+
+  @NonNull
   public final LinearLayout topLayout;
 
   @NonNull
   public final ViewPager2 viewPager2Banner;
 
-  private ActivityMainBinding(@NonNull RelativeLayout rootView,
-      @NonNull BottomNavigationView bnvMain, @NonNull TextView fishName1,
-      @NonNull TextView fishName2, @NonNull TextView fishPrice1, @NonNull TextView fishPrice2,
-      @NonNull ImageView imageView2, @NonNull ImageView imageView3, @NonNull ImageView iv1,
-      @NonNull ImageView iv2, @NonNull ImageView iv3, @NonNull ActionMenuView menubar1,
-      @NonNull LinearLayout menubar3, @NonNull LinearLayout menubar4, @NonNull TextView nalLo,
-      @NonNull RecyclerView recyclerViewBestReview,
+  private ActivityMainBinding(@NonNull RelativeLayout rootView, @NonNull LinearLayout LiveCost,
+      @NonNull BarChart barChart, @NonNull BottomNavigationView bnvMain, @NonNull CardView cardView,
+      @NonNull CardView cardView2, @NonNull TextView editStoreName,
+      @NonNull TextView editStoreName2, @NonNull ImageView graphIcon,
+      @NonNull LinearLayout graphLayout, @NonNull ImageView iv1, @NonNull ImageView iv2,
+      @NonNull ImageView iv3, @NonNull ImageView menuSend, @NonNull LinearLayout menubar1,
+      @NonNull TextView nalLo, @NonNull ImageView randomFishImage, @NonNull TextView randomFishName,
+      @NonNull TextView randomFishPrice, @NonNull RecyclerView recyclerViewBestReview,
       @NonNull RecyclerView recyclerViewComparingPrice, @NonNull TextView seeingMore,
-      @NonNull LinearLayout topLayout, @NonNull ViewPager2 viewPager2Banner) {
+      @NonNull Spinner spinner, @NonNull TextView textViewq, @NonNull LinearLayout topLayout,
+      @NonNull ViewPager2 viewPager2Banner) {
     this.rootView = rootView;
+    this.LiveCost = LiveCost;
+    this.barChart = barChart;
     this.bnvMain = bnvMain;
-    this.fishName1 = fishName1;
-    this.fishName2 = fishName2;
-    this.fishPrice1 = fishPrice1;
-    this.fishPrice2 = fishPrice2;
-    this.imageView2 = imageView2;
-    this.imageView3 = imageView3;
+    this.cardView = cardView;
+    this.cardView2 = cardView2;
+    this.editStoreName = editStoreName;
+    this.editStoreName2 = editStoreName2;
+    this.graphIcon = graphIcon;
+    this.graphLayout = graphLayout;
     this.iv1 = iv1;
     this.iv2 = iv2;
     this.iv3 = iv3;
+    this.menuSend = menuSend;
     this.menubar1 = menubar1;
-    this.menubar3 = menubar3;
-    this.menubar4 = menubar4;
     this.nalLo = nalLo;
+    this.randomFishImage = randomFishImage;
+    this.randomFishName = randomFishName;
+    this.randomFishPrice = randomFishPrice;
     this.recyclerViewBestReview = recyclerViewBestReview;
     this.recyclerViewComparingPrice = recyclerViewComparingPrice;
     this.seeingMore = seeingMore;
+    this.spinner = spinner;
+    this.textViewq = textViewq;
     this.topLayout = topLayout;
     this.viewPager2Banner = viewPager2Banner;
   }
@@ -140,45 +168,57 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.LiveCost;
+      LinearLayout LiveCost = ViewBindings.findChildViewById(rootView, id);
+      if (LiveCost == null) {
+        break missingId;
+      }
+
+      id = R.id.barChart;
+      BarChart barChart = ViewBindings.findChildViewById(rootView, id);
+      if (barChart == null) {
+        break missingId;
+      }
+
       id = R.id.bnv_main;
       BottomNavigationView bnvMain = ViewBindings.findChildViewById(rootView, id);
       if (bnvMain == null) {
         break missingId;
       }
 
-      id = R.id.fish_name1;
-      TextView fishName1 = ViewBindings.findChildViewById(rootView, id);
-      if (fishName1 == null) {
+      id = R.id.cardView;
+      CardView cardView = ViewBindings.findChildViewById(rootView, id);
+      if (cardView == null) {
         break missingId;
       }
 
-      id = R.id.fish_name2;
-      TextView fishName2 = ViewBindings.findChildViewById(rootView, id);
-      if (fishName2 == null) {
+      id = R.id.cardView2;
+      CardView cardView2 = ViewBindings.findChildViewById(rootView, id);
+      if (cardView2 == null) {
         break missingId;
       }
 
-      id = R.id.fish_price1;
-      TextView fishPrice1 = ViewBindings.findChildViewById(rootView, id);
-      if (fishPrice1 == null) {
+      id = R.id.editStoreName;
+      TextView editStoreName = ViewBindings.findChildViewById(rootView, id);
+      if (editStoreName == null) {
         break missingId;
       }
 
-      id = R.id.fish_price2;
-      TextView fishPrice2 = ViewBindings.findChildViewById(rootView, id);
-      if (fishPrice2 == null) {
+      id = R.id.editStoreName2;
+      TextView editStoreName2 = ViewBindings.findChildViewById(rootView, id);
+      if (editStoreName2 == null) {
         break missingId;
       }
 
-      id = R.id.imageView2;
-      ImageView imageView2 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView2 == null) {
+      id = R.id.graph_icon;
+      ImageView graphIcon = ViewBindings.findChildViewById(rootView, id);
+      if (graphIcon == null) {
         break missingId;
       }
 
-      id = R.id.imageView3;
-      ImageView imageView3 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView3 == null) {
+      id = R.id.graph_layout;
+      LinearLayout graphLayout = ViewBindings.findChildViewById(rootView, id);
+      if (graphLayout == null) {
         break missingId;
       }
 
@@ -200,27 +240,39 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.menuSend;
+      ImageView menuSend = ViewBindings.findChildViewById(rootView, id);
+      if (menuSend == null) {
+        break missingId;
+      }
+
       id = R.id.menubar1;
-      ActionMenuView menubar1 = ViewBindings.findChildViewById(rootView, id);
+      LinearLayout menubar1 = ViewBindings.findChildViewById(rootView, id);
       if (menubar1 == null) {
-        break missingId;
-      }
-
-      id = R.id.menubar3;
-      LinearLayout menubar3 = ViewBindings.findChildViewById(rootView, id);
-      if (menubar3 == null) {
-        break missingId;
-      }
-
-      id = R.id.menubar4;
-      LinearLayout menubar4 = ViewBindings.findChildViewById(rootView, id);
-      if (menubar4 == null) {
         break missingId;
       }
 
       id = R.id.nalLo;
       TextView nalLo = ViewBindings.findChildViewById(rootView, id);
       if (nalLo == null) {
+        break missingId;
+      }
+
+      id = R.id.random_fish_image;
+      ImageView randomFishImage = ViewBindings.findChildViewById(rootView, id);
+      if (randomFishImage == null) {
+        break missingId;
+      }
+
+      id = R.id.random_fish_name;
+      TextView randomFishName = ViewBindings.findChildViewById(rootView, id);
+      if (randomFishName == null) {
+        break missingId;
+      }
+
+      id = R.id.random_fish_price;
+      TextView randomFishPrice = ViewBindings.findChildViewById(rootView, id);
+      if (randomFishPrice == null) {
         break missingId;
       }
 
@@ -242,6 +294,18 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.spinner;
+      Spinner spinner = ViewBindings.findChildViewById(rootView, id);
+      if (spinner == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewq;
+      TextView textViewq = ViewBindings.findChildViewById(rootView, id);
+      if (textViewq == null) {
+        break missingId;
+      }
+
       id = R.id.topLayout;
       LinearLayout topLayout = ViewBindings.findChildViewById(rootView, id);
       if (topLayout == null) {
@@ -254,9 +318,10 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((RelativeLayout) rootView, bnvMain, fishName1, fishName2,
-          fishPrice1, fishPrice2, imageView2, imageView3, iv1, iv2, iv3, menubar1, menubar3,
-          menubar4, nalLo, recyclerViewBestReview, recyclerViewComparingPrice, seeingMore,
+      return new ActivityMainBinding((RelativeLayout) rootView, LiveCost, barChart, bnvMain,
+          cardView, cardView2, editStoreName, editStoreName2, graphIcon, graphLayout, iv1, iv2, iv3,
+          menuSend, menubar1, nalLo, randomFishImage, randomFishName, randomFishPrice,
+          recyclerViewBestReview, recyclerViewComparingPrice, seeingMore, spinner, textViewq,
           topLayout, viewPager2Banner);
     }
     String missingId = rootView.getResources().getResourceName(id);

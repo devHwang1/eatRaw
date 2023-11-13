@@ -22,6 +22,13 @@ import kotlinx.coroutines.tasks.await
 class ReviewAdminAdapter(private val context: Context, private val reviewList: MutableList<Review>) :
     RecyclerView.Adapter<ReviewAdminAdapter.ViewHolder>() {
 
+    // setData 메서드 추가
+    fun setData(newList: List<Review>) {
+        reviewList.clear()
+        reviewList.addAll(newList)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_review_admin_list, parent, false)
         return ViewHolder(view)

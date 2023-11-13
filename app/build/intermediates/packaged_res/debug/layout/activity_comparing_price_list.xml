@@ -22,25 +22,47 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            app:srcCompat="@drawable/backarrow" />
+            app:srcCompat="@drawable/backarrow"
+            />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="가격 비교"
-            android:textAlignment="center"
-            android:textColor="@color/blue"
-            android:textSize="25sp" />
+        <LinearLayout
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/menubar1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:id="@+id/nalLo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="가격 비교"
+                    android:textColor="#656869"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/mainSearchbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/menubar" />
+        android:background="@drawable/menubar"
+        app:iconifiedByDefault="false"/>
     <!-- 상단 부분 끝 -->
 
     <LinearLayout

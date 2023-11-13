@@ -52,9 +52,9 @@ class ComparingPriceAdapter(private val data: List<ComparingPriceItem>) :
                 // 정보를 번들에 담아서 전달
                 val bundle = Bundle()
                 bundle.putString("fishName", fishName)
-                bundle.putString("minCost", minCost)
-                bundle.putString("avgCost", avgCost)
-                bundle.putString("maxCost", maxCost)
+                bundle.putLong("minCost", minCost)
+                bundle.putLong("avgCost", avgCost)
+                bundle.putLong("maxCost", maxCost)
                 bundle.putString("fishImg", fishImg)
 
                 intent.putExtras(bundle)
@@ -64,7 +64,7 @@ class ComparingPriceAdapter(private val data: List<ComparingPriceItem>) :
 
         fun bind(item: ComparingPriceItem) {
             fishNameTextView.text = item.fishName
-            priceTextView.text = item.minCost
+            priceTextView.text = item.minCost.toString()
         }
 
     }

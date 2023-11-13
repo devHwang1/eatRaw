@@ -8,9 +8,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
-
     <application
         android:allowBackup="false"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -18,12 +18,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EatRaw"
-        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
+        <activity
+            android:name=".UpdateFishActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="xvb0d2ii63" />
+
         <activity
             android:name=".banner.Banner3Activity"
             android:exported="false" />
@@ -34,19 +38,15 @@
             android:name=".banner.Banner1Activity"
             android:exported="false" />
         <activity
-            android:name=".Banner1Activity"
-            android:exported="false" />
-        <activity
-            android:name=".BannerDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".AddFishActivity"
             android:exported="false" />
         <activity
             android:name=".AdminActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/title_activity_admin"
-            android:theme="@style/Theme.EatRaw.NoActionBar" />
+            android:theme="@style/Theme.EatRaw.NoActionBar">
+
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:exported="true" />

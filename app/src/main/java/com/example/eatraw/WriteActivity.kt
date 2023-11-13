@@ -45,6 +45,7 @@ class WriteActivity : AppCompatActivity() {
     private lateinit var editMarketName: EditText
     private lateinit var thumbnailImageView: ImageView
     private var reviewId: String? = null
+    private var loadedImageUrl: String? = null
 
     @ServerTimestamp
     private var timestamp: Date? = null
@@ -80,9 +81,11 @@ class WriteActivity : AppCompatActivity() {
         reviewId = intent.getStringExtra("reviewId")
         if (reviewId != null) {
             // 수정 모드인 경우 기존 리뷰 데이터 불러오기
-            loadReviewData()
+
             titleSwitch.text = "리뷰 수정"
             btnReview.text = "수정하기"
+            loadReviewData()
+
         } else {
             // 일반 글쓰기 모드인 경우
             titleSwitch.text = "리뷰 작성"
@@ -98,66 +101,120 @@ class WriteActivity : AppCompatActivity() {
     }
 
     private fun uploadImageAndAddReviewToFirestore() {
-        if (selectedImageUri != null) {
-            val fishKind = editFishKind.text.toString().trim()
-            val costInput = editFishPrice.text.toString().trim()
-            if (fishKind.isEmpty()) {
-                Toast.makeText(this, "생선 종류를 입력해주세요.", Toast.LENGTH_SHORT).show()
-                return
-            }
-            if (costInput.isEmpty()) {
-                Toast.makeText(this, "가격을 입력해주세요.", Toast.LENGTH_SHORT).show()
-                return
-            }
-            if (!costInput.all { it.isDigit() }) {
-                Toast.makeText(this, "숫자만 입력 해주세요.", Toast.LENGTH_SHORT).show()
-                return
-            }
 
+        // 'uploadImageAndAddReviewToFirestore' 함수 외부에 추가된 함수
+        fun updateFishAvg(fishKind: String) {
+            // 'review' 컬렉션에서 'fishKind'가 일치하는 모든 문서를 조회
+            db.collection("review")
+                .whereEqualTo("fishKind", fishKind)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    var totalCost = 0
+                    var reviewCount = 0
+
+                    // 검색된 문서를 반복하며 'cost' 값을 합산
+                    for (document in querySnapshot) {
+                        val cost = document.getLong("cost")?.toInt() ?: 0
+                        totalCost += cost
+                        reviewCount++
+                    }
+
+                    if (reviewCount > 0) {
+                        // 평균값 계산 및 'fish' 문서 업데이트
+                        val avgCost = totalCost.toLong() / reviewCount.toLong()
+                        db.collection("fish")
+                            .whereEqualTo("f_name", fishKind)
+                            .get()
+                            .addOnSuccessListener { fishSnapshot ->
+                                if (!fishSnapshot.isEmpty) {
+                                    val fishDoc = fishSnapshot.documents[0]
+                                    val newData = HashMap<String, Any>()
+                                    newData["f_avg"] = avgCost
+                                    newData["f_count"] = reviewCount
+                                    db.collection("fish")
+                                        .document(fishDoc.id)
+                                        .update(newData)
+                                        .addOnSuccessListener {
+                                            // 'fish' 문서 업데이트 성공 시 처리
+                                            // (아래의 코드는 필요에 따라 수정하셔야 합니다.)
+                                            showResultMessage("fish 업데이트가 성공했습니다.")
+                                        }
+                                        .addOnFailureListener { e ->
+                                            // 'fish' 문서 업데이트 실패 시 처리
+                                            showResultMessage("fish 업데이트 중 오류가 발생했습니다.")
+                                        }
+                                }
+                            }
+                    }
+                }
+                .addOnFailureListener { e ->
+                    // 조회 실패 시 처리
+                    showResultMessage("review 조회 중 오류가 발생했습니다.")
+                }
+        }
+        val fishKind = editFishKind.text.toString().trim()
+        val costInput = editFishPrice.text.toString().trim()
+        if (fishKind.isEmpty()) {
+            Toast.makeText(this, "생선 종류를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (costInput.isEmpty()) {
+            Toast.makeText(this, "가격을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (!costInput.all { it.isDigit() }) {
+            Toast.makeText(this, "숫자만 입력 해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (fishKind.isEmpty()) {
+            Toast.makeText(this, "생선 종류를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (costInput.isEmpty()) {
+            Toast.makeText(this, "가격을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (!costInput.all { it.isDigit() }) {
+            Toast.makeText(this, "숫자만 입력 해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val content = editText.text.toString()
+        val cost = costInput.toInt()
+        val storeName = editStoreName.text.toString()
+        val selectedRating = starSelect.selectedItem.toString().toFloat()
+        val marketName = editMarketName.text.toString()
+
+        val reviewData = hashMapOf(
+            "content" to content,
+            "fishKind" to fishKind,
+            "cost" to cost,
+            "storeName" to storeName,
+            "rating" to selectedRating,
+            "marketName" to marketName,
+            "userId" to Firebase.auth.currentUser?.uid,
+            "timestamp" to Timestamp.now()
+        )
+
+        if (selectedImageUri != null) {
+            // 새 이미지를 선택한 경우, 이미지를 업로드한다.
             val imageFileName = selectedImageUri!!.lastPathSegment // 이미지 파일 이름을 원본 파일명으로 설정
 
             // Image upload
             val imageRef = storageReference.child("storeImg/$imageFileName")
             val uploadTask: UploadTask = imageRef.putFile(selectedImageUri!!)
 
-            val user = Firebase.auth.currentUser
-            val userUid = user?.uid
-            val timestamp = Timestamp.now()
-
-
             uploadTask.addOnSuccessListener { taskSnapshot ->
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
-                    val content = editText.text.toString()
-                    val cost = costInput.toInt()
-                    val storeName = editStoreName.text.toString()
-                    val selectedRating = starSelect.selectedItem.toString().toFloat()
-                    val marketName = editMarketName.text.toString()
+                    // 이미지 업로드가 성공하면, 새로운 URL을 사용하여 리뷰를 업데이트한다.
+                    reviewData["storeImg"] = uri.toString() // 이미지 URL을 저장
 
-                    val reviewData = hashMapOf(
-                        "content" to content,
-                        "fishKind" to fishKind,
-                        "cost" to cost,
-                        "storeImg" to uri.toString(), // 이미지 URL을 저장
-                        "storeName" to storeName,
-                        "rating" to selectedRating,
-                        "marketName" to marketName,
-                        "userId" to userUid,
-
-                        )
+                    // 리뷰 업데이트
                     if (reviewId != null) {
                         // 수정 모드인 경우
                         db.collection("review").document(reviewId!!)
-                            .update(
-                                "content", reviewData["content"],
-                                "fishKind", reviewData["fishKind"],
-                                "cost", reviewData["cost"],
-                                "storeImg", reviewData["storeImg"],
-                                "storeName", reviewData["storeName"],
-                                "rating", reviewData["rating"],
-                                "marketName", reviewData["marketName"],
-                                "userId", reviewData["userId"],
-                                "timestamp" to timestamp
-                            )
+                            .update(reviewData as Map<String, Any>)
                             .addOnSuccessListener {
                                 showResultMessage("리뷰가 성공적으로 수정되었습니다.")
                                 val intent = Intent(this, MyreviewFragment::class.java)
@@ -167,13 +224,67 @@ class WriteActivity : AppCompatActivity() {
                             .addOnFailureListener { e ->
                                 showResultMessage("리뷰 수정 중 오류가 발생했습니다.")
                             }
+
+
+
                     } else {
                         // 새 리뷰 추가 모드인 경우
                         db.collection("review")
-                            .add(reviewData)
+                            .add(reviewData as Map<String, Any>)
                             .addOnSuccessListener { documentReference: DocumentReference ->
                                 val newReviewId = documentReference.id
                                 showResultMessage("리뷰가 성공적으로 등록되었습니다.")
+                                // fish 컬렉션에서 fishKind와 동일한 문서를 조회합니다.
+                                val fishKind = editFishKind.text.toString().trim()
+                                val cost = editFishPrice.text.toString().toInt() // 사용자로부터 입력받은 cost
+
+                                db.collection("fish")
+                                    .whereEqualTo("f_name", fishKind)
+                                    .get()
+                                    .addOnSuccessListener { querySnapshot ->
+                                        if (!querySnapshot.isEmpty) {
+                                            val fishDoc = querySnapshot.documents[0]
+                                            val f_max = fishDoc.getLong("f_max") ?: 0
+                                            val f_min = fishDoc.getLong("f_min") ?: 0
+                                            val f_avg = fishDoc.getDouble("f_avg") ?: 0.0
+                                            val f_count = fishDoc.getLong("f_count") ?: 0
+
+                                            // cost와 f_max, f_min을 비교하여 업데이트
+                                            val newData = HashMap<String, Any>()
+                                            if (cost > f_max) {
+                                                newData["f_max"] = cost
+                                            }
+                                            if (cost < f_min || f_min.toInt() == 0) {
+                                                newData["f_min"] = cost
+                                            }
+
+                                            // fishKind와 동일한 문서 업데이트
+                                            db.collection("fish")
+                                                .document(fishDoc.id)
+                                                .update(newData)
+                                                .addOnSuccessListener {
+                                                    // 업데이트가 성공한 경우
+                                                    // 여기에서 리뷰를 추가하는 나머지 코드를 실행할 수 있습니다.
+                                                    // (아래의 코드는 필요에 따라 수정하셔야 합니다.)
+                                                    updateFishAvg(fishKind)
+                                                }
+                                                .addOnFailureListener { e ->
+                                                    // 업데이트 실패 시 처리
+                                                    showResultMessage("fish 업데이트 중 오류가 발생했습니다.")
+                                                }
+                                        } else {
+                                            // fishKind와 동일한 문서가 없는 경우
+                                            // 여기에서 리뷰를 추가하는 나눈지 코드를 실행할 수 있습니다.
+                                            // (아래의 코드는 필요에 따라 수정하셔야 합니다.)
+                                            updateFishAvg(fishKind)
+                                        }
+                                    }
+                                    .addOnFailureListener { e ->
+                                        // 조회 실패 시 처리
+                                        showResultMessage("fish 조회 중 오류가 발생했습니다.")
+                                    }
+
+
                                 db.collection("review").document(newReviewId)
                                     .update("reviewId", newReviewId)
                                     .addOnSuccessListener {
@@ -185,14 +296,49 @@ class WriteActivity : AppCompatActivity() {
                             .addOnFailureListener { e ->
                                 showResultMessage("리뷰 등록 중 오류가 발생했습니다.")
                             }
+
                     }
                 }
+            }.addOnFailureListener { e ->
+                // 이미지 업로드에 실패한 경우 오류 메시지를 표시한다.
+                showResultMessage("이미지 업로드에 실패했습니다.")
             }
         } else {
-            showResultMessage("이미지를 선택해주세요.")
+            // 이미지를 선택하지 않은 경우, 리뷰만 업데이트한다.
+            // 리뷰 업데이트
+            if (reviewId != null) {
+                // 수정 모드인 경우
+                db.collection("review").document(reviewId!!)
+                    .update(reviewData as Map<String, Any>)
+                    .addOnSuccessListener {
+                        showResultMessage("리뷰가 성공적으로 수정되었습니다.")
+                        val intent = Intent(this, MyreviewFragment::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    .addOnFailureListener { e ->
+                        showResultMessage("리뷰 수정 중 오류가 발생했습니다.")
+                    }
+            } else {
+                // 새 리뷰 추가 모드인 경우
+                db.collection("review")
+                    .add(reviewData as Map<String, Any>)
+                    .addOnSuccessListener { documentReference: DocumentReference ->
+                        val newReviewId = documentReference.id
+                        showResultMessage("리뷰가 성공적으로 등록되었습니다.")
+                        db.collection("review").document(newReviewId)
+                            .update("reviewId", newReviewId)
+                            .addOnSuccessListener {
+                                val intent = Intent(this, ReviewActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
+                    }
+                    .addOnFailureListener { e ->
+                        showResultMessage("리뷰 등록 중 오류가 발생했습니다.")
+                    }
+            }
         }
-
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -227,6 +373,11 @@ class WriteActivity : AppCompatActivity() {
                 val content = data["content"] as? String ?: ""
                 val marketName = data["marketName"] as? String ?: ""
                 val storeImg = data["storeImg"] as? String ?: ""
+
+                if (storeImg.isNotEmpty()) {
+                    loadedImageUrl = storeImg
+                }
+
                 val storeName = data["storeName"] as? String ?: ""
                 val rating = (data["rating"] as? Double) ?: 0.0
                 val region = data["region"] as? String ?: ""
@@ -243,11 +394,16 @@ class WriteActivity : AppCompatActivity() {
                 editFishKind.setText(review.fishKind)
                 editFishPrice.setText(review.cost.toString())
                 starSelect.setSelection(getIndex(starSelect, review.rating.toString()))
+
                 editText.setText(review.content)
                 editMarketName.setText(review.marketName)
+
                 Glide.with(this)
                     .load(review.storeImg)
                     .into(thumbnailImageView)
+
+                Log.d(TAG, "Image URL: ${review.storeImg}")
+
             } else {
                 Log.d(TAG, "No such document")
             }
@@ -263,4 +419,5 @@ class WriteActivity : AppCompatActivity() {
         }
         return 0 // default value
     }
+
 }

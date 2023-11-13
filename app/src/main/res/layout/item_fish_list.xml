@@ -11,14 +11,22 @@
 
         <TextView
             android:id="@+id/fishName"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btnUpdateFish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수정" />
+
+        <Button
             android:id="@+id/btnDeleteFish"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="삭제" />
     </LinearLayout>
@@ -40,8 +48,8 @@
         <ImageView
             android:id="@+id/fishImg"
             android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_height="150dp"
+            android:layout_marginRight="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:text="최저가"
                     android:textColor="@color/blue"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/fishPriceMin"
@@ -117,6 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="평균가"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <TextView
@@ -124,25 +133,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/seasons"
-                android:layout_width="150dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="제철"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/seasons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
 
-            <!--            <Button-->
-            <!--                android:id="@+id/btnUpdateFish"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text="수정" />-->
+        <!--            <Button-->
+        <!--                android:id="@+id/btnUpdateFish"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="수정" />-->
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"

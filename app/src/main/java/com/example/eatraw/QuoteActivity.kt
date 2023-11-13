@@ -22,7 +22,7 @@ class QuoteActivity : AppCompatActivity() {
     private lateinit var barChart: BarChart
     private lateinit var textViewq: TextView
 
-    private val fishKinds = listOf("광어", "우럭", "참돔", "방어", "전어", "전복", "굴","돌돔")
+    private val fishKinds = listOf( "우럭", "참돔", "방어", "전복", "돌돔")
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,9 +52,14 @@ class QuoteActivity : AppCompatActivity() {
                     }
                 }
                 val startTimestamp = Timestamp(calendar.time)
+                val likeMarket = intent.getStringExtra("likeMarket")
                 val marketName = intent.getStringExtra("marketName")
                 if (!marketName.isNullOrBlank()) {
                     loadAndDisplayFishKindAveragesForMarket(marketName, startTimestamp, endTimestamp)
+                }
+                if (likeMarket != null) {
+                    textViewq.text = "$likeMarket 어종별 시세"
+                    loadAndDisplayFishKindAveragesForMarket2(likeMarket, startTimestamp, endTimestamp)
                 }
             }
 
@@ -73,6 +78,48 @@ class QuoteActivity : AppCompatActivity() {
         for (fishKind in fishKinds) {
             firestore.collection("review")
                 .whereEqualTo("marketName", marketName)
+                .whereEqualTo("fishKind", fishKind)
+                .whereGreaterThanOrEqualTo("timestamp", startTimestamp)
+                .whereLessThanOrEqualTo("timestamp", endTimestamp)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    var totalCost = 0.0
+                    var count = 0
+
+                    for (document in querySnapshot) {
+                        val cost = document.getDouble("cost")
+                        if (cost != null) {
+                            totalCost += cost
+                            count++
+                        }
+                    }
+
+                    if (count > 0) {
+                        val averageCost = totalCost.toFloat() / count
+                        fishKindAverages[fishKind] = averageCost
+                        Log.w("평균값알기", "$averageCost")
+                        Log.w("평균값알기", "$totalCost")
+                        Log.w("평균값알기", "$fishKindAverages")
+                    }
+
+                    if (fishKindAverages.size == fishKinds.size) {
+                        displayFishKindAveragesChart(fishKindAverages)
+                    }
+                }
+                .addOnFailureListener { exception ->
+                }
+        }
+    }
+    private fun loadAndDisplayFishKindAveragesForMarket2(likeMarket: String, startTimestamp: Timestamp, endTimestamp: Timestamp) {
+        val firestore = FirebaseFirestore.getInstance()
+        val fishKindAverages = mutableMapOf<String, Float>()
+        Log.w("시간값알기", "$startTimestamp")
+        Log.w("시간값알기", "$endTimestamp")
+        Log.w("시간값알기", "$likeMarket")
+        textViewq.text = "$likeMarket" + " 어종별 시세"
+        for (fishKind in fishKinds) {
+            firestore.collection("review")
+                .whereEqualTo("marketName", likeMarket)
                 .whereEqualTo("fishKind", fishKind)
                 .whereGreaterThanOrEqualTo("timestamp", startTimestamp)
                 .whereLessThanOrEqualTo("timestamp", endTimestamp)
