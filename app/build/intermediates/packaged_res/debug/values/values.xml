@@ -38,7 +38,6 @@
     <string name="admin">관리자페이지</string>
     <string name="app_name">EatRaw</string>
     <string name="click_to_login">로그인페이지로</string>
-    <string name="default_web_client_id" translatable="false">445898306997-536v99s1hoakntjbkepl9c8n2vv8hvgv.apps.googleusercontent.com</string>
     <string name="del">회원탈퇴</string>
     <string name="email">Email</string>
     <string name="err">→</string>
@@ -87,7 +86,7 @@
     <string name="title_activity_admin">AdminActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="welcome">"Welcome !"</string>
-    <string name="your_client_id">445898306997-536v99s1hoakntjbkepl9c8n2vv8hvgv.apps.googleusercontent.com</string>
+    <string name="your_client_id">445898306997-37rrt5bgt8r6qkh0d0gcjlkitqqsl079.apps.googleusercontent.com</string>
     <style name="Base.Theme.EatRaw" parent="Theme.AppCompat.DayNight.NoActionBar">
 
         

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:2:1-98:12
-INJECTED from C:\workplace\app\src\main\AndroidManifest.xml:2:1-98:12
-INJECTED from C:\workplace\app\src\main\AndroidManifest.xml:2:1-98:12
-INJECTED from C:\workplace\app\src\main\AndroidManifest.xml:2:1-98:12
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:2:1-101:12
+INJECTED from C:\workplace\app\src\main\AndroidManifest.xml:2:1-101:12
+INJECTED from C:\workplace\app\src\main\AndroidManifest.xml:2:1-101:12
+INJECTED from C:\workplace\app\src\main\AndroidManifest.xml:2:1-101:12
 MERGED from [androidx.databinding:databinding-adapters:8.1.3] C:\Users\pys10\.gradle\caches\transforms-3\e34a8585d2f09e2231f261cb21d90f91\transformed\databinding-adapters-8.1.3\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-ktx:8.1.3] C:\Users\pys10\.gradle\caches\transforms-3\7866a2d2de2b890ee47b0f7e47140fe5\transformed\jetified-databinding-ktx-8.1.3\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-runtime:8.1.3] C:\Users\pys10\.gradle\caches\transforms-3\f095feee13be24756b72074816b8aa33\transformed\databinding-runtime-8.1.3\AndroidManifest.xml:2:1-7:12
@@ -119,18 +119,16 @@ MERGED from [com.getkeepsafe.relinker:relinker:1.4.4] C:\Users\pys10\.gradle\cac
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\pys10\.gradle\caches\transforms-3\bc53b736f88b79aa9e80d7454ae59ac3\transformed\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 	package
 		INJECTED from C:\workplace\app\src\main\AndroidManifest.xml
-	xmlns:app
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:3:5-56
 	android:versionName
 		INJECTED from C:\workplace\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:4:5-51
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\workplace\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:6:5-67
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:5:5-67
 MERGED from [com.naver.maps:map-sdk:3.17.0] C:\Users\pys10\.gradle\caches\transforms-3\7e2036b45cc0c3552281f2201549470e\transformed\jetified-map-sdk-3.17.0\AndroidManifest.xml:14:5-67
 MERGED from [com.naver.maps:map-sdk:3.17.0] C:\Users\pys10\.gradle\caches\transforms-3\7e2036b45cc0c3552281f2201549470e\transformed\jetified-map-sdk-3.17.0\AndroidManifest.xml:14:5-67
 MERGED from [com.google.firebase:firebase-auth:22.2.0] C:\Users\pys10\.gradle\caches\transforms-3\b9ba1e9e653794f87eb5324971149619\transformed\jetified-firebase-auth-22.2.0\AndroidManifest.xml:25:5-67
@@ -154,15 +152,15 @@ MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\pys10\.
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.4.0] C:\Users\pys10\.gradle\caches\transforms-3\fed157e0daf468ee5ea473ed3447aaa0\transformed\jetified-play-services-measurement-sdk-api-21.4.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.4.0] C:\Users\pys10\.gradle\caches\transforms-3\fed157e0daf468ee5ea473ed3447aaa0\transformed\jetified-play-services-measurement-sdk-api-21.4.0\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:6:22-64
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:7:5-79
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:7:22-76
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:6:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:8:5-81
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:7:5-81
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:8:22-78
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:7:22-78
 meta-data#com.google.android.gms.version
 ADDED from C:\workplace\app\src\main\AndroidManifest.xml:9:5-11:65
 	android:value
@@ -170,8 +168,8 @@ ADDED from C:\workplace\app\src\main\AndroidManifest.xml:9:5-11:65
 	android:name
 		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:10:9-54
 application
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:13:5-96:19
-INJECTED from C:\workplace\app\src\main\AndroidManifest.xml:13:5-96:19
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:14:5-99:19
+INJECTED from C:\workplace\app\src\main\AndroidManifest.xml:14:5-99:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\pys10\.gradle\caches\transforms-3\dc96b4e5915b3d3b94ad15039900e95c\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\pys10\.gradle\caches\transforms-3\dc96b4e5915b3d3b94ad15039900e95c\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\pys10\.gradle\caches\transforms-3\38211ed9369d0608e1e69fe522b51942\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -261,156 +259,156 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\pys10\.gradle\caches\t
 	android:extractNativeLibs
 		INJECTED from C:\workplace\app\src\main\AndroidManifest.xml
 	android:supportsRtl
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:21:9-35
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:22:9-35
 	android:label
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:19:9-41
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:20:9-41
 	android:appComponentFactory
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:15:9-77
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:16:9-77
 		REJECTED from [androidx.core:core:1.12.0] C:\Users\pys10\.gradle\caches\transforms-3\28552f5599bf8fe76c8b0167ade6d830\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:fullBackupContent
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:17:9-54
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:18:9-54
 	android:roundIcon
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:20:9-54
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:21:9-54
 	tools:targetApi
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:24:9-29
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:25:9-29
 	android:icon
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:18:9-43
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:19:9-43
 	android:allowBackup
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:14:9-36
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:15:9-36
 	android:theme
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:22:9-44
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:23:9-44
 	android:dataExtractionRules
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:16:9-65
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:17:9-65
 	tools:replace
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:23:9-52
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:24:9-52
 activity#com.example.eatraw.UpdateFishActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:25:9-27:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:26:9-28:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:27:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:26:13-47
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:27:13-47
 meta-data#com.naver.maps.map.CLIENT_ID
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:29:9-31:42
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:30:9-32:42
 	android:value
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:31:13-39
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:32:13-39
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:30:13-56
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:31:13-56
 activity#com.example.eatraw.banner.Banner3Activity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:33:9-35:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:34:9-36:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:35:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:36:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:34:13-51
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:35:13-51
 activity#com.example.eatraw.banner.Banner2Activity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:36:9-38:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:37:9-39:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:38:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:39:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:37:13-51
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:38:13-51
 activity#com.example.eatraw.banner.Banner1Activity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:39:9-41:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:40:9-42:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:41:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:42:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:40:13-51
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:41:13-51
 activity#com.example.eatraw.AddFishActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:42:9-44:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:43:9-45:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:44:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:45:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:43:13-44
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:44:13-44
 activity#com.example.eatraw.AdminActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:45:9-51:20
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:46:9-52:20
 	android:label
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:48:13-57
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:49:13-57
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:47:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:48:13-37
 	android:theme
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:49:13-60
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:50:13-60
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:46:13-42
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:47:13-42
 activity#com.example.eatraw.SplashActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:52:9-54:39
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:53:9-55:39
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:54:13-36
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:55:13-36
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:53:13-43
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:54:13-43
 activity#com.example.eatraw.ComparingPriceDetailActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:55:9-57:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:56:9-58:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:57:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:58:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:56:13-57
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:57:13-57
 activity#com.example.eatraw.ComparingPriceListActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:58:9-60:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:59:9-61:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:60:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:61:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:59:13-55
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:60:13-55
 activity#com.example.eatraw.WriteActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:61:9-63:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:62:9-64:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:63:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:64:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:62:13-42
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:63:13-42
 activity#com.example.eatraw.RegisterActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:64:9-66:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:65:9-67:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:66:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:67:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:65:13-45
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:66:13-45
 activity#com.example.eatraw.LoginActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:67:9-69:39
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:68:9-76:20
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:69:13-36
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:70:13-36
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:68:13-42
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:69:13-42
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:71:13-75:29
+action#android.intent.action.MAIN
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:72:17-69
+	android:name
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:72:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:74:17-77
+	android:name
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:74:27-74
 activity#com.example.eatraw.DetailActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:70:9-72:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:77:9-79:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:72:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:79:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:71:13-43
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:78:13-43
 activity#com.example.eatraw.ReviewActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:73:9-75:39
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:80:9-82:39
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:75:13-36
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:82:13-36
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:74:13-43
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:81:13-43
 activity#com.example.eatraw.MypageActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:76:9-78:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:83:9-85:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:78:13-37
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:85:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:77:13-43
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:84:13-43
 activity#com.example.eatraw.QuoteActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:79:9-81:40
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:86:9-88:40
 	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:81:13-37
-	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:80:13-42
-activity#com.example.eatraw.MainActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:82:9-85:20
-	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:84:13-36
-	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:83:13-41
-activity#com.example.eatraw.StartActivity
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:86:9-94:20
-	android:exported
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:88:13-36
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:88:13-37
 	android:name
 		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:87:13-42
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:89:13-93:29
-action#android.intent.action.MAIN
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:90:17-69
+activity#com.example.eatraw.MainActivity
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:89:9-92:20
+	android:exported
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:91:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:90:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\workplace\app\src\main\AndroidManifest.xml:92:17-77
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:90:13-41
+activity#com.example.eatraw.StartActivity
+ADDED from C:\workplace\app\src\main\AndroidManifest.xml:93:9-97:20
+	android:exported
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:95:13-37
 	android:name
-		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:92:27-74
+		ADDED from C:\workplace\app\src\main\AndroidManifest.xml:94:13-42
 uses-sdk
 INJECTED from C:\workplace\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\workplace\app\src\main\AndroidManifest.xml

@@ -4473,7 +4473,6 @@ int string common_open_on_phone 0x7f140043
 int string common_signin_button_text 0x7f140044
 int string common_signin_button_text_long 0x7f140045
 int string copy_toast_msg 0x7f140046
-int string default_web_client_id 0x7f140047
 int string del 0x7f140048
 int string dest_title 0x7f140049
 int string email 0x7f14004a

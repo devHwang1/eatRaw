@@ -249,14 +249,14 @@
                     Log.w(TAG, "Error getting documents: ", exception)
                 }
         }
-        override fun onStop() {
-            super.onStop()
-
-            // 닉네임 입력이 완료되지 않은 상태라면, 가입을 취소합니다.
-            if (!nickBoolean) {
-                cancelRegistration()
-            }
-        }
+//        override fun onStop() {
+//            super.onStop()
+//
+//            // 닉네임 입력이 완료되지 않은 상태라면, 가입을 취소합니다.
+//            if (!nickBoolean) {
+//                cancelRegistration()
+//            }
+//        }
 
         private fun cancelRegistration() {
             val user = FirebaseAuth.getInstance().currentUser

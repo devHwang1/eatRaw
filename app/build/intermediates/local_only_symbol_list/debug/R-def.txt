@@ -393,7 +393,6 @@ string action_sign_in_short
 string admin
 string app_name
 string click_to_login
-string default_web_client_id
 string del
 string email
 string err

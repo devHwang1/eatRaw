@@ -147,8 +147,13 @@ class LoginActivity
     }
 
     private fun signIn() {
-        val signInIntent = mGoogleSignInClient.signInIntent
-        resultLauncher.launch(signInIntent)
+        Log.d(TAG, "signIn() called")
+        try {
+            val signInIntent = mGoogleSignInClient.signInIntent
+            resultLauncher.launch(signInIntent)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error getting sign in intent", e)
+        }
     }
 
 
@@ -163,8 +168,10 @@ class LoginActivity
         }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+        Log.d(TAG, "handleSignInResult() called, completedTask: $completedTask")
         try {
             val account = completedTask.getResult(ApiException::class.java)
+            Log.d(TAG, "signInResult:success, account: $account")
             val idToken = account?.idToken
             val email = account?.email
 
@@ -172,7 +179,9 @@ class LoginActivity
 
             mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this) { signInTask ->
+                    Log.d(TAG, "signInWithCredential:success")
                     if (signInTask.isSuccessful) {
+                        Log.d(TAG, "signInWithCredential(), signInTask: $signInTask")
                         // If sign-in is successful, check the user in Firestore
                         if (email != null) {
                             usersCollection.whereEqualTo("email", email).get()
