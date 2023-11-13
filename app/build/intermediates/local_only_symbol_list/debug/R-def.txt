@@ -161,6 +161,7 @@ id backgroundImageView
 id backgroundcover
 id bannerImage
 id barChart
+id bnv_m
 id bnv_main
 id btnAddFish
 id btnAddMarket
@@ -193,6 +194,7 @@ id center
 id centerFragment
 id contentTextView
 id contentView
+id dehaze
 id detailRecylerView
 id drawer_layout
 id drop_detail

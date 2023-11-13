@@ -14,6 +14,7 @@ import com.example.eatraw.databinding.ActivityDetailBoxBinding
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FieldValue
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -41,9 +42,6 @@ class DetailActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
 
 
-
-
-
         val intent = intent
         val reviewContentIntent = intent.getStringExtra("reviewContent")  //댓글내용
         val marketNameIntent = intent.getStringExtra("marketName")        //시장이름
@@ -62,7 +60,6 @@ class DetailActivity : AppCompatActivity() {
 
 
         //파이어베이스사용
-
 
 
         //물고기종류에 따른 가격가져오기
@@ -102,6 +99,7 @@ class DetailActivity : AppCompatActivity() {
                     Log.e("FirestoreError", "Error getting fish document: ")
                 }
 
+
             }
 
 
@@ -131,12 +129,6 @@ class DetailActivity : AppCompatActivity() {
         userNicName.text = "$nicknameInten"
         menuCost.text = "$menuCostIntent"
 
-
-
-
-
-
-
         //몰고기 이름
         fishKinName.text = "$fishKindIntent"
 
@@ -151,6 +143,54 @@ class DetailActivity : AppCompatActivity() {
             .load(UserimageInten)
             .into(userimg)
 
+        var bnv_main = findViewById(R.id.bnv_main) as BottomNavigationView
+
+        // OnNavigationItemSelectedListener를 통해 탭 아이템 선택 시 이벤트를 처리
+        // navi_menu.xml 에서 설정했던 각 아이템들의 id를 통해 알맞은 프래그먼트로 변경하게 한다.
+        bnv_main.run {
+            setOnNavigationItemSelectedListener {
+                when (it.itemId) {
+                    R.id.first -> {
+                        // 다른 액티비티로 이동
+                        val intent = Intent(this@DetailActivity, MainActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                    R.id.second -> {
+                        // 다른 액티비티로 이동
+                        val intent = Intent(this@DetailActivity, ReviewActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                    R.id.third -> {
+                        // 다른 액티비티로 이동
+                        val intent =
+                            Intent(this@DetailActivity, ComparingPriceListActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                    R.id.four -> {
+                        // 다른 액티비티로 이동
+                        val intent = Intent(this@DetailActivity, MypageActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+                true
+            }
+        }
+
+        //몰고기 이름
+        fishKinName.text = "$fishKindIntent"
+
+        //이미지 설정
+        Glide.with(this)
+            .load(imageIntent)
+            .into(Image)
+
+        //이미지 설정(유저)
+        Glide.with(this)
+            .load(UserimageInten)
+            .into(userimg)
 
     }
 
@@ -159,8 +199,5 @@ class DetailActivity : AppCompatActivity() {
         super.onBackPressed()
         finish()
     }
-
-
-
-
 }
+

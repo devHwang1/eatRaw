@@ -3517,6 +3517,7 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id bnv_m
 id bnv_main
 id bottom
 id bounce
@@ -3604,6 +3605,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id dehaze
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet

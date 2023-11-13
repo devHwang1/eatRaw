@@ -47,18 +47,19 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="50dp">
 
                 <TextView
                     android:id="@+id/reviewContent"
                     android:layout_width="235dp"
-                    android:layout_height="55dp"
+                    android:layout_height="50dp"
                     android:layout_marginRight="100dp"
                     android:paddingLeft="15dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="15dp"
+                    android:paddingTop="2dp"
                     android:text="참말로 싸고 맛있네예 담에 또 올게예~"
-                    android:textSize="15dp" />
+                    android:textSize="15sp"
+                    android:lines="2"
+                    android:ellipsize="end" />
             </LinearLayout>
 
             <LinearLayout

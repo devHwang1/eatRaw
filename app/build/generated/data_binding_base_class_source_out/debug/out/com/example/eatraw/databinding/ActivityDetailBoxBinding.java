@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.eatraw.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import de.hdodenhof.circleimageview.CircleImageView;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -52,6 +53,12 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
 
   @NonNull
   public final TextView Textcomparison;
+
+  @NonNull
+  public final LinearLayout bnvM;
+
+  @NonNull
+  public final BottomNavigationView bnvMain;
 
   @NonNull
   public final TextView contentView;
@@ -93,7 +100,8 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
       @NonNull CardView ImageView, @NonNull TextView IntAvg, @NonNull TextView IntMax,
       @NonNull TextView IntMin, @NonNull TextView MenuFishName, @NonNull ImageView Reviewimg,
       @NonNull TextView StorePrice, @NonNull TextView StorePriceInt,
-      @NonNull TextView Textcomparison, @NonNull TextView contentView,
+      @NonNull TextView Textcomparison, @NonNull LinearLayout bnvM,
+      @NonNull BottomNavigationView bnvMain, @NonNull TextView contentView,
       @NonNull ImageView dropDetail, @NonNull CircleImageView mImg, @NonNull TextView mName,
       @NonNull LinearLayout mReiview, @NonNull TextView mStarsocore, @NonNull LinearLayout menubar1,
       @NonNull TextView nalLo, @NonNull TextView texMax, @NonNull TextView textAvg,
@@ -109,6 +117,8 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
     this.StorePrice = StorePrice;
     this.StorePriceInt = StorePriceInt;
     this.Textcomparison = Textcomparison;
+    this.bnvM = bnvM;
+    this.bnvMain = bnvMain;
     this.contentView = contentView;
     this.dropDetail = dropDetail;
     this.mImg = mImg;
@@ -210,6 +220,18 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.bnv_m;
+      LinearLayout bnvM = ViewBindings.findChildViewById(rootView, id);
+      if (bnvM == null) {
+        break missingId;
+      }
+
+      id = R.id.bnv_main;
+      BottomNavigationView bnvMain = ViewBindings.findChildViewById(rootView, id);
+      if (bnvMain == null) {
+        break missingId;
+      }
+
       id = R.id.contentView;
       TextView contentView = ViewBindings.findChildViewById(rootView, id);
       if (contentView == null) {
@@ -279,9 +301,9 @@ public final class ActivityDetailBoxBinding implements ViewBinding {
       }
 
       return new ActivityDetailBoxBinding((LinearLayout) rootView, DratingBar, ImageView, IntAvg,
-          IntMax, IntMin, MenuFishName, Reviewimg, StorePrice, StorePriceInt, Textcomparison,
-          contentView, dropDetail, mImg, mName, mReiview, mStarsocore, menubar1, nalLo, texMax,
-          textAvg, textMin, topLayout);
+          IntMax, IntMin, MenuFishName, Reviewimg, StorePrice, StorePriceInt, Textcomparison, bnvM,
+          bnvMain, contentView, dropDetail, mImg, mName, mReiview, mStarsocore, menubar1, nalLo,
+          texMax, textAvg, textMin, topLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

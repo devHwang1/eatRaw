@@ -33,6 +33,8 @@ class MyReviewAdapter(private val review: List<Review>, private val users: List<
         val DratingBar: RatingBar = itemView.findViewById(R.id.DratingBar)
         val dropdetailImageView: ImageView = itemView.findViewById(R.id.drop_detail)
         val topLayout: View = itemView.findViewById(R.id.topLayout)
+        val bnv_m: View = itemView.findViewById(R.id.bnv_m)
+
 
     }
 
@@ -95,6 +97,7 @@ class MyReviewAdapter(private val review: List<Review>, private val users: List<
             // DratingBar.rating = currentReview.rating.toFloat()
         }
         holder.topLayout.visibility = View.GONE
+        holder.bnv_m.visibility = View.GONE
     }
 
     override fun getItemCount(): Int {
