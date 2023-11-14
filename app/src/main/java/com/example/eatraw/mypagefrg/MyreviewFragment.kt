@@ -60,8 +60,7 @@ class MyreviewFragment : Fragment() {
         var isSearching = false
         itemList = mutableListOf() // itemList 초기화
 
-        adapter = MyReviewAdapter(itemList,  emptyList()) // adapter 초기화
-        recyclerView.adapter = adapter
+
 
         lifecycleScope.launch {
             users = getAllUsersFromDb()
@@ -71,6 +70,8 @@ class MyreviewFragment : Fragment() {
             val currentUserId = mAuth.currentUser!!.uid
             val userReviews = reviews.filter { it.userId == currentUserId }
 
+            adapter = context?.let { MyReviewAdapter(it, itemList, users) }!! // adapter 초기화
+            recyclerView.adapter = adapter
 
             if (userReviews.isEmpty()) {
                 noReviewsTextView.visibility = View.VISIBLE

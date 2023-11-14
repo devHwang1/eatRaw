@@ -49,12 +49,15 @@ class UsersAdapter(private val context: Context, private val userList: MutableLi
         private val userImageView: ImageView = itemView.findViewById(R.id.userImg)
         private val btnDeleteUser: Button = itemView.findViewById(R.id.btnDeleteUser)
         private val btnUpdateUserAdmin: Button = itemView.findViewById(R.id.btnUpdateUserAdmin)
+        private val likeMarketTextView: TextView = itemView.findViewById(R.id.likeMarket)
+
 
         fun bind(user: Users) {
             emailTextView.text = user.email
             nicknameTextView.text = user.nickname
             aouthLoginTextView.text = if (user.aouthLogin) "OAuth 사용 중" else "OAuth 미사용"
             adminTextView.text = if (user.admin) "관리자" else "일반 사용자"
+            likeMarketTextView.text = user.likeMarket ?: "없음"
 
             // 이미지 로드 (Glide 사용 예제)
             Glide.with(context)

@@ -59,10 +59,14 @@ class UsersFragment : Fragment() {
                     val admin = document.getBoolean("admin") ?: false
                     val imageUrl = document.getString("imageUrl")
                     val userId = document.getString("userId")
-                    val likeMarket = document.getString("likeMarket")
+                    val likeMarket =
+                        document.getString("likeMarket") // 이 부분이 "선호 시장" 정보를 가져오는 부분입니다.
+
                     if (email != null && nickname != null) {
-                        val user =
-                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "", likeMarket = "")
+                        val user = Users(
+                            email, nickname, aouthLogin, admin,
+                            imageUrl ?: "", userId = "", likeMarket = likeMarket
+                        )
                         usersList.add(user)
                     }
                 }
@@ -75,9 +79,11 @@ class UsersFragment : Fragment() {
                 Log.e("FirestoreError", "Error getting documents: ", exception)
             }
 
+
         // 검색창 초기화
         val searchView = binding.userSearchbar
-        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+        searchView.setOnQueryTextListener(object :
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // 검색어를 기반으로 데이터 가져오기
                 performSearch(query)
@@ -105,13 +111,14 @@ class UsersFragment : Fragment() {
             // 검색어가 비어있거나 공백인 경우 전체 목록을 보여줍니다.
             showAllUsers()
         } else {
-            val uppercaseQuery = query.toUpperCase() // 대소문자 구분 없이 검색하기 위해 대문자로 변환
+            val lowercaseQuery = query.lowercase() // 검색어를 소문자로 변환
+            val uppercaseQuery = query.uppercase() // 검색어를 대문자로 변환
 
-            // Firestore에서 검색 쿼리 수행
+            // Firestore에서 소문자로 검색 쿼리 수행
             firestore.collection("users")
                 .orderBy("email")
-                .startAt(uppercaseQuery)
-                .endAt(uppercaseQuery + "\uf8ff")
+                .startAt(lowercaseQuery)
+                .endAt(lowercaseQuery + "\uf8ff")
                 .get()
                 .addOnSuccessListener { documents ->
                     val searchResult = mutableListOf<Users>()
@@ -132,15 +139,49 @@ class UsersFragment : Fragment() {
                                 admin,
                                 imageUrl ?: "",
                                 userId = "",
-                                likeMarket = ""
+                                likeMarket = likeMarket
                             )
                             searchResult.add(user)
                         }
                     }
 
-                    // 어댑터에 검색 결과를 설정하고 리사이클러뷰를 업데이트
-                    adapter.setData(searchResult)
-                    adapter.notifyDataSetChanged()
+                    // Firestore에서 대문자로 검색 쿼리 수행
+                    firestore.collection("users")
+                        .orderBy("email")
+                        .startAt(uppercaseQuery)
+                        .endAt(uppercaseQuery + "\uf8ff")
+                        .get()
+                        .addOnSuccessListener { documents ->
+                            for (document in documents) {
+                                val email = document.getString("email")
+                                val nickname = document.getString("nickname")
+                                val aouthLogin = document.getBoolean("aouthLogin") ?: false
+                                val admin = document.getBoolean("admin") ?: false
+                                val imageUrl = document.getString("imageUrl")
+                                val userId = document.getString("userId")
+                                val likeMarket = document.getString("likeMarket")
+                                if (email != null && nickname != null) {
+                                    val user = Users(
+                                        email,
+                                        nickname,
+                                        aouthLogin,
+                                        admin,
+                                        imageUrl ?: "",
+                                        userId = "",
+                                        likeMarket = likeMarket
+                                    )
+                                    searchResult.add(user)
+                                }
+                            }
+
+                            // 어댑터에 검색 결과를 설정하고 리사이클러뷰를 업데이트
+                            adapter.setData(searchResult)
+                            adapter.notifyDataSetChanged()
+                        }
+                        .addOnFailureListener { exception ->
+                            // 데이터 가져오기 실패 시 처리
+                            Log.e("FirestoreError", "Error getting documents: ", exception)
+                        }
                 }
                 .addOnFailureListener { exception ->
                     // 데이터 가져오기 실패 시 처리
@@ -148,6 +189,7 @@ class UsersFragment : Fragment() {
                 }
         }
     }
+
 
     private fun showAllUsers() {
         firestore.collection("users")
@@ -163,9 +205,14 @@ class UsersFragment : Fragment() {
                     val admin = document.getBoolean("admin") ?: false
                     val imageUrl = document.getString("imageUrl")
                     val userId = document.getString("userId")
+                    val likeMarket =
+                        document.getString("likeMarket") // 이 부분이 "선호 시장" 정보를 가져오는 부분입니다.
+
                     if (email != null && nickname != null) {
-                        val user =
-                            Users(email, nickname, aouthLogin, admin, imageUrl ?: "", userId = "",likeMarket = "")
+                        val user = Users(
+                            email, nickname, aouthLogin, admin,
+                            imageUrl ?: "", userId = "", likeMarket = likeMarket
+                        )
                         usersList.add(user)
                     }
                 }
